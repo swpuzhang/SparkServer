@@ -1,5 +1,6 @@
 ﻿using Account.Application.Services;
 using Account.Domain;
+using Account.Domain.RepositoryInterface;
 using Account.Infrastruct;
 using Autofac;
 using Commons.Domain.Models;
@@ -64,18 +65,8 @@ namespace Account.WebApi.Extenssions
             services.AddSingleton<IMongoSettings>(sp =>
                 sp.GetRequiredService<IOptions<MongoSettings>>().Value);
         }
-        
+       
 
-        public static void AddCommonService(this IServiceCollection services)
-        {
-            services.AddScoped<MongoContext, AccountContext>();
-        }
-
-        public static void RegisterServices(this IServiceCollection services)
-        {
-            services.AddScoped<IAccountAppService, AccountAppService>();
-            services.AddScoped<IAccountInfoRepository, AccountInfoRepository>();
-            services.AddScoped<AccountContext>();
-        }
+       
     }
 }

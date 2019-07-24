@@ -1,0 +1,9 @@
+E:\document\mycode\project\Spark\Commons\Commons.IntegrationBus\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.deps.json
+E:\document\mycode\project\Spark\Commons\Commons.IntegrationBus\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.dll
+E:\document\mycode\project\Spark\Commons\Commons.IntegrationBus\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.pdb
+E:\document\mycode\project\Spark\Commons\Commons.IntegrationBus\obj\Debug\netcoreapp2.2\Commons.IntegrationBus.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Commons\Commons.IntegrationBus\obj\Debug\netcoreapp2.2\Commons.IntegrationBus.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Commons\Commons.IntegrationBus\obj\Debug\netcoreapp2.2\Commons.IntegrationBus.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Commons\Commons.IntegrationBus\obj\Debug\netcoreapp2.2\Commons.IntegrationBus.AssemblyInfo.cs
+E:\document\mycode\project\Spark\Commons\Commons.IntegrationBus\obj\Debug\netcoreapp2.2\Commons.IntegrationBus.dll
+E:\document\mycode\project\Spark\Commons\Commons.IntegrationBus\obj\Debug\netcoreapp2.2\Commons.IntegrationBus.pdb

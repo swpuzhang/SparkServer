@@ -46,7 +46,7 @@ namespace Commons.Domain.Models
         {
             if (!IsTransient())
             {
-                return this.Id.GetHashCode() ^ 31; // XOR for random distribution (http://blogs.msdn.com/b/ericlippert/archive/2011/02/28/guidelines-and-rules-for-gethashcode.aspx)
+                return this.Id.GetHashCode();
             }
             else
                 return base.GetHashCode();
@@ -65,5 +65,7 @@ namespace Commons.Domain.Models
             return !(left == right);
         }
 
+
+     
     }
 }

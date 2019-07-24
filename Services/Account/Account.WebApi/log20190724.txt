@@ -1,0 +1,244 @@
+2019-07-24 11:32:21.217 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-07-24 11:32:23.975 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-24 11:32:24.817 +08:00 [DBG] Starting bus hosts...
+2019-07-24 11:32:24.856 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-24 11:32:24.954 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 9782)
+2019-07-24 11:32:25.049 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9pm6bdmo93hmdb, type: fanout, auto-delete)
+2019-07-24 11:32:25.049 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-07-24 11:32:25.056 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-07-24 11:32:25.056 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9pm6bdmo93hmdb, x-expires: 60000)
+2019-07-24 11:32:25.067 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-07-24 11:32:25.069 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9pm6bdmo93hmdb, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9pm6bdmo93hmdb)
+2019-07-24 11:32:25.100 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 11:32:25.100 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 11:32:25.182 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-KLubpequjk-GY1KSSh7aCw
+2019-07-24 11:32:25.182 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9pm6bdmo93hmdb?durable=false&autodelete=true" - amq.ctag-O5hRxFWQH1XduatyE9YsDA
+2019-07-24 11:32:26.971 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-24 11:32:27.062 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 11:32:27.069 +08:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller Account.WebApi.Controllers.ValuesController (Account.WebApi).
+2019-07-24 11:32:27.137 +08:00 [INF] Executing action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) - Validation state: "Valid"
+2019-07-24 11:32:27.139 +08:00 [INF] Executed action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.233ms.
+2019-07-24 11:32:27.147 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2019-07-24 11:32:27.242 +08:00 [INF] Executed action Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) in 170.48260000000002ms
+2019-07-24 11:32:27.242 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 11:32:27.246 +08:00 [INF] Request finished in 275.8693ms 200 application/json; charset=utf-8
+2019-07-24 11:32:27.270 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2019-07-24 11:32:27.273 +08:00 [INF] Request finished in 3.0275ms 404 
+2019-07-24 11:32:34.081 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html  
+2019-07-24 11:32:34.182 +08:00 [INF] Request finished in 101.3615ms 200 text/html
+2019-07-24 11:32:34.663 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-24 11:32:34.838 +08:00 [INF] Request finished in 175.409ms 200 application/json;charset=utf-8
+2019-07-24 11:34:12.363 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-07-24 11:34:14.128 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-24 11:34:14.762 +08:00 [DBG] Starting bus hosts...
+2019-07-24 11:34:14.802 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-24 11:34:14.898 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 9831)
+2019-07-24 11:34:15.000 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9fesbdmo936c8p, type: fanout, auto-delete)
+2019-07-24 11:34:15.002 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-07-24 11:34:15.009 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-07-24 11:34:15.010 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9fesbdmo936c8p, x-expires: 60000)
+2019-07-24 11:34:15.035 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9fesbdmo936c8p, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9fesbdmo936c8p)
+2019-07-24 11:34:15.035 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-07-24 11:34:15.045 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 11:34:15.045 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 11:34:15.368 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-QtDBbNyA4YtC04WrRGb5lA
+2019-07-24 11:34:15.368 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9fesbdmo936c8p?durable=false&autodelete=true" - amq.ctag-betfmQbYUvLVdK4BG42A8A
+2019-07-24 11:34:16.465 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-24 11:34:16.564 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 11:34:16.571 +08:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller Account.WebApi.Controllers.ValuesController (Account.WebApi).
+2019-07-24 11:34:16.631 +08:00 [INF] Executing action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) - Validation state: "Valid"
+2019-07-24 11:34:16.633 +08:00 [INF] Executed action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.2331ms.
+2019-07-24 11:34:16.640 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2019-07-24 11:34:16.731 +08:00 [INF] Executed action Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) in 157.52460000000002ms
+2019-07-24 11:34:16.731 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 11:34:16.736 +08:00 [INF] Request finished in 272.3229ms 200 application/json; charset=utf-8
+2019-07-24 11:34:16.759 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2019-07-24 11:34:16.763 +08:00 [INF] Request finished in 4.247ms 404 
+2019-07-24 11:34:19.323 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html  
+2019-07-24 11:34:19.422 +08:00 [INF] Request finished in 99.0005ms 200 text/html
+2019-07-24 11:34:19.786 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-24 11:34:19.930 +08:00 [INF] Request finished in 143.6598ms 200 application/json;charset=utf-8
+2019-07-24 11:36:50.304 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-24 11:36:50.308 +08:00 [INF] Request finished in 4.0556ms 200 application/json;charset=utf-8
+2019-07-24 11:46:58.863 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-07-24 11:47:00.847 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-24 11:47:01.502 +08:00 [DBG] Starting bus hosts...
+2019-07-24 11:47:01.541 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-24 11:47:01.621 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 10203)
+2019-07-24 11:47:01.774 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-07-24 11:47:01.774 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6da5bdmo94ci8o, type: fanout, auto-delete)
+2019-07-24 11:47:01.781 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-07-24 11:47:01.781 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6da5bdmo94ci8o, x-expires: 60000)
+2019-07-24 11:47:01.786 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-07-24 11:47:01.786 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6da5bdmo94ci8o, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6da5bdmo94ci8o)
+2019-07-24 11:47:01.797 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 11:47:01.797 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 11:47:01.965 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-bqnrVJUFo8V_yw0k_7-3fg
+2019-07-24 11:47:01.965 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6da5bdmo94ci8o?durable=false&autodelete=true" - amq.ctag-b-UMcy4eV2ULhrT_1LPgmA
+2019-07-24 11:47:01.995 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-24 11:55:15.822 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-07-24 11:55:17.734 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-24 11:55:18.385 +08:00 [DBG] Starting bus hosts...
+2019-07-24 11:55:18.471 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-24 11:55:18.564 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 10331)
+2019-07-24 11:55:18.771 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-24 11:55:18.784 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-07-24 11:55:18.784 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6okrbdmo94i6y3, type: fanout, auto-delete)
+2019-07-24 11:55:18.794 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-07-24 11:55:18.794 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6okrbdmo94i6y3, x-expires: 60000)
+2019-07-24 11:55:18.803 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6okrbdmo94i6y3, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6okrbdmo94i6y3)
+2019-07-24 11:55:18.803 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-07-24 11:55:18.820 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 11:55:18.820 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 11:56:26.420 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-07-24 11:56:28.272 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-24 11:56:28.933 +08:00 [DBG] Starting bus hosts...
+2019-07-24 11:56:28.973 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-24 11:56:29.139 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 10362)
+2019-07-24 11:56:29.359 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-24 11:56:29.362 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6xafbdmo94zeb8, type: fanout, auto-delete)
+2019-07-24 11:56:29.362 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-07-24 11:56:29.376 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6xafbdmo94zeb8, x-expires: 60000)
+2019-07-24 11:56:29.376 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-07-24 11:56:29.383 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6xafbdmo94zeb8, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6xafbdmo94zeb8)
+2019-07-24 11:56:29.383 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-07-24 11:56:40.442 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 11:56:40.442 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 11:58:47.544 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-07-24 11:58:49.400 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-24 11:58:50.052 +08:00 [DBG] Starting bus hosts...
+2019-07-24 11:58:50.092 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-24 11:58:50.171 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 10424)
+2019-07-24 11:58:50.301 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-07-24 11:58:50.301 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx97cebdmo943hnd, type: fanout, auto-delete)
+2019-07-24 11:58:50.309 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-07-24 11:58:50.309 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx97cebdmo943hnd, x-expires: 60000)
+2019-07-24 11:58:50.317 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-07-24 11:58:50.318 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx97cebdmo943hnd, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx97cebdmo943hnd)
+2019-07-24 11:58:50.330 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 11:58:50.330 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 11:58:50.426 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx97cebdmo943hnd?durable=false&autodelete=true" - amq.ctag-ux5r5NO5yVHEEQezciOPKw
+2019-07-24 11:58:50.428 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-kw3bQFS4gDZaQ0q0q3Uvjw
+2019-07-24 11:58:50.625 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-24 11:58:50.737 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 11:58:50.744 +08:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller Account.WebApi.Controllers.ValuesController (Account.WebApi).
+2019-07-24 11:58:50.808 +08:00 [INF] Executing action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) - Validation state: "Valid"
+2019-07-24 11:58:50.811 +08:00 [INF] Executed action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.2817ms.
+2019-07-24 11:58:50.818 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2019-07-24 11:58:50.935 +08:00 [INF] Executed action Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) in 186.8341ms
+2019-07-24 11:58:50.935 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 11:58:50.946 +08:00 [INF] Request finished in 324.9432ms 200 application/json; charset=utf-8
+2019-07-24 11:58:53.268 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html  
+2019-07-24 11:58:53.361 +08:00 [INF] Request finished in 92.7802ms 200 text/html
+2019-07-24 11:58:53.684 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-24 11:58:53.825 +08:00 [INF] Request finished in 140.8567ms 200 application/json;charset=utf-8
+2019-07-24 12:09:42.507 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-07-24 12:09:44.474 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-24 12:09:45.142 +08:00 [DBG] Starting bus hosts...
+2019-07-24 12:09:45.182 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-24 12:09:45.266 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 11120)
+2019-07-24 12:09:45.359 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-07-24 12:09:45.359 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ubsbdmo95gnf4, type: fanout, auto-delete)
+2019-07-24 12:09:45.365 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-07-24 12:09:45.366 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ubsbdmo95gnf4, x-expires: 60000)
+2019-07-24 12:09:45.371 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-07-24 12:09:45.371 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ubsbdmo95gnf4, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ubsbdmo95gnf4)
+2019-07-24 12:09:45.387 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 12:09:45.387 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 12:09:45.461 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ubsbdmo95gnf4?durable=false&autodelete=true" - amq.ctag-6W0l4j_mfQYK29Q6i1YVtA
+2019-07-24 12:09:45.461 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-Z-vdH9eGXo52_g0JgWQxbQ
+2019-07-24 12:09:45.957 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-24 12:09:46.050 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 12:09:46.057 +08:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller Account.WebApi.Controllers.ValuesController (Account.WebApi).
+2019-07-24 12:09:46.117 +08:00 [INF] Executing action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) - Validation state: "Valid"
+2019-07-24 12:09:46.120 +08:00 [INF] Executed action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.23950000000000002ms.
+2019-07-24 12:09:46.127 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2019-07-24 12:09:46.219 +08:00 [INF] Executed action Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) in 159.8983ms
+2019-07-24 12:09:46.219 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 12:09:46.222 +08:00 [INF] Request finished in 266.902ms 200 application/json; charset=utf-8
+2019-07-24 12:09:48.328 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html  
+2019-07-24 12:09:48.419 +08:00 [INF] Request finished in 91.0156ms 200 text/html
+2019-07-24 12:09:48.664 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-24 12:09:48.796 +08:00 [INF] Request finished in 132.6099ms 200 application/json;charset=utf-8
+2019-07-24 12:13:37.347 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-07-24 12:13:39.279 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-24 12:13:39.955 +08:00 [DBG] Starting bus hosts...
+2019-07-24 12:13:40.002 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-24 12:13:40.130 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 11562)
+2019-07-24 12:13:40.292 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-24 12:13:40.338 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9rewbdmo95kqfx, type: fanout, auto-delete)
+2019-07-24 12:13:40.338 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-07-24 12:13:40.362 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-07-24 12:13:40.363 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9rewbdmo95kqfx, x-expires: 60000)
+2019-07-24 12:13:40.378 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-07-24 12:13:40.378 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9rewbdmo95kqfx, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9rewbdmo95kqfx)
+2019-07-24 12:13:40.389 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 12:13:40.389 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 12:13:40.440 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 12:13:40.449 +08:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller Account.WebApi.Controllers.ValuesController (Account.WebApi).
+2019-07-24 12:13:40.546 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-cyQ1pbSwoj1-q0ZSUbS4qQ
+2019-07-24 12:13:40.546 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9rewbdmo95kqfx?durable=false&autodelete=true" - amq.ctag-olkfLA6VcPaw8y0SD05slA
+2019-07-24 12:13:40.550 +08:00 [INF] Executing action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) - Validation state: "Valid"
+2019-07-24 12:13:40.554 +08:00 [INF] Executed action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.6131ms.
+2019-07-24 12:13:40.565 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2019-07-24 12:13:40.666 +08:00 [INF] Executed action Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) in 215.031ms
+2019-07-24 12:13:40.666 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 12:13:40.670 +08:00 [INF] Request finished in 380.0187ms 200 application/json; charset=utf-8
+2019-07-24 12:13:42.671 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html  
+2019-07-24 12:13:42.772 +08:00 [INF] Request finished in 101.8876ms 200 text/html
+2019-07-24 12:13:43.237 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-24 12:17:21.213 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-07-24 12:17:23.043 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-24 12:17:23.701 +08:00 [DBG] Starting bus hosts...
+2019-07-24 12:17:23.741 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-24 12:17:23.831 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 11749)
+2019-07-24 12:17:23.981 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6zspbdmo95qwyp, type: fanout, auto-delete)
+2019-07-24 12:17:23.981 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-07-24 12:17:23.990 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-07-24 12:17:23.990 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6zspbdmo95qwyp, x-expires: 60000)
+2019-07-24 12:17:23.999 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-07-24 12:17:23.999 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6zspbdmo95qwyp, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6zspbdmo95qwyp)
+2019-07-24 12:17:24.012 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 12:17:24.012 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 12:17:24.260 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-jEYMEi4p-S4zt0HGxF3AzQ
+2019-07-24 12:17:24.274 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6zspbdmo95qwyp?durable=false&autodelete=true" - amq.ctag-x8kNLAiLJITSGWWc_BAnoA
+2019-07-24 12:17:24.326 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-24 12:17:24.428 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 12:17:24.440 +08:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller Account.WebApi.Controllers.ValuesController (Account.WebApi).
+2019-07-24 12:17:24.501 +08:00 [INF] Executing action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) - Validation state: "Valid"
+2019-07-24 12:17:24.504 +08:00 [INF] Executed action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.2983ms.
+2019-07-24 12:17:24.511 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2019-07-24 12:17:24.607 +08:00 [INF] Executed action Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) in 165.0671ms
+2019-07-24 12:17:24.608 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 12:17:24.613 +08:00 [INF] Request finished in 288.5277ms 200 application/json; charset=utf-8
+2019-07-24 12:17:27.608 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html  
+2019-07-24 12:17:27.684 +08:00 [INF] Request finished in 75.1693ms 200 text/html
+2019-07-24 12:17:28.296 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-24 12:20:51.672 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-07-24 12:20:53.513 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-24 12:20:54.164 +08:00 [DBG] Starting bus hosts...
+2019-07-24 12:20:54.203 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-24 12:20:54.276 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 11865)
+2019-07-24 12:20:54.405 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6j11bdmo951td6, type: fanout, auto-delete)
+2019-07-24 12:20:54.405 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-07-24 12:20:54.421 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-07-24 12:20:54.421 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6j11bdmo951td6, x-expires: 60000)
+2019-07-24 12:20:54.426 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-07-24 12:20:54.426 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6j11bdmo951td6, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6j11bdmo951td6)
+2019-07-24 12:20:54.437 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 12:20:54.437 +08:00 [DBG] Setting Prefetch Count: 12
+2019-07-24 12:20:54.599 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6j11bdmo951td6?durable=false&autodelete=true" - amq.ctag-9qAG5FVhaMoNGagfDqicVQ
+2019-07-24 12:20:54.599 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-JUW5OfHlcfi8sQo9h-tT5Q
+2019-07-24 12:20:54.650 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-24 12:20:54.748 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 12:20:54.757 +08:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller Account.WebApi.Controllers.ValuesController (Account.WebApi).
+2019-07-24 12:20:54.817 +08:00 [INF] Executing action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) - Validation state: "Valid"
+2019-07-24 12:20:54.819 +08:00 [INF] Executed action method Account.WebApi.Controllers.ValuesController.Get (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.262ms.
+2019-07-24 12:20:54.828 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2019-07-24 12:20:54.927 +08:00 [INF] Executed action Account.WebApi.Controllers.ValuesController.Get (Account.WebApi) in 167.6831ms
+2019-07-24 12:20:54.927 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.ValuesController.Get (Account.WebApi)'
+2019-07-24 12:20:54.930 +08:00 [INF] Request finished in 282.3034ms 200 application/json; charset=utf-8
+2019-07-24 12:21:02.337 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html  
+2019-07-24 12:21:02.425 +08:00 [INF] Request finished in 88.0442ms 200 text/html
+2019-07-24 12:21:02.781 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-24 12:21:02.915 +08:00 [INF] Request finished in 134.0496ms 200 application/json;charset=utf-8

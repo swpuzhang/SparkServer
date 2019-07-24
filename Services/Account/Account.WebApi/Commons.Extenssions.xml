@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Commons.Extenssions</name>
+    </assembly>
+    <members>
+        <member name="T:Commons.Extenssions.Defines.AccountType">
+            <summary>
+            账号类型
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.AccountType.FACEBOOK">
+            <summary>
+            facebook
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.LoginError">
+            <summary>
+            登录失败
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.FieldError">
+            <summary>
+            字段错误
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.BusError">
+            <summary>
+            总线请求错误
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.BusTimeout">
+            <summary>
+            总线超时
+            </summary>
+        </member>
+        <member name="M:Commons.Extenssions.KeyGenHelper.GenKey(System.String,System.String[])">
+            <summary>
+            生成跟uid相关的key  userid|key1|key2
+            </summary>
+            <param name="key1"></param>
+            <param name="ps"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.SetString(System.String,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            set or update the value for string key 
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.SetString``1(System.String,``0,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存一个对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.GetString``1(System.String)">
+            <summary>
+            获取一个key的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.GetString(System.String)">
+            <summary>
+            get the value for string key 
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.DeleteKey(System.String)">
+            <summary>
+            Delete the value for string key 
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.SetHashValue(System.String,System.String,System.String)">
+            <summary>
+            set or update the HashValue for string key 
+            </summary>
+            <param name="key"></param>
+            <param name="hashkey"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.SetHashValue``1(System.String,System.String,``0)">
+            <summary>
+            set or update the HashValue for string key 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="hashkey"></param>
+            <param name="t">defined class</param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.SetHashList``1(System.String,System.Collections.Generic.List{``0},System.Func{``0,System.String})">
+            <summary>
+            保存一个集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">Redis Key</param>
+            <param name="list">数据集合</param>
+            <param name="getModelId"></param>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.HashGetAll``1(System.String)">
+            <summary>
+            获取hashkey所有的值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.GetHashValue(System.String,System.String)">
+            <summary>
+            get the HashValue for string key  and hashkey
+            </summary>
+            <param name="key">Represents a key that can be stored in redis</param>
+            <param name="hashkey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.GetHashValue``1(System.String,System.String)">
+            <summary>
+            get the HashValue for string key  and hashkey
+            </summary>
+            <param name="key">Represents a key that can be stored in redis</param>
+            <param name="hashkey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.DeleteHashValue(System.String,System.String)">
+            <summary>
+            delete the HashValue for string key  and hashkey
+            </summary>
+            <param name="key"></param>
+            <param name="hashkey"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

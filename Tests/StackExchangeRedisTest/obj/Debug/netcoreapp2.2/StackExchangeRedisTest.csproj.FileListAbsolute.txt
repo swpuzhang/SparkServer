@@ -1,0 +1,14 @@
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.deps.json
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.runtimeconfig.json
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.runtimeconfig.dev.json
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.dll
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.RazorAssemblyInfo.cache
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.RazorAssemblyInfo.cs
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.AssemblyInfo.cs
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.RazorTargetAssemblyInfo.cache
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.pdb
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.dll
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.pdb

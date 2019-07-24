@@ -1,0 +1,13 @@
+E:\document\mycode\project\Spark\Commons\Commons.Domain\bin\Debug\netcoreapp2.2\Commons.Domain.deps.json
+E:\document\mycode\project\Spark\Commons\Commons.Domain\bin\Debug\netcoreapp2.2\Commons.Domain.dll
+E:\document\mycode\project\Spark\Commons\Commons.Domain\obj\Debug\netcoreapp2.2\Commons.Domain.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Commons\Commons.Domain\obj\Debug\netcoreapp2.2\Commons.Domain.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Commons\Commons.Domain\obj\Debug\netcoreapp2.2\Commons.Domain.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Commons\Commons.Domain\obj\Debug\netcoreapp2.2\Commons.Domain.AssemblyInfo.cs
+E:\document\mycode\project\Spark\Commons\Commons.Domain\bin\Debug\netcoreapp2.2\Commons.Domain.pdb
+E:\document\mycode\project\Spark\Commons\Commons.Domain\obj\Debug\netcoreapp2.2\Commons.Domain.dll
+E:\document\mycode\project\Spark\Commons\Commons.Domain\obj\Debug\netcoreapp2.2\Commons.Domain.pdb
+E:\document\mycode\project\Spark\Commons\Commons.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.dll
+E:\document\mycode\project\Spark\Commons\Commons.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
+E:\document\mycode\project\Spark\Commons\Commons.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
+E:\document\mycode\project\Spark\Commons\Commons.Domain\obj\Debug\netcoreapp2.2\Commons.Domain.csproj.CopyComplete

@@ -1,0 +1,10 @@
+E:\document\mycode\project\Spark\Commons\Commons.Extenssions\bin\Debug\netcoreapp2.2\Commons.Extenssions.deps.json
+E:\document\mycode\project\Spark\Commons\Commons.Extenssions\bin\Debug\netcoreapp2.2\Commons.Extenssions.dll
+E:\document\mycode\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.AssemblyInfo.cs
+E:\document\mycode\project\Spark\Commons\Commons.Extenssions\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
+E:\document\mycode\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.dll
+E:\document\mycode\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.pdb
+E:\document\mycode\project\Spark\Commons\Commons.Extenssions\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml

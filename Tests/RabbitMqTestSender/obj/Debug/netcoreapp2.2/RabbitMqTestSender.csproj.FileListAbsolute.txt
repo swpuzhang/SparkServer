@@ -1,0 +1,11 @@
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\RabbitMqTestSender.deps.json
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\RabbitMqTestSender.runtimeconfig.json
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\RabbitMqTestSender.runtimeconfig.dev.json
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\RabbitMqTestSender.dll
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\RabbitMqTestSender.pdb
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.AssemblyInfo.cs
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.dll
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.pdb

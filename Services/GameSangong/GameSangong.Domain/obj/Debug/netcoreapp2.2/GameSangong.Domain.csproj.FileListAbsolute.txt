@@ -1,0 +1,17 @@
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\bin\Debug\netcoreapp2.2\GameSangong.Domain.deps.json
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\bin\Debug\netcoreapp2.2\GameSangong.Domain.dll
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\bin\Debug\netcoreapp2.2\GameSangong.Domain.pdb
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\bin\Debug\netcoreapp2.2\Commons.Domain.dll
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.dll
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\bin\Debug\netcoreapp2.2\Commons.Infrastruct.dll
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\bin\Debug\netcoreapp2.2\Commons.Domain.pdb
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\bin\Debug\netcoreapp2.2\Commons.Infrastruct.pdb
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\obj\Debug\netcoreapp2.2\GameSangong.Domain.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\obj\Debug\netcoreapp2.2\GameSangong.Domain.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\obj\Debug\netcoreapp2.2\GameSangong.Domain.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\obj\Debug\netcoreapp2.2\GameSangong.Domain.AssemblyInfo.cs
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\obj\Debug\netcoreapp2.2\GameSangong.Domain.csproj.CopyComplete
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\obj\Debug\netcoreapp2.2\GameSangong.Domain.dll
+E:\document\mycode\project\Spark\Services\GameSangong\GameSangong.Domain\obj\Debug\netcoreapp2.2\GameSangong.Domain.pdb

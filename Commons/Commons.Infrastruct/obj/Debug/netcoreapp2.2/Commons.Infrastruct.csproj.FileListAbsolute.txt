@@ -1,0 +1,15 @@
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Infrastruct.deps.json
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Infrastruct.dll
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Infrastruct.pdb
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Domain.dll
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Domain.pdb
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\obj\Debug\netcoreapp2.2\Commons.Infrastruct.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\obj\Debug\netcoreapp2.2\Commons.Infrastruct.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\obj\Debug\netcoreapp2.2\Commons.Infrastruct.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\obj\Debug\netcoreapp2.2\Commons.Infrastruct.AssemblyInfo.cs
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\obj\Debug\netcoreapp2.2\Commons.Infrastruct.csproj.CopyComplete
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\obj\Debug\netcoreapp2.2\Commons.Infrastruct.dll
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\obj\Debug\netcoreapp2.2\Commons.Infrastruct.pdb
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Extenssions.dll
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml

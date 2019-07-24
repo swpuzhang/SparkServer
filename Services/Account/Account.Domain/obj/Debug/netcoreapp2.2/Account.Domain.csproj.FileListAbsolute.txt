@@ -1,0 +1,17 @@
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Account.Domain.deps.json
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Account.Domain.dll
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Account.Domain.pdb
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.Domain.dll
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.Infrastruct.dll
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.Domain.pdb
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.Infrastruct.pdb
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\obj\Debug\netcoreapp2.2\Account.Domain.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\obj\Debug\netcoreapp2.2\Account.Domain.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\obj\Debug\netcoreapp2.2\Account.Domain.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\obj\Debug\netcoreapp2.2\Account.Domain.AssemblyInfo.cs
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\obj\Debug\netcoreapp2.2\Account.Domain.csproj.CopyComplete
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\obj\Debug\netcoreapp2.2\Account.Domain.dll
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\obj\Debug\netcoreapp2.2\Account.Domain.pdb
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.dll
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml

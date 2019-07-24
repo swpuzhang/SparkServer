@@ -12,11 +12,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Account.WebApi.Extenssions;
+using Commons.Extenssions;
 
 namespace Account.WebApi
 {
     public class Startup
     {
+        public static readonly string Namespace = typeof(Startup).Namespace;
+        public static readonly string ServiceName = Namespace.Substring(0, Namespace.IndexOf("."));
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,11 +30,13 @@ namespace Account.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddMongoService(Configuration);
             services.AddAutoMapperSetup();
             services.RegisterSwaggerService();
             services.RegisterServices();
+            services.AddSingleton<RedisHelper>(new RedisHelper(Configuration["redis:ConnectionString"]));
             ContainerBuilder builder = new ContainerBuilder();
             services.AddMassTransitService(Configuration, builder);
             builder.Populate(services);

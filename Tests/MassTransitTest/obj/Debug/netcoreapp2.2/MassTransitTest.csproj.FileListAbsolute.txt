@@ -1,0 +1,17 @@
+E:\document\mycode\project\Spark\Tests\MassTransitTest\bin\Debug\netcoreapp2.2\MassTransitTest.deps.json
+E:\document\mycode\project\Spark\Tests\MassTransitTest\bin\Debug\netcoreapp2.2\MassTransitTest.runtimeconfig.json
+E:\document\mycode\project\Spark\Tests\MassTransitTest\bin\Debug\netcoreapp2.2\MassTransitTest.runtimeconfig.dev.json
+E:\document\mycode\project\Spark\Tests\MassTransitTest\bin\Debug\netcoreapp2.2\MassTransitTest.dll
+E:\document\mycode\project\Spark\Tests\MassTransitTest\bin\Debug\netcoreapp2.2\MassTransitTest.pdb
+E:\document\mycode\project\Spark\Tests\MassTransitTest\bin\Debug\netcoreapp2.2\MassTransitMessage.dll
+E:\document\mycode\project\Spark\Tests\MassTransitTest\bin\Debug\netcoreapp2.2\MassTransitMessage.pdb
+E:\document\mycode\project\Spark\Tests\MassTransitTest\obj\Debug\netcoreapp2.2\MassTransitTest.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Tests\MassTransitTest\obj\Debug\netcoreapp2.2\MassTransitTest.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Tests\MassTransitTest\obj\Debug\netcoreapp2.2\MassTransitTest.RazorAssemblyInfo.cache
+E:\document\mycode\project\Spark\Tests\MassTransitTest\obj\Debug\netcoreapp2.2\MassTransitTest.RazorAssemblyInfo.cs
+E:\document\mycode\project\Spark\Tests\MassTransitTest\obj\Debug\netcoreapp2.2\MassTransitTest.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Tests\MassTransitTest\obj\Debug\netcoreapp2.2\MassTransitTest.AssemblyInfo.cs
+E:\document\mycode\project\Spark\Tests\MassTransitTest\obj\Debug\netcoreapp2.2\MassTransitTest.RazorTargetAssemblyInfo.cache
+E:\document\mycode\project\Spark\Tests\MassTransitTest\obj\Debug\netcoreapp2.2\MassTransitTest.csproj.CopyComplete
+E:\document\mycode\project\Spark\Tests\MassTransitTest\obj\Debug\netcoreapp2.2\MassTransitTest.dll
+E:\document\mycode\project\Spark\Tests\MassTransitTest\obj\Debug\netcoreapp2.2\MassTransitTest.pdb

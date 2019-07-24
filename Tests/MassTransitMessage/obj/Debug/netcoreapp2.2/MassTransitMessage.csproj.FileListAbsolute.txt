@@ -1,0 +1,9 @@
+E:\document\mycode\project\Spark\Tests\MassTransitMessage\bin\Debug\netcoreapp2.2\MassTransitMessage.deps.json
+E:\document\mycode\project\Spark\Tests\MassTransitMessage\bin\Debug\netcoreapp2.2\MassTransitMessage.dll
+E:\document\mycode\project\Spark\Tests\MassTransitMessage\bin\Debug\netcoreapp2.2\MassTransitMessage.pdb
+E:\document\mycode\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\MassTransitMessage.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\MassTransitMessage.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\MassTransitMessage.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\MassTransitMessage.AssemblyInfo.cs
+E:\document\mycode\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\MassTransitMessage.dll
+E:\document\mycode\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\MassTransitMessage.pdb

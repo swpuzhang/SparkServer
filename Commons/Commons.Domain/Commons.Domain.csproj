@@ -5,8 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit" Version="5.5.3" />
     <PackageReference Include="MediatR" Version="7.0.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="RoomMessage\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Commons.Extenssions\Commons.Extenssions.csproj" />
   </ItemGroup>
 
 </Project>

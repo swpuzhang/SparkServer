@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
+using Commons.Domain.RepositoryInterface;
 
 namespace Commons.Infrastruct
 {

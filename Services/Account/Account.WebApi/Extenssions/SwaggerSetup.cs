@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +11,8 @@ using System.Threading.Tasks;
 
 namespace Account.WebApi.Extenssions
 {
+    
+
     public static class SwaggerSetup
     {
         public static void RegisterSwaggerService(this IServiceCollection services)
@@ -18,10 +21,14 @@ namespace Account.WebApi.Extenssions
             {
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
-                var basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);
+                c.DescribeAllEnumsAsStrings();
+                
+                var basePath = Directory.GetCurrentDirectory();
                 var xmlPath = Path.Combine(basePath, Assembly.GetExecutingAssembly().GetName().Name + ".xml");
+                var viewModelXmlPath = Path.Combine(basePath, $"{Startup.ServiceName}.Application.xml");
                 c.IncludeXmlComments(xmlPath);
-               
+                c.IncludeXmlComments(viewModelXmlPath);
+                
             });
         }
 

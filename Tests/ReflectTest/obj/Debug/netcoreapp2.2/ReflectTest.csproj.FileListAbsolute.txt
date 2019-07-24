@@ -1,0 +1,11 @@
+E:\document\mycode\project\Spark\Tests\ReflectTest\bin\Debug\netcoreapp2.2\ReflectTest.deps.json
+E:\document\mycode\project\Spark\Tests\ReflectTest\bin\Debug\netcoreapp2.2\ReflectTest.runtimeconfig.json
+E:\document\mycode\project\Spark\Tests\ReflectTest\bin\Debug\netcoreapp2.2\ReflectTest.runtimeconfig.dev.json
+E:\document\mycode\project\Spark\Tests\ReflectTest\bin\Debug\netcoreapp2.2\ReflectTest.dll
+E:\document\mycode\project\Spark\Tests\ReflectTest\obj\Debug\netcoreapp2.2\ReflectTest.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Tests\ReflectTest\obj\Debug\netcoreapp2.2\ReflectTest.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Tests\ReflectTest\obj\Debug\netcoreapp2.2\ReflectTest.AssemblyInfo.cs
+E:\document\mycode\project\Spark\Tests\ReflectTest\bin\Debug\netcoreapp2.2\ReflectTest.pdb
+E:\document\mycode\project\Spark\Tests\ReflectTest\obj\Debug\netcoreapp2.2\ReflectTest.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Tests\ReflectTest\obj\Debug\netcoreapp2.2\ReflectTest.dll
+E:\document\mycode\project\Spark\Tests\ReflectTest\obj\Debug\netcoreapp2.2\ReflectTest.pdb
