@@ -4764,14 +4764,14 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "MassTransitMessage/1.0.0": {
+      "Message/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "compile": {
-          "bin/placeholder/MassTransitMessage.dll": {}
+          "bin/placeholder/Message.dll": {}
         },
         "runtime": {
-          "bin/placeholder/MassTransitMessage.dll": {}
+          "bin/placeholder/Message.dll": {}
         }
       }
     }
@@ -12960,10 +12960,10 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
-    "MassTransitMessage/1.0.0": {
+    "Message/1.0.0": {
       "type": "project",
-      "path": "../MassTransitMessage/MassTransitMessage.csproj",
-      "msbuildProject": "../MassTransitMessage/MassTransitMessage.csproj"
+      "path": "../MassTransitMessage/Message.csproj",
+      "msbuildProject": "../MassTransitMessage/Message.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -12974,7 +12974,7 @@
       "MassTransit.Autofac >= 5.5.3",
       "MassTransit.Extensions.DependencyInjection >= 5.5.3",
       "MassTransit.RabbitMQ >= 5.5.3",
-      "MassTransitMessage >= 1.0.0",
+      "Message >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0"
@@ -13013,8 +13013,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\MassTransitMessage.csproj": {
-              "projectPath": "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\MassTransitMessage.csproj"
+            "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj": {
+              "projectPath": "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj"
             }
           }
         }

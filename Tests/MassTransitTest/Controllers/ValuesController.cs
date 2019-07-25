@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MassTransit;
+using TestMessage;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MassTransitTest.Controllers
 {
@@ -12,28 +14,42 @@ namespace MassTransitTest.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private readonly IRequestClient<DoSomething> _requestClient;
-        public ValuesController(IRequestClient<DoSomething> requestClient)
+        private readonly IBusControl _bus;
+        IRequestClient<DoSomething> _requestClient;
+        public ValuesController(IBusControl bus, IRequestClient<DoSomething> client)
         {
-            _requestClient = requestClient;
+           // _requestClient = requestClient;
+            _bus = bus;
+            _requestClient = client;
         }
+
+        /* public ValuesController(IBusControl bus)
+         {
+             _bus = bus;
+         }*/
         // GET api/values
         [HttpGet]
         public async Task<string> GetAsync()
         {
             try
             {
-                var request = _requestClient.Create(new { Value = "Hello, World." });
+                //_bus.Publish<DoSomething>(new { Value = "hello world" });
+                //await _bus.Publish<DoSomething>(new { Value = "hello world" });
+                //var client = _bus.CreateRequestClient<DoSomething>(new Uri("rabbitmq://localhost/Test3/MassTestQueue"));
 
-                var response = await request.GetResponse<SomethingDone>();
-
-                return ($"{response.Message.Value}, MessageId: {response.MessageId:D}");
+                //var response = await client.GetResponse<SomethingDone>(new { Value = "hello world"});
+                //var response = await _requestClient.GetResponse<SomethingDone>(new { Value = "hello world" });
+                //return ($"{response.Message.Value}, MessageId: {response.MessageId:D}");
+                var client = Startup.Provider.GetService<IRequestClient<DoSomething>>();
+                var response = await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+                return "success";
             }
             catch (RequestTimeoutException)
             {
                 return "error";
             }
         }
+
 
         // GET api/values/5
         [HttpGet("{id}")]

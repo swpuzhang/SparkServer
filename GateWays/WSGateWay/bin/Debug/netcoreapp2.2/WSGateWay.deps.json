@@ -31,6 +31,7 @@
           "Commons.Domain": "1.0.0",
           "Commons.Extenssions": "1.0.0",
           "Commons.Infrastruct": "1.0.0",
+          "GameSangong.Domain": "1.0.0",
           "MassTransit.Autofac": "5.5.3",
           "MassTransit.RabbitMQ": "5.5.3",
           "MassTransit.SerilogIntegration": "5.5.3",
@@ -993,6 +994,20 @@
         },
         "compile": {
           "Commons.Infrastruct.dll": {}
+        }
+      },
+      "GameSangong.Domain/1.0.0": {
+        "dependencies": {
+          "Commons.Domain": "1.0.0",
+          "Commons.Extenssions": "1.0.0",
+          "Commons.Infrastruct": "1.0.0",
+          "MediatR": "7.0.0"
+        },
+        "runtime": {
+          "GameSangong.Domain.dll": {}
+        },
+        "compile": {
+          "GameSangong.Domain.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -4580,6 +4595,11 @@
       "sha512": ""
     },
     "Commons.Infrastruct/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameSangong.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

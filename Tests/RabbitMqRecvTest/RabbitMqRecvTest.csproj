@@ -9,4 +9,7 @@
     <PackageReference Include="EasyNetQ.DI.Microsoft" Version="3.6.0" />
     <PackageReference Include="MassTransit.RabbitMQ" Version="5.5.3" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MassTransitMessage\Message.csproj" />
+  </ItemGroup>
 </Project>

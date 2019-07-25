@@ -25,7 +25,7 @@ namespace WSGateWay
         }
 
         public IConfiguration Configuration { get; }
-
+        public static IServiceProvider Provider { get; private set; }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public IServiceProvider ConfigureServices(IServiceCollection services)
@@ -34,11 +34,14 @@ namespace WSGateWay
             services.AddMongoService(Configuration);
             services.RegisterSwaggerService();
             services.RegisterServices();
+            services.AddAutoMapperSetup();
             services.AddSingleton<RedisHelper>(new RedisHelper(Configuration["redis:ConnectionString"]));
             ContainerBuilder builder = new ContainerBuilder();
             services.AddMassTransitService(Configuration, builder);
+            
             builder.Populate(services);
-            return new AutofacServiceProvider(builder.Build());
+            Provider = new AutofacServiceProvider(builder.Build());
+            return Provider;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

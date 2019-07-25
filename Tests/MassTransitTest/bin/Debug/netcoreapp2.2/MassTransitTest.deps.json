@@ -30,7 +30,7 @@
           "MassTransit.Autofac": "5.5.3",
           "MassTransit.Extensions.DependencyInjection": "5.5.3",
           "MassTransit.RabbitMQ": "5.5.3",
-          "MassTransitMessage": "1.0.0",
+          "Message": "1.0.0",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0"
@@ -353,12 +353,12 @@
         }
       },
       "System.ValueTuple/4.5.0": {},
-      "MassTransitMessage/1.0.0": {
+      "Message/1.0.0": {
         "runtime": {
-          "MassTransitMessage.dll": {}
+          "Message.dll": {}
         },
         "compile": {
-          "MassTransitMessage.dll": {}
+          "Message.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3698,7 +3698,7 @@
       "path": "system.valuetuple/4.5.0",
       "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
     },
-    "MassTransitMessage/1.0.0": {
+    "Message/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

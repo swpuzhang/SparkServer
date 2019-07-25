@@ -3,8 +3,6 @@ E:\document\mycode\project\Spark\Tests\RabbitMqTest\bin\Debug\netcoreapp2.2\Rabb
 E:\document\mycode\project\Spark\Tests\RabbitMqTest\bin\Debug\netcoreapp2.2\RabbitMqTest.runtimeconfig.dev.json
 E:\document\mycode\project\Spark\Tests\RabbitMqTest\bin\Debug\netcoreapp2.2\RabbitMqTest.dll
 E:\document\mycode\project\Spark\Tests\RabbitMqTest\bin\Debug\netcoreapp2.2\RabbitMqTest.pdb
-E:\document\mycode\project\Spark\Tests\RabbitMqTest\bin\Debug\netcoreapp2.2\MassTransitMessage.dll
-E:\document\mycode\project\Spark\Tests\RabbitMqTest\bin\Debug\netcoreapp2.2\MassTransitMessage.pdb
 E:\document\mycode\project\Spark\Tests\RabbitMqTest\obj\Debug\netcoreapp2.2\RabbitMqTest.csprojAssemblyReference.cache
 E:\document\mycode\project\Spark\Tests\RabbitMqTest\obj\Debug\netcoreapp2.2\RabbitMqTest.csproj.CoreCompileInputs.cache
 E:\document\mycode\project\Spark\Tests\RabbitMqTest\obj\Debug\netcoreapp2.2\RabbitMqTest.AssemblyInfoInputs.cache
@@ -12,3 +10,5 @@ E:\document\mycode\project\Spark\Tests\RabbitMqTest\obj\Debug\netcoreapp2.2\Rabb
 E:\document\mycode\project\Spark\Tests\RabbitMqTest\obj\Debug\netcoreapp2.2\RabbitMqTest.csproj.CopyComplete
 E:\document\mycode\project\Spark\Tests\RabbitMqTest\obj\Debug\netcoreapp2.2\RabbitMqTest.dll
 E:\document\mycode\project\Spark\Tests\RabbitMqTest\obj\Debug\netcoreapp2.2\RabbitMqTest.pdb
+E:\document\mycode\project\Spark\Tests\RabbitMqTest\bin\Debug\netcoreapp2.2\Message.dll
+E:\document\mycode\project\Spark\Tests\RabbitMqTest\bin\Debug\netcoreapp2.2\Message.pdb

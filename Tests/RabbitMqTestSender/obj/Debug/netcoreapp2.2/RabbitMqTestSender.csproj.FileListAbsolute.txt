@@ -9,3 +9,6 @@ E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.
 E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.AssemblyInfo.cs
 E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.dll
 E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.pdb
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.csproj.CopyComplete
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\Message.dll
+E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\Message.pdb

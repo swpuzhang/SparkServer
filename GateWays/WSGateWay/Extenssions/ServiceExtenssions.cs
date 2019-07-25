@@ -36,13 +36,13 @@ namespace WSGateWay.Extenssions
 
                     cfg.ReceiveEndpoint(rabbitCfg["queue"], ec =>
                     {
-
+                        //ec.Consumer(typeof(DoSomethingConsumer), c => Activator.CreateInstance(c));
                         ec.ConfigureConsumers(context);
                         //特殊消息
                         //EndpointConvention.Map<DoSomething>(e.InputAddress);
                     });
 
-                    cfg.ConfigureEndpoints(context);
+                    //cfg.ConfigureEndpoints(context);
 
 
                 }));

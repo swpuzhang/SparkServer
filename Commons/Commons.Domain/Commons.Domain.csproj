@@ -11,6 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="MqCommands\" />
+    <Folder Include="MqEvents\" />
     <Folder Include="RoomMessage\" />
   </ItemGroup>
 

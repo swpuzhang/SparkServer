@@ -4,12 +4,12 @@
     "E:\\document\\mycode\\project\\Spark\\Tests\\RabbitMqTest\\RabbitMqTest.csproj": {}
   },
   "projects": {
-    "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\MassTransitMessage.csproj": {
+    "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\MassTransitMessage.csproj",
-        "projectName": "MassTransitMessage",
-        "projectPath": "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\MassTransitMessage.csproj",
+        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj",
+        "projectName": "Message",
+        "projectPath": "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
         "outputPath": "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\obj\\",
         "projectStyle": "PackageReference",
@@ -86,8 +86,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\MassTransitMessage.csproj": {
-                "projectPath": "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\MassTransitMessage.csproj"
+              "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj": {
+                "projectPath": "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj"
               }
             }
           }

@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commons.Infrastruct", "Comm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransitTest", "Tests\MassTransitTest\MassTransitTest.csproj", "{6C811B69-E1FD-46E2-A473-DEBAFB2262E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransitMessage", "Tests\MassTransitMessage\MassTransitMessage.csproj", "{A928B3C4-2BFC-4678-B906-638ACCFF702D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Message", "Tests\MassTransitMessage\Message.csproj", "{A928B3C4-2BFC-4678-B906-638ACCFF702D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceStackRedisTest", "Tests\ServiceStackRedisTest\ServiceStackRedisTest.csproj", "{D7C08DBC-FF6C-4991-AF49-16C0FCA71777}"
 EndProject
@@ -49,17 +49,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WSGateWay", "GateWays\WSGat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRTest", "Tests\SignalRTest\SignalRTest.csproj", "{D70CE199-79AF-4CEC-A5A8-A68254F757BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectTest", "Tests\ReflectTest\ReflectTest.csproj", "{245D81FD-2705-4A88-B9BF-1C186F74E8BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReflectTest", "Tests\ReflectTest\ReflectTest.csproj", "{245D81FD-2705-4A88-B9BF-1C186F74E8BE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameSangong", "GameSangong", "{BC8C283C-D67D-4A8F-83E8-0C3E2CC2A943}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameSangong.Api", "Services\GameSangong\GameSangong.Api\GameSangong.Api.csproj", "{7F37BB0A-56DE-4ADD-A916-5374FE5E5C6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameSangong.Api", "Services\GameSangong\GameSangong.Api\GameSangong.Api.csproj", "{7F37BB0A-56DE-4ADD-A916-5374FE5E5C6E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameSangong.Infrastruct", "Services\GameSangong\GameSangong.Infrastruct\GameSangong.Infrastruct.csproj", "{7689EEE1-56CA-4295-8880-D8E4F5C5C4CF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameSangong.Domain", "Services\GameSangong\GameSangong.Domain\GameSangong.Domain.csproj", "{6FD71864-368E-4C03-BA7B-635647403226}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameSangong.Application", "Services\GameSangong\GameSangong.Application\GameSangong.Application.csproj", "{DB5F5518-82B6-4EDE-92BB-04ABA2CBEBE9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyNetQTest", "Tests\EasyNetQTest\EasyNetQTest.csproj", "{4B996339-A367-4497-AD4C-1996EB399163}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,6 +161,10 @@ Global
 		{DB5F5518-82B6-4EDE-92BB-04ABA2CBEBE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB5F5518-82B6-4EDE-92BB-04ABA2CBEBE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB5F5518-82B6-4EDE-92BB-04ABA2CBEBE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B996339-A367-4497-AD4C-1996EB399163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B996339-A367-4497-AD4C-1996EB399163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B996339-A367-4497-AD4C-1996EB399163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B996339-A367-4497-AD4C-1996EB399163}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -189,6 +195,7 @@ Global
 		{7689EEE1-56CA-4295-8880-D8E4F5C5C4CF} = {BC8C283C-D67D-4A8F-83E8-0C3E2CC2A943}
 		{6FD71864-368E-4C03-BA7B-635647403226} = {BC8C283C-D67D-4A8F-83E8-0C3E2CC2A943}
 		{DB5F5518-82B6-4EDE-92BB-04ABA2CBEBE9} = {BC8C283C-D67D-4A8F-83E8-0C3E2CC2A943}
+		{4B996339-A367-4497-AD4C-1996EB399163} = {A540DE55-3F4B-48C0-9AE9-00B08FA4D134}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B9948BCA-13BE-40A6-AE83-C3AE6645B3A3}

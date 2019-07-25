@@ -42,11 +42,12 @@ namespace Account.WebApi.Extenssions
                     {
 
                         ec.ConfigureConsumers(context);
+                        //ec.Consumer(typeof(DoSomethingConsumer), c => Activator.CreateInstance(c));
                         //特殊消息
                         //EndpointConvention.Map<DoSomething>(e.InputAddress);
                     });
 
-                    cfg.ConfigureEndpoints(context);
+                    //cfg.ConfigureEndpoints(context);
 
 
                 }));

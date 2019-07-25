@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WSGateWay.Manager;
 
 namespace WSGateWay.Extenssions
 {
@@ -16,8 +17,8 @@ namespace WSGateWay.Extenssions
         public static void RegisterServices(this IServiceCollection services)
         {
 
-            
-           
+
+            services.AddSingleton<UserConnManager>(new UserConnManager());
 
         }
     }

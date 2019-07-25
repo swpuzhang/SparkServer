@@ -28,7 +28,7 @@ namespace RabbitMqTest
         {
             var bus = Bus.Factory.CreateUsingRabbitMq(sbc =>
             {
-                var host = sbc.Host(new Uri("rabbitmq://localhost:5672/SkyWatch"), h =>
+                var host = sbc.Host(new Uri("rabbitmq://localhost:5672/Test2"), h =>
                 {
                     h.Username("SkyWatch");
                     h.Password("sky_watch_2019_best");

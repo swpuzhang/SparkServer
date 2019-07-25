@@ -21,3 +21,5 @@ E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Comm
 E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
 E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Commons.Infrastruct.pdb
 E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\WSGateWay.xml
+E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\GameSangong.Domain.dll
+E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\GameSangong.Domain.pdb
