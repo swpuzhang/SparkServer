@@ -5,12 +5,12 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace WSGateWay
+namespace WSGateWay.Manager
 {
 
     
 
-    public class RoomIdMapGame
+    public class RoomIdMapGameManager
     {
         public  void AddMap(List<KeyValuePair<int, string>> pairs)
         {
@@ -20,5 +20,14 @@ namespace WSGateWay
             });
         }
         private ConcurrentDictionary<int, string> _maps = new ConcurrentDictionary<int, string>();
+
+        public string GetGameByRoomid(int roomid)
+        {
+            if (_maps.TryGetValue(roomid, out var value))
+            {
+                return value;
+            }
+            return "";
+        }
     }
 }

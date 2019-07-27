@@ -177,6 +177,7 @@ namespace MassTransitTest
                     });
                 }));
                 x.AddRequestClient<DoSomething>();// (new Uri("rabbitmq://localhost/Test3/MassTestQueue"));
+                
             });
             Provider = new AutofacServiceProvider(builder.Build());
             

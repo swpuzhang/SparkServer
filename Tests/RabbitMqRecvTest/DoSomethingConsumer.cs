@@ -20,11 +20,11 @@ namespace MassTransitTest
         public async Task Consume(ConsumeContext<DoSomething> context)
         {
             // _service.SomeService();
-            await Console.Out.WriteLineAsync("context: " + context.Message);
-            /*await context.RespondAsync<SomethingDone>(new
+            await Console.Out.WriteLineAsync("context: " + context.Message.Value);
+            await context.RespondAsync<SomethingDone>(new
             {
                 Value = $"Received: {context.Message.Value}"
-            });*/
+            });
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WSGateWay.Services
 {
-    public class CommonService
+    public class CommonService : ICommonService
     {
         public KeyValuePair<bool, long> TokenValidation(string token)
         {

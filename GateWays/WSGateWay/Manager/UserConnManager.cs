@@ -12,6 +12,23 @@ namespace WSGateWay.Manager
         private Dictionary<long, string> _userConnIds = new Dictionary<long, string>();
         private Dictionary<string, long> _connUserIds = new Dictionary<string, long>();
         public object _sync = new object();
+
+        public string GetConnByUid(long uid)
+        {
+            string conn = null;
+            lock (_sync)
+            {
+                if (!_userConnIds.TryGetValue(uid, out conn))
+                {
+                    Log.Logger.Error($"some thing wrong GetConnByUid user:{uid} can't find conn");
+                    return null;
+                }
+            }
+
+            Log.Logger.Information($"GetConnByUid user:{uid} success conn:{conn}");
+            return conn;
+        }
+
         public bool OnLogined(long userid, string conn)
         {
             lock (_sync)

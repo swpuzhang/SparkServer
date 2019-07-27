@@ -12,23 +12,30 @@ using Commons.Extenssions.Defines;
 using WSGateWay.ViewModels;
 using WSGateWay.Services;
 using WSGateWay.Manager;
+using Commons.Infrastruct;
 
 namespace WSGateWay.Hubs
 {
 
     public class AppHub : Hub
     {
-        private readonly IRequestClient<RoomRequest> _requestClient;
+        //private readonly IRequestClient<RoomRequest> _requestClient;
         private readonly ICommonService _commonService;
         private readonly UserConnManager _userConnManager;
-
-        public AppHub(IRequestClient<RoomRequest> requestClient, 
-            ICommonService commonService, 
-            UserConnManager userConnManager)
+        private readonly IRpcCaller<AppHub> _rpcCaller;
+        private RoomIdMapGameManager _roomidMapper;
+        private readonly IBusControl _bus;
+        public AppHub(//IRequestClient<RoomRequest> requestClient,
+            ICommonService commonService,
+            UserConnManager userConnManager, IRpcCaller<AppHub> rpcCaller,
+            RoomIdMapGameManager roomidMapper, IBusControl bus)
         {
-            _requestClient = requestClient;
+            //_requestClient = requestClient;
             _commonService = commonService;
             _userConnManager = userConnManager;
+            _rpcCaller = rpcCaller;
+            _roomidMapper = roomidMapper;
+            _bus = bus;
         }
 
         public override async Task OnConnectedAsync()
@@ -43,7 +50,7 @@ namespace WSGateWay.Hubs
             _userConnManager.OnDisconnected(Context.ConnectionId);
         }
 
-        public BaseResponse OnLoginRequest(LoginRequest request)
+        public BaseResponse LoginRequest(LoginRequest request)
         {
             //验证token是否有效
             //如果有效将创建uid和玩家对应的关系
@@ -57,12 +64,14 @@ namespace WSGateWay.Hubs
            
         }
 
-        public async Task<CommonResponse> SendRoomMessage(RoomRequest request)
+        public async Task<CommonResponse> RoomRequest(RoomRequest request)
         {
             CommonResponse commonResponse = null;
+            string gameKey =  _roomidMapper.GetGameByRoomid(request.RoomId);
+            var busClient = _bus.CreateRequestClient<RoomRequest>(new Uri($"{Startup.mqConnectionStr}/{gameKey}"), TimeSpan.FromSeconds(5));
             try
             {
-                var busResponse = await _requestClient.GetResponse<CommonResponse>(request);
+                var busResponse = await busClient.GetResponse<CommonResponse>(request);
                 commonResponse = busResponse?.Message;   
             }
             catch( Exception)
@@ -78,5 +87,10 @@ namespace WSGateWay.Hubs
             return commonResponse;
         }
 
+
+        public void CommonResponse(CommonResponse response)
+        {
+            _rpcCaller.OnResponsed(response.Id);
+        }
     }
 }

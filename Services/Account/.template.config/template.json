@@ -1,0 +1,13 @@
+{
+    "author": "zhangyang", 
+    "classifications": [ "MicroService" ], 
+    "name": "ServiceTemplate", 
+    "identity": "ServiceTemplate", 
+    "shortName": "ServiceT", 
+    "tags": {
+      "language": "C#" ,
+      "type":"project"
+    },
+    "sourceName": "Account",  
+    "preferNameDirectory": true 
+}

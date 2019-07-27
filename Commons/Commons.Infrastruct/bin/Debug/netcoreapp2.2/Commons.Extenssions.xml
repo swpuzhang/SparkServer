@@ -29,9 +29,19 @@
             总线请求错误
             </summary>
         </member>
-        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.BusTimeout">
+        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.Timeout">
             <summary>
-            总线超时
+            超时
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.AppIsDisconnected">
+            <summary>
+            客户端已经断开连接
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.GuidError">
+            <summary>
+            GUID错误， 可能碰到重复
             </summary>
         </member>
         <member name="M:Commons.Extenssions.KeyGenHelper.GenKey(System.String,System.String[])">

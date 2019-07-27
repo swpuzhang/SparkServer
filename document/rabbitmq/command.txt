@@ -1,0 +1,9 @@
+打开后台管理
+rabbitmq-plugins enable rabbitmq_management
+http://localhost:15672/   账号密码都是：guest    
+rabbitmqctl add_user SkyWatch sky_watch_2019_best
+rabbitmqctl add_vhost SkyWatch
+设置tag权限
+rabbitmqctl set_user_tags SkyWatch  administrator
+
+rabbitmqctl set_permissions -p SkyWatch SkyWatch ".*" ".*" ".*"

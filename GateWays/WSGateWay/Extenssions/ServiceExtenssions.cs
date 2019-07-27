@@ -27,6 +27,7 @@ namespace WSGateWay.Extenssions
                 {
                     cfg.UseSerilog();
                     var rabbitCfg = Configuration.GetSection("rabbitmq");
+                    Startup.mqConnectionStr = $"rabbitmq://{rabbitCfg["host"]}/{rabbitCfg["vhost"]}";
                     var host = cfg.Host(rabbitCfg["host"], rabbitCfg["vhost"], h =>
                     {
                         h.Username(rabbitCfg["username"]);

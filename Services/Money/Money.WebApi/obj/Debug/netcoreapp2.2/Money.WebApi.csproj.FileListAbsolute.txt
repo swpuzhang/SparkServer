@@ -1,0 +1,6 @@
+E:\document\mycode\project\Spark\Services\Money\Money.WebApi\obj\Debug\netcoreapp2.2\Money.WebApi.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Services\Money\Money.WebApi\obj\Debug\netcoreapp2.2\Money.WebApi.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Services\Money\Money.WebApi\obj\Debug\netcoreapp2.2\Money.WebApi.RazorAssemblyInfo.cache
+E:\document\mycode\project\Spark\Services\Money\Money.WebApi\obj\Debug\netcoreapp2.2\Money.WebApi.RazorAssemblyInfo.cs
+E:\document\mycode\project\Spark\Services\Money\Money.WebApi\obj\Debug\netcoreapp2.2\Money.WebApi.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Services\Money\Money.WebApi\obj\Debug\netcoreapp2.2\Money.WebApi.AssemblyInfo.cs

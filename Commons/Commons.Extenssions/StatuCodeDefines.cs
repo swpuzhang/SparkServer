@@ -20,8 +20,19 @@ namespace Commons.Extenssions.Defines
         /// </summary>
         BusError = 3,
         /// <summary>
-        /// 总线超时
+        /// 超时
         /// </summary>
-        BusTimeout =4
+        Timeout =4,
+        
+        /// <summary>
+        /// 客户端已经断开连接
+        /// </summary>
+        AppIsDisconnected = 5,
+
+        /// <summary>
+        /// GUID错误， 可能碰到重复
+        /// </summary>
+        GuidError = 6,
+           
     }
 }

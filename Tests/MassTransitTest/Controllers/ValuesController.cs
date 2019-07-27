@@ -42,6 +42,20 @@ namespace MassTransitTest.Controllers
                 //return ($"{response.Message.Value}, MessageId: {response.MessageId:D}");
                 var client = Startup.Provider.GetService<IRequestClient<DoSomething>>();
                 var response = await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+                
+                await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+                await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+                await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+                await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+                await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+                /*int i = 100;
+                while (i-- > 0)
+                {
+                    var response = await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+                    await Task.Delay(100);
+                }*/
+
+
                 return "success";
             }
             catch (RequestTimeoutException)

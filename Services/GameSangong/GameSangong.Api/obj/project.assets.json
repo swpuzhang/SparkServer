@@ -5559,6 +5559,7 @@
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
           "Commons.Domain": "1.0.0",
+          "Microsoft.AspNetCore.SignalR": "1.1.0",
           "MongoDB.Driver": "2.8.1"
         },
         "compile": {
