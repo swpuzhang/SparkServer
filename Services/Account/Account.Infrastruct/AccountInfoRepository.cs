@@ -8,6 +8,7 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using Account.Domain.RepositoryInterface;
+using MongoDB.Bson;
 
 namespace Account.Infrastruct
 {
@@ -19,12 +20,8 @@ namespace Account.Infrastruct
 
         }
 
-        public AccountInfo GetByPlatform(string platform)
-        {
-            return _dbCol.Find<AccountInfo>(e => e.PlatformAccount == platform).FirstOrDefault();
-        }
 
-        public async Task<AccountInfo> GetByPlatformAsync(string platform)
+        public async Task<AccountInfo> GetByPlatform(string platform)
         {
             var all = await _dbCol.FindAsync<AccountInfo>(e => e.PlatformAccount == platform);
             if (all == null)
@@ -36,6 +33,13 @@ namespace Account.Infrastruct
                 return null;
             }
             return await all.FirstOrDefaultAsync();
+        }
+
+        public Task Update(AccountInfo account)
+        {
+            _dbCol.UpdateOneAsync<AccountInfo>(e => e.Id == account.Id,
+                BsonDocument.Create(account));
+            return Task.CompletedTask;
         }
     }
 }

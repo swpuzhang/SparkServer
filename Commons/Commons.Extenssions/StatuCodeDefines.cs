@@ -33,6 +33,24 @@ namespace Commons.Extenssions.Defines
         /// GUID错误， 可能碰到重复
         /// </summary>
         GuidError = 6,
-           
+        /// <summary>
+        /// 验证token失败
+        /// </summary>
+        TokenError = 7,
+
+        /// <summary>
+        /// token过期, 重新登录
+        /// </summary>
+        TokenExpiredPleaseRelogin =8,
+
+        /// <summary>
+        /// huoq
+        /// </summary>
+        GetMoneyError = 9,
+
+        AccountError = 10,
+
+
+        GameInfoError = 11,
     }
 }

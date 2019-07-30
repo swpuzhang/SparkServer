@@ -17,10 +17,35 @@ namespace Commons.Extenssions
         {
             redis = ConnectionMultiplexer.Connect(connection);
             db = redis.GetDatabase();
+           
         }
 
+        #region 锁
+        public bool LockTake(string key, string token, TimeSpan expireMs)
+        {
+            return db.LockTake(key, token, expireMs);
+        }
+
+        public Task<bool> LockTakeAsync(string key, string token, TimeSpan expireMs)
+        {
+            return db.LockTakeAsync(key, token, expireMs);
+        }
+
+        public void LockRelease(string key, string token)
+        {
+            db.LockRelease(key, token);
+        }
+
+        public async Task LockReleaseAsync(string key, string token)
+        {
+            await db.LockReleaseAsync(key, token);
+   
+        }
+
+        #endregion
+
         #region key相关操作
-        
+
         public bool IsKeyExist(string key)
         {
             return db.KeyExists(key);

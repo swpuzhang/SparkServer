@@ -165,7 +165,7 @@ namespace MassTransitTest
 
                 x.AddBus(context => Bus.Factory.CreateUsingRabbitMq(cfg =>
                 {
-                    var host = cfg.Host(new Uri("rabbitmq://localhost/Test3"), h =>
+                    var host = cfg.Host(new Uri("rabbitmq://localhost/SkyWatch"), h =>
                     {
                         h.Username("SkyWatch");
                         h.Password("sky_watch_2019_best");

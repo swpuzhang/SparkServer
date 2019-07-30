@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace MassTransitTest.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[Action]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
@@ -29,8 +29,11 @@ namespace MassTransitTest.Controllers
          }*/
         // GET api/values
         [HttpGet]
-        public async Task<string> GetAsync()
+        public async Task<string> GetAsync( int Id)
         {
+            Console.WriteLine(HttpContext.Request.Method);
+            Console.WriteLine(HttpContext.Request.Path);
+            Console.WriteLine(Id);
             try
             {
                 //_bus.Publish<DoSomething>(new { Value = "hello world" });

@@ -47,7 +47,7 @@ namespace Sample.WebApi.Controllers
 
         [HttpGet("{id}")]
         //[Route("SampleSelf/id")]
-        public HasBodyResponse<SampleVM> GetSelfSample(Int64 id)
+        public HasBodyResponse<SampleVM> GetSelfSample([FromHeader]long id)
         {
             return new HasBodyResponse<SampleVM>(0, null, _service.GetById(id));
             

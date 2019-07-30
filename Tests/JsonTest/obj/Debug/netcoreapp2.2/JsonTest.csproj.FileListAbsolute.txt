@@ -9,3 +9,14 @@ E:\document\mycode\project\Spark\Tests\JsonTest\bin\Debug\netcoreapp2.2\JsonTest
 E:\document\mycode\project\Spark\Tests\JsonTest\obj\Debug\netcoreapp2.2\JsonTest.csprojAssemblyReference.cache
 E:\document\mycode\project\Spark\Tests\JsonTest\obj\Debug\netcoreapp2.2\JsonTest.dll
 E:\document\mycode\project\Spark\Tests\JsonTest\obj\Debug\netcoreapp2.2\JsonTest.pdb
+D:\document\code\project\Spark\Tests\JsonTest\bin\Debug\netcoreapp2.2\JsonTest.deps.json
+D:\document\code\project\Spark\Tests\JsonTest\bin\Debug\netcoreapp2.2\JsonTest.runtimeconfig.json
+D:\document\code\project\Spark\Tests\JsonTest\bin\Debug\netcoreapp2.2\JsonTest.runtimeconfig.dev.json
+D:\document\code\project\Spark\Tests\JsonTest\bin\Debug\netcoreapp2.2\JsonTest.dll
+D:\document\code\project\Spark\Tests\JsonTest\bin\Debug\netcoreapp2.2\JsonTest.pdb
+D:\document\code\project\Spark\Tests\JsonTest\obj\Debug\netcoreapp2.2\JsonTest.csproj.CoreCompileInputs.cache
+D:\document\code\project\Spark\Tests\JsonTest\obj\Debug\netcoreapp2.2\JsonTest.AssemblyInfoInputs.cache
+D:\document\code\project\Spark\Tests\JsonTest\obj\Debug\netcoreapp2.2\JsonTest.AssemblyInfo.cs
+D:\document\code\project\Spark\Tests\JsonTest\obj\Debug\netcoreapp2.2\JsonTest.dll
+D:\document\code\project\Spark\Tests\JsonTest\obj\Debug\netcoreapp2.2\JsonTest.pdb
+D:\document\code\project\Spark\Tests\JsonTest\obj\Debug\netcoreapp2.2\JsonTest.csprojAssemblyReference.cache

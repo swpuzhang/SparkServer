@@ -30,10 +30,6 @@ namespace Sample.Application.Services
             return _mapper.Map<SampleVM>( _repository.GetById(id));
         }
 
-        public void Update(SampleVM sampleVM)
-        {
-            _repository.Update(_mapper.Map<SampleInfo>(sampleVM));
-        }
 
         public async Task<HasBodyResponse<SampleResponse>> Login(SampleVM sampleVM)
         {

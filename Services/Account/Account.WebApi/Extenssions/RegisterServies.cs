@@ -27,7 +27,7 @@ namespace Account.WebApi.Extenssions
             services.AddScoped<AccountContext>();
 
             services.AddScoped<IUserIdGenRepository, UserIdGenRepository>();
-            services.AddScoped<UserIdGenContext>();
+            
 
 
             services.AddScoped<IMediatorHandler, InProcessBus>();

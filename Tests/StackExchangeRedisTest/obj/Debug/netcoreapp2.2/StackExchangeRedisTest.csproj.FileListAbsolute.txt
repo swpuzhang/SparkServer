@@ -12,3 +12,17 @@ E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcorea
 E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.pdb
 E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.dll
 E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.pdb
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.deps.json
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.runtimeconfig.json
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.runtimeconfig.dev.json
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.dll
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.pdb
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.csprojAssemblyReference.cache
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.csproj.CoreCompileInputs.cache
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.RazorAssemblyInfo.cache
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.RazorAssemblyInfo.cs
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.AssemblyInfoInputs.cache
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.AssemblyInfo.cs
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.RazorTargetAssemblyInfo.cache
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.dll
+D:\document\code\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.pdb

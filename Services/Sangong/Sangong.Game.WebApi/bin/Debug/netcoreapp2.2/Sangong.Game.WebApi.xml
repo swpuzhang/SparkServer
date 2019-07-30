@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sangong.Game.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:Sangong.Game.WebApi.Controllers.SampleController">
+            <summary>
+            账号相关操作
+            </summary>
+        </member>
+        <member name="M:Sangong.Game.WebApi.Controllers.SampleController.Login(Sample.Application.ViewModels.SampleVM)">
+            <summary>
+            登录接口
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

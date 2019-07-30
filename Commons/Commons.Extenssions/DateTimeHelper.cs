@@ -16,5 +16,11 @@ namespace Commons.Extenssions
             var seconds = date.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             return Convert.ToInt64(seconds);
         }
+
+        public static Int64 NowTimeStamp()
+        {
+            var seconds = DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            return Convert.ToInt64(seconds);
+        }
     }
 }

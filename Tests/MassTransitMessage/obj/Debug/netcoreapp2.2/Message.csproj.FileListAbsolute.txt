@@ -7,3 +7,12 @@ E:\document\mycode\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.
 E:\document\mycode\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\Message.dll
 E:\document\mycode\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\Message.pdb
 E:\document\mycode\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\Message.csprojAssemblyReference.cache
+D:\document\code\project\Spark\Tests\MassTransitMessage\bin\Debug\netcoreapp2.2\Message.deps.json
+D:\document\code\project\Spark\Tests\MassTransitMessage\bin\Debug\netcoreapp2.2\Message.dll
+D:\document\code\project\Spark\Tests\MassTransitMessage\bin\Debug\netcoreapp2.2\Message.pdb
+D:\document\code\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\Message.csproj.CoreCompileInputs.cache
+D:\document\code\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\Message.AssemblyInfoInputs.cache
+D:\document\code\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\Message.AssemblyInfo.cs
+D:\document\code\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\Message.dll
+D:\document\code\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\Message.pdb
+D:\document\code\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\Message.csprojAssemblyReference.cache

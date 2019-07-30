@@ -7,52 +7,25 @@ using System.Text;
 
 namespace Money.Domain.Models
 {
-                 
-    public class MoneyInfo : UserEntity
+
+    public class MoneyInfo
     {
-
-        public string PlatformMoney { get; private set; }
-  
-        public string UserName { get; private set; }
-        
-        public int Sex { get; private set; }
-    
-        public string HeadUrl { get; private set; }
-
-        /// <summary>
-        /// 账号类型
-        /// </summary>
-        public int Type { get; set; }
-
         public MoneyInfo()
         {
-
         }
 
-        public MoneyInfo(long id, string money, string name, int sex, string head, int type)
+        [JsonConstructor]
+        public MoneyInfo(long curChips, long curDiamonds, long maxChips, long maxDiamonds)
         {
-            Id = id;
-            PlatformMoney = money;
-            UserName = name;
-            Sex = sex;
-            HeadUrl = head;
-            Type = type;
+            CurChips = curChips;
+            CurDiamonds = curDiamonds;
+            MaxChips = maxChips;
+            MaxDiamonds = maxDiamonds;
         }
 
-
-        public override bool Equals(object obj)
-        {
-            return obj is MoneyInfo info &&
-                   base.Equals(obj) &&
-                   PlatformMoney == info.PlatformMoney &&
-                   UserName == info.UserName &&
-                   Sex == info.Sex &&
-                   HeadUrl == info.HeadUrl;
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public long CurChips { get; private set; }
+        public long CurDiamonds { get; private set; }
+        public long MaxChips { get; private set; }
+        public long MaxDiamonds { get; private set; }
     }
 }

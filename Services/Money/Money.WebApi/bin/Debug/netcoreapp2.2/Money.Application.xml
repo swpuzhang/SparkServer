@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Money.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Money.Application.ViewModels.MoneyVM">
+            <summary>
+            接口字段
+            </summary>
+        </member>
+    </members>
+</doc>

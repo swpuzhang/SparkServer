@@ -51,6 +51,7 @@ namespace Sample.WebApi
                 app.UseDeveloperExceptionPage();
             }
             app.ConfigSwaggerService();
+            app.UseTokenCheck("/api/Account/Login");
             app.UseMvc();
         }
     }

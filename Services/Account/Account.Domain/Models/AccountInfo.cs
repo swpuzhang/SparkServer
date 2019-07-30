@@ -4,13 +4,14 @@ using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Account.Domain.Models
 {
-                 
+               
     public class AccountInfo : UserEntity
     {
-
+        
         public string PlatformAccount { get; private set; }
   
         public string UserName { get; private set; }
@@ -29,6 +30,7 @@ namespace Account.Domain.Models
 
         }
 
+        [JsonConstructor]
         public AccountInfo(long id, string account, string name, int sex, string head, int type)
         {
             Id = id;
@@ -55,4 +57,39 @@ namespace Account.Domain.Models
             return base.GetHashCode();
         }
     }
+
+    public class AccountResponse
+    {
+
+        private AccountResponse()
+        {
+
+        }
+
+        public AccountResponse(long id, string platformAccount,
+            string userName, int sex, string headUrl,
+            string token
+, MoneyInfo moneyInfo)
+        {
+            Id = id;
+            PlatformAccount = platformAccount;
+            UserName = userName;
+            Sex = sex;
+            HeadUrl = headUrl;
+            Token = token;
+            MoneyInfo = moneyInfo;
+        }
+
+        public Int64 Id { get; private set; }
+        public string PlatformAccount { get; private set; }
+        public string UserName { get; private set; }
+        public int Sex { get; set; }
+        public string HeadUrl { get; private set; }
+
+        public MoneyInfo MoneyInfo { get; private set; }
+        
+
+        public string Token { get; private set; }
+    }
+
 }

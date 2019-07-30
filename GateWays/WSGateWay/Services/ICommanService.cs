@@ -1,5 +1,5 @@
 ﻿using Commons.Domain.Models;
-using GameSangong.Domain.MqCommands;
+using Sangong.MqCommands;
 using MassTransit;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace WSGateWay.Services
     public interface ICommandService
     {
 
-        void OnRoomGameMapConfig(RoomIdMapConfigCommand command);
+        void OnRoomGameMapConfig(RoomIdMapConfigMqCommand command);
         Task OnServerRequest(ConsumeContext<ServerRequest> context);
        
     }

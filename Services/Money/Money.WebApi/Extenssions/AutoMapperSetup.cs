@@ -12,10 +12,7 @@ namespace Money.WebApi.Extenssions
     {
         public static void AddAutoMapperSetup(this IServiceCollection services)
         {
-            //var cfg = AutoMapperConfig.RegisterMappings();
             services.AddAutoMapper(typeof(MappingProfile));
-            //services.AddSingleton(cfg);
-            //services.AddAutoMapperSetup()
         }
     }
 }

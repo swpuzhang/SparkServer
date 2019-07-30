@@ -10,11 +10,12 @@ using Microsoft.AspNetCore.Mvc;
 using Commons.Domain.Models;
 using Account.Domain.Models;
 using Commons.Extenssions.Defines;
+using Commons.Extenssions;
 
 namespace Account.WebApi.Controllers
 {
     /// <summary>
-    /// 账号相关操作
+    /// 账号相关操作api/Account/Login
     /// </summary>
     [Route("api/[controller]/[Action]")]
     [ApiController]
@@ -35,29 +36,44 @@ namespace Account.WebApi.Controllers
         /// <returns></returns>
         [HttpPost]
         //[Route("AccountLogin")]
-        public async Task<HasBodyResponse<AccountResponse>> Login([FromBody] AccountVM model)
+        public async Task<HasBodyResponse<AccountResponseVM>> Login([FromBody] AccountVM model)
         {
             if (!ModelState.IsValid)
             {
-                return new HasBodyResponse<AccountResponse>(StatuCodeDefines.FieldError, null, null);
-                
+                return new HasBodyResponse<AccountResponseVM>(StatuCodeDefines.FieldError, null, null);
+
             }
+
             return await _service.Login(model);
         }
 
+        /// <summary>
+        /// 获取自己的账号信息
+        /// </summary>
+        /// <param name="id">玩家ID</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         //[Route("AccountSelf/id")]
-        public HasBodyResponse<AccountVM> GetSelfAccount(Int64 id)
+        public async Task<HasBodyResponse<AccountDetailVM>> GetSelfAccount([FromHeader]long id)
         {
-            return new HasBodyResponse<AccountVM>(0, null, _service.GetById(id));
-            
+            var response = await _service.GetSelfAccount(id);
+            return response;
+
         }
 
+        /// <summary>
+        /// 获取其他玩家的信息
+        /// </summary>
+        /// <param name="id">玩家ID</param>
+        /// <param name="otherId">其他玩家ID</param>
+        /// <returns></returns>
         [HttpGet]
-        public HasBodyResponse<AccountVM> GetOtherAccount(Int64 otherId)
+        public async Task<HasBodyResponse<AccountDetailVM>> GetOtherAccount([FromHeader]long id, Int64 otherId)
         {
-            var account = _service.GetById(otherId);
-            return new HasBodyResponse<AccountVM>(0, null, account);
+
+            var response = await _service.GetSelfAccount(otherId);
+            return response;
         }
+
     }
 }

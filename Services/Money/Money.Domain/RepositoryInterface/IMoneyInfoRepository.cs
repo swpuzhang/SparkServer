@@ -9,7 +9,6 @@ namespace Money.Domain.RepositoryInterface
 {
     public interface IMoneyInfoRepository : IMongoUserRepository<MoneyInfo>
     {
-        MoneyInfo GetByPlatform(string platform);
-        Task<MoneyInfo> GetByPlatformAsync(string platform);
+       
     }
 }

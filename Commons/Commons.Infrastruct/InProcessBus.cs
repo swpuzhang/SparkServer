@@ -1,5 +1,6 @@
 ﻿using Commons.Domain.Bus;
 using Commons.Domain.Commands;
+using Commons.Domain.Events;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,14 @@ namespace Commons.Infrastruct
         public async Task<TResponse> SendCommand<TResponse>(Command<TResponse> command)
         {
             return await _mediator.Send(command);
+        }
+
+        public Task RaiseEvent<T>(T @event) where T : Event
+        {
+            //if (!@event.MessageType.Equals("DomainNotification"))
+            //    _eventStore?.Save(@event);
+
+            return _mediator.Publish(@event);
         }
     }
 }

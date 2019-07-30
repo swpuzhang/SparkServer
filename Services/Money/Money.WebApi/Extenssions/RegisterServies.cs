@@ -27,9 +27,6 @@ namespace Money.WebApi.Extenssions
             services.AddScoped<MoneyContext>();
 
             services.AddScoped<IUserIdGenRepository, UserIdGenRepository>();
-            services.AddScoped<UserIdGenContext>();
-
-
             services.AddScoped<IMediatorHandler, InProcessBus>();
             services.AddScoped<IRequestHandler<LoginCommand, HasBodyResponse<MoneyResponse>>, MoneyCommandHandler>();
            

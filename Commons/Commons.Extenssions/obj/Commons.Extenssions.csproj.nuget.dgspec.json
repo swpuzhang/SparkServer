@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj": {}
+    "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj": {}
   },
   "projects": {
-    "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj": {
+    "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj",
+        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj",
         "projectName": "Commons.Extenssions",
-        "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\obj\\",
+        "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj",
+        "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
+        "outputPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "E:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\84075\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -43,6 +43,10 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",

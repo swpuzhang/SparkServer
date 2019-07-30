@@ -2,7 +2,7 @@
 using Commons.Domain.Models;
 using Commons.Extenssions.Defines;
 using Commons.Infrastruct;
-using GameSangong.Domain.MqCommands;
+using Sangong.MqCommands;
 using MassTransit;
 using Microsoft.AspNetCore.SignalR;
 using Newtonsoft.Json;
@@ -33,7 +33,7 @@ namespace WSGateWay.Services
             _rpcCaller = rpcCaller;
         }
 
-        public void OnRoomGameMapConfig(RoomIdMapConfigCommand command)
+        public void OnRoomGameMapConfig(RoomIdMapConfigMqCommand command)
         {
             _idMapper.AddMap(command.Config);
         }

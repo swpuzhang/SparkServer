@@ -9,3 +9,14 @@ E:\document\mycode\project\Spark\Tests\ServiceStackRedisTest\obj\Debug\netcoreap
 E:\document\mycode\project\Spark\Tests\ServiceStackRedisTest\bin\Debug\netcoreapp2.2\ServiceStackRedisTest.pdb
 E:\document\mycode\project\Spark\Tests\ServiceStackRedisTest\obj\Debug\netcoreapp2.2\ServiceStackRedisTest.dll
 E:\document\mycode\project\Spark\Tests\ServiceStackRedisTest\obj\Debug\netcoreapp2.2\ServiceStackRedisTest.pdb
+D:\document\code\project\Spark\Tests\ServiceStackRedisTest\bin\Debug\netcoreapp2.2\ServiceStackRedisTest.deps.json
+D:\document\code\project\Spark\Tests\ServiceStackRedisTest\bin\Debug\netcoreapp2.2\ServiceStackRedisTest.runtimeconfig.json
+D:\document\code\project\Spark\Tests\ServiceStackRedisTest\bin\Debug\netcoreapp2.2\ServiceStackRedisTest.runtimeconfig.dev.json
+D:\document\code\project\Spark\Tests\ServiceStackRedisTest\bin\Debug\netcoreapp2.2\ServiceStackRedisTest.dll
+D:\document\code\project\Spark\Tests\ServiceStackRedisTest\bin\Debug\netcoreapp2.2\ServiceStackRedisTest.pdb
+D:\document\code\project\Spark\Tests\ServiceStackRedisTest\obj\Debug\netcoreapp2.2\ServiceStackRedisTest.csprojAssemblyReference.cache
+D:\document\code\project\Spark\Tests\ServiceStackRedisTest\obj\Debug\netcoreapp2.2\ServiceStackRedisTest.csproj.CoreCompileInputs.cache
+D:\document\code\project\Spark\Tests\ServiceStackRedisTest\obj\Debug\netcoreapp2.2\ServiceStackRedisTest.AssemblyInfoInputs.cache
+D:\document\code\project\Spark\Tests\ServiceStackRedisTest\obj\Debug\netcoreapp2.2\ServiceStackRedisTest.AssemblyInfo.cs
+D:\document\code\project\Spark\Tests\ServiceStackRedisTest\obj\Debug\netcoreapp2.2\ServiceStackRedisTest.dll
+D:\document\code\project\Spark\Tests\ServiceStackRedisTest\obj\Debug\netcoreapp2.2\ServiceStackRedisTest.pdb

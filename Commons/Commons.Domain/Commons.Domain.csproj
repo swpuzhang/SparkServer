@@ -8,12 +8,7 @@
     <PackageReference Include="MassTransit" Version="5.5.3" />
     <PackageReference Include="MediatR" Version="7.0.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.8.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="MqCommands\" />
-    <Folder Include="MqEvents\" />
-    <Folder Include="RoomMessage\" />
+    <PackageReference Include="StackExchange.Redis" Version="2.0.601" />
   </ItemGroup>
 
   <ItemGroup>

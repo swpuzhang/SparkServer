@@ -64,15 +64,25 @@ namespace Commons.Infrastruct
             await _dbCol.DeleteOneAsync<TEntity>(e => e.Id == id);
         }
 
-        public void Update(TEntity obj)
+        public void Replace(TEntity obj)
         {
             _dbCol.ReplaceOne(e => e.Id == obj.Id, obj);
             
         }
 
-        public async Task UpdateAsync(TEntity obj)
+        public async Task ReplaceAsync(TEntity obj)
         {
             await _dbCol.ReplaceOneAsync<TEntity>(e => e.Id == obj.Id, obj);
+        }
+
+        public async Task<TEntity> FindAndAdd(long id, TEntity info)
+        {
+            var options = new FindOneAndReplaceOptions<TEntity>
+            {
+                ReturnDocument = ReturnDocument.After,
+                IsUpsert = true
+            };
+            return await _dbCol.FindOneAndReplaceAsync<TEntity>(x => x.Id == id, info, options);
         }
     }
 }

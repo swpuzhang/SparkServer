@@ -13,7 +13,7 @@ namespace Account.Infrastruct
 {
     public class UserIdGenRepository : MongoUserRepository<UserIdGenInfo>, IUserIdGenRepository
     {
-        public UserIdGenRepository(UserIdGenContext context) : base(context.GenInfos)
+        public UserIdGenRepository(AccountContext context) : base(context.GenInfos)
         {
 
         }

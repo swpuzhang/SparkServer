@@ -796,7 +796,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Html.Abstractions.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Http/2.2.0": {
+      "Microsoft.AspNetCore.Http/2.2.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
@@ -5531,7 +5531,8 @@
           "Commons.Extenssions": "1.0.0",
           "MassTransit": "5.5.3",
           "MediatR": "7.0.0",
-          "MongoDB.Driver": "2.8.1"
+          "MongoDB.Driver": "2.8.1",
+          "StackExchange.Redis": "2.0.601"
         },
         "compile": {
           "bin/placeholder/Commons.Domain.dll": {}
@@ -5544,6 +5545,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
+          "Microsoft.AspNetCore.Http": "2.2.2",
           "Newtonsoft.Json": "12.0.2",
           "StackExchange.Redis": "2.0.601"
         },
@@ -6253,16 +6255,16 @@
         "microsoft.aspnetcore.html.abstractions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http/2.2.0": {
-      "sha512": "YogBSMotWPAS/X5967pZ+yyWPQkThxhmzAwyCHCSSldzYBkW5W5d6oPfBaPqQOnSHYTpSOSOkpZoAce0vwb6+A==",
+    "Microsoft.AspNetCore.Http/2.2.2": {
+      "sha512": "BAibpoItxI5puk7YJbIGj95arZueM8B8M5xT1fXBn3hb3L2G3ucrZcYXv1gXdaroLbntUs8qeV8iuBrpjQsrKw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http/2.2.0",
+      "path": "microsoft.aspnetcore.http/2.2.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.xml",
-        "microsoft.aspnetcore.http.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
         "microsoft.aspnetcore.http.nuspec"
       ]
     },
@@ -7090,7 +7092,7 @@
       ]
     },
     "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
-      "sha512": "dxOzk5o2SrmGMs4nSFDhnIYfHz3osh/rFzOrP8584kJ3L16vB7hX83zZq9Ck+qEIyJcKf7ZSjZRMJ1EmBo6T+g==",
+      "sha512": "HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
       "type": "package",
       "path": "microsoft.codeanalysis.analyzers/1.1.0",
       "hasTools": true,
@@ -9412,7 +9414,7 @@
       ]
     },
     "runtime.native.System.IO.Compression/4.3.0": {
-      "sha512": "b+V9JC/Ii3sR659flBeaBJww111425tgjcDS1k+hqV4sGh9FALRDBvJnDtQ895gAzpPTUOFDHdqaZ2Et7BpZMg==",
+      "sha512": "INBPonS5QPEgn7naufQFXJEp3zX6L4bwHgJ/ZH78aBTpeNfQMtf7C6VrAFhlq2xxWBveIOWyFzQjJ8XzHMhdOQ==",
       "type": "package",
       "path": "runtime.native.system.io.compression/4.3.0",
       "files": [
@@ -9439,7 +9441,7 @@
       ]
     },
     "runtime.native.System.Net.Security/4.3.0": {
-      "sha512": "M2nN92ePS8BgQ2oi6Jj3PlTUzadYSIWLdZrHY1n1ZcW9o4wAQQ6W+aQ2lfq1ysZQfVCgDwY58alUdowrzezztg==",
+      "sha512": "ARfgeRYF2AnYIcqEvy9VE0agN/3zexMMPtcegq1THpOMS63rIGMi706vCo6pbv9Xzw4qhdX1Gu1zyLZHj2WtLA==",
       "type": "package",
       "path": "runtime.native.system.net.security/4.3.0",
       "files": [
@@ -9507,11 +9509,12 @@
       ]
     },
     "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple/4.3.0": {
-      "sha512": "Kh9W4agE0r/hK8AX1LvyQI2NrKHBL8pO0gRoDTdDb0LL6Ta1Z2OtFx3lOaAE0ZpCUc/dt9Wzs3rA7a3IsKdOVA==",
+      "sha512": "kVXCuMTrTlxq4XOOMAysuNwsXWpYeboGddNGpIgNSZmv1b6r/s/DPk0fYMB7Q5Qo4bY68o48jt4T4y5BVecbCQ==",
       "type": "package",
       "path": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple.4.3.0.nupkg.sha512",
@@ -10093,7 +10096,7 @@
       ]
     },
     "System.Collections.Specialized/4.3.0": {
-      "sha512": "NoPBj0ykejqAWW4p4gGtrrL+3c84ZLSvGnHgq422ew1Rj4WKj1FA8/BCybqC111EtgcqUl6ZJNFYYS22HLgbjA==",
+      "sha512": "Epx8PoVZR0iuOnJJDzp7pWvdfMMOAvpUo95pC4ScH2mJuXkKA2Y4aR3cG9qt2klHgSons1WFh4kcGW7cSXvrxg==",
       "type": "package",
       "path": "system.collections.specialized/4.3.0",
       "files": [
@@ -13624,7 +13627,7 @@
       ]
     },
     "System.Security.Cryptography.Csp/4.3.0": {
-      "sha512": "yO2k5o+Z+DiFRBvvB9vdRRAGHi6bm02M9OWXfCqQ8K0UxD3Woc3svQheZfb7PoTEFs0kGacO0IzzMWsb6Mkeow==",
+      "sha512": "X4s/FCkEUnRGnwR3aSfVIkldBmtURMhmexALNTwpjklzxWU7yjMk7GHLKOZTNkgnWnE0q7+BCf9N2LVRWxewaA==",
       "type": "package",
       "path": "system.security.cryptography.csp/4.3.0",
       "files": [
@@ -14954,7 +14957,7 @@
       ]
     },
     "System.Xml.XmlSerializer/4.3.0": {
-      "sha512": "MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
+      "sha512": "VShQJhOxgD/5M2Z1IWm1vMaSqlbjo1zdFf8H7Ahte6bTvSUhUko/gDpAVVhGgGgTDeue4QyNg1fu1Zz2GKSEuQ==",
       "type": "package",
       "path": "system.xml.xmlserializer/4.3.0",
       "files": [
@@ -15159,25 +15162,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "E:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\84075\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Services\\Sample\\Sample.WebApi\\Sample.WebApi.csproj",
+      "projectUniqueName": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.WebApi\\Sample.WebApi.csproj",
       "projectName": "Sample.WebApi",
-      "projectPath": "E:\\document\\mycode\\project\\Spark\\Services\\Sample\\Sample.WebApi\\Sample.WebApi.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\document\\mycode\\project\\Spark\\Services\\Sample\\Sample.WebApi\\obj\\",
+      "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.WebApi\\Sample.WebApi.csproj",
+      "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
+      "outputPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "E:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\84075\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -15191,20 +15194,20 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj": {
-              "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj"
+            "D:\\document\\code\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj": {
+              "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj"
             },
-            "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj": {
-              "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj"
+            "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj": {
+              "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj"
             },
-            "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
-              "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj"
+            "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
+              "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj"
             },
-            "E:\\document\\mycode\\project\\Spark\\Services\\Sample\\Sample.Application\\Sample.Application.csproj": {
-              "projectPath": "E:\\document\\mycode\\project\\Spark\\Services\\Sample\\Sample.Application\\Sample.Application.csproj"
+            "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Application\\Sample.Application.csproj": {
+              "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Application\\Sample.Application.csproj"
             },
-            "E:\\document\\mycode\\project\\Spark\\Services\\Sample\\Sample.Infrastruct\\Sample.Infrastruct.csproj": {
-              "projectPath": "E:\\document\\mycode\\project\\Spark\\Services\\Sample\\Sample.Infrastruct\\Sample.Infrastruct.csproj"
+            "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Infrastruct\\Sample.Infrastruct.csproj": {
+              "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Infrastruct\\Sample.Infrastruct.csproj"
             }
           }
         }

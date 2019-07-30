@@ -17,8 +17,7 @@ namespace Money.Domain.Models
             Id = id;
         }
 
-        public Int64 Id { get; set; }
-        
+        public Int64 Id { get; set; } 
     }
 
 }

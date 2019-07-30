@@ -10,6 +10,7 @@ using Account.Domain.RepositoryInterface;
 using AutoMapper;
 using Commons.Domain.Bus;
 using Commons.Domain.Models;
+using Commons.Extenssions.Defines;
 using Commons.Infrastruct;
 
 namespace Account.Application.Services
@@ -35,9 +36,22 @@ namespace Account.Application.Services
             _repository.Update(_mapper.Map<AccountInfo>(accountViewModel));
         }
 
-        public async Task<HasBodyResponse<AccountResponse>> Login(AccountVM accountViewModel)
+        public async Task<HasBodyResponse<AccountResponseVM>> Login(AccountVM accountViewModel)
         {
-            return await _bus.SendCommand(new LoginCommand(_mapper.Map<AccountInfo>(accountViewModel)));
+            var response = await _bus.SendCommand(new LoginCommand(_mapper.Map<AccountInfo>(accountViewModel)));
+            AccountResponseVM responseVM = _mapper.Map<AccountResponseVM>(response.Body);
+            return new HasBodyResponse<AccountResponseVM>(response.StatusCode, response.ErrorInfos, responseVM);
+
+        }
+
+        public async Task<HasBodyResponse<AccountDetailVM>> GetSelfAccount(long id)
+        {
+            var response = await _bus.SendCommand(new GetSelfAccountCommand(id));
+            AccountDetailVM info = _mapper.Map<AccountDetailVM>(response.Body);
+            return new HasBodyResponse<AccountDetailVM>(response.StatusCode, response.ErrorInfos, info);
+            //AccountDetailVM responseVM
+
+
         }
     }
 }

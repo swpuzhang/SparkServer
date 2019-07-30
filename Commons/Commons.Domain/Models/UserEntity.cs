@@ -8,7 +8,7 @@ namespace Commons.Domain.Models
 {
     public abstract class UserEntity
     {
-
+        
         [BsonId]
         public virtual Int64 Id
         {

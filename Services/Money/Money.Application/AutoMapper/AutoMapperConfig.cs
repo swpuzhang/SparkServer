@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sample.Application.AutoMapper
+namespace Money.Application.AutoMapper
 {
     public class AutoMapperConfig
     {

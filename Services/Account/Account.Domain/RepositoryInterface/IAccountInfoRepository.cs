@@ -9,7 +9,10 @@ namespace Account.Domain.RepositoryInterface
 {
     public interface IAccountInfoRepository : IMongoUserRepository<AccountInfo>
     {
-        AccountInfo GetByPlatform(string platform);
-        Task<AccountInfo> GetByPlatformAsync(string platform);
+   
+        Task<AccountInfo> GetByPlatform(string platform);
+
+        Task Update(AccountInfo account);
+
     }
 }

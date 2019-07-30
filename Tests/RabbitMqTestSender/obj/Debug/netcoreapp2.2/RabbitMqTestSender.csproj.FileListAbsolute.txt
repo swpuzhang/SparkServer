@@ -12,3 +12,17 @@ E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.
 E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.csproj.CopyComplete
 E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\Message.dll
 E:\document\mycode\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\Message.pdb
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\RabbitMqTestSender.deps.json
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\RabbitMqTestSender.runtimeconfig.json
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\RabbitMqTestSender.runtimeconfig.dev.json
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\RabbitMqTestSender.dll
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\RabbitMqTestSender.pdb
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\Message.dll
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\bin\Debug\netcoreapp2.2\Message.pdb
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.csprojAssemblyReference.cache
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.csproj.CoreCompileInputs.cache
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.AssemblyInfoInputs.cache
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.AssemblyInfo.cs
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.csproj.CopyComplete
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.dll
+D:\document\code\project\Spark\Tests\RabbitMqTestSender\obj\Debug\netcoreapp2.2\RabbitMqTestSender.pdb

@@ -13,7 +13,7 @@ namespace Money.Infrastruct
 {
     public class UserIdGenRepository : MongoUserRepository<UserIdGenInfo>, IUserIdGenRepository
     {
-        public UserIdGenRepository(UserIdGenContext context) : base(context.GenInfos)
+        public UserIdGenRepository(MoneyContext context) : base(context.GenInfos)
         {
 
         }

@@ -1,4 +1,4 @@
-﻿using GameSangong.Domain.MqCommands;
+﻿using Sangong.MqCommands;
 using MassTransit;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using WSGateWay.Services;
 
 namespace WSGateWay.IntegrationHandlers
 {
-    public class RoomMatchingConsumer : IConsumer<RoomIdMapConfigCommand>
+    public class RoomMatchingConsumer : IConsumer<RoomIdMapConfigMqCommand>
     {
 
         ICommandService _service;
@@ -18,7 +18,7 @@ namespace WSGateWay.IntegrationHandlers
             _service = service;
         }
 
-        public Task Consume(ConsumeContext<RoomIdMapConfigCommand> context)
+        public Task Consume(ConsumeContext<RoomIdMapConfigMqCommand> context)
         {
             _service.OnRoomGameMapConfig(context.Message);
             return Task.CompletedTask;

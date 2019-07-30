@@ -1,0 +1,13 @@
+{
+    "author": "zhangyang", 
+    "classifications": [ "ApiSample" ], 
+    "name": "ApiSampleTemplate", 
+    "identity": "ApiSampleTemplate", 
+    "shortName": "apitlt", 
+    "tags": {
+      "language": "C#" ,
+      "type":"project"
+    },
+    "sourceName": "Sample.WebApi",  
+    "preferNameDirectory": true 
+}

@@ -4,12 +4,17 @@
         <name>Account.Application</name>
     </assembly>
     <members>
+        <member name="P:Account.Application.ViewModels.AccountDetailVM.Type">
+            <summary>
+            账号类型
+            </summary>
+        </member>
         <member name="T:Account.Application.ViewModels.AccountVM">
             <summary>
             接口字段
             </summary>
         </member>
-        <member name="P:Account.Application.ViewModels.AccountVM.type">
+        <member name="P:Account.Application.ViewModels.AccountVM.Type">
             <summary>
             账号类型
             </summary>

@@ -11,10 +11,12 @@ namespace Account.Application.Services
 {
     public interface IAccountAppService
     {
-        Task<HasBodyResponse<AccountResponse>> Login(AccountVM StudentViewModel);
+        Task<HasBodyResponse<AccountResponseVM>> Login(AccountVM StudentViewModel);
         AccountVM GetById(Int64 id);
         void Update(AccountVM StudentViewModel);
-      
+        Task<HasBodyResponse<AccountDetailVM>> GetSelfAccount(long id);
+        
+
 
     }
 }

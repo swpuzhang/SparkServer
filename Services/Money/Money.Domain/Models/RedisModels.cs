@@ -10,20 +10,11 @@ namespace Money.Domain.Models
         {
         }
 
-        public LoginCheckInfo(long id, string platformMoney, int type)
+        public LoginCheckInfo(long id)
         {
             Id = id;
-            PlatformMoney = platformMoney;
-            Type = type;
         }
 
         public Int64 Id { get; private set; }
-
-        public string PlatformMoney { get; private set; }
-        
-        /// <summary>
-        /// 类型
-        /// </summary>
-        public int Type { get; private set; }
     }
 }

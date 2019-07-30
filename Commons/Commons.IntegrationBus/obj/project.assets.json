@@ -686,25 +686,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "E:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\84075\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj",
+      "projectUniqueName": "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj",
       "projectName": "Commons.IntegrationBus",
-      "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.IntegrationBus\\obj\\",
+      "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj",
+      "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
+      "outputPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "E:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\84075\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],

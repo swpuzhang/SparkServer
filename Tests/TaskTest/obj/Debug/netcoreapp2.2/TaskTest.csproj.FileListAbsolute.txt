@@ -9,3 +9,14 @@ E:\document\mycode\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest
 E:\document\mycode\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.AssemblyInfo.cs
 E:\document\mycode\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.dll
 E:\document\mycode\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.pdb
+D:\document\code\project\Spark\Tests\TaskTest\bin\Debug\netcoreapp2.2\TaskTest.deps.json
+D:\document\code\project\Spark\Tests\TaskTest\bin\Debug\netcoreapp2.2\TaskTest.runtimeconfig.json
+D:\document\code\project\Spark\Tests\TaskTest\bin\Debug\netcoreapp2.2\TaskTest.runtimeconfig.dev.json
+D:\document\code\project\Spark\Tests\TaskTest\bin\Debug\netcoreapp2.2\TaskTest.dll
+D:\document\code\project\Spark\Tests\TaskTest\bin\Debug\netcoreapp2.2\TaskTest.pdb
+D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.csproj.CoreCompileInputs.cache
+D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.AssemblyInfoInputs.cache
+D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.AssemblyInfo.cs
+D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.dll
+D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.pdb
+D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.csprojAssemblyReference.cache

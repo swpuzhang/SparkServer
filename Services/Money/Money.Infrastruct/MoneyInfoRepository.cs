@@ -18,24 +18,5 @@ namespace Money.Infrastruct
         {
 
         }
-
-        public MoneyInfo GetByPlatform(string platform)
-        {
-            return _dbCol.Find<MoneyInfo>(e => e.PlatformMoney == platform).FirstOrDefault();
-        }
-
-        public async Task<MoneyInfo> GetByPlatformAsync(string platform)
-        {
-            var all = await _dbCol.FindAsync<MoneyInfo>(e => e.PlatformMoney == platform);
-            if (all == null)
-            {
-                return null;
-            }
-            if (!await all.MoveNextAsync())
-            {
-                return null;
-            }
-            return await all.FirstOrDefaultAsync();
-        }
     }
 }

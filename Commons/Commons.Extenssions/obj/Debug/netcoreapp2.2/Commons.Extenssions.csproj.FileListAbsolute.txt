@@ -8,3 +8,13 @@ E:\document\mycode\project\Spark\Commons\Commons.Extenssions\bin\Debug\netcoreap
 E:\document\mycode\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.dll
 E:\document\mycode\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.pdb
 E:\document\mycode\project\Spark\Commons\Commons.Extenssions\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
+D:\document\code\project\Spark\Commons\Commons.Extenssions\bin\Debug\netcoreapp2.2\Commons.Extenssions.deps.json
+D:\document\code\project\Spark\Commons\Commons.Extenssions\bin\Debug\netcoreapp2.2\Commons.Extenssions.dll
+D:\document\code\project\Spark\Commons\Commons.Extenssions\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
+D:\document\code\project\Spark\Commons\Commons.Extenssions\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
+D:\document\code\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.csproj.CoreCompileInputs.cache
+D:\document\code\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.AssemblyInfoInputs.cache
+D:\document\code\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.AssemblyInfo.cs
+D:\document\code\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.dll
+D:\document\code\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.pdb
+D:\document\code\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.csprojAssemblyReference.cache

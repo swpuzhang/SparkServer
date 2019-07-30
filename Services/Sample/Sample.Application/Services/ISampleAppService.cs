@@ -13,7 +13,6 @@ namespace Sample.Application.Services
     {
         Task<HasBodyResponse<SampleResponse>> Login(SampleVM sampleVM);
         SampleVM GetById(Int64 id);
-        void Update(SampleVM sampleVM);
       
 
     }
