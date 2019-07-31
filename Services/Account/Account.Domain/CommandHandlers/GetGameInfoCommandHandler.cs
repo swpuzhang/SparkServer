@@ -37,7 +37,7 @@ namespace Account.Domain.CommandHandlers
         }
 
 
-        public async Task<HasBodyResponse<GameInfo>> Handle(GetLevelInfoCommand request, 
+        public async Task<HasBodyResponse<GameInfo>> Handle(GetGameInfoCommand request, 
             CancellationToken cancellationToken)
         {
             //读取redis account信息
@@ -59,9 +59,6 @@ namespace Account.Domain.CommandHandlers
             return response;
         }
 
-        public Task<HasBodyResponse<GameInfo>> Handle(GetGameInfoCommand request, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

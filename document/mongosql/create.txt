@@ -1,0 +1,9 @@
+use SkyWatch
+db.UserIdGenInfo.save({"_id":10000000000,"UserId":10000000000})
+db.createCollection("AccountInfo");
+db.AccountInfo.ensureIndex({PlatformAccount:1}, {unique: true});
+db.createCollection("LevelConfig");
+db.LevelConfig.ensureIndex({Level:1}, {unique: true});
+db.LevelConfig.insert( {Level:1, NeedExp:10});
+db.LevelConfig.insert( {Level:2, NeedExp:10});
+

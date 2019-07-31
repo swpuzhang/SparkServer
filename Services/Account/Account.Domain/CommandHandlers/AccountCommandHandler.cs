@@ -29,14 +29,14 @@ namespace Account.Domain.CommandHandlers
         private readonly  IUserIdGenRepository _genRepository;
         private readonly IAccountRedisRepository _redis;
         private readonly IBusControl _mqBus;
-        private readonly IRequestClient<GetMoneyMqResponse> _moneyClient;
+        private readonly IRequestClient<GetMoneyMqCommand> _moneyClient;
         private readonly IMapper _mapper;
         public AccountCommandHandler(IAccountInfoRepository rep,
             IUserIdGenRepository genRepository,
             IAccountRedisRepository redis,
             IMediatorHandler bus,
             IBusControl mqBus, IMapper mapper, 
-            IRequestClient<GetMoneyMqResponse> moneyClient)
+            IRequestClient<GetMoneyMqCommand> moneyClient)
         {
             _accountRepository = rep;
             _genRepository = genRepository;
@@ -57,8 +57,13 @@ namespace Account.Domain.CommandHandlers
             bool isRegister = false;
             if (loginCheckInfo != null)
             {
-                //直接通过ID去数据库查找这个玩家信息
-                accountInfo = await _accountRepository.GetByIdAsync(loginCheckInfo.Id);
+                //直接通过ID去查找这个玩家信息
+                accountInfo = await _redis.GetAccountInfo(loginCheckInfo.Id);
+                if (accountInfo == null)
+                {
+                    accountInfo = await _accountRepository.GetByIdAsync(loginCheckInfo.Id);
+                }
+                
             }
 
             else
@@ -79,10 +84,10 @@ namespace Account.Domain.CommandHandlers
 
             if (accountInfo != null)
             {
+                newAccountInfo.Id = accountInfo.Id;
                 string token = TokenHelper.GenToken(accountInfo.Id);
                 AccountResponse accounResponse = null; 
-                HasBodyResponse <AccountResponse> retRresponse = 
-                    new HasBodyResponse<AccountResponse>(StatuCodeDefines.Success, null, accounResponse);
+                
                 bool isNeedUpdate = false;
                 //如果登录信息有更新, 那么更新数据库
                 if (!isRegister && accountInfo != newAccountInfo)
@@ -91,8 +96,8 @@ namespace Account.Domain.CommandHandlers
                 }
                 if (isRegister)
                 {
-                    accounResponse = new AccountResponse(accountInfo.Id,
-                    accountInfo.PlatformAccount,
+                    accounResponse = new AccountResponse(newAccountInfo.Id,
+                    newAccountInfo.PlatformAccount,
                     newAccountInfo.UserName,
                     newAccountInfo.Sex,
                     newAccountInfo.HeadUrl,
@@ -102,21 +107,12 @@ namespace Account.Domain.CommandHandlers
                 {
                     //查询玩家金币
                     GetMoneyMqResponse moneyResponse = null;
-                    try
-                    {
-                        var mqResponse = await _moneyClient.GetResponse<GetMoneyMqResponse>
+                   
+                    var mqResponse = await _moneyClient.GetResponseExt<GetMoneyMqCommand, HasBodyResponse<GetMoneyMqResponse>>
                             (new GetMoneyMqCommand(accountInfo.Id));
-                        moneyResponse = mqResponse.Message;
-                    }
-                    catch (Exception)
-                    {
-                        return new HasBodyResponse<AccountResponse>(StatuCodeDefines.GetMoneyError,
-                            null, null);
-                    }
-                    
-
-                    accounResponse = new AccountResponse(accountInfo.Id,
-                    accountInfo.PlatformAccount,
+                    moneyResponse = mqResponse.Message.Body;
+                    accounResponse = new AccountResponse(newAccountInfo.Id,
+                    newAccountInfo.PlatformAccount,
                     newAccountInfo.UserName,
                     newAccountInfo.Sex,
                     newAccountInfo.HeadUrl,
@@ -127,10 +123,9 @@ namespace Account.Domain.CommandHandlers
                 }
 
                 _ = _bus.RaiseEvent<LoginEvent>(new LoginEvent(Guid.NewGuid(), 
-                    accounResponse, isRegister, isNeedUpdate, accountInfo));
-
-         
-                
+                    accounResponse, isRegister, isNeedUpdate, newAccountInfo));
+                HasBodyResponse<AccountResponse> retRresponse =
+                    new HasBodyResponse<AccountResponse>(StatuCodeDefines.Success, null, accounResponse);
                 return retRresponse;
             }
 

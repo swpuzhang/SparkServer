@@ -9,9 +9,14 @@
             账号类型
             </summary>
         </member>
-        <member name="F:Commons.Extenssions.Defines.AccountType.FACEBOOK">
+        <member name="F:Commons.Extenssions.Defines.AccountType.Facebook">
             <summary>
-            facebook
+            Facebook
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.AccountType.Twitter">
+            <summary>
+            Twitter
             </summary>
         </member>
         <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.LoginError">

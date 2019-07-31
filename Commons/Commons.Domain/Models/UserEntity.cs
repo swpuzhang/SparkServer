@@ -14,7 +14,7 @@ namespace Commons.Domain.Models
         {
             get;
 
-            protected set;
+            set;
             
         }
 

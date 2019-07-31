@@ -20,7 +20,7 @@ namespace Commons.Domain.RepositoryInterface
         public ReidsLockGuard(RedisHelper redis, string key)
         {
             _redis = redis;
-            _key = key;
+            _key = key + "_l_o_k_e_r";
             _ownValue = Guid.NewGuid().ToString();
         }
         public void Lock(int ms = 3000)

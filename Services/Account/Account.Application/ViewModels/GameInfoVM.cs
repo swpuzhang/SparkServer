@@ -19,8 +19,8 @@ namespace Account.Application.ViewModels
             MaxWinCoins = maxWinCoins;
         }
 
-        public int GameTimes { get; private set; }
-        public int WinTimes { get; private set; }
-        public long MaxWinCoins { get; private set; }
+        public int GameTimes { get; set; }
+        public int WinTimes { get; set; }
+        public long MaxWinCoins { get; set; }
     }
 }

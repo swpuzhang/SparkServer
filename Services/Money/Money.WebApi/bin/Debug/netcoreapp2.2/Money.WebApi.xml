@@ -9,12 +9,5 @@
             账号相关操作
             </summary>
         </member>
-        <member name="M:Money.WebApi.Controllers.MoneyController.Login(Money.Application.ViewModels.MoneyVM)">
-            <summary>
-            登录接口
-            </summary>
-            <param name="model"></param>
-            <returns></returns>
-        </member>
     </members>
 </doc>

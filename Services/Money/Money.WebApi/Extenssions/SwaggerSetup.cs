@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Commons.Extenssions;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -15,12 +16,13 @@ namespace Money.WebApi.Extenssions
 
     public static class SwaggerSetup
     {
-        public static void RegisterSwaggerService(this IServiceCollection services)
+        public static void RegisterSwaggerServices(this IServiceCollection services)
         {
             services.AddSwaggerGen(c =>
             {
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+                c.OperationFilter<HttpHeaderFilter>();
                 c.DescribeAllEnumsAsStrings();
                 
                 var basePath = Directory.GetCurrentDirectory();
@@ -28,11 +30,10 @@ namespace Money.WebApi.Extenssions
                 var viewModelXmlPath = Path.Combine(basePath, $"{Startup.ServiceName}.Application.xml");
                 c.IncludeXmlComments(xmlPath);
                 c.IncludeXmlComments(viewModelXmlPath);
-                
             });
         }
 
-        public static void ConfigSwaggerService(this IApplicationBuilder app)
+        public static void ConfigSwaggerServices(this IApplicationBuilder app)
         {
             app.UseSwagger();
             app.UseSwaggerUI(c =>

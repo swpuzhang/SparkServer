@@ -17,3 +17,5 @@ D:\document\code\project\Spark\Services\Money\Money.Infrastruct\obj\Debug\netcor
 D:\document\code\project\Spark\Services\Money\Money.Infrastruct\obj\Debug\netcoreapp2.2\Money.Infrastruct.csproj.CopyComplete
 D:\document\code\project\Spark\Services\Money\Money.Infrastruct\obj\Debug\netcoreapp2.2\Money.Infrastruct.dll
 D:\document\code\project\Spark\Services\Money\Money.Infrastruct\obj\Debug\netcoreapp2.2\Money.Infrastruct.pdb
+D:\document\code\project\Spark\Services\Money\Money.Infrastruct\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\document\code\project\Spark\Services\Money\Money.Infrastruct\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.xml

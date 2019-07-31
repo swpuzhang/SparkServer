@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>E:\document\mycode\project\Spark\Services\Sample\Sample.WebApi\Sample.WebApi.xml</DocumentationFile>
+    <DocumentationFile>..\..\..\SwaggerInterface\Sample.WebApi.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
@@ -31,6 +31,7 @@
     <PackageReference Include="AutoMapper" Version="8.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
   
   <ItemGroup>

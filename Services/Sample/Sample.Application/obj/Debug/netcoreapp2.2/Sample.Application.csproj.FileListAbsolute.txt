@@ -38,3 +38,5 @@ D:\document\code\project\Spark\Services\Sample\Sample.Application\obj\Debug\netc
 D:\document\code\project\Spark\Services\Sample\Sample.Application\obj\Debug\netcoreapp2.2\Sample.Application.csproj.CopyComplete
 D:\document\code\project\Spark\Services\Sample\Sample.Application\obj\Debug\netcoreapp2.2\Sample.Application.dll
 D:\document\code\project\Spark\Services\Sample\Sample.Application\obj\Debug\netcoreapp2.2\Sample.Application.pdb
+D:\document\code\project\Spark\Services\Sample\Sample.Application\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\document\code\project\Spark\Services\Sample\Sample.Application\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.xml

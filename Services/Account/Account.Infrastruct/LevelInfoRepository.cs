@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Account.Infrastruct
 {
-    public class LevelInfoRepository : MongoUserRepository<LevelInfo>,IlevelInfoRepository
+    public class LevelInfoRepository : MongoUserRepository<LevelInfo>,ILevelInfoRepository
     {
         public LevelInfoRepository(AccountContext context) : base(context.LevelInfos)
         {

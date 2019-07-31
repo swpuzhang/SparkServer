@@ -14,6 +14,11 @@ namespace Account.Application.AutoMapper
         public MappingProfile()
         {
             CreateMap<AccountVM, AccountInfo>().ReverseMap();
+            CreateMap<AccountResponseVM, AccountResponse>().ReverseMap();
+            CreateMap<AccountDetailVM, AccountDetail>().ReverseMap();
+            CreateMap<GameInfoVM, GameInfo>().ReverseMap();
+            CreateMap<LevelInfoVM, LevelInfo>().ReverseMap();
+            CreateMap<MoneyInfoVM, MoneyInfo>().ReverseMap();
             CreateMap<AccountResponse, LoginMqEvent >()
                 .AfterMap((src, dest) =>
                 {

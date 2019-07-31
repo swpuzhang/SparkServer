@@ -20,44 +20,10 @@ namespace Money.WebApi.Controllers
     [ApiController]
     public class MoneyController : ControllerBase
     {
-        private readonly IMoneyAppService _service;
-
-        public MoneyController(IMoneyAppService service)
-        {
-            _service = service;
-        }
-
-
-        /// <summary>
-        /// 登录接口
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        [HttpPost]
-        //[Route("MoneyLogin")]
-        public async Task<HasBodyResponse<MoneyResponse>> Login([FromBody] MoneyVM model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return new HasBodyResponse<MoneyResponse>(StatuCodeDefines.FieldError, null, null);
-                
-            }
-            return await _service.Login(model);
-        }
-
-        [HttpGet("{id}")]
-        //[Route("MoneySelf/id")]
-        public HasBodyResponse<MoneyVM> GetSelfMoney(Int64 id)
-        {
-            return new HasBodyResponse<MoneyVM>(0, null, _service.GetById(id));
-            
-        }
-
         [HttpGet]
-        public HasBodyResponse<MoneyVM> GetOtherMoney(Int64 otherId)
+        public string Test()
         {
-            var money = _service.GetById(otherId);
-            return new HasBodyResponse<MoneyVM>(0, null, money);
+            return "Test";
         }
     }
 }

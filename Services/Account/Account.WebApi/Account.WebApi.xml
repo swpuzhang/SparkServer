@@ -6,7 +6,7 @@
     <members>
         <member name="T:Account.WebApi.Controllers.AccountController">
             <summary>
-            账号相关操作
+            账号相关操作api/Account/Login
             </summary>
         </member>
         <member name="M:Account.WebApi.Controllers.AccountController.Login(Account.Application.ViewModels.AccountVM)">
@@ -14,6 +14,21 @@
             登录接口
             </summary>
             <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Account.WebApi.Controllers.AccountController.GetSelfAccount(System.Int64)">
+            <summary>
+            获取自己的账号信息
+            </summary>
+            <param name="id">玩家ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Account.WebApi.Controllers.AccountController.GetOtherAccount(System.Int64,System.Int64)">
+            <summary>
+            获取其他玩家的信息
+            </summary>
+            <param name="id">玩家ID</param>
+            <param name="otherId">其他玩家ID</param>
             <returns></returns>
         </member>
     </members>

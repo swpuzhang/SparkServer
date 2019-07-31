@@ -15,3 +15,5 @@ D:\document\code\project\Spark\Services\Money\Money.Domain\obj\Debug\netcoreapp2
 D:\document\code\project\Spark\Services\Money\Money.Domain\obj\Debug\netcoreapp2.2\Money.Domain.dll
 D:\document\code\project\Spark\Services\Money\Money.Domain\obj\Debug\netcoreapp2.2\Money.Domain.pdb
 D:\document\code\project\Spark\Services\Money\Money.Domain\obj\Debug\netcoreapp2.2\Money.Domain.csprojAssemblyReference.cache
+D:\document\code\project\Spark\Services\Money\Money.Domain\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\document\code\project\Spark\Services\Money\Money.Domain\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.xml

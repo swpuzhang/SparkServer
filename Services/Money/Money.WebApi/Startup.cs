@@ -32,13 +32,12 @@ namespace Money.WebApi
         {
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddMongoService(Configuration);
+            services.AddMongoServices(Configuration);
             services.AddAutoMapperSetup();
-            services.RegisterSwaggerService();
-            services.RegisterServices();
-            services.AddSingleton<RedisHelper>(new RedisHelper(Configuration["redis:ConnectionString"]));
+            services.RegisterSwaggerServices();
+            services.AddServices(Configuration);
             ContainerBuilder builder = new ContainerBuilder();
-            services.AddMassTransitService(Configuration, builder);
+            services.AddMassTransitServices(Configuration, builder);
             builder.Populate(services);
             return new AutofacServiceProvider(builder.Build());
         }
@@ -50,7 +49,8 @@ namespace Money.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.ConfigSwaggerService();
+            app.ConfigSwaggerServices();
+            app.UseTokenCheck("/api/Account/Login");
             app.UseMvc();
         }
     }

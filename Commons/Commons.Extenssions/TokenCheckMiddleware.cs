@@ -30,42 +30,43 @@ namespace Commons.Extenssions
     public class TokenCheckMiddleware
     {
         private readonly RequestDelegate _next;
+        List<string> _filterApis;
 
-        public TokenCheckMiddleware(RequestDelegate next)
+        public TokenCheckMiddleware(RequestDelegate next, List<string> filterApis)
         {
             _next = next;
+            _filterApis = filterApis;
         }
 
-        public async Task InvokeAsync(HttpContext context, string [] filterApi)
+        public Task InvokeAsync(HttpContext context)
         {
-            if (filterApi != null)
-            {
-                string findPath = filterApi.First(x => x == context.Request.Path);
-                if (!string.IsNullOrEmpty(findPath))
-                {
-                    await _next(context);
-                    return;
-                }
-            }
+            //可选参数始终不为null
             
+           
+           
+            string findPath = _filterApis.FirstOrDefault(x => x == context.Request.Path);
+            if (!string.IsNullOrEmpty(findPath))
+            {
+                return _next(context);
+           }
+
             var token = context.Request.Headers["Authorization"];
             if (string.IsNullOrEmpty(token))
             {
-                 await context.Response.WriteAsync(JsonConvert.SerializeObject(
+                return context.Response.WriteAsync(JsonConvert.SerializeObject(
                     new MiddleResponse(StatuCodeDefines.TokenError, null)));
-                return;
+                ;
                 
             }
             long id = 0;
             var status = TokenHelper.ParseToken(token, out id);
             if (status != StatuCodeDefines.Success)
             {
-                await context.Response.WriteAsync(JsonConvert.SerializeObject(
+                return context.Response.WriteAsync(JsonConvert.SerializeObject(
                     new MiddleResponse(status, null)));
-                return;
             }
             context.Request.Headers["id"] = id.ToString();
-            await _next(context);
+            return _next(context);
         }
 
        
@@ -76,7 +77,7 @@ namespace Commons.Extenssions
         public static IApplicationBuilder UseTokenCheck(
            this IApplicationBuilder builder, params string [] filterApi)
         {
-            return builder.UseMiddleware<TokenCheckMiddleware>();
+            return builder.UseMiddleware<TokenCheckMiddleware>(filterApi.ToList());
         }
     }
 

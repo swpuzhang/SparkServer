@@ -4,10 +4,5 @@
         <name>Money.Application</name>
     </assembly>
     <members>
-        <member name="T:Money.Application.ViewModels.MoneyVM">
-            <summary>
-            接口字段
-            </summary>
-        </member>
     </members>
 </doc>

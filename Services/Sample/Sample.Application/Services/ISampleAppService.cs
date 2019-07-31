@@ -11,7 +11,7 @@ namespace Sample.Application.Services
 {
     public interface ISampleAppService
     {
-        Task<HasBodyResponse<SampleResponse>> Login(SampleVM sampleVM);
+        Task<HasBodyResponse<SampleInfo>> Login(SampleVM sampleVM);
         SampleVM GetById(Int64 id);
       
 

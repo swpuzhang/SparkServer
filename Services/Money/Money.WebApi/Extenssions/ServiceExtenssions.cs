@@ -5,69 +5,30 @@ using Money.Infrastruct;
 using Autofac;
 using Commons.Domain.Models;
 using Commons.Infrastruct;
-using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+using Commons.Domain.Bus;
+using MediatR;
+using Money.Domain.Commands;
+using Money.Domain.Models;
+using Money.Domain.CommandHandlers;
+using Commons.Extenssions;
 
 namespace Money.WebApi.Extenssions
 {
     public static class ServiceExtenssions
     {
-        public static void AddMassTransitService(this IServiceCollection services, IConfiguration Configuration, 
-            ContainerBuilder builder)
+        public static void AddServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddSingleton<IHostedService, HostedService>();
-            builder.AddMassTransit(x =>
-            {
-                x.AddConsumers(Assembly.GetExecutingAssembly());
-                x.AddBus(context => Bus.Factory.CreateUsingRabbitMq(cfg =>
-                {
-                    cfg.UseSerilog();
-                    var rabbitCfg = Configuration.GetSection("rabbitmq");
-                    var host = cfg.Host(rabbitCfg["host"], rabbitCfg["vhost"], h =>
-                    {
-                        h.Username(rabbitCfg["username"]);
-                        h.Password(rabbitCfg["passwd"]);
+            services.AddScoped<IMoneyService, MoneyService>();
+            services.AddScoped<IMoneyInfoRepository, MoneyInfoRepository>();
+            services.AddScoped<IMoneyRedisRepository, MoneyRedisRepository>();
+            services.AddScoped<MoneyContext>();
+            services.AddScoped<IMediatorHandler, InProcessBus>();
+            services.AddScoped<IRequestHandler<GetMoneyCommand, HasBodyResponse<MoneyInfo>>, GetMoneyCommandHandler>();
+            services.AddSingleton<RedisHelper>(new RedisHelper(configuration["redis:ConnectionString"]));
+            services.AddMediatR(typeof(Startup));
 
-                    });
-
-                    cfg.ReceiveEndpoint(rabbitCfg["queue"], ec =>
-                    {
-
-                        ec.ConfigureConsumers(context);
-                        //ec.Consumer(typeof(DoSomethingConsumer), c => Activator.CreateInstance(c));
-                        //特殊消息
-                        //EndpointConvention.Map<DoSomething>(e.InputAddress);
-                    });
-
-                    //cfg.ConfigureEndpoints(context);
-
-
-                }));
-
-                //添加RequestClient
-                //x.AddRequestClient<DoSomething>();
-            });
         }
-
-
-        public static void AddMongoService(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.Configure<MongoSettings>(
-                configuration.GetSection(nameof(MongoSettings)));
-
-            services.AddSingleton<IMongoSettings>(sp =>
-                sp.GetRequiredService<IOptions<MongoSettings>>().Value);
-        }
-       
-
-       
     }
 }

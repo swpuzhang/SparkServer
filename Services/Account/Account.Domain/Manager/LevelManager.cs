@@ -12,7 +12,7 @@ namespace Account.Domain.Manager
     {
         private Dictionary<int, LevelConfig> _levelConfigs = new Dictionary<int, LevelConfig>();
         
-        public void LoadConfig(IlevelConfigRepository repository)
+        public void LoadConfig(ILevelConfigRepository repository)
         {
             var configs = repository.LoadLevelConfig();
             foreach (var oneConfig in configs)

@@ -1,0 +1,243 @@
+2019-07-31 17:27:18.089 +08:00 [INF] CreateWebHostBuilder (Money)...
+2019-07-31 17:27:23.950 +08:00 [INF] User profile is available. Using 'C:\Users\84075\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-31 17:27:25.897 +08:00 [DBG] Starting bus hosts...
+2019-07-31 17:27:26.007 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 17:27:26.275 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 56404)
+2019-07-31 17:27:26.520 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6z7gbdmtmgkcda, type: fanout, auto-delete)
+2019-07-31 17:27:26.520 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-07-31 17:27:26.522 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetMoneyMqCommand, type: fanout, durable)
+2019-07-31 17:27:26.541 +08:00 [DBG] Declare queue (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6z7gbdmtmgkcda, x-expires: 60000)
+2019-07-31 17:27:26.544 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetMoneyMqCommand, destination: Money)
+2019-07-31 17:27:26.558 +08:00 [DBG] Declare queue (name: Money, durable)
+2019-07-31 17:27:26.571 +08:00 [DBG] Bind exchange to queue (source: Money, destination: Money)
+2019-07-31 17:27:26.571 +08:00 [DBG] Bind exchange to queue (source: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6z7gbdmtmgkcda, destination: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6z7gbdmtmgkcda)
+2019-07-31 17:27:26.608 +08:00 [DBG] Setting Prefetch Count: 16
+2019-07-31 17:27:26.608 +08:00 [DBG] Setting Prefetch Count: 16
+2019-07-31 17:27:26.765 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6z7gbdmtmgkcda?durable=false&autodelete=true" - amq.ctag-vAZkwMid858FNJSP3mN55A
+2019-07-31 17:27:26.765 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Money" - amq.ctag-f6Iz9RwGS_i_BAHkTCZUOQ
+2019-07-31 17:27:27.353 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-31 17:27:28.035 +08:00 [INF] Request finished in 685.3279ms 200 
+2019-07-31 17:27:28.078 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2019-07-31 17:27:28.084 +08:00 [INF] Request finished in 5.5389ms 200 
+2019-07-31 17:28:10.025 +08:00 [ERR] R-FAULT rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-337a-08d7159960f4 Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:09.4722555) Missing type map configuration or unsupported mapping.
+
+Mapping types:
+MoneyInfo -> GetMoneyMqResponse
+Money.Domain.Models.MoneyInfo -> Commons.MqCommands.GetMoneyMqResponse
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+MoneyInfo -> GetMoneyMqResponse
+Money.Domain.Models.MoneyInfo -> Commons.MqCommands.GetMoneyMqResponse
+   at lambda_method(Closure , MoneyInfo , GetMoneyMqResponse , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source) in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 212
+   at Money.Application.Services.MoneyService.GetMoney(Int64 id) in D:\document\code\project\Spark\Services\Money\Money.Application\Services\MoneyService.cs:line 32
+   at Money.WebApi.MqConsumers.MoneyConsumer.Consume(ConsumeContext`1 context) in D:\document\code\project\Spark\Services\Money\Money.WebApi\MqConsumers\MoneyConsumer.cs:line 24
+   at MassTransit.Scoping.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next)
+   at MassTransit.Pipeline.Filters.ConsumerMessageFilter`2.GreenPipes.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next)
+2019-07-31 17:28:10.106 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 17:28:10.146 +08:00 [DBG] Declare exchange (name: Money_error, type: fanout, durable)
+2019-07-31 17:28:10.150 +08:00 [DBG] Declare queue (name: Money_error, durable)
+2019-07-31 17:28:10.160 +08:00 [DBG] Bind exchange to queue (source: Money_error, destination: Money_error)
+2019-07-31 17:28:10.231 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6n11bdmtmgmyns, type: fanout, auto-delete)
+2019-07-31 17:28:10.773 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6n11bdmtmgmyns?durable=false&autodelete=true f7e10000-be55-00ff-06dd-08d715996766 MassTransit.Fault<Commons.MqCommands.GetMoneyMqCommand>
+2019-07-31 17:31:06.168 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 17:31:06.177 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9adjbdmtmgcpba, type: fanout, auto-delete)
+2019-07-31 17:31:06.187 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9adjbdmtmgcpba?durable=false&autodelete=true f7e10000-be55-00ff-78bf-08d71599d01a MassTransit.Fault<Commons.MqCommands.GetMoneyMqCommand>
+2019-07-31 17:33:51.627 +08:00 [INF] CreateWebHostBuilder (Money)...
+2019-07-31 17:33:56.554 +08:00 [INF] User profile is available. Using 'C:\Users\84075\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-31 17:33:58.445 +08:00 [DBG] Starting bus hosts...
+2019-07-31 17:33:58.535 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 17:33:58.761 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 56629)
+2019-07-31 17:33:59.030 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9phtbdmtmgtsdj, type: fanout, auto-delete)
+2019-07-31 17:33:59.030 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-07-31 17:33:59.032 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetMoneyMqCommand, type: fanout, durable)
+2019-07-31 17:33:59.067 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetMoneyMqCommand, destination: Money)
+2019-07-31 17:33:59.068 +08:00 [DBG] Declare queue (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9phtbdmtmgtsdj, x-expires: 60000)
+2019-07-31 17:33:59.083 +08:00 [DBG] Declare queue (name: Money, durable)
+2019-07-31 17:33:59.106 +08:00 [DBG] Bind exchange to queue (source: Money, destination: Money)
+2019-07-31 17:33:59.106 +08:00 [DBG] Bind exchange to queue (source: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9phtbdmtmgtsdj, destination: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9phtbdmtmgtsdj)
+2019-07-31 17:33:59.127 +08:00 [DBG] Setting Prefetch Count: 16
+2019-07-31 17:33:59.127 +08:00 [DBG] Setting Prefetch Count: 16
+2019-07-31 17:33:59.224 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9phtbdmtmgtsdj?durable=false&autodelete=true" - amq.ctag-w9bwQ55IZV_fO2_eB-VgjQ
+2019-07-31 17:33:59.224 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Money" - amq.ctag-b55yGFQgf-0kky1iQuHg3A
+2019-07-31 17:34:00.286 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-31 17:34:00.841 +08:00 [INF] Request finished in 566.9321ms 200 
+2019-07-31 17:34:00.888 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2019-07-31 17:34:00.892 +08:00 [INF] Request finished in 4.5997ms 200 
+2019-07-31 17:34:35.801 +08:00 [ERR] R-FAULT rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-673c-08d7159a44dd Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:12.9897202) Missing type map configuration or unsupported mapping.
+
+Mapping types:
+MoneyInfo -> GetMoneyMqResponse
+Money.Domain.Models.MoneyInfo -> Commons.MqCommands.GetMoneyMqResponse
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+MoneyInfo -> GetMoneyMqResponse
+Money.Domain.Models.MoneyInfo -> Commons.MqCommands.GetMoneyMqResponse
+   at lambda_method(Closure , MoneyInfo , GetMoneyMqResponse , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source) in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 212
+   at Money.Application.Services.MoneyService.GetMoney(Int64 id) in D:\document\code\project\Spark\Services\Money\Money.Application\Services\MoneyService.cs:line 32
+   at Money.WebApi.MqConsumers.MoneyConsumer.Consume(ConsumeContext`1 context) in D:\document\code\project\Spark\Services\Money\Money.WebApi\MqConsumers\MoneyConsumer.cs:line 24
+   at MassTransit.Scoping.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next)
+   at MassTransit.Pipeline.Filters.ConsumerMessageFilter`2.GreenPipes.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next)
+2019-07-31 17:34:35.894 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 17:34:35.960 +08:00 [DBG] Declare exchange (name: Money_error, type: fanout, durable)
+2019-07-31 17:34:35.962 +08:00 [DBG] Declare queue (name: Money_error, durable)
+2019-07-31 17:34:35.964 +08:00 [DBG] Bind exchange to queue (source: Money_error, destination: Money_error)
+2019-07-31 17:34:36.015 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx68nwbdmtmg1rni, type: fanout, auto-delete)
+2019-07-31 17:34:40.250 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx68nwbdmtmg1rni?durable=false&autodelete=true f7e10000-be55-00ff-1f98-08d7159a4d2f MassTransit.Fault<Commons.MqCommands.GetMoneyMqCommand>
+2019-07-31 17:34:57.970 +08:00 [DBG] Stopping hosts...
+2019-07-31 17:34:57.998 +08:00 [DBG] Stopping consumer: "rabbitmq://localhost/SkyWatch/Money"
+2019-07-31 17:34:58.020 +08:00 [DBG] Consumer Cancel Ok: "rabbitmq://localhost/SkyWatch/Money" - amq.ctag-b55yGFQgf-0kky1iQuHg3A
+2019-07-31 17:34:58.026 +08:00 [DBG] Consumer completed amq.ctag-b55yGFQgf-0kky1iQuHg3A: 1 received, 1 concurrent
+2019-07-31 17:34:58.032 +08:00 [DBG] Closing model: 2 / SkyWatch@localhost:5672/SkyWatch
+2019-07-31 17:34:58.034 +08:00 [DBG] Stopping consumer: "rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9phtbdmtmgtsdj?durable=false&autodelete=true"
+2019-07-31 17:34:58.036 +08:00 [DBG] Consumer Cancel Ok: "rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9phtbdmtmgtsdj?durable=false&autodelete=true" - amq.ctag-w9bwQ55IZV_fO2_eB-VgjQ
+2019-07-31 17:34:58.036 +08:00 [DBG] Consumer completed amq.ctag-w9bwQ55IZV_fO2_eB-VgjQ: 0 received, 0 concurrent
+2019-07-31 17:34:58.036 +08:00 [DBG] Closing model: 1 / SkyWatch@localhost:5672/SkyWatch
+2019-07-31 17:34:58.097 +08:00 [DBG] Stopping transport: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx68nwbdmtmg1rni
+2019-07-31 17:34:58.141 +08:00 [DBG] Closing model: 3 / SkyWatch@localhost:5672/SkyWatch
+2019-07-31 17:34:58.151 +08:00 [DBG] Disconnecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 17:34:58.163 +08:00 [DBG] Disconnected: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 17:35:56.226 +08:00 [INF] CreateWebHostBuilder (Money)...
+2019-07-31 17:36:01.004 +08:00 [INF] User profile is available. Using 'C:\Users\84075\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-31 17:36:02.871 +08:00 [DBG] Starting bus hosts...
+2019-07-31 17:36:02.958 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 17:36:03.193 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 56704)
+2019-07-31 17:36:03.418 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx68ipbdmtmgwyr7, type: fanout, auto-delete)
+2019-07-31 17:36:03.418 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-07-31 17:36:03.420 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetMoneyMqCommand, type: fanout, durable)
+2019-07-31 17:36:03.451 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetMoneyMqCommand, destination: Money)
+2019-07-31 17:36:03.451 +08:00 [DBG] Declare queue (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx68ipbdmtmgwyr7, x-expires: 60000)
+2019-07-31 17:36:03.458 +08:00 [DBG] Declare queue (name: Money, durable)
+2019-07-31 17:36:03.465 +08:00 [DBG] Bind exchange to queue (source: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx68ipbdmtmgwyr7, destination: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx68ipbdmtmgwyr7)
+2019-07-31 17:36:03.465 +08:00 [DBG] Bind exchange to queue (source: Money, destination: Money)
+2019-07-31 17:36:03.496 +08:00 [DBG] Setting Prefetch Count: 16
+2019-07-31 17:36:03.496 +08:00 [DBG] Setting Prefetch Count: 16
+2019-07-31 17:36:03.610 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx68ipbdmtmgwyr7?durable=false&autodelete=true" - amq.ctag-jD4rsp48SUDytpPqq11KHg
+2019-07-31 17:36:03.610 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Money" - amq.ctag-DELvagGGsaffI_ARrms8cw
+2019-07-31 17:36:04.208 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-31 17:36:04.795 +08:00 [INF] Request finished in 598.2114ms 200 
+2019-07-31 17:36:04.837 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2019-07-31 17:36:04.845 +08:00 [INF] Request finished in 8.393ms 200 
+2019-07-31 17:36:58.815 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 17:36:58.854 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx678obdmtmgwwba, type: fanout, auto-delete)
+2019-07-31 17:36:59.057 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx678obdmtmgwwba?durable=false&autodelete=true f7e10000-be55-00ff-2cf7-08d7159aa252 Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 17:36:59.074 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-3bda-08d7159a94cb Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:22.3555754)
+2019-07-31 17:42:34.682 +08:00 [INF] CreateWebHostBuilder (Money)...
+2019-07-31 17:42:35.814 +08:00 [INF] User profile is available. Using 'C:\Users\84075\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-31 17:42:36.923 +08:00 [DBG] Starting bus hosts...
+2019-07-31 17:42:37.004 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 17:42:37.148 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 56930)
+2019-07-31 17:42:37.298 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx97kcbdmtmg5mr1, type: fanout, auto-delete)
+2019-07-31 17:42:37.298 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-07-31 17:42:37.300 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetMoneyMqCommand, type: fanout, durable)
+2019-07-31 17:42:37.315 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetMoneyMqCommand, destination: Money)
+2019-07-31 17:42:37.316 +08:00 [DBG] Declare queue (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx97kcbdmtmg5mr1, x-expires: 60000)
+2019-07-31 17:42:37.321 +08:00 [DBG] Declare queue (name: Money, durable)
+2019-07-31 17:42:37.327 +08:00 [DBG] Bind exchange to queue (source: Money, destination: Money)
+2019-07-31 17:42:37.327 +08:00 [DBG] Bind exchange to queue (source: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx97kcbdmtmg5mr1, destination: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx97kcbdmtmg5mr1)
+2019-07-31 17:42:37.348 +08:00 [DBG] Setting Prefetch Count: 16
+2019-07-31 17:42:37.348 +08:00 [DBG] Setting Prefetch Count: 16
+2019-07-31 17:42:37.417 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx97kcbdmtmg5mr1?durable=false&autodelete=true" - amq.ctag-Ah46FIb5WMCpkZpT5iIMFA
+2019-07-31 17:42:37.417 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Money" - amq.ctag-mQ6HurU2kFf8L5FSgvqrGQ
+2019-07-31 17:42:58.540 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-07-31 17:42:59.347 +08:00 [INF] Request finished in 813.468ms 200 
+2019-07-31 17:42:59.410 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2019-07-31 17:42:59.424 +08:00 [INF] Request finished in 13.8991ms 200 
+2019-07-31 17:43:32.589 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/  
+2019-07-31 17:43:32.600 +08:00 [INF] Request finished in 10.8855ms 301 
+2019-07-31 17:43:32.601 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html  
+2019-07-31 17:43:32.713 +08:00 [INF] Request finished in 111.7181ms 200 text/html
+2019-07-31 17:45:17.112 +08:00 [INF] Connection id "0HLOLJDRH70OE" bad request data: "Invalid request line: '\x16\x03\x01\x02\x00\x01\x00\x01\xFC\x03\x03\xCE\x91(MC\x9B\xEB!\x8C\x19\x10\xF1\xBE\x90\x8C\xCA\xD1j\x1F\x85Fa;;H4\x18\xFB0\xBE\xBFg q\xC9"\x03F\xDDL2p\x86x\x99Cu\xF0_W[c \x0E\x06\xE6\xC8\x97\xD2 \x95\xA5rj\xA8\x00"\x1A\x1A\x13\x01\x13\x02\x13\x03\xC0+\xC0/\xC0,\xC00\xCC\xA9\xCC\xA8\xC0\x13\xC0\x14\x00\x9C\x00\x9D\x00/\x005\x00\x0A'"
+Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException: Invalid request line: '\x16\x03\x01\x02\x00\x01\x00\x01\xFC\x03\x03\xCE\x91(MC\x9B\xEB!\x8C\x19\x10\xF1\xBE\x90\x8C\xCA\xD1j\x1F\x85Fa;;H4\x18\xFB0\xBE\xBFg q\xC9"\x03F\xDDL2p\x86x\x99Cu\xF0_W[c \x0E\x06\xE6\xC8\x97\xD2 \x95\xA5rj\xA8\x00"\x1A\x1A\x13\x01\x13\x02\x13\x03\xC0+\xC0/\xC0,\xC00\xCC\xA9\xCC\xA8\xC0\x13\xC0\x14\x00\x9C\x00\x9D\x00/\x005\x00\x0A'
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.RejectRequestLine(Byte* requestLine, Int32 length)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.GetUnknownMethod(Byte* data, Int32 length, Int32& methodLength)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.ParseRequestLine(TRequestHandler handler, Byte* data, Int32 length)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.ParseRequestLine(TRequestHandler handler, ReadOnlySequence`1& buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.IHttpParser<TRequestHandler>.ParseRequestLine(TRequestHandler handler, ReadOnlySequence`1& buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.TakeStartLine(ReadOnlySequence`1 buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.ParseRequest(ReadOnlySequence`1 buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.TryParseRequest(ReadResult result, Boolean& endConnection)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequestsAsync[TContext](IHttpApplication`1 application)
+2019-07-31 17:45:17.112 +08:00 [INF] Connection id "0HLOLJDRH70OF" bad request data: "Invalid request line: '\x16\x03\x01\x02\x00\x01\x00\x01\xFC\x03\x03\x80ZV\xA75'\xA2u<\xCA\x94\x8B'Q\xA5\x95C\x9F\xF5\x89\xCE\x9Dn\xA6\xAEYCX\xF0\xDAc\xA4 \xE5a\xBDBQ,d\x91\xA2\x96+y\x98\\x1B\x9Fou\xB7\x1D}>\xE5\xD0\x10X\xFA\xCDTJ\xB3\xF2\x00"JJ\x13\x01\x13\x02\x13\x03\xC0+\xC0/\xC0,\xC00\xCC\xA9\xCC\xA8\xC0\x13\xC0\x14\x00\x9C\x00\x9D\x00/\x005\x00\x0A'"
+Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException: Invalid request line: '\x16\x03\x01\x02\x00\x01\x00\x01\xFC\x03\x03\x80ZV\xA75'\xA2u<\xCA\x94\x8B'Q\xA5\x95C\x9F\xF5\x89\xCE\x9Dn\xA6\xAEYCX\xF0\xDAc\xA4 \xE5a\xBDBQ,d\x91\xA2\x96+y\x98\\x1B\x9Fou\xB7\x1D}>\xE5\xD0\x10X\xFA\xCDTJ\xB3\xF2\x00"JJ\x13\x01\x13\x02\x13\x03\xC0+\xC0/\xC0,\xC00\xCC\xA9\xCC\xA8\xC0\x13\xC0\x14\x00\x9C\x00\x9D\x00/\x005\x00\x0A'
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.RejectRequestLine(Byte* requestLine, Int32 length)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.GetUnknownMethod(Byte* data, Int32 length, Int32& methodLength)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.ParseRequestLine(TRequestHandler handler, Byte* data, Int32 length)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.ParseRequestLine(TRequestHandler handler, ReadOnlySequence`1& buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.IHttpParser<TRequestHandler>.ParseRequestLine(TRequestHandler handler, ReadOnlySequence`1& buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.TakeStartLine(ReadOnlySequence`1 buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.ParseRequest(ReadOnlySequence`1 buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.TryParseRequest(ReadResult result, Boolean& endConnection)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequestsAsync[TContext](IHttpApplication`1 application)
+2019-07-31 17:45:17.170 +08:00 [INF] Connection id "0HLOLJDRH70OG" bad request data: "Invalid request line: '\x16\x03\x01\x00\xC3\x01\x00\x00\xBF\x03\x03n\x11\xB2\xEF\x0E\xDC\xCB\x83\x9B#\xCBm\xE9\x9D\xE4\xDB:\x1E\xA8\xBD\fJt\x9C\xDC\x14\x92j\x90\xEEh\x00\x00\x1Cjj\xC0+\xC0/\xC0,\xC00\xCC\xA9\xCC\xA8\xC0\x13\xC0\x14\x00\x9C\x00\x9D\x00/\x005\x00\x0A'"
+Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException: Invalid request line: '\x16\x03\x01\x00\xC3\x01\x00\x00\xBF\x03\x03n\x11\xB2\xEF\x0E\xDC\xCB\x83\x9B#\xCBm\xE9\x9D\xE4\xDB:\x1E\xA8\xBD\fJt\x9C\xDC\x14\x92j\x90\xEEh\x00\x00\x1Cjj\xC0+\xC0/\xC0,\xC00\xCC\xA9\xCC\xA8\xC0\x13\xC0\x14\x00\x9C\x00\x9D\x00/\x005\x00\x0A'
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.RejectRequestLine(Byte* requestLine, Int32 length)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.GetUnknownMethod(Byte* data, Int32 length, Int32& methodLength)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.ParseRequestLine(TRequestHandler handler, Byte* data, Int32 length)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.ParseRequestLine(TRequestHandler handler, ReadOnlySequence`1& buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.IHttpParser<TRequestHandler>.ParseRequestLine(TRequestHandler handler, ReadOnlySequence`1& buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.TakeStartLine(ReadOnlySequence`1 buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.ParseRequest(ReadOnlySequence`1 buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.TryParseRequest(ReadResult result, Boolean& endConnection)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequestsAsync[TContext](IHttpApplication`1 application)
+2019-07-31 18:02:20.898 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 18:02:20.947 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx67hmbdmtm8oyrq, type: fanout, auto-delete)
+2019-07-31 18:02:21.184 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx67hmbdmtm8oyrq?durable=false&autodelete=true f7e10000-be55-00ff-6775-08d7159e2d8f Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:02:21.210 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-07af-08d7159e2c3b Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:01.9525101)
+2019-07-31 18:03:15.731 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 18:03:15.737 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6fxmbdmtm81pnu, type: fanout, auto-delete)
+2019-07-31 18:03:15.741 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6fxmbdmtm81pnu?durable=false&autodelete=true f7e10000-be55-00ff-f13c-08d7159e4e35 Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:03:15.741 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-eb2c-08d7159e4e0d Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:00.0173914)
+2019-07-31 18:08:33.006 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 18:08:33.011 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9tp8bdmtm8z4yx, type: fanout, auto-delete)
+2019-07-31 18:08:33.015 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9tp8bdmtm8z4yx?durable=false&autodelete=true f7e10000-be55-00ff-1f85-08d7159f0b52 Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:08:33.015 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-1c76-08d7159f0b2d Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:00.0136642)
+2019-07-31 18:43:14.174 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 18:43:14.177 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9x8gbdmtme77go, type: fanout, auto-delete)
+2019-07-31 18:43:14.181 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9x8gbdmtme77go?durable=false&autodelete=true f7e10000-be55-00ff-db1f-08d715a3e3ca Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:43:14.182 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-cdba-08d715a3e3a0 Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:00.0139771)
+2019-07-31 18:52:28.307 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 18:52:28.310 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6in9bdmtmjexd3, type: fanout, auto-delete)
+2019-07-31 18:52:28.315 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6in9bdmtmjexd3?durable=false&autodelete=true f7e10000-be55-00ff-0aed-08d715a52e15 Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:52:28.315 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-1e17-08d715a5270a Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:00.0128912)
+2019-07-31 18:55:48.460 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 18:55:48.468 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9x5zbdmtmjccgt, type: fanout, auto-delete)
+2019-07-31 18:55:48.471 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9x5zbdmtmjccgt?durable=false&autodelete=true f7e10000-be55-00ff-87b0-08d715a5a562 Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:55:48.471 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-fc56-08d715a5a537 Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:00.0135467)
+2019-07-31 18:58:47.736 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 18:58:47.739 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6spmbdmtmjx7dp, type: fanout, auto-delete)
+2019-07-31 18:58:47.742 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6spmbdmtmjx7dp?durable=false&autodelete=true f7e10000-be55-00ff-14bc-08d715a6103d Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:58:47.742 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-49b8-08d715a61017 Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:00.0088726)
+2019-07-31 19:13:04.461 +08:00 [DBG] Stopping hosts...
+2019-07-31 19:13:04.495 +08:00 [DBG] Stopping consumer: "rabbitmq://localhost/SkyWatch/Money"
+2019-07-31 19:13:04.510 +08:00 [DBG] Consumer Cancel Ok: "rabbitmq://localhost/SkyWatch/Money" - amq.ctag-mQ6HurU2kFf8L5FSgvqrGQ
+2019-07-31 19:13:04.513 +08:00 [DBG] Stopping consumer: "rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx97kcbdmtmg5mr1?durable=false&autodelete=true"
+2019-07-31 19:13:04.514 +08:00 [DBG] Consumer Cancel Ok: "rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx97kcbdmtmg5mr1?durable=false&autodelete=true" - amq.ctag-Ah46FIb5WMCpkZpT5iIMFA
+2019-07-31 19:13:04.516 +08:00 [DBG] Consumer completed amq.ctag-Ah46FIb5WMCpkZpT5iIMFA: 0 received, 0 concurrent
+2019-07-31 19:13:04.516 +08:00 [DBG] Consumer completed amq.ctag-mQ6HurU2kFf8L5FSgvqrGQ: 7 received, 1 concurrent
+2019-07-31 19:13:04.519 +08:00 [DBG] Closing model: 1 / SkyWatch@localhost:5672/SkyWatch
+2019-07-31 19:13:04.519 +08:00 [DBG] Closing model: 2 / SkyWatch@localhost:5672/SkyWatch
+2019-07-31 19:13:04.564 +08:00 [DBG] Stopping transport: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx67hmbdmtm8oyrq
+2019-07-31 19:13:04.582 +08:00 [DBG] Stopping transport: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6fxmbdmtm81pnu
+2019-07-31 19:13:04.582 +08:00 [DBG] Stopping transport: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9tp8bdmtm8z4yx
+2019-07-31 19:13:04.582 +08:00 [DBG] Stopping transport: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9x8gbdmtme77go
+2019-07-31 19:13:04.582 +08:00 [DBG] Stopping transport: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6in9bdmtmjexd3
+2019-07-31 19:13:04.582 +08:00 [DBG] Stopping transport: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9x5zbdmtmjccgt
+2019-07-31 19:13:04.582 +08:00 [DBG] Stopping transport: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6spmbdmtmjx7dp
+2019-07-31 19:13:04.591 +08:00 [DBG] Closing model: 8 / SkyWatch@localhost:5672/SkyWatch
+2019-07-31 19:13:04.591 +08:00 [DBG] Closing model: 3 / SkyWatch@localhost:5672/SkyWatch
+2019-07-31 19:13:04.591 +08:00 [DBG] Closing model: 5 / SkyWatch@localhost:5672/SkyWatch
+2019-07-31 19:13:04.591 +08:00 [DBG] Closing model: 9 / SkyWatch@localhost:5672/SkyWatch
+2019-07-31 19:13:04.591 +08:00 [DBG] Closing model: 4 / SkyWatch@localhost:5672/SkyWatch
+2019-07-31 19:13:04.591 +08:00 [DBG] Closing model: 6 / SkyWatch@localhost:5672/SkyWatch
+2019-07-31 19:13:04.591 +08:00 [DBG] Closing model: 7 / SkyWatch@localhost:5672/SkyWatch
+2019-07-31 19:13:04.598 +08:00 [DBG] Disconnecting: SkyWatch@localhost:5672/SkyWatch
+2019-07-31 19:13:04.607 +08:00 [DBG] Disconnected: SkyWatch@localhost:5672/SkyWatch

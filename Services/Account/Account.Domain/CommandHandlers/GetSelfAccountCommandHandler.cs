@@ -29,14 +29,14 @@ namespace Account.Domain.CommandHandlers
         private readonly  IUserIdGenRepository _genRepository;
         private readonly IAccountRedisRepository _redis;
         private readonly IBusControl _mqBus;
-        private readonly IRequestClient<GetMoneyMqResponse> _moneyClient;
+        private readonly IRequestClient<GetMoneyMqCommand> _moneyClient;
         private readonly IMapper _mapper;
         public GetSelfAccountCommandHandler(IAccountInfoRepository rep,
             IUserIdGenRepository genRepository,
             IAccountRedisRepository redis,
             IMediatorHandler bus,
             IBusControl mqBus, IMapper mapper, 
-            IRequestClient<GetMoneyMqResponse> moneyClient)
+            IRequestClient<GetMoneyMqCommand> moneyClient)
         {
             _accountRepository = rep;
             _genRepository = genRepository;
@@ -52,13 +52,15 @@ namespace Account.Domain.CommandHandlers
         {
             //读取redis account信息
             var tAccount = _redis.GetAccountInfo(request.Id);
-            var tMoney = _moneyClient.GetResponse<GetMoneyMqResponse>
+            var tMoney = _moneyClient.GetResponseExt<GetMoneyMqCommand, HasBodyResponse<GetMoneyMqResponse>>
                             (new GetMoneyMqCommand(request.Id));
           
             var tLevel = _bus.SendCommand(new GetLevelInfoCommand(request.Id));
             var tGame = _bus.SendCommand(new GetGameInfoCommand(request.Id));
             var accountInfo = await tAccount;
-            var moneyInfo = await tMoney;
+            var moneyInfores = await tMoney;
+            var moneyInfo = new MoneyInfo(moneyInfores.Message.Body.CurChips, moneyInfores.Message.Body.CurDiamonds,
+                moneyInfores.Message.Body.MaxChips, moneyInfores.Message.Body.MaxDiamonds);
             var levelInfo = await tLevel;
             var gameInfo = await tGame;
             if (accountInfo == null || moneyInfo == null || levelInfo == null || gameInfo == null)
@@ -69,7 +71,7 @@ namespace Account.Domain.CommandHandlers
             HasBodyResponse<AccountDetail> response = new HasBodyResponse<AccountDetail>(StatuCodeDefines.Success,
                 null, new AccountDetail(accountInfo.Id, accountInfo.PlatformAccount,
                 accountInfo.UserName, accountInfo.Sex, accountInfo.HeadUrl,
-                accountInfo.Type, levelInfo.Body, gameInfo.Body));
+                accountInfo.Type, levelInfo.Body, gameInfo.Body, moneyInfo));
             
             return response;
 

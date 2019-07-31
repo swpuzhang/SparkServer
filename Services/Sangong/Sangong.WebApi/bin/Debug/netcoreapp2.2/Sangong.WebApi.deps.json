@@ -1301,9 +1301,11 @@
       },
       "Commons.Extenssions/1.0.0": {
         "dependencies": {
+          "MassTransit": "5.5.3",
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Newtonsoft.Json": "12.0.2",
-          "StackExchange.Redis": "2.0.601"
+          "StackExchange.Redis": "2.0.601",
+          "Swashbuckle.AspNetCore.Swagger": "4.0.1"
         },
         "runtime": {
           "Commons.Extenssions.dll": {}

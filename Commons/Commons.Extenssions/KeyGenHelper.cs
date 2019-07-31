@@ -19,7 +19,7 @@ namespace Commons.Extenssions
             
             foreach (var key in ps)
             {
-                strbuilder.Append("-");
+                strbuilder.Append("|");
                 strbuilder.Append(key);
             }
             return strbuilder.ToString();

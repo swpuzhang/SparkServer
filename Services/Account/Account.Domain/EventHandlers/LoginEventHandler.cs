@@ -18,17 +18,15 @@ namespace Account.Domain.EventHandlers
     public class LoginEventHandler : INotificationHandler<LoginEvent>
     {
         private readonly IAccountInfoRepository _accountRepository;
-        private readonly IUserIdGenRepository _genRepository;
         private readonly IAccountRedisRepository _redis;
         private readonly IBusControl _mqBus;
         private readonly IMapper _mapper;
         public LoginEventHandler(IAccountInfoRepository rep,
-            IUserIdGenRepository genRepository,
             IAccountRedisRepository redis,
-            IBusControl mqBus, IMapper mapper)
+            IBusControl mqBus, 
+            IMapper mapper)
         {
             _accountRepository = rep;
-            _genRepository = genRepository;
             _redis = redis;
             _mqBus = mqBus;
             _mapper = mapper;

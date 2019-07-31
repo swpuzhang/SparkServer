@@ -10,13 +10,63 @@ namespace JsonTest
         public int Age { get; set; }
         public string Address { get; set; }
     }
+
+    public class AccountInfo
+    {
+        public long Id { get; private set; }
+        public string PlatformAccount { get; private set; }
+
+        public string UserName { get; private set; }
+
+        public int Sex { get; private set; }
+
+        public string HeadUrl { get; private set; }
+
+        public int Type { get; set; }
+
+        public AccountInfo()
+        {
+
+        }
+
+        [JsonConstructor]
+        public AccountInfo(long id, string platformAccount, string userName, int sex, string headUrl, int type)
+        {
+            Id = id;
+            PlatformAccount = platformAccount;
+            UserName = userName;
+            Sex = sex;
+            HeadUrl = headUrl;
+            Type = type;
+        }
+
+
+        public override bool Equals(object obj)
+        {
+            return obj is AccountInfo info &&
+                   PlatformAccount == info.PlatformAccount &&
+                   UserName == info.UserName &&
+                   Sex == info.Sex &&
+                   HeadUrl == info.HeadUrl &&
+                   Type == info.Type;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+    }
+
     class Program
     {
 
         static void Main(string[] args)
         {
+            string str = "{\"PlatformAccount\":\"facebookzhangyang\",\"UserName\":\"zhangyang\",\"Sex\":0,\"HeadUrl\":\"www.baidu.com\",\"Type\":0,\"Id\":10000000002}";
+            var account = JsonConvert.DeserializeObject<AccountInfo>(str);
+            Console.WriteLine("111");
             /**/
-            Person p = new Person()
+            /*Person p = new Person()
             {
                 Id = 1,
                 Name = "zhangyang",
@@ -48,7 +98,7 @@ namespace JsonTest
             catch (JsonSerializationException ex)
             {
                 Console.WriteLine(ex.Message);
-            }
+            }*/
 
         }
     }

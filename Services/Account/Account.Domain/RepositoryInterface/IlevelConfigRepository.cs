@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Account.Domain.RepositoryInterface
 {
-    public interface IlevelConfigRepository
+    public interface ILevelConfigRepository
     {
         List<LevelConfig> LoadLevelConfig();
     }

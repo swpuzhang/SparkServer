@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Account.Domain.RepositoryInterface
 {
-    public interface IlevelInfoRepository : IMongoUserRepository<LevelInfo>
+    public interface ILevelInfoRepository : IMongoUserRepository<LevelInfo>
     {
         
     }

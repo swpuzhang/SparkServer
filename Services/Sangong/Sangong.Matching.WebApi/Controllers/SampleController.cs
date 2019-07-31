@@ -35,11 +35,11 @@ namespace Sangong.Matching.WebApi.Controllers
         /// <returns></returns>
         [HttpPost]
         //[Route("SampleLogin")]
-        public async Task<HasBodyResponse<SampleResponse>> Login([FromBody] SampleVM model)
+        public async Task<HasBodyResponse<SampleInfo>> Login([FromBody] SampleVM model)
         {
             if (!ModelState.IsValid)
             {
-                return new HasBodyResponse<SampleResponse>(StatuCodeDefines.FieldError, null, null);
+                return new HasBodyResponse<SampleInfo>(StatuCodeDefines.FieldError, null, null);
                 
             }
             return await _service.Login(model);

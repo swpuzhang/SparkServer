@@ -9,34 +9,46 @@ using Account.Domain.Models;
 namespace Account.Application.ViewModels
 {
     /// <summary>
-    /// 接口字段
+    /// 登录账号信息
     /// </summary>
     public class AccountVM
     {
-        public string PlatformAccount { get; private set; }
+        /// <summary>
+        /// 平台账号
+        /// </summary>
+        public string PlatformAccount { get;  set; }
 
-        public string UserName { get; private set; }
+        /// <summary>
+        /// 平台账号名
+        /// </summary>
+        public string UserName { get;  set; }
 
-        public int Sex { get; private set; }
+        /// <summary>
+        /// 性别0 男， 1女
+        /// </summary>
+        public int Sex { get; set; }
 
-        public string HeadUrl { get; private set; }
+        /// <summary>
+        /// 平台头像url
+        /// </summary>
+        public string HeadUrl { get; set; }
 
         /// <summary>
         /// 账号类型
         /// </summary>
-        public int Type { get; set; }
+        public AccountType Type { get; set; }
 
         public AccountVM()
         {
 
         }
 
-        public AccountVM(string account, string name, int sex, string head, int type)
+        public AccountVM(string platformAccount, string userName, int sex, string headUrl, AccountType type)
         {
-            PlatformAccount = account;
-            UserName = name;
+            PlatformAccount = platformAccount;
+            UserName = userName;
             Sex = sex;
-            HeadUrl = head;
+            HeadUrl = headUrl;
             Type = type;
         }
     }
@@ -49,11 +61,9 @@ namespace Account.Application.ViewModels
         }
 
         public AccountResponseVM( string platformAccount,
-            string userName, int sex, string headUrl,
+            string userName, int sex, string headUrl, AccountType type,
             string token, long curChips,
-            long curDiamonds = 0,
-            long maxChips = 0,
-            long maxDiamonds = 0)
+            long curDiamonds)
         {
             PlatformAccount = platformAccount;
             UserName = userName;
@@ -62,20 +72,46 @@ namespace Account.Application.ViewModels
             Token = token;
             CurChips = curChips;
             CurDiamonds = curDiamonds;
-            MaxChips = maxChips;
-            MaxDiamonds = maxDiamonds;
+            Type = type;
         }
 
-        public string PlatformAccount { get; private set; }
-        public string UserName { get; private set; }
-        public int Sex { get; private set; }
-        public string HeadUrl { get; private set; }
+        /// <summary>
+        /// 平台账号
+        /// </summary>
+        public string PlatformAccount { get; set; }
 
-        public long CurChips { get; private set; }
-        public long CurDiamonds { get; private set; }
-        public long MaxChips { get; private set; }
-        public long MaxDiamonds { get; private set; }
+        /// <summary>
+        /// 平台账号名
+        /// </summary>
+        public string UserName { get; set; }
 
+        /// <summary>
+        /// 性别0 男， 1女
+        /// </summary>
+        public int Sex { get; set; }
+
+        /// <summary>
+        /// 平台头像url
+        /// </summary>
+        public string HeadUrl { get; set; }
+
+        /// <summary>
+        /// 账号类型
+        /// </summary>
+        public AccountType Type { get; set; }
+
+        /// <summary>
+        /// 当前金币
+        /// </summary>
+        public long CurChips { get; set; }
+
+        /// <summary>
+        /// 当前砖石数
+        /// </summary>
+        public long CurDiamonds { get; set; }
+        /// <summary>
+        /// Token
+        /// </summary>
         public string Token { get; set; }
     }
 

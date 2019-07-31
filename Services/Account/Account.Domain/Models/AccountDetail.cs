@@ -26,24 +26,27 @@ namespace Account.Domain.Models
 
         public GameInfo GameInfo { get; private set; }
 
+        public MoneyInfo MoneyInfo { get; private set; }
+
         public AccountDetail()
         {
 
         }
 
         [JsonConstructor]
-        public AccountDetail(long id, string account, string name, 
-            int sex, string head, int type, 
-            LevelInfo levelInfo, GameInfo gameInfo)
+        public AccountDetail(long id, string platformAccount, string userName,
+            int sex, string headUrl, int type,
+            LevelInfo levelInfo, GameInfo gameInfo, MoneyInfo moneyInfo)
         {
             Id = id;
-            PlatformAccount = account;
-            UserName = name;
+            PlatformAccount = platformAccount;
+            UserName = userName;
             Sex = sex;
-            HeadUrl = head;
+            HeadUrl = headUrl;
             Type = type;
             LevelInfo = levelInfo;
             GameInfo = gameInfo;
+            MoneyInfo = moneyInfo;
         }
 
     }

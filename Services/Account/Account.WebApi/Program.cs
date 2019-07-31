@@ -39,7 +39,9 @@ namespace Account.WebApi
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables()
+                
                 .AddCommandLine(args);
+            
             return builder.Build();
         }
 

@@ -17,3 +17,5 @@ D:\document\code\project\Spark\Services\Sangong\Sangong.Infrastruct\obj\Debug\ne
 D:\document\code\project\Spark\Services\Sangong\Sangong.Infrastruct\obj\Debug\netcoreapp2.2\Sangong.Infrastruct.csproj.CopyComplete
 D:\document\code\project\Spark\Services\Sangong\Sangong.Infrastruct\obj\Debug\netcoreapp2.2\Sangong.Infrastruct.dll
 D:\document\code\project\Spark\Services\Sangong\Sangong.Infrastruct\obj\Debug\netcoreapp2.2\Sangong.Infrastruct.pdb
+D:\document\code\project\Spark\Services\Sangong\Sangong.Infrastruct\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\document\code\project\Spark\Services\Sangong\Sangong.Infrastruct\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.xml

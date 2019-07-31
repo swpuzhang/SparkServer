@@ -18,3 +18,6 @@ D:\document\code\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2
 D:\document\code\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.dll
 D:\document\code\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.pdb
 D:\document\code\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.csprojAssemblyReference.cache
+D:\document\code\project\Spark\Commons\Commons.Extenssions\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\document\code\project\Spark\Commons\Commons.Extenssions\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.xml
+D:\document\code\project\Spark\Commons\Commons.Extenssions\obj\Debug\netcoreapp2.2\Commons.Extenssions.csproj.CopyComplete

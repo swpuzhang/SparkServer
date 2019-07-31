@@ -32,3 +32,5 @@ D:\document\code\project\Spark\Tests\SignalRTest\obj\Debug\netcoreapp2.2\SignalR
 D:\document\code\project\Spark\Tests\SignalRTest\obj\Debug\netcoreapp2.2\SignalRTest.csproj.CopyComplete
 D:\document\code\project\Spark\Tests\SignalRTest\obj\Debug\netcoreapp2.2\SignalRTest.dll
 D:\document\code\project\Spark\Tests\SignalRTest\obj\Debug\netcoreapp2.2\SignalRTest.pdb
+D:\document\code\project\Spark\Tests\SignalRTest\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\document\code\project\Spark\Tests\SignalRTest\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.xml

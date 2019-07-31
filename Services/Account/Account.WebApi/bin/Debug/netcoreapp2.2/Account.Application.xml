@@ -11,12 +11,72 @@
         </member>
         <member name="T:Account.Application.ViewModels.AccountVM">
             <summary>
-            接口字段
+            登录账号信息
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountVM.PlatformAccount">
+            <summary>
+            平台账号
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountVM.UserName">
+            <summary>
+            平台账号名
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountVM.Sex">
+            <summary>
+            性别0 男， 1女
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountVM.HeadUrl">
+            <summary>
+            平台头像url
             </summary>
         </member>
         <member name="P:Account.Application.ViewModels.AccountVM.Type">
             <summary>
             账号类型
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.PlatformAccount">
+            <summary>
+            平台账号
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.UserName">
+            <summary>
+            平台账号名
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.Sex">
+            <summary>
+            性别0 男， 1女
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.HeadUrl">
+            <summary>
+            平台头像url
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.Type">
+            <summary>
+            账号类型
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.CurChips">
+            <summary>
+            当前金币
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.CurDiamonds">
+            <summary>
+            当前砖石数
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.Token">
+            <summary>
+            Token
             </summary>
         </member>
     </members>

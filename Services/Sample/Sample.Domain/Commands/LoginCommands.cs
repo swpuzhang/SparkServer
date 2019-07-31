@@ -9,10 +9,10 @@ using Sample.Domain.Models;
 namespace Sample.Domain.Commands
 {
     //public class LoginCommands : Command<HasBodyResponse<SampleResponse>
-    public class LoginCommand : Command<HasBodyResponse<SampleResponse>>
+    public class SampleCommand : Command<HasBodyResponse<SampleInfo>>
     {
         public SampleInfo Info { get; private set; }
-        public LoginCommand(SampleInfo info)
+        public SampleCommand(SampleInfo info)
         {
             Info = info;
         }

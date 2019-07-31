@@ -1,4 +1,5 @@
-﻿using Commons.Extenssions;
+﻿using Commons.Domain.RepositoryInterface;
+using Commons.Extenssions;
 using Sample.Domain.RepositoryInterface;
 using System;
 using System.Collections.Generic;
@@ -6,14 +7,12 @@ using System.Text;
 
 namespace Sample.Infrastruct
 {
-    public class SampleRedisRepository : ISampleRedisRepository
+    public class SampleRedisRepository : RedisRepository, ISampleRedisRepository
     {
 
-        private RedisHelper _redis;
-
-        public SampleRedisRepository(RedisHelper redis)
+        public SampleRedisRepository(RedisHelper redis) : base(redis)
         {
-            _redis = redis;
+
         }
     }
 }

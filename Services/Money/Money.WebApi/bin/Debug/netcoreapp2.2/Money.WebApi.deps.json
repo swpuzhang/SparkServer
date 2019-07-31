@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "e128e10c6561163f599610fb81c884fd9da2e998"
+    "signature": "d069eb5ce49fd4c4b45eca4753a87cceb2c14c63"
   },
   "compilationOptions": {
     "defines": [
@@ -31,9 +31,12 @@
           "Commons.Domain": "1.0.0",
           "Commons.Extenssions": "1.0.0",
           "Commons.Infrastruct": "1.0.0",
+          "Commons.IntegrationBus": "1.0.0",
           "MassTransit.Autofac": "5.5.3",
           "MassTransit.RabbitMQ": "5.5.3",
           "MassTransit.SerilogIntegration": "5.5.3",
+          "MediatR": "7.0.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "7.0.0",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "2.2.0",
@@ -221,6 +224,21 @@
         },
         "compile": {
           "lib/netstandard2.0/MediatR.dll": {}
+        }
+      },
+      "MediatR.Extensions.Microsoft.DependencyInjection/7.0.0": {
+        "dependencies": {
+          "MediatR": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MediatR.Extensions.Microsoft.DependencyInjection.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/MediatR.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
       "Microsoft.AspNetCore.Http/2.2.2": {
@@ -1301,9 +1319,11 @@
       },
       "Commons.Extenssions/1.0.0": {
         "dependencies": {
+          "MassTransit": "5.5.3",
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Newtonsoft.Json": "12.0.2",
-          "StackExchange.Redis": "2.0.601"
+          "StackExchange.Redis": "2.0.601",
+          "Swashbuckle.AspNetCore.Swagger": "4.0.1"
         },
         "runtime": {
           "Commons.Extenssions.dll": {}
@@ -1325,10 +1345,19 @@
           "Commons.Infrastruct.dll": {}
         }
       },
+      "Commons.IntegrationBus/1.0.0": {
+        "runtime": {
+          "Commons.IntegrationBus.dll": {}
+        },
+        "compile": {
+          "Commons.IntegrationBus.dll": {}
+        }
+      },
       "Money.Application/1.0.0": {
         "dependencies": {
           "AutoMapper": "8.1.1",
           "Commons.Infrastruct": "1.0.0",
+          "Commons.IntegrationBus": "1.0.0",
           "Money.Domain": "1.0.0"
         },
         "runtime": {
@@ -4561,6 +4590,13 @@
       "path": "mediatr/7.0.0",
       "hashPath": "mediatr.7.0.0.nupkg.sha512"
     },
+    "MediatR.Extensions.Microsoft.DependencyInjection/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DRf8jBnjBg84da1L1L0YmwqkhCV+UJTg7bTBHOhleWrLfrtSK5h5aNeE1HOofs1Afisq03B6H2C10NmS47gmqA==",
+      "path": "mediatr.extensions.microsoft.dependencyinjection/7.0.0",
+      "hashPath": "mediatr.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Http/2.2.2": {
       "type": "package",
       "serviceable": true,
@@ -5069,6 +5105,11 @@
       "sha512": ""
     },
     "Commons.Infrastruct/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Commons.IntegrationBus/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

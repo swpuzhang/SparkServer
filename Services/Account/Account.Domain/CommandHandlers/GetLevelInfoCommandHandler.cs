@@ -26,10 +26,10 @@ namespace Account.Domain.CommandHandlers
         IRequestHandler<GetLevelInfoCommand, HasBodyResponse<LevelInfo>>
         
     {
-        private readonly IlevelInfoRepository _levelRepository;
+        private readonly ILevelInfoRepository _levelRepository;
         private readonly IAccountRedisRepository _redis;
         private readonly LevelManager _levelManager;
-        public GetLevelInfoCommandHandler(IlevelInfoRepository rep,
+        public GetLevelInfoCommandHandler(ILevelInfoRepository rep,
             IAccountRedisRepository redis,
             LevelManager levelManager)
         {

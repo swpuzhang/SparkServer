@@ -25,10 +25,8 @@ namespace Sangong.Matching.WebApi.Extenssions
             services.AddScoped<ISampleAppService, SampleAppService>();
             services.AddScoped<ISampleInfoRepository, SampleInfoRepository>();
             services.AddScoped<SampleContext>();
-
-            services.AddScoped<IUserIdGenRepository, UserIdGenRepository>();
             services.AddScoped<IMediatorHandler, InProcessBus>();
-            services.AddScoped<IRequestHandler<LoginCommand, HasBodyResponse<SampleResponse>>, SampleCommandHandler>();
+            services.AddScoped<IRequestHandler<SampleCommand, HasBodyResponse<SampleInfo>>, SampleCommandHandler>();
            
 
         }

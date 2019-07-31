@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "3cb3d03f21e4a92ff5b47e5ea125c2b3c83eb159"
+    "signature": "10c92c6a370247ccd67675ce13f095bcbc5ee839"
   },
   "compilationOptions": {
     "defines": [
@@ -480,6 +480,21 @@
           "lib/netstandard2.0/StackExchange.Redis.dll": {}
         }
       },
+      "Swashbuckle.AspNetCore.Swagger/4.0.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.Formatters.Json": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.dll": {}
+        }
+      },
       "System.ComponentModel/4.0.1": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -801,9 +816,12 @@
       },
       "Commons.Extenssions/1.0.0": {
         "dependencies": {
+          "MassTransit": "5.5.3",
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Newtonsoft.Json": "12.0.2",
-          "StackExchange.Redis": "2.0.601"
+          "StackExchange.Redis": "2.0.601",
+          "Swashbuckle.AspNetCore.Swagger": "4.0.1",
+          "Swashbuckle.AspNetCore.SwaggerGen": "4.0.1.0"
         },
         "runtime": {
           "Commons.Extenssions.dll": {}
@@ -818,6 +836,14 @@
         },
         "compile": {
           "Message.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerGen.Reference/4.0.1.0": {
+        "runtime": {
+          "Swashbuckle.AspNetCore.SwaggerGen.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.1.0"
+          }
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -4171,6 +4197,13 @@
       "path": "stackexchange.redis/2.0.601",
       "hashPath": "stackexchange.redis.2.0.601.nupkg.sha512"
     },
+    "Swashbuckle.AspNetCore.Swagger/4.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rqzS3vHrjz+tR5j0nZOKZyaMTDfLGbVYkwMq205aYuGbsiGwbOlNU0Q8lq4Q0ptQPMKVkUf8XouCIdJ3qpK17w==",
+      "path": "swashbuckle.aspnetcore.swagger/4.0.1",
+      "hashPath": "swashbuckle.aspnetcore.swagger.4.0.1.nupkg.sha512"
+    },
     "System.ComponentModel/4.0.1": {
       "type": "package",
       "serviceable": true,
@@ -4323,6 +4356,11 @@
     },
     "Message/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Swashbuckle.AspNetCore.SwaggerGen.Reference/4.0.1.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },

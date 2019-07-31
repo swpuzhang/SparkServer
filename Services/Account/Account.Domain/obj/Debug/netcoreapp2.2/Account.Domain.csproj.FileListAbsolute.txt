@@ -34,3 +34,5 @@ D:\document\code\project\Spark\Services\Account\Account.Domain\obj\Debug\netcore
 D:\document\code\project\Spark\Services\Account\Account.Domain\obj\Debug\netcoreapp2.2\Account.Domain.pdb
 D:\document\code\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.dll
 D:\document\code\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.pdb
+D:\document\code\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\document\code\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.xml

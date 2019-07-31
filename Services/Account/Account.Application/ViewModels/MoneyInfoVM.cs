@@ -18,9 +18,9 @@ namespace Account.Application.ViewModels
             MaxDiamonds = maxDiamonds;
         }
 
-        public long CurChips { get; private set; }
-        public long CurDiamonds { get; private set; }
-        public long MaxChips { get; private set; }
-        public long MaxDiamonds { get; private set; }
+        public long CurChips { get; set; }
+        public long CurDiamonds { get; set; }
+        public long MaxChips { get; set; }
+        public long MaxDiamonds { get; set; }
     }
 }

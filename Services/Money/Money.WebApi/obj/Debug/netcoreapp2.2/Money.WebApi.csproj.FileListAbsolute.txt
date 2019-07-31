@@ -28,3 +28,5 @@ D:\document\code\project\Spark\Services\Money\Money.WebApi\obj\Debug\netcoreapp2
 D:\document\code\project\Spark\Services\Money\Money.WebApi\obj\Debug\netcoreapp2.2\Money.WebApi.csproj.CopyComplete
 D:\document\code\project\Spark\Services\Money\Money.WebApi\obj\Debug\netcoreapp2.2\Money.WebApi.dll
 D:\document\code\project\Spark\Services\Money\Money.WebApi\obj\Debug\netcoreapp2.2\Money.WebApi.pdb
+D:\document\code\project\Spark\Services\Money\Money.WebApi\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.dll
+D:\document\code\project\Spark\Services\Money\Money.WebApi\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.pdb

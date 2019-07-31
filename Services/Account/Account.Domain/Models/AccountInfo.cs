@@ -20,9 +20,6 @@ namespace Account.Domain.Models
     
         public string HeadUrl { get; private set; }
 
-        /// <summary>
-        /// 账号类型
-        /// </summary>
         public int Type { get; set; }
 
         public AccountInfo()
@@ -31,25 +28,27 @@ namespace Account.Domain.Models
         }
 
         [JsonConstructor]
-        public AccountInfo(long id, string account, string name, int sex, string head, int type)
+        public AccountInfo(long id, string platformAccount, string userName, int sex, string headUrl, int type)
         {
+           
             Id = id;
-            PlatformAccount = account;
-            UserName = name;
+            PlatformAccount = platformAccount;
+            UserName = userName;
             Sex = sex;
-            HeadUrl = head;
+            HeadUrl = headUrl;
             Type = type;
+            
         }
 
 
         public override bool Equals(object obj)
         {
             return obj is AccountInfo info &&
-                   base.Equals(obj) &&
                    PlatformAccount == info.PlatformAccount &&
                    UserName == info.UserName &&
                    Sex == info.Sex &&
-                   HeadUrl == info.HeadUrl;
+                   HeadUrl == info.HeadUrl &&
+                   Type == info.Type;
         }
 
         public override int GetHashCode()

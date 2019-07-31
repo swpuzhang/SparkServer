@@ -4,6 +4,7 @@ using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Commons.MqCommands;
 
 namespace Money.Application.AutoMapper
 {
@@ -11,7 +12,8 @@ namespace Money.Application.AutoMapper
     {
         public MappingProfile()
         {
-            CreateMap<MoneyVM, MoneyInfo>().ReverseMap();
+            
+            CreateMap<GetMoneyMqResponse, MoneyInfo>().ReverseMap();
         }
     }
 }

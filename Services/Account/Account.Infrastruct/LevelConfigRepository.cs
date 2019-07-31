@@ -11,12 +11,12 @@ using System.Linq;
 
 namespace Account.Infrastruct
 {
-    public class LevelConfigRepository : IlevelConfigRepository
+    public class LevelConfigRepository : ILevelConfigRepository
     {
         protected readonly IMongoSettings _settings;
-        public LevelConfigRepository()
+        public LevelConfigRepository(IMongoSettings settings)
         {
-            
+            _settings = settings;
         }
        
         public List<LevelConfig> LoadLevelConfig()
@@ -24,9 +24,10 @@ namespace Account.Infrastruct
             IMongoClient client = new MongoClient(_settings.ConnectionString);
             IMongoDatabase db = client.GetDatabase(_settings.DatabaseName);
             var dbCol = db.GetCollection<LevelConfig>(typeof(LevelConfig).Name);
-            var configs = dbCol.Find<LevelConfig>(x => true);
+            var configs = dbCol.Find<LevelConfig>(x => true);//.Project(Builders<LevelConfig>.
+                                                             //Projection.Exclude("_id")).ToList();
 
-            return configs.ToList();
+            return configs.Project<LevelConfig>(Builders<LevelConfig>.Projection.Exclude("_id")).ToList();
         }
     }
 }

@@ -4,19 +4,22 @@ using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Money.Domain.Models
 {
 
-    public class MoneyInfo
+    public class MoneyInfo : UserEntity
     {
+        public static string ClassName = "MoneyInfo";
         public MoneyInfo()
         {
         }
 
         [JsonConstructor]
-        public MoneyInfo(long curChips, long curDiamonds, long maxChips, long maxDiamonds)
+        public MoneyInfo(long id, long curChips, long curDiamonds, long maxChips, long maxDiamonds)
         {
+            Id = id;
             CurChips = curChips;
             CurDiamonds = curDiamonds;
             MaxChips = maxChips;

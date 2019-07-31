@@ -42,3 +42,5 @@ D:\document\code\project\Spark\Tests\EasyNetQTest\obj\Debug\netcoreapp2.2\EasyNe
 D:\document\code\project\Spark\Tests\EasyNetQTest\obj\Debug\netcoreapp2.2\EasyNetQTest.csproj.CopyComplete
 D:\document\code\project\Spark\Tests\EasyNetQTest\obj\Debug\netcoreapp2.2\EasyNetQTest.dll
 D:\document\code\project\Spark\Tests\EasyNetQTest\obj\Debug\netcoreapp2.2\EasyNetQTest.pdb
+D:\document\code\project\Spark\Tests\EasyNetQTest\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\document\code\project\Spark\Tests\EasyNetQTest\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.xml

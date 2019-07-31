@@ -50,9 +50,8 @@ namespace Account.WebApi.Controllers
         /// <summary>
         /// 获取自己的账号信息
         /// </summary>
-        /// <param name="id">玩家ID</param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet]
         //[Route("AccountSelf/id")]
         public async Task<HasBodyResponse<AccountDetailVM>> GetSelfAccount([FromHeader]long id)
         {
@@ -64,11 +63,10 @@ namespace Account.WebApi.Controllers
         /// <summary>
         /// 获取其他玩家的信息
         /// </summary>
-        /// <param name="id">玩家ID</param>
         /// <param name="otherId">其他玩家ID</param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<HasBodyResponse<AccountDetailVM>> GetOtherAccount([FromHeader]long id, Int64 otherId)
+        public async Task<HasBodyResponse<AccountDetailVM>> GetOtherAccount(Int64 otherId)
         {
 
             var response = await _service.GetSelfAccount(otherId);

@@ -10,9 +10,16 @@ namespace Commons.Extenssions.Defines
     public enum AccountType
     {
         /// <summary>
-        /// facebook
+        /// Facebook
         /// </summary>
-        FACEBOOK = 0
+        Facebook = 0,
+
+        /// <summary>
+        /// Twitter
+        /// </summary>
+        Twitter = 1,
+
+
     }
 
 

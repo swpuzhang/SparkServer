@@ -10,9 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit" Version="5.5.3" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="StackExchange.Redis" Version="2.0.601" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Swashbuckle.AspNetCore.SwaggerGen">
+      <HintPath>C:\Microsoft\Xamarin\NuGet\swashbuckle.aspnetcore.swaggergen\4.0.1\lib\netstandard2.0\Swashbuckle.AspNetCore.SwaggerGen.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

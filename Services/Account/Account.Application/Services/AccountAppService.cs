@@ -26,15 +26,6 @@ namespace Account.Application.Services
             _mapper = mapper;
             _bus = bus;
         }
-        public AccountVM GetById(Int64 id)
-        {
-            return _mapper.Map<AccountVM>( _repository.GetById(id));
-        }
-
-        public void Update(AccountVM accountViewModel)
-        {
-            _repository.Update(_mapper.Map<AccountInfo>(accountViewModel));
-        }
 
         public async Task<HasBodyResponse<AccountResponseVM>> Login(AccountVM accountViewModel)
         {
@@ -49,9 +40,6 @@ namespace Account.Application.Services
             var response = await _bus.SendCommand(new GetSelfAccountCommand(id));
             AccountDetailVM info = _mapper.Map<AccountDetailVM>(response.Body);
             return new HasBodyResponse<AccountDetailVM>(response.StatusCode, response.ErrorInfos, info);
-            //AccountDetailVM responseVM
-
-
         }
     }
 }
