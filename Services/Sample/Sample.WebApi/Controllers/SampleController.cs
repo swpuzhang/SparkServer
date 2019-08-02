@@ -35,26 +35,26 @@ namespace Sample.WebApi.Controllers
         /// <returns></returns>
         [HttpPost]
         //[Route("SampleLogin")]
-        public async Task<HasBodyResponse<SampleInfo>> Login([FromBody] SampleVM model)
+        public  BodyResponse<SampleInfo> Login([FromBody] SampleVM model)
         {
            
-             return new HasBodyResponse<SampleInfo>(StatuCodeDefines.FieldError, null, null);
+             return new BodyResponse<SampleInfo>(StatuCodeDefines.FieldError, null, null);
     
         }
 
         [HttpGet("{id}")]
         //[Route("SampleSelf/id")]
-        public HasBodyResponse<SampleVM> GetSelfSample([FromHeader]long id)
+        public BodyResponse<SampleVM> GetSelfSample([FromHeader]long id)
         {
-            return new HasBodyResponse<SampleVM>(0, null, _service.GetById(id));
+            return new BodyResponse<SampleVM>(0, null, _service.GetById(id));
             
         }
 
         [HttpGet]
-        public HasBodyResponse<SampleVM> GetOtherSample(Int64 otherId)
+        public BodyResponse<SampleVM> GetOtherSample(Int64 otherId)
         {
             var sample = _service.GetById(otherId);
-            return new HasBodyResponse<SampleVM>(0, null, sample);
+            return new BodyResponse<SampleVM>(0, null, sample);
         }
     }
 }

@@ -18,7 +18,6 @@ D:\document\code\project\Spark\Services\Money\Money.Test\bin\Debug\netcoreapp2.2
 D:\document\code\project\Spark\Services\Money\Money.Test\bin\Debug\netcoreapp2.2\Money.Domain.dll
 D:\document\code\project\Spark\Services\Money\Money.Test\bin\Debug\netcoreapp2.2\Commons.Domain.pdb
 D:\document\code\project\Spark\Services\Money\Money.Test\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
-D:\document\code\project\Spark\Services\Money\Money.Test\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
 D:\document\code\project\Spark\Services\Money\Money.Test\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.pdb
 D:\document\code\project\Spark\Services\Money\Money.Test\bin\Debug\netcoreapp2.2\Money.Domain.pdb
 D:\document\code\project\Spark\Services\Money\Money.Test\bin\Debug\netcoreapp2.2\Commons.Infrastruct.pdb

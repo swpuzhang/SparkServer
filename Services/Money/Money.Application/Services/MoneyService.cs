@@ -22,15 +22,15 @@ namespace Money.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<HasBodyResponse<GetMoneyMqResponse>> GetMoney(long id)
+        public async Task<BodyResponse<GetMoneyMqResponse>> GetMoney(long id)
         {
             var moneyInfo = await _bus.SendCommand(new GetMoneyCommand(id));
             if (moneyInfo.StatusCode != StatuCodeDefines.Success)
             {
-                return new HasBodyResponse<GetMoneyMqResponse>(moneyInfo.StatusCode, null, null);
+                return new BodyResponse<GetMoneyMqResponse>(moneyInfo.StatusCode, null, null);
             }
             var moneyResponse = _mapper.Map<GetMoneyMqResponse>(moneyInfo.Body);
-            return new HasBodyResponse<GetMoneyMqResponse>(StatuCodeDefines.Success, null, moneyResponse);
+            return new BodyResponse<GetMoneyMqResponse>(StatuCodeDefines.Success, null, moneyResponse);
         }
     }
 }

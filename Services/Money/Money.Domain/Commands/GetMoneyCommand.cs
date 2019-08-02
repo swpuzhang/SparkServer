@@ -8,8 +8,8 @@ using Money.Domain.Models;
 
 namespace Money.Domain.Commands
 {
-    //public class LoginCommands : Command<HasBodyResponse<MoneyResponse>
-    public class GetMoneyCommand : Command<HasBodyResponse<MoneyInfo>>
+    //public class LoginCommands : Command<BodyResponse<MoneyResponse>
+    public class GetMoneyCommand : Command<BodyResponse<MoneyInfo>>
     {
         public long Id { get; private set; }
         public GetMoneyCommand(long id)

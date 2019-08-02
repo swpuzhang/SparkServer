@@ -32,10 +32,10 @@ namespace Sangong.Matching.WebApi
         {
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddMongoService(Configuration);
+            services.AddMongoServices(Configuration);
             services.AddAutoMapperSetup();
-            services.RegisterSwaggerService();
-            services.RegisterServices();
+            services.RegisterSwaggerServices();
+            services.AddServices();
             services.AddSingleton<RedisHelper>(new RedisHelper(Configuration["redis:ConnectionString"]));
             ContainerBuilder builder = new ContainerBuilder();
             services.AddMassTransitService(Configuration, builder);
@@ -50,7 +50,9 @@ namespace Sangong.Matching.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.ConfigSwaggerService();
+            app.ConfigSwaggerServices();
+            app.ConfigServices(Configuration);
+            app.UseTokenCheck("/api/Account/Login");
             app.UseMvc();
         }
     }

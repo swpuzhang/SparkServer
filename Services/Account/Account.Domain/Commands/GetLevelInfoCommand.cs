@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Account.Domain.Commands
 {
-    public class GetLevelInfoCommand : Command<HasBodyResponse<LevelInfo>>
+    public class GetLevelInfoCommand : Command<BodyResponse<LevelInfo>>
     {
         public long Id { get; private set; }
         public GetLevelInfoCommand(long id)

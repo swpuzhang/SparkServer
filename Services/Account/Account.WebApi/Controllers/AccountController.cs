@@ -36,11 +36,11 @@ namespace Account.WebApi.Controllers
         /// <returns></returns>
         [HttpPost]
         //[Route("AccountLogin")]
-        public async Task<HasBodyResponse<AccountResponseVM>> Login([FromBody] AccountVM model)
+        public async Task<BodyResponse<AccountResponseVM>> Login([FromBody] AccountVM model)
         {
             if (!ModelState.IsValid)
             {
-                return new HasBodyResponse<AccountResponseVM>(StatuCodeDefines.FieldError, null, null);
+                return new BodyResponse<AccountResponseVM>(StatuCodeDefines.FieldError, null, null);
 
             }
 
@@ -53,7 +53,7 @@ namespace Account.WebApi.Controllers
         /// <returns></returns>
         [HttpGet]
         //[Route("AccountSelf/id")]
-        public async Task<HasBodyResponse<AccountDetailVM>> GetSelfAccount([FromHeader]long id)
+        public async Task<BodyResponse<AccountDetailVM>> GetSelfAccount([FromHeader]long id)
         {
             var response = await _service.GetSelfAccount(id);
             return response;
@@ -66,7 +66,7 @@ namespace Account.WebApi.Controllers
         /// <param name="otherId">其他玩家ID</param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<HasBodyResponse<AccountDetailVM>> GetOtherAccount(Int64 otherId)
+        public async Task<BodyResponse<AccountDetailVM>> GetOtherAccount(Int64 otherId)
         {
 
             var response = await _service.GetSelfAccount(otherId);

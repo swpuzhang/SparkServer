@@ -23,7 +23,7 @@ using Account.Domain.Manager;
 namespace Account.Domain.CommandHandlers
 {
     public class GetGameInfoCommandHandler :
-        IRequestHandler<GetGameInfoCommand, HasBodyResponse<GameInfo>>
+        IRequestHandler<GetGameInfoCommand, BodyResponse<GameInfo>>
         
     {
         private readonly IGameInfoRepository _gameRepository;
@@ -37,7 +37,7 @@ namespace Account.Domain.CommandHandlers
         }
 
 
-        public async Task<HasBodyResponse<GameInfo>> Handle(GetGameInfoCommand request, 
+        public async Task<BodyResponse<GameInfo>> Handle(GetGameInfoCommand request, 
             CancellationToken cancellationToken)
         {
             //读取redis account信息
@@ -53,7 +53,7 @@ namespace Account.Domain.CommandHandlers
                 }
             }
             
-            HasBodyResponse<GameInfo> response = new HasBodyResponse<GameInfo>(StatuCodeDefines.Success,
+            BodyResponse<GameInfo> response = new BodyResponse<GameInfo>(StatuCodeDefines.Success,
                 null, gameinfo);
             
             return response;

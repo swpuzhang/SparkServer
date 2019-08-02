@@ -19,12 +19,17 @@ namespace Sample.WebApi.Extenssions
     {
         public static void AddServices(this IServiceCollection services)
         {
-
+            //服务
             services.AddScoped<ISampleAppService, SampleAppService>();
+
+            //存储
             services.AddScoped<ISampleInfoRepository, SampleInfoRepository>();
+            services.AddScoped<ISampleRedisRepository, SampleRedisRepository>();
             services.AddScoped<SampleContext>();
+
+            //命令
             services.AddScoped<IMediatorHandler, InProcessBus>();
-            services.AddScoped<IRequestHandler<SampleCommand, HasBodyResponse<SampleInfo>>, SampleCommandHandler>();
+            services.AddScoped<IRequestHandler<SampleCommand, BodyResponse<SampleInfo>>, SampleCommandHandler>();
             services.AddMediatR(typeof(Startup));
 
 

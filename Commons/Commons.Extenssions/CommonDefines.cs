@@ -22,5 +22,4 @@ namespace Commons.Extenssions.Defines
 
     }
 
-
 }

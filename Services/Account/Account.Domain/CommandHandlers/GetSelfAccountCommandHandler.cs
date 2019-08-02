@@ -22,7 +22,7 @@ using Commons.MqCommands;
 namespace Account.Domain.CommandHandlers
 {
     public class GetSelfAccountCommandHandler :
-        IRequestHandler<GetSelfAccountCommand, HasBodyResponse<AccountDetail>>
+        IRequestHandler<GetSelfAccountCommand, BodyResponse<AccountDetail>>
     {
         protected readonly IMediatorHandler _bus;
         private readonly IAccountInfoRepository _accountRepository;
@@ -48,11 +48,11 @@ namespace Account.Domain.CommandHandlers
         }
 
 
-        public async Task<HasBodyResponse<AccountDetail>> Handle(GetSelfAccountCommand request, CancellationToken cancellationToken)
+        public async Task<BodyResponse<AccountDetail>> Handle(GetSelfAccountCommand request, CancellationToken cancellationToken)
         {
             //读取redis account信息
             var tAccount = _redis.GetAccountInfo(request.Id);
-            var tMoney = _moneyClient.GetResponseExt<GetMoneyMqCommand, HasBodyResponse<GetMoneyMqResponse>>
+            var tMoney = _moneyClient.GetResponseExt<GetMoneyMqCommand, BodyResponse<GetMoneyMqResponse>>
                             (new GetMoneyMqCommand(request.Id));
           
             var tLevel = _bus.SendCommand(new GetLevelInfoCommand(request.Id));
@@ -65,10 +65,10 @@ namespace Account.Domain.CommandHandlers
             var gameInfo = await tGame;
             if (accountInfo == null || moneyInfo == null || levelInfo == null || gameInfo == null)
             {
-                return new HasBodyResponse<AccountDetail>(StatuCodeDefines.AccountError,
+                return new BodyResponse<AccountDetail>(StatuCodeDefines.AccountError,
                     null, null);
             }
-            HasBodyResponse<AccountDetail> response = new HasBodyResponse<AccountDetail>(StatuCodeDefines.Success,
+            BodyResponse<AccountDetail> response = new BodyResponse<AccountDetail>(StatuCodeDefines.Success,
                 null, new AccountDetail(accountInfo.Id, accountInfo.PlatformAccount,
                 accountInfo.UserName, accountInfo.Sex, accountInfo.HeadUrl,
                 accountInfo.Type, levelInfo.Body, gameInfo.Body, moneyInfo));

@@ -1699,6 +1699,7 @@
       },
       "Commons.Domain/1.0.0": {
         "dependencies": {
+          "AutoMapper": "8.1.1",
           "Commons.Extenssions": "1.0.0",
           "MassTransit": "5.5.3",
           "MediatR": "7.0.0",
@@ -1732,11 +1733,18 @@
           "Commons.Infrastruct.dll": {}
         }
       },
+      "Commons.IntegrationBus/1.0.0": {
+        "runtime": {
+          "Commons.IntegrationBus.dll": {}
+        }
+      },
       "Sangong.Domain/1.0.0": {
         "dependencies": {
+          "AutoMapper": "8.1.1",
           "Commons.Domain": "1.0.0",
           "Commons.Extenssions": "1.0.0",
           "Commons.Infrastruct": "1.0.0",
+          "Commons.IntegrationBus": "1.0.0",
           "MediatR": "7.0.0"
         },
         "runtime": {
@@ -2820,6 +2828,11 @@
       "sha512": ""
     },
     "Commons.Infrastruct/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Commons.IntegrationBus/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

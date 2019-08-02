@@ -28,7 +28,6 @@ D:\document\code\project\Spark\Services\Account\Account.Infrastruct\bin\Debug\ne
 D:\document\code\project\Spark\Services\Account\Account.Infrastruct\bin\Debug\netcoreapp2.2\Account.Domain.pdb
 D:\document\code\project\Spark\Services\Account\Account.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Domain.pdb
 D:\document\code\project\Spark\Services\Account\Account.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
-D:\document\code\project\Spark\Services\Account\Account.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
 D:\document\code\project\Spark\Services\Account\Account.Infrastruct\obj\Debug\netcoreapp2.2\Account.Infrastruct.csprojAssemblyReference.cache
 D:\document\code\project\Spark\Services\Account\Account.Infrastruct\obj\Debug\netcoreapp2.2\Account.Infrastruct.csproj.CoreCompileInputs.cache
 D:\document\code\project\Spark\Services\Account\Account.Infrastruct\obj\Debug\netcoreapp2.2\Account.Infrastruct.AssemblyInfoInputs.cache

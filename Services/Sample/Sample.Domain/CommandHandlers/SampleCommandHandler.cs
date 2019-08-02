@@ -16,23 +16,23 @@ using System.Threading.Tasks;
 namespace Sample.Domain.CommandHandlers
 {
     public class SampleCommandHandler :
-        IRequestHandler<SampleCommand, HasBodyResponse<SampleInfo>>
+        IRequestHandler<SampleCommand, BodyResponse<SampleInfo>>
     {
         //private readonly readonly IRequestClient<DoSomething> _requestClient;
     
         protected readonly IMediatorHandler _bus;
         private readonly ISampleInfoRepository _sampleRepository;
-        private readonly RedisHelper _redis;
-        public SampleCommandHandler(ISampleInfoRepository rep, RedisHelper redis, IMediatorHandler bus)
+        private readonly ISampleRedisRepository _redis;
+        public SampleCommandHandler(ISampleInfoRepository rep, ISampleRedisRepository redis, IMediatorHandler bus)
         {
             _sampleRepository = rep;
             _redis = redis;
             _bus = bus;
         }
-        public Task<HasBodyResponse<SampleInfo>> Handle(SampleCommand request, CancellationToken cancellationToken)
+        public Task<BodyResponse<SampleInfo>> Handle(SampleCommand request, CancellationToken cancellationToken)
         {
             
-            HasBodyResponse<SampleInfo> response = new HasBodyResponse<SampleInfo>(StatuCodeDefines.LoginError, null, null);
+            BodyResponse<SampleInfo> response = new BodyResponse<SampleInfo>(StatuCodeDefines.LoginError, null, null);
             return Task.FromResult(response);
 
         }

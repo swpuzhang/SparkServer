@@ -52,5 +52,7 @@ namespace Commons.Extenssions.Defines
 
 
         GameInfoError = 11,
+
+        IsMatching = 12,
     }
 }

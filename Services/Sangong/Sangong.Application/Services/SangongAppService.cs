@@ -30,11 +30,6 @@ namespace Sangong.Application.Services
             return _mapper.Map<SangongVM>( _repository.GetById(id));
         }
 
- 
 
-        public async Task<HasBodyResponse<SangongResponse>> Login(SangongVM sangongVM)
-        {
-            return await _bus.SendCommand(new LoginCommand(_mapper.Map<SangongInfo>(sangongVM)));
-        }
     }
 }

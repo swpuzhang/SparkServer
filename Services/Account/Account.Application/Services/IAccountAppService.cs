@@ -11,7 +11,7 @@ namespace Account.Application.Services
 {
     public interface IAccountAppService
     {
-        Task<HasBodyResponse<AccountResponseVM>> Login(AccountVM StudentViewModel);
-        Task<HasBodyResponse<AccountDetailVM>> GetSelfAccount(long id);
+        Task<BodyResponse<AccountResponseVM>> Login(AccountVM StudentViewModel);
+        Task<BodyResponse<AccountDetailVM>> GetSelfAccount(long id);
     }
 }

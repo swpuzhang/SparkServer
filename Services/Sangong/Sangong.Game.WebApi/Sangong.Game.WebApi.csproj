@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\document\code\project\Spark\Services\Sangong\Sangong.Game.WebApi\Sangong.Game.WebApi.xml</DocumentationFile>
+    <DocumentationFile>..\..\..\SwaggerInterface\Sangong.Game.WebApi.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
@@ -31,14 +31,15 @@
     <PackageReference Include="AutoMapper" Version="8.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\..\..\Commons\Commons.Domain\Commons.Domain.csproj" />
     <ProjectReference Include="..\..\..\Commons\Commons.Extenssions\Commons.Extenssions.csproj" />
     <ProjectReference Include="..\..\..\Commons\Commons.Infrastruct\Commons.Infrastruct.csproj" />
-    <ProjectReference Include="..\..\Sample\Sample.Application\Sample.Application.csproj" />
-    <ProjectReference Include="..\..\Sample\Sample.Infrastruct\Sample.Infrastruct.csproj" />
+    <ProjectReference Include="..\Sangong.Application\Sangong.Application.csproj" />
+    <ProjectReference Include="..\Sangong.Infrastruct\Sangong.Infrastruct.csproj" />
   </ItemGroup>
 
 </Project>

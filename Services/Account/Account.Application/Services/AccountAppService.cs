@@ -27,19 +27,19 @@ namespace Account.Application.Services
             _bus = bus;
         }
 
-        public async Task<HasBodyResponse<AccountResponseVM>> Login(AccountVM accountViewModel)
+        public async Task<BodyResponse<AccountResponseVM>> Login(AccountVM accountViewModel)
         {
             var response = await _bus.SendCommand(new LoginCommand(_mapper.Map<AccountInfo>(accountViewModel)));
             AccountResponseVM responseVM = _mapper.Map<AccountResponseVM>(response.Body);
-            return new HasBodyResponse<AccountResponseVM>(response.StatusCode, response.ErrorInfos, responseVM);
+            return new BodyResponse<AccountResponseVM>(response.StatusCode, response.ErrorInfos, responseVM);
 
         }
 
-        public async Task<HasBodyResponse<AccountDetailVM>> GetSelfAccount(long id)
+        public async Task<BodyResponse<AccountDetailVM>> GetSelfAccount(long id)
         {
             var response = await _bus.SendCommand(new GetSelfAccountCommand(id));
             AccountDetailVM info = _mapper.Map<AccountDetailVM>(response.Body);
-            return new HasBodyResponse<AccountDetailVM>(response.StatusCode, response.ErrorInfos, info);
+            return new BodyResponse<AccountDetailVM>(response.StatusCode, response.ErrorInfos, info);
         }
     }
 }

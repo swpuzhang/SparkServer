@@ -16,7 +16,7 @@ namespace Sangong.Matching.WebApi.Controllers
     {
         [BsonId]
         public Int64 Id { get; set; }
-        public string PlatformSample { get; set; }
+        public string PlatformSangong { get; set; }
 
         public string UserName { get; set; }
 
@@ -30,10 +30,10 @@ namespace Sangong.Matching.WebApi.Controllers
         }
 
        
-        public TestInfo(int id, string sample, string name, int sex, string head)
+        public TestInfo(int id, string sangong, string name, int sex, string head)
         {
             Id = id;
-            PlatformSample = sample;
+            PlatformSangong = sangong;
             UserName = name;
             Sex = sex;
             HeadUrl = head;
@@ -70,7 +70,7 @@ namespace Sangong.Matching.WebApi.Controllers
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
             _books = database.GetCollection<Book>("Books");
-            _infos = database.GetCollection<TestInfo>("SampleInfo");
+            _infos = database.GetCollection<TestInfo>("SangongInfo");
         }
 
         [HttpGet]

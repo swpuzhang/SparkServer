@@ -30,12 +30,12 @@ namespace Account.WebApi.Extenssions
             services.AddScoped<IUserIdGenRepository, UserIdGenRepository>();
             services.AddScoped<IMediatorHandler, InProcessBus>();
             services.AddScoped<IRequestHandler<LoginCommand,
-                HasBodyResponse<AccountResponse>>, AccountCommandHandler>();
-            services.AddScoped<IRequestHandler<GetGameInfoCommand, HasBodyResponse<GameInfo>>,
+                BodyResponse<AccountResponse>>, AccountCommandHandler>();
+            services.AddScoped<IRequestHandler<GetGameInfoCommand, BodyResponse<GameInfo>>,
                 GetGameInfoCommandHandler>();
-            services.AddScoped<IRequestHandler<GetLevelInfoCommand, HasBodyResponse<LevelInfo>>,
+            services.AddScoped<IRequestHandler<GetLevelInfoCommand, BodyResponse<LevelInfo>>,
                 GetLevelInfoCommandHandler>();
-            services.AddScoped<IRequestHandler<GetSelfAccountCommand, HasBodyResponse<AccountDetail>>,
+            services.AddScoped<IRequestHandler<GetSelfAccountCommand, BodyResponse<AccountDetail>>,
                 GetSelfAccountCommandHandler>();
             services.AddScoped<INotificationHandler<LoginEvent>,
                 LoginEventHandler>();

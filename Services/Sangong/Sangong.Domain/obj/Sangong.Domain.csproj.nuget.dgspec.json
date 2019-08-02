@@ -47,6 +47,10 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "MassTransit": {
               "target": "Package",
               "version": "[5.5.3, )"
@@ -218,6 +222,60 @@
         }
       }
     },
+    "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj",
+        "projectName": "Commons.IntegrationBus",
+        "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj",
+        "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
+        "outputPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\84075\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
     "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Domain\\Sangong.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -254,6 +312,9 @@
               },
               "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
                 "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj"
+              },
+              "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj": {
+                "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj"
               }
             }
           }
@@ -267,6 +328,10 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[7.0.0, )"

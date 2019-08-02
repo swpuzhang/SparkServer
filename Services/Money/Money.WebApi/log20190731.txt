@@ -125,7 +125,7 @@ Money.Domain.Models.MoneyInfo -> Commons.MqCommands.GetMoneyMqResponse
 2019-07-31 17:36:04.845 +08:00 [INF] Request finished in 8.393ms 200 
 2019-07-31 17:36:58.815 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
 2019-07-31 17:36:58.854 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx678obdmtmgwwba, type: fanout, auto-delete)
-2019-07-31 17:36:59.057 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx678obdmtmgwwba?durable=false&autodelete=true f7e10000-be55-00ff-2cf7-08d7159aa252 Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 17:36:59.057 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx678obdmtmgwwba?durable=false&autodelete=true f7e10000-be55-00ff-2cf7-08d7159aa252 Commons.Domain.Models.BodyResponse<Commons.MqCommands.GetMoneyMqResponse>
 2019-07-31 17:36:59.074 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-3bda-08d7159a94cb Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:22.3555754)
 2019-07-31 17:42:34.682 +08:00 [INF] CreateWebHostBuilder (Money)...
 2019-07-31 17:42:35.814 +08:00 [INF] User profile is available. Using 'C:\Users\84075\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
@@ -190,31 +190,31 @@ Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException: Invalid reques
    at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequestsAsync[TContext](IHttpApplication`1 application)
 2019-07-31 18:02:20.898 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
 2019-07-31 18:02:20.947 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx67hmbdmtm8oyrq, type: fanout, auto-delete)
-2019-07-31 18:02:21.184 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx67hmbdmtm8oyrq?durable=false&autodelete=true f7e10000-be55-00ff-6775-08d7159e2d8f Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:02:21.184 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx67hmbdmtm8oyrq?durable=false&autodelete=true f7e10000-be55-00ff-6775-08d7159e2d8f Commons.Domain.Models.BodyResponse<Commons.MqCommands.GetMoneyMqResponse>
 2019-07-31 18:02:21.210 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-07af-08d7159e2c3b Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:01.9525101)
 2019-07-31 18:03:15.731 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
 2019-07-31 18:03:15.737 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6fxmbdmtm81pnu, type: fanout, auto-delete)
-2019-07-31 18:03:15.741 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6fxmbdmtm81pnu?durable=false&autodelete=true f7e10000-be55-00ff-f13c-08d7159e4e35 Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:03:15.741 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6fxmbdmtm81pnu?durable=false&autodelete=true f7e10000-be55-00ff-f13c-08d7159e4e35 Commons.Domain.Models.BodyResponse<Commons.MqCommands.GetMoneyMqResponse>
 2019-07-31 18:03:15.741 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-eb2c-08d7159e4e0d Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:00.0173914)
 2019-07-31 18:08:33.006 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
 2019-07-31 18:08:33.011 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9tp8bdmtm8z4yx, type: fanout, auto-delete)
-2019-07-31 18:08:33.015 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9tp8bdmtm8z4yx?durable=false&autodelete=true f7e10000-be55-00ff-1f85-08d7159f0b52 Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:08:33.015 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9tp8bdmtm8z4yx?durable=false&autodelete=true f7e10000-be55-00ff-1f85-08d7159f0b52 Commons.Domain.Models.BodyResponse<Commons.MqCommands.GetMoneyMqResponse>
 2019-07-31 18:08:33.015 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-1c76-08d7159f0b2d Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:00.0136642)
 2019-07-31 18:43:14.174 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
 2019-07-31 18:43:14.177 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9x8gbdmtme77go, type: fanout, auto-delete)
-2019-07-31 18:43:14.181 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9x8gbdmtme77go?durable=false&autodelete=true f7e10000-be55-00ff-db1f-08d715a3e3ca Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:43:14.181 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9x8gbdmtme77go?durable=false&autodelete=true f7e10000-be55-00ff-db1f-08d715a3e3ca Commons.Domain.Models.BodyResponse<Commons.MqCommands.GetMoneyMqResponse>
 2019-07-31 18:43:14.182 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-cdba-08d715a3e3a0 Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:00.0139771)
 2019-07-31 18:52:28.307 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
 2019-07-31 18:52:28.310 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6in9bdmtmjexd3, type: fanout, auto-delete)
-2019-07-31 18:52:28.315 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6in9bdmtmjexd3?durable=false&autodelete=true f7e10000-be55-00ff-0aed-08d715a52e15 Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:52:28.315 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6in9bdmtmjexd3?durable=false&autodelete=true f7e10000-be55-00ff-0aed-08d715a52e15 Commons.Domain.Models.BodyResponse<Commons.MqCommands.GetMoneyMqResponse>
 2019-07-31 18:52:28.315 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-1e17-08d715a5270a Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:00.0128912)
 2019-07-31 18:55:48.460 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
 2019-07-31 18:55:48.468 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9x5zbdmtmjccgt, type: fanout, auto-delete)
-2019-07-31 18:55:48.471 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9x5zbdmtmjccgt?durable=false&autodelete=true f7e10000-be55-00ff-87b0-08d715a5a562 Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:55:48.471 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx9x5zbdmtmjccgt?durable=false&autodelete=true f7e10000-be55-00ff-87b0-08d715a5a562 Commons.Domain.Models.BodyResponse<Commons.MqCommands.GetMoneyMqResponse>
 2019-07-31 18:55:48.471 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-fc56-08d715a5a537 Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:00.0135467)
 2019-07-31 18:58:47.736 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
 2019-07-31 18:58:47.739 +08:00 [DBG] Declare exchange (name: DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6spmbdmtmjx7dp, type: fanout, auto-delete)
-2019-07-31 18:58:47.742 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6spmbdmtmjx7dp?durable=false&autodelete=true f7e10000-be55-00ff-14bc-08d715a6103d Commons.Domain.Models.HasBodyResponse<Commons.MqCommands.GetMoneyMqResponse>
+2019-07-31 18:58:47.742 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/DESKTOPE7BU3QV_dotnet_bus_69ooyyf6kwyx6spmbdmtmjx7dp?durable=false&autodelete=true f7e10000-be55-00ff-14bc-08d715a6103d Commons.Domain.Models.BodyResponse<Commons.MqCommands.GetMoneyMqResponse>
 2019-07-31 18:58:47.742 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/Money f7e10000-be55-00ff-49b8-08d715a61017 Commons.MqCommands.GetMoneyMqCommand Money.WebApi.MqConsumers.MoneyConsumer(00:00:00.0088726)
 2019-07-31 19:13:04.461 +08:00 [DBG] Stopping hosts...
 2019-07-31 19:13:04.495 +08:00 [DBG] Stopping consumer: "rabbitmq://localhost/SkyWatch/Money"

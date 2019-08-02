@@ -24,7 +24,7 @@ namespace Sangong.Matching.WebApi
             var config = GetConfiguration(args);
             Log.Logger = CreateSerilogLogger(config);
 
-            Log.Information("CreateWebHostBuilder ({ApplicationContext})...", "Sample");
+            Log.Information("CreateWebHostBuilder ({ApplicationContext})...", "Sangong");
             CreateWebHostBuilder(args).Build().Run();
         }
 

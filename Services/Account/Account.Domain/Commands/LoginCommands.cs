@@ -8,8 +8,8 @@ using Account.Domain.Models;
 
 namespace Account.Domain.Commands
 {
-    //public class LoginCommands : Command<HasBodyResponse<AccountResponse>
-    public class LoginCommand : Command<HasBodyResponse<AccountResponse>>
+    //public class LoginCommands : Command<BodyResponse<AccountResponse>
+    public class LoginCommand : Command<BodyResponse<AccountResponse>>
     {
         public AccountInfo Info { get; private set; }
         public LoginCommand(AccountInfo info)

@@ -42,7 +42,6 @@ D:\document\code\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcore
 D:\document\code\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Commons.Infrastruct.dll
 D:\document\code\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Commons.Domain.pdb
 D:\document\code\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
-D:\document\code\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
 D:\document\code\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Commons.Infrastruct.pdb
 D:\document\code\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Account.Application.pdb
 D:\document\code\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Account.Application.xml

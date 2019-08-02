@@ -8,6 +8,6 @@
       "language": "C#" ,
       "type":"project"
     },
-    "sourceName": "Sample.WebApi",  
+    "sourceName": "Sample",  
     "preferNameDirectory": true 
 }

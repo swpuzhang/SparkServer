@@ -6,11 +6,12 @@ D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\ne
 D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Commons.Extenssions.dll
 D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Commons.Infrastruct.dll
 D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Sangong.Domain.dll
+D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Commons.Infrastruct.pdb
 D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Sangong.Domain.pdb
 D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Commons.Domain.pdb
 D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
-D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
+D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.xml
 D:\document\code\project\Spark\Services\Sangong\Sangong.Application\obj\Debug\netcoreapp2.2\Sangong.Application.csprojAssemblyReference.cache
 D:\document\code\project\Spark\Services\Sangong\Sangong.Application\obj\Debug\netcoreapp2.2\Sangong.Application.csproj.CoreCompileInputs.cache
 D:\document\code\project\Spark\Services\Sangong\Sangong.Application\obj\Debug\netcoreapp2.2\Sangong.Application.AssemblyInfoInputs.cache
@@ -18,5 +19,5 @@ D:\document\code\project\Spark\Services\Sangong\Sangong.Application\obj\Debug\ne
 D:\document\code\project\Spark\Services\Sangong\Sangong.Application\obj\Debug\netcoreapp2.2\Sangong.Application.csproj.CopyComplete
 D:\document\code\project\Spark\Services\Sangong\Sangong.Application\obj\Debug\netcoreapp2.2\Sangong.Application.dll
 D:\document\code\project\Spark\Services\Sangong\Sangong.Application\obj\Debug\netcoreapp2.2\Sangong.Application.pdb
-D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.xml
+D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.dll
+D:\document\code\project\Spark\Services\Sangong\Sangong.Application\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.pdb

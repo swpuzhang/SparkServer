@@ -1,4 +1,4 @@
-﻿using Sample.Application.AutoMapper;
+﻿using Sangong.Application.AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

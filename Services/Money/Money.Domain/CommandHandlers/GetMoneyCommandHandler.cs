@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace Money.Domain.CommandHandlers
 {
     public class GetMoneyCommandHandler :
-        IRequestHandler<GetMoneyCommand, HasBodyResponse<MoneyInfo>>
+        IRequestHandler<GetMoneyCommand, BodyResponse<MoneyInfo>>
     {
         private readonly IMoneyInfoRepository _moneyRepository;
         private readonly IMoneyRedisRepository _redis;
@@ -26,7 +26,7 @@ namespace Money.Domain.CommandHandlers
             _moneyRepository = rep;
             _redis = moneyRedis;
         }
-        public async Task<HasBodyResponse<MoneyInfo>> Handle(GetMoneyCommand request, CancellationToken cancellationToken)
+        public async Task<BodyResponse<MoneyInfo>> Handle(GetMoneyCommand request, CancellationToken cancellationToken)
         {
 
             var moneyInfo = await _redis.GetMoney(request.Id);
@@ -41,11 +41,11 @@ namespace Money.Domain.CommandHandlers
                 
                 if (moneyInfo == null)
                 {
-                    return new HasBodyResponse<MoneyInfo>(StatuCodeDefines.GetMoneyError, null, null);
+                    return new BodyResponse<MoneyInfo>(StatuCodeDefines.GetMoneyError, null, null);
                 }
                 
             }
-            HasBodyResponse<MoneyInfo> response = new HasBodyResponse<MoneyInfo>(StatuCodeDefines.Success, null, moneyInfo);
+            BodyResponse<MoneyInfo> response = new BodyResponse<MoneyInfo>(StatuCodeDefines.Success, null, moneyInfo);
             return response;
 
         }

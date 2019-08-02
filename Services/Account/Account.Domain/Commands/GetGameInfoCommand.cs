@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Account.Domain.Commands
 {
-    public class GetGameInfoCommand : Command<HasBodyResponse<GameInfo>>
+    public class GetGameInfoCommand : Command<BodyResponse<GameInfo>>
     {
         public long Id { get; private set; }
         public GetGameInfoCommand(long id)

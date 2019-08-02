@@ -12,31 +12,31 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using MassTransit;
+using Commons.MqCommands;
 
 namespace Sangong.Domain.CommandHandlers
 {
     public class SangongCommandHandler :
-        IRequestHandler<LoginCommand, HasBodyResponse<SangongResponse>>
+        IRequestHandler<SangongCommand, BodyResponse<SangongInfo>>
     {
         //private readonly readonly IRequestClient<DoSomething> _requestClient;
     
         protected readonly IMediatorHandler _bus;
-        private readonly ISangongInfoRepository _sangongRepository;
-        private readonly  IUserIdGenRepository _genRepository;
+        private IRequestClient<GetMoneyMqCommand> _moneyClient;
+
         private readonly RedisHelper _redis;
-        public SangongCommandHandler(ISangongInfoRepository rep, IUserIdGenRepository genRepository, RedisHelper redis, IMediatorHandler bus)
+        public SangongCommandHandler(RedisHelper redis, IMediatorHandler bus, 
+            IRequestClient<GetMoneyMqCommand> moneyClient)
         {
-            _sangongRepository = rep;
-            _genRepository = genRepository;
             _redis = redis;
             _bus = bus;
+            _moneyClient = moneyClient;
         }
-        public Task<HasBodyResponse<SangongResponse>> Handle(LoginCommand request, CancellationToken cancellationToken)
+        public Task<BodyResponse<SangongInfo>> Handle(SangongCommand request, CancellationToken cancellationToken)
         {
-            
-            HasBodyResponse<SangongResponse> response = new HasBodyResponse<SangongResponse>(StatuCodeDefines.LoginError, null, null);
+            BodyResponse<SangongInfo> response = new BodyResponse<SangongInfo>(StatuCodeDefines.LoginError, null, null);
             return Task.FromResult(response);
-
         }
     }
 }

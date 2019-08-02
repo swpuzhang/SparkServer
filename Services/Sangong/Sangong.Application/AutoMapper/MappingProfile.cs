@@ -4,6 +4,7 @@ using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Sangong.MqCommands;
 
 namespace Sangong.Application.AutoMapper
 {
@@ -12,6 +13,8 @@ namespace Sangong.Application.AutoMapper
         public MappingProfile()
         {
             CreateMap<SangongVM, SangongInfo>().ReverseMap();
+            CreateMap<SangongMatchingResponseInfo, SangongMatchingResponseVM>().ReverseMap();
+    
         }
     }
 }

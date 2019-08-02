@@ -47,6 +47,10 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "MassTransit": {
               "target": "Package",
               "version": "[5.5.3, )"
@@ -449,6 +453,9 @@
               },
               "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
                 "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj"
+              },
+              "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj": {
+                "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj"
               }
             }
           }
@@ -462,6 +469,10 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[7.0.0, )"

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Account.Domain.Commands
 {
-    public class GetSelfAccountCommand :  Command<HasBodyResponse<AccountDetail>>
+    public class GetSelfAccountCommand :  Command<BodyResponse<AccountDetail>>
     {
         public long Id { get; private set; }
         public GetSelfAccountCommand(long id)

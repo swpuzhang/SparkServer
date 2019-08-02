@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "e128e10c6561163f599610fb81c884fd9da2e998"
+    "signature": "d069eb5ce49fd4c4b45eca4753a87cceb2c14c63"
   },
   "compilationOptions": {
     "defines": [
@@ -34,14 +34,15 @@
           "MassTransit.Autofac": "5.5.3",
           "MassTransit.RabbitMQ": "5.5.3",
           "MassTransit.SerilogIntegration": "5.5.3",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "7.0.0",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.3",
           "Newtonsoft.Json": "12.0.2",
-          "Sample.Application": "1.0.0",
-          "Sample.Infrastruct": "1.0.0",
+          "Sangong.Application": "1.0.0",
+          "Sangong.Infrastruct": "1.0.0",
           "Serilog": "2.8.0",
           "Serilog.AspNetCore": "2.1.1",
           "Serilog.Settings.Configuration": "3.1.0",
@@ -221,6 +222,21 @@
         },
         "compile": {
           "lib/netstandard2.0/MediatR.dll": {}
+        }
+      },
+      "MediatR.Extensions.Microsoft.DependencyInjection/7.0.0": {
+        "dependencies": {
+          "MediatR": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MediatR.Extensions.Microsoft.DependencyInjection.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/MediatR.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
       "Microsoft.AspNetCore.Http/2.2.2": {
@@ -1286,6 +1302,7 @@
       "System.ValueTuple/4.5.0": {},
       "Commons.Domain/1.0.0": {
         "dependencies": {
+          "AutoMapper": "8.1.1",
           "Commons.Extenssions": "1.0.0",
           "MassTransit": "5.5.3",
           "MediatR": "7.0.0",
@@ -1327,44 +1344,53 @@
           "Commons.Infrastruct.dll": {}
         }
       },
-      "Sample.Application/1.0.0": {
+      "Commons.IntegrationBus/1.0.0": {
+        "runtime": {
+          "Commons.IntegrationBus.dll": {}
+        },
+        "compile": {
+          "Commons.IntegrationBus.dll": {}
+        }
+      },
+      "Sangong.Application/1.0.0": {
         "dependencies": {
           "AutoMapper": "8.1.1",
           "Commons.Infrastruct": "1.0.0",
-          "Sample.Domain": "1.0.0"
+          "Sangong.Domain": "1.0.0"
         },
         "runtime": {
-          "Sample.Application.dll": {}
+          "Sangong.Application.dll": {}
         },
         "compile": {
-          "Sample.Application.dll": {}
+          "Sangong.Application.dll": {}
         }
       },
-      "Sample.Domain/1.0.0": {
+      "Sangong.Domain/1.0.0": {
         "dependencies": {
           "AutoMapper": "8.1.1",
           "Commons.Domain": "1.0.0",
           "Commons.Extenssions": "1.0.0",
           "Commons.Infrastruct": "1.0.0",
+          "Commons.IntegrationBus": "1.0.0",
           "MediatR": "7.0.0"
         },
         "runtime": {
-          "Sample.Domain.dll": {}
+          "Sangong.Domain.dll": {}
         },
         "compile": {
-          "Sample.Domain.dll": {}
+          "Sangong.Domain.dll": {}
         }
       },
-      "Sample.Infrastruct/1.0.0": {
+      "Sangong.Infrastruct/1.0.0": {
         "dependencies": {
           "Commons.Infrastruct": "1.0.0",
-          "Sample.Domain": "1.0.0"
+          "Sangong.Domain": "1.0.0"
         },
         "runtime": {
-          "Sample.Infrastruct.dll": {}
+          "Sangong.Infrastruct.dll": {}
         },
         "compile": {
-          "Sample.Infrastruct.dll": {}
+          "Sangong.Infrastruct.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -4564,6 +4590,13 @@
       "path": "mediatr/7.0.0",
       "hashPath": "mediatr.7.0.0.nupkg.sha512"
     },
+    "MediatR.Extensions.Microsoft.DependencyInjection/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DRf8jBnjBg84da1L1L0YmwqkhCV+UJTg7bTBHOhleWrLfrtSK5h5aNeE1HOofs1Afisq03B6H2C10NmS47gmqA==",
+      "path": "mediatr.extensions.microsoft.dependencyinjection/7.0.0",
+      "hashPath": "mediatr.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Http/2.2.2": {
       "type": "package",
       "serviceable": true,
@@ -5076,17 +5109,22 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Sample.Application/1.0.0": {
+    "Commons.IntegrationBus/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sample.Domain/1.0.0": {
+    "Sangong.Application/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Sample.Infrastruct/1.0.0": {
+    "Sangong.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Sangong.Infrastruct/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

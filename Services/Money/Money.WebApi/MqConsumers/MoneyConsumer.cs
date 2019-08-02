@@ -22,7 +22,7 @@ namespace Money.WebApi.MqConsumers
         public async Task Consume(ConsumeContext<GetMoneyMqCommand> context)
         {
             var response = await _service.GetMoney(context.Message.Id);
-            await context.RespondAsync<HasBodyResponse<GetMoneyMqResponse>>(response);
+            await context.RespondAsync<BodyResponse<GetMoneyMqResponse>>(response);
         }
     }
 }

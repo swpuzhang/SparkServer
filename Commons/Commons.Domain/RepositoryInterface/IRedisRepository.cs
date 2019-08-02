@@ -29,11 +29,19 @@ namespace Commons.Domain.RepositoryInterface
             {
                 Thread.Sleep(10);
             }
+      
+        }
+        public bool TryLock(int ms = 3000)
+        {
+            return _redis.LockTake(_key, _ownValue, TimeSpan.FromMilliseconds(ms)))
+   
+        
         }
         public void Dispose()
         {
+           
             _redis.LockRelease(_key, _ownValue);
-            GC.SuppressFinalize(this);
+            
         }
     }
     public class RedisRepository : IRedisRepository

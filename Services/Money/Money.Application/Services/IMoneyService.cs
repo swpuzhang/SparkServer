@@ -11,6 +11,6 @@ namespace Money.Application.Services
     public interface IMoneyService
     {
          
-        Task<HasBodyResponse<GetMoneyMqResponse>> GetMoney(long id);
+        Task<BodyResponse<GetMoneyMqResponse>> GetMoney(long id);
     }
 }

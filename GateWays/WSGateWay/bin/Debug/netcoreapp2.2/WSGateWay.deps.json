@@ -979,6 +979,7 @@
       "System.ValueTuple/4.5.0": {},
       "Commons.Domain/1.0.0": {
         "dependencies": {
+          "AutoMapper": "8.1.1",
           "Commons.Extenssions": "1.0.0",
           "MassTransit": "5.5.3",
           "MediatR": "7.0.0",
@@ -1030,9 +1031,11 @@
       },
       "Sangong.Domain/1.0.0": {
         "dependencies": {
+          "AutoMapper": "8.1.1",
           "Commons.Domain": "1.0.0",
           "Commons.Extenssions": "1.0.0",
           "Commons.Infrastruct": "1.0.0",
+          "Commons.IntegrationBus": "1.0.0",
           "MediatR": "7.0.0"
         },
         "runtime": {

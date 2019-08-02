@@ -22,7 +22,7 @@ using Commons.MqCommands;
 namespace Account.Domain.CommandHandlers
 {
     public class AccountCommandHandler :
-        IRequestHandler<LoginCommand, HasBodyResponse<AccountResponse>>
+        IRequestHandler<LoginCommand, BodyResponse<AccountResponse>>
     {
         protected readonly IMediatorHandler _bus;
         private readonly IAccountInfoRepository _accountRepository;
@@ -48,7 +48,7 @@ namespace Account.Domain.CommandHandlers
         }
 
 
-        public async Task<HasBodyResponse<AccountResponse>> Handle(LoginCommand request, CancellationToken cancellationToken)
+        public async Task<BodyResponse<AccountResponse>> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             var newAccountInfo = request.Info;
             //根据PlatformAccount字段读取redis，判断该账号是否已经注册
@@ -108,7 +108,7 @@ namespace Account.Domain.CommandHandlers
                     //查询玩家金币
                     GetMoneyMqResponse moneyResponse = null;
                    
-                    var mqResponse = await _moneyClient.GetResponseExt<GetMoneyMqCommand, HasBodyResponse<GetMoneyMqResponse>>
+                    var mqResponse = await _moneyClient.GetResponseExt<GetMoneyMqCommand, BodyResponse<GetMoneyMqResponse>>
                             (new GetMoneyMqCommand(accountInfo.Id));
                     moneyResponse = mqResponse.Message.Body;
                     accounResponse = new AccountResponse(newAccountInfo.Id,
@@ -124,12 +124,12 @@ namespace Account.Domain.CommandHandlers
 
                 _ = _bus.RaiseEvent<LoginEvent>(new LoginEvent(Guid.NewGuid(), 
                     accounResponse, isRegister, isNeedUpdate, newAccountInfo));
-                HasBodyResponse<AccountResponse> retRresponse =
-                    new HasBodyResponse<AccountResponse>(StatuCodeDefines.Success, null, accounResponse);
+                BodyResponse<AccountResponse> retRresponse =
+                    new BodyResponse<AccountResponse>(StatuCodeDefines.Success, null, accounResponse);
                 return retRresponse;
             }
 
-            HasBodyResponse<AccountResponse> response = new HasBodyResponse<AccountResponse>(StatuCodeDefines.LoginError,
+            BodyResponse<AccountResponse> response = new BodyResponse<AccountResponse>(StatuCodeDefines.LoginError,
                 null, null);
             
             return response;

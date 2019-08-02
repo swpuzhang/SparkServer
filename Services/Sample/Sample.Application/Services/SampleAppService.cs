@@ -31,7 +31,7 @@ namespace Sample.Application.Services
         }
 
 
-        public async Task<HasBodyResponse<SampleInfo>> Login(SampleVM sampleVM)
+        public async Task<BodyResponse<SampleInfo>> Login(SampleVM sampleVM)
         {
             return await _bus.SendCommand(new SampleCommand(_mapper.Map<SampleInfo>(sampleVM)));
         }

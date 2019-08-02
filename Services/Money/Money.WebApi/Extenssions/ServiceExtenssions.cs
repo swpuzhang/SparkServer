@@ -25,7 +25,7 @@ namespace Money.WebApi.Extenssions
             services.AddScoped<IMoneyRedisRepository, MoneyRedisRepository>();
             services.AddScoped<MoneyContext>();
             services.AddScoped<IMediatorHandler, InProcessBus>();
-            services.AddScoped<IRequestHandler<GetMoneyCommand, HasBodyResponse<MoneyInfo>>, GetMoneyCommandHandler>();
+            services.AddScoped<IRequestHandler<GetMoneyCommand, BodyResponse<MoneyInfo>>, GetMoneyCommandHandler>();
             services.AddSingleton<RedisHelper>(new RedisHelper(configuration["redis:ConnectionString"]));
             services.AddMediatR(typeof(Startup));
 

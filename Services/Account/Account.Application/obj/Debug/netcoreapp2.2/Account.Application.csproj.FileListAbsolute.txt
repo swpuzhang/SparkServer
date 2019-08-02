@@ -30,7 +30,6 @@ D:\document\code\project\Spark\Services\Account\Account.Application\bin\Debug\ne
 D:\document\code\project\Spark\Services\Account\Account.Application\bin\Debug\netcoreapp2.2\Account.Domain.pdb
 D:\document\code\project\Spark\Services\Account\Account.Application\bin\Debug\netcoreapp2.2\Commons.Domain.pdb
 D:\document\code\project\Spark\Services\Account\Account.Application\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
-D:\document\code\project\Spark\Services\Account\Account.Application\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
 D:\document\code\project\Spark\Services\Account\Account.Application\obj\Debug\netcoreapp2.2\Account.Application.csprojAssemblyReference.cache
 D:\document\code\project\Spark\Services\Account\Account.Application\obj\Debug\netcoreapp2.2\Account.Application.csproj.CoreCompileInputs.cache
 D:\document\code\project\Spark\Services\Account\Account.Application\obj\Debug\netcoreapp2.2\Account.Application.AssemblyInfoInputs.cache

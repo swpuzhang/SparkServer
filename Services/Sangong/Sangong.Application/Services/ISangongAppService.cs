@@ -11,7 +11,6 @@ namespace Sangong.Application.Services
 {
     public interface ISangongAppService
     {
-        Task<HasBodyResponse<SangongResponse>> Login(SangongVM sangongVM);
         SangongVM GetById(Int64 id);
       
 

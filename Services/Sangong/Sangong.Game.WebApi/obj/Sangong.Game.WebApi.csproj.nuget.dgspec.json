@@ -47,6 +47,10 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "MassTransit": {
               "target": "Package",
               "version": "[5.5.3, )"
@@ -218,14 +222,68 @@
         }
       }
     },
-    "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Application\\Sample.Application.csproj": {
+    "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Application\\Sample.Application.csproj",
-        "projectName": "Sample.Application",
-        "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Application\\Sample.Application.csproj",
+        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj",
+        "projectName": "Commons.IntegrationBus",
+        "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj",
         "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
-        "outputPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Application\\obj\\",
+        "outputPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\84075\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Application\\Sangong.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Application\\Sangong.Application.csproj",
+        "projectName": "Sangong.Application",
+        "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Application\\Sangong.Application.csproj",
+        "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
+        "outputPath": "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -249,8 +307,8 @@
               "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
                 "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj"
               },
-              "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Domain\\Sample.Domain.csproj": {
-                "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Domain\\Sample.Domain.csproj"
+              "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Domain\\Sangong.Domain.csproj": {
+                "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Domain\\Sangong.Domain.csproj"
               }
             }
           }
@@ -283,14 +341,14 @@
         }
       }
     },
-    "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Domain\\Sample.Domain.csproj": {
+    "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Domain\\Sangong.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Domain\\Sample.Domain.csproj",
-        "projectName": "Sample.Domain",
-        "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Domain\\Sample.Domain.csproj",
+        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Domain\\Sangong.Domain.csproj",
+        "projectName": "Sangong.Domain",
+        "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Domain\\Sangong.Domain.csproj",
         "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
-        "outputPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Domain\\obj\\",
+        "outputPath": "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -319,6 +377,9 @@
               },
               "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
                 "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj"
+              },
+              "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj": {
+                "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.IntegrationBus.csproj"
               }
             }
           }
@@ -340,67 +401,6 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )",
-              "autoReferenced": true
-            }
-          },
-          "imports": [
-            "net461"
-          ],
-          "assetTargetFallback": true,
-          "warn": true
-        }
-      }
-    },
-    "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Infrastruct\\Sample.Infrastruct.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Infrastruct\\Sample.Infrastruct.csproj",
-        "projectName": "Sample.Infrastruct",
-        "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Infrastruct\\Sample.Infrastruct.csproj",
-        "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
-        "outputPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Infrastruct\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\84075\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp2.2"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp2.2": {
-            "projectReferences": {
-              "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
-                "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj"
-              },
-              "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Domain\\Sample.Domain.csproj": {
-                "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Domain\\Sample.Domain.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp2.2": {
-          "dependencies": {
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -453,11 +453,11 @@
               "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
                 "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj"
               },
-              "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Application\\Sample.Application.csproj": {
-                "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Application\\Sample.Application.csproj"
+              "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Application\\Sangong.Application.csproj": {
+                "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Application\\Sangong.Application.csproj"
               },
-              "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Infrastruct\\Sample.Infrastruct.csproj": {
-                "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Infrastruct\\Sample.Infrastruct.csproj"
+              "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Infrastruct\\Sangong.Infrastruct.csproj": {
+                "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Infrastruct\\Sangong.Infrastruct.csproj"
               }
             }
           }
@@ -498,6 +498,10 @@
             "MassTransit.SerilogIntegration": {
               "target": "Package",
               "version": "[5.5.3, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
@@ -551,6 +555,67 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[4.0.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Infrastruct\\Sangong.Infrastruct.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Infrastruct\\Sangong.Infrastruct.csproj",
+        "projectName": "Sangong.Infrastruct",
+        "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Infrastruct\\Sangong.Infrastruct.csproj",
+        "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
+        "outputPath": "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Infrastruct\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\84075\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
+                "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj"
+              },
+              "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Domain\\Sangong.Domain.csproj": {
+                "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sangong\\Sangong.Domain\\Sangong.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
             }
           },
           "imports": [

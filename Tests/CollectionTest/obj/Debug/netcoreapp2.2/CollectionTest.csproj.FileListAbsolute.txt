@@ -1,0 +1,11 @@
+D:\document\code\project\Spark\Tests\CollectionTest\bin\Debug\netcoreapp2.2\CollectionTest.deps.json
+D:\document\code\project\Spark\Tests\CollectionTest\bin\Debug\netcoreapp2.2\CollectionTest.runtimeconfig.json
+D:\document\code\project\Spark\Tests\CollectionTest\bin\Debug\netcoreapp2.2\CollectionTest.runtimeconfig.dev.json
+D:\document\code\project\Spark\Tests\CollectionTest\bin\Debug\netcoreapp2.2\CollectionTest.dll
+D:\document\code\project\Spark\Tests\CollectionTest\bin\Debug\netcoreapp2.2\CollectionTest.pdb
+D:\document\code\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.csprojAssemblyReference.cache
+D:\document\code\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.csproj.CoreCompileInputs.cache
+D:\document\code\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.AssemblyInfoInputs.cache
+D:\document\code\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.AssemblyInfo.cs
+D:\document\code\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.dll
+D:\document\code\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.pdb

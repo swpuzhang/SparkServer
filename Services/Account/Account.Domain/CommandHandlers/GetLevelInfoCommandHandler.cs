@@ -23,7 +23,7 @@ using Account.Domain.Manager;
 namespace Account.Domain.CommandHandlers
 {
     public class GetLevelInfoCommandHandler :
-        IRequestHandler<GetLevelInfoCommand, HasBodyResponse<LevelInfo>>
+        IRequestHandler<GetLevelInfoCommand, BodyResponse<LevelInfo>>
         
     {
         private readonly ILevelInfoRepository _levelRepository;
@@ -39,7 +39,7 @@ namespace Account.Domain.CommandHandlers
         }
 
 
-        public async Task<HasBodyResponse<LevelInfo>> Handle(GetLevelInfoCommand request, 
+        public async Task<BodyResponse<LevelInfo>> Handle(GetLevelInfoCommand request, 
             CancellationToken cancellationToken)
         {
             //读取redis account信息
@@ -58,7 +58,7 @@ namespace Account.Domain.CommandHandlers
                 
             }
             
-            HasBodyResponse<LevelInfo> response = new HasBodyResponse<LevelInfo>(StatuCodeDefines.Success,
+            BodyResponse<LevelInfo> response = new BodyResponse<LevelInfo>(StatuCodeDefines.Success,
                 null, levelinfo);
             
             return response;
