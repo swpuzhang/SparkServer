@@ -19,17 +19,24 @@ namespace Sangong.Domain.Manager
     {
         public static string gameKey = string.Empty;
         public static string matchingGroup = string.Empty;
+        public static string MatchingUri = string.Empty;
         private Dictionary<string, GameRoom> _rooms = new Dictionary<string, GameRoom>();
         private readonly MqManager _mqManager;
         private readonly IBusControl _bus;
+        
         private IMapper _mapper;
-        public GameRoomManager(IConfiguration configuration, MqManager mqManager, IBusControl bus, IMapper mapper)
+        public GameRoomManager(IConfiguration configuration, 
+            MqManager mqManager, 
+            IBusControl bus, 
+            IMapper mapper)
         {
             var mqcfg = configuration.GetSection("Rabbitmq");
             gameKey = mqcfg["Queue"];
             matchingGroup = configuration["MatchingGroup"];
             _mqManager = mqManager;
             _bus = bus;
+            MatchingUri = mqcfg["Mathcing"];
+            
             _mapper = mapper;
         }
 
@@ -66,7 +73,7 @@ namespace Sangong.Domain.Manager
             try
             {
                 var handler = typeof(GameRoom).GetMethod($"On{requestName}");
-                return handler.Invoke(oneRoom, new object[] { id, gid, request }) as CommonResponse;
+                return handler.Invoke (oneRoom, new object[] { id, gid, request }) as CommonResponse;
             }
             catch
             {

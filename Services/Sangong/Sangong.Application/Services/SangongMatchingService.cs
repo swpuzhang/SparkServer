@@ -54,5 +54,10 @@ namespace Sangong.Application.Services
             _ = _matchingManager.OnLeaveGame(leaveEvent.Id, leaveEvent.GameKey, leaveEvent.RoomId,
                 leaveEvent.Blind, leaveEvent.UserCount, leaveEvent.MatchingGroup);
         }
+
+        public Task<BaseResponse> OnUserApplySit(UserApplySitMqCommand sitcmd)
+        {
+            return _matchingManager.OnUserApplySit(sitcmd.Id, sitcmd.GameKey, sitcmd.RoomId);
+        }
     }
 }

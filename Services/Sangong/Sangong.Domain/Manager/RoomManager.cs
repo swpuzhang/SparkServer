@@ -15,6 +15,9 @@ namespace Sangong.Domain.Manager
 {
     public class OneRoomGroup
     {
+        private Dictionary<string, RoomInfo> _allRooms = new Dictionary<string, RoomInfo>();
+        private Dictionary<long, Dictionary<string, RoomInfo>> _emptyQueues = new Dictionary<long, Dictionary<string, RoomInfo>>();
+        public int UserCount { get; private set; }
         public RoomInfo GetEmptyRoom(long blind)
         {
             //从改底注获取一个空闲队列
@@ -65,10 +68,7 @@ namespace Sangong.Domain.Manager
            
         }
 
-        private Dictionary<string, RoomInfo> _allRooms = new Dictionary<string, RoomInfo>();
-        private Dictionary<long, Dictionary<string, RoomInfo>> _emptyQueues = new Dictionary<long, Dictionary<string, RoomInfo>>();
-        public int UserCount { get; private set; }
-       
+        
         public List<RoomInfo> RemoveNoExist(List<SyncRoomInfo> rooms)
         {
             List<RoomInfo> deletRooms = new List<RoomInfo>();
@@ -327,6 +327,7 @@ namespace Sangong.Domain.Manager
                     //创建新房间
                     roomInfo = await CreateRoom(oneGroup.Key, blind);
                     oneGroup.Value.CreatRoom(roomInfo);
+                    roomInfo.AddUserCount(1);
                 }
                 return roomInfo;
             }
@@ -338,6 +339,7 @@ namespace Sangong.Domain.Manager
                 {
                     throw new Exception("matchingRooms matching queue error");
                 }
+                roomInfo.AddUserCount(1);
             }
             return roomInfo;
         }
@@ -360,6 +362,26 @@ namespace Sangong.Domain.Manager
             }
             
             SyncRoom(oneGroup, new RoomInfo(roomId, userCount, gameKey, blind));
+        }
+
+        public bool JoinOneRoom(string gameKey, string roomId)
+        {
+            OneRoomGroup oneGroup = null;
+            if (!_roomGroups.TryGetValue(gameKey, out oneGroup))
+            {
+                return false;
+            }
+            var room = oneGroup.FindRoom(roomId);
+            if (room == null)
+            {
+                return false;
+            }
+            if (room.IsFull())
+            {
+                return false;
+            }
+            UpdateOneGroup(oneGroup, new RoomInfo(room.RoomId, room.UserCount + 1, room.GameKey, room.Blind));
+            return true;
         }
     }
 }

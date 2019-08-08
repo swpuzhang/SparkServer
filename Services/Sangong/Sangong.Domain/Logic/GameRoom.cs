@@ -25,8 +25,10 @@ namespace Sangong.Domain.Logic
         private Dictionary<long, GamePlayer> _playerInfos = new Dictionary<long, GamePlayer>();
         private MqManager _mqManager;
         private readonly IBusControl _bus;
+ 
         private IMapper _mapper;
         private List<PokerCard> _bottomCards;
+        
         #region 成员
         public string RoomId { get; private set; }
         public long Blind { get; private set; }
@@ -208,14 +210,12 @@ namespace Sangong.Domain.Logic
                     new JoinGameRoomMqResponse(id, RoomId, GameRoomManager.gameKey, GetPlayerCount(), Blind));
             }
 
-            //查找空位
-            var seat = GetEmptySeat();
-            if (seat == null)
+            else
             {
-                return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Error, new List<string>() { "room is full " }, null);
+                  player = await MakePlayer(id);
             }
-            
-            player = await MakePlayer(id);
+       
+          
             if (player == null)
             {
                 return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Error, new List<string>() { "make player error " }, null);
@@ -224,7 +224,7 @@ namespace Sangong.Domain.Logic
             //注意异步回来后, 可能整个对象都变化了, 所以要重新判断
             if (!player.IsSeated())
             {
-                seat = GetEmptySeat();
+                var seat = GetEmptySeat();
                 if (seat == null)
                 {
                     return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Error, new List<string>() { "room is full " }, null);
@@ -714,6 +714,41 @@ namespace Sangong.Domain.Logic
 
             return new CommonResponse(gid);
         }
+
+        public async Task<CommonResponse> OnApplySitDownCommand(long id, Guid gid, ApplySitdownCommand command)
+        {
+            _playerInfos.TryGetValue(id, out var player);
+            if (player == null || player.IsSeated() || command.SeatNum >= SeatCount || _seats[command.SeatNum].IsSeated())
+            {
+                return new CommonResponse(null, gid, StatuCodeDefines.PlayerNotInRoom, null);
+            }
+
+            //向matching请求加入该房间
+            var response = await _mqManager.UserApplySit(id, RoomId, GameRoomManager.gameKey);
+            if (response == null || response.StatusCode != StatuCodeDefines.Success)
+            {
+                return new CommonResponse(null, gid, StatuCodeDefines.Error, null);
+            }
+
+            _playerInfos.TryGetValue(id, out var playerBack);
+
+            if (player == null || player.IsSeated() || _seats[command.SeatNum].IsSeated())
+            {
+                return new CommonResponse(null, gid, StatuCodeDefines.PlayerNotInRoom, null);
+            }
+            playerBack.Seat(_seats[command.SeatNum]);
+            BroadCastMessage(new PlayerSeatedEvent(playerBack.Id, playerBack.UserName,
+                playerBack.Coins, playerBack.Diamonds, playerBack.SeatInfo.SeatNum, playerBack.Carry),
+                "PlayerSeatedEvent");
+            //判断房间人数>2 人， 而且是正在准备状态， 开始牌局， 否者旁观
+            if (IsGameCanStart())
+            {
+                _statusInfo.WaitForNexStatus(OnGameReady, GameStatus.ready, GameTimerConfig.ReadyWait);
+            }
+            
+            return new CommonResponse(gid);
+        }
+
         #endregion
     }
 }

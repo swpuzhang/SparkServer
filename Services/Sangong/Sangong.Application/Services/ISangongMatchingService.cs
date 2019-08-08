@@ -17,5 +17,7 @@ namespace Sangong.Application.Services
         void SynGameRooms(SyncGameRoomMqCommand command);
         void OnJoinGameRoom(JoinGameRoomMqEvent joinEvent);
         void OnLeaveGameRoom(LeaveGameRoomMqEvent leaveEvent);
+
+        Task<BaseResponse> OnUserApplySit(UserApplySitMqCommand sitcmd);
     }
 }

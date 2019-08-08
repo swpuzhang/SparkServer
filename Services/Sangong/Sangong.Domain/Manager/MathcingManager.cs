@@ -137,5 +137,26 @@ namespace Sangong.Domain.Manager
             }
             _roomManager.OnUserCountChange(gameKey, roomId, blind, userCount);
         }
+
+        public async Task<BaseResponse> OnUserApplySit(long id, string gameKey, string roomId)
+        {
+            using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
+            {
+                await locker.LockAsync();
+
+              
+                var userRoomInfo = await _redis.GetUserRoomInfo(id);
+                if (userRoomInfo != null)
+                {
+
+                    return new BaseResponse(StatuCodeDefines.Error, new List<string>() { "user already in room " });
+                }
+                if (!_roomManager.JoinOneRoom(gameKey, roomId))
+                {
+                    return new BaseResponse(StatuCodeDefines.Error, new List<string>() { "room is full " });
+                }
+                return new BaseResponse(StatuCodeDefines.Success, null);
+            }
+        }
     }
 }

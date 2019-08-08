@@ -7,6 +7,7 @@ using Commons.Extenssions;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Commons.Domain.Models;
+using Sangong.MqCommands;
 
 namespace Commons.Domain.Managers
 {
@@ -15,18 +16,36 @@ namespace Commons.Domain.Managers
         public IBusControl _bus { get; private set; }
         //public static string accountUrl;
         //public static string moneyUrl;
-        public IRequestClient<GetAccountInfoMqCommand> _accountClient;
-        public IRequestClient<GetMoneyMqCommand> _moneyClient;
-        public IRequestClient<BuyInMqCommand> _buyInClient;
+        public readonly IRequestClient<GetAccountInfoMqCommand> _accountClient;
+        public readonly IRequestClient<GetMoneyMqCommand> _moneyClient;
+        public readonly IRequestClient<BuyInMqCommand> _buyInClient;
+        private readonly IRequestClient<UserApplySitMqCommand> _sitClient;
         public MqManager(IBusControl bus, 
             IRequestClient<GetAccountInfoMqCommand> accountClient, 
-            IRequestClient<GetMoneyMqCommand> moneyClient)
+            IRequestClient<GetMoneyMqCommand> moneyClient,
+            IRequestClient<UserApplySitMqCommand> sitClient)
         {
             _bus = bus;
             _accountClient = accountClient;
             _moneyClient = moneyClient;
+            _sitClient = sitClient;
             //accountUrl = configuration.GetSection("Rabbitmq")["Account"];
             //moneyUrl = configuration.GetSection("Rabbitmq")["Money"];
+        }
+
+        public async Task<BaseResponse> UserApplySit(long id, string roomId, string gameKey)
+        {
+            try
+            {
+                var response = await _sitClient.GetResponseExt<UserApplySitMqCommand, BaseResponse>(
+                    new UserApplySitMqCommand(id, roomId, gameKey));
+                return response.Message;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
         }
 
         public async Task<GetAccountInfoMqResponse> GetAccountInfo(long id)

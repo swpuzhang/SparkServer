@@ -59,4 +59,24 @@ namespace Sangong.Matching.WebApi.MqConsumers
         }
     }
 
+
+    public class UserApplySitConsumer :
+        OneThreadConsumer<UserApplySitMqCommand, BaseResponse>
+    {
+        ISangongMatchingService _service;
+
+        public UserApplySitConsumer(ISangongMatchingService service)
+        {
+            _service = service;
+        }
+
+
+        public override Task<BaseResponse> ConsumerHandler(UserApplySitMqCommand request)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    
+
 }
