@@ -10,9 +10,7 @@ namespace WSGateWay.Services
 {
     public interface ICommandService
     {
-
-        void OnRoomGameMapConfig(RoomIdMapConfigMqCommand command);
         Task OnServerRequest(ConsumeContext<ServerRequest> context);
-       
+        Task OnGameRoomRequest(ConsumeContext<GameServerRequest> context);
     }
 }

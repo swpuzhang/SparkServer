@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using StackExchange.Redis;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Commons.Domain.RepositoryInterface
 {
@@ -33,10 +34,26 @@ namespace Commons.Domain.RepositoryInterface
         }
         public bool TryLock(int ms = 3000)
         {
-            return _redis.LockTake(_key, _ownValue, TimeSpan.FromMilliseconds(ms)))
+            return _redis.LockTake(_key, _ownValue, TimeSpan.FromMilliseconds(ms));
    
         
         }
+
+        public async Task LockAsync(int ms = 3000)
+        {
+            while (!await _redis.LockTakeAsync(_key, _ownValue, TimeSpan.FromMilliseconds(ms)))
+            {
+                Thread.Sleep(10);
+            }
+
+        }
+        public Task<bool> TryLockAsync(int ms = 3000)
+        {
+            return _redis.LockTakeAsync(_key, _ownValue, TimeSpan.FromMilliseconds(ms));
+
+
+        }
+
         public void Dispose()
         {
            

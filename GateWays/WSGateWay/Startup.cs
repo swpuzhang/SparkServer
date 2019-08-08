@@ -39,7 +39,6 @@ namespace WSGateWay
             services.AddSingleton<RedisHelper>(new RedisHelper(Configuration["redis:ConnectionString"]));
             ContainerBuilder builder = new ContainerBuilder();
             services.AddMassTransitService(Configuration, builder);
-            
             builder.Populate(services);
             Provider = new AutofacServiceProvider(builder.Build());
             return Provider;

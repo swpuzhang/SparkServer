@@ -6,7 +6,6 @@ E:\document\mycode\project\Spark\Services\Sample\Sample.Domain\bin\Debug\netcore
 E:\document\mycode\project\Spark\Services\Sample\Sample.Domain\bin\Debug\netcoreapp2.2\Commons.Infrastruct.dll
 E:\document\mycode\project\Spark\Services\Sample\Sample.Domain\bin\Debug\netcoreapp2.2\Commons.Domain.pdb
 E:\document\mycode\project\Spark\Services\Sample\Sample.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
-E:\document\mycode\project\Spark\Services\Sample\Sample.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
 E:\document\mycode\project\Spark\Services\Sample\Sample.Domain\bin\Debug\netcoreapp2.2\Commons.Infrastruct.pdb
 E:\document\mycode\project\Spark\Services\Sample\Sample.Domain\obj\Debug\netcoreapp2.2\Sample.Domain.csprojAssemblyReference.cache
 E:\document\mycode\project\Spark\Services\Sample\Sample.Domain\obj\Debug\netcoreapp2.2\Sample.Domain.csproj.CoreCompileInputs.cache
@@ -33,3 +32,5 @@ D:\document\code\project\Spark\Services\Sample\Sample.Domain\obj\Debug\netcoreap
 D:\document\code\project\Spark\Services\Sample\Sample.Domain\obj\Debug\netcoreapp2.2\Sample.Domain.pdb
 D:\document\code\project\Spark\Services\Sample\Sample.Domain\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\document\code\project\Spark\Services\Sample\Sample.Domain\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.xml
+E:\document\mycode\project\Spark\Services\Sample\Sample.Domain\bin\Debug\netcoreapp2.2\Commons.Message.dll
+E:\document\mycode\project\Spark\Services\Sample\Sample.Domain\bin\Debug\netcoreapp2.2\Commons.Message.pdb

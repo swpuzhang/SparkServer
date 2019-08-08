@@ -14,19 +14,52 @@ namespace Commons.MqCommands
         public long Id { get; private set; }
     }
 
-    public class GetMoneyMqResponse
+    public class BuyInMqCommand
     {
-        public GetMoneyMqResponse(long curChips, long curDiamonds, long maxChips, long maxDiamonds)
+        public BuyInMqCommand(long id, long minBuy, long maxBuy)
         {
-            CurChips = curChips;
+            Id = id;
+            MinBuy = minBuy;
+            MaxBuy = maxBuy;
+        }
+
+        public long Id { get; private set; }
+        public long MinBuy { get; private set; }
+        public long MaxBuy { get; private set; }
+    }
+
+    public class MoneyMqResponse
+    {
+        public MoneyMqResponse(long id, long curCoins, long curDiamonds, long maxChips, long maxDiamonds, long carry)
+        {
+            Id = id;
+            CurCoins = curCoins;
             CurDiamonds = curDiamonds;
             MaxChips = maxChips;
             MaxDiamonds = maxDiamonds;
+            Carry = carry;
         }
 
-        public long CurChips { get; private set; }
+        public long Id { get; private set; }
+        public long CurCoins { get; private set; }
         public long CurDiamonds { get; private set; }
         public long MaxChips { get; private set; }
         public long MaxDiamonds { get; private set; }
+        public long Carry { get; private set; }
     }
+
+    public class AddMoneyMqCommand
+    {
+        public AddMoneyMqCommand(long id, long addCoins, long addCarry)
+        {
+            Id = id;
+            AddCoins = addCoins;
+            AddCarry = addCarry;
+        }
+
+        public long Id { get; private set; }
+        public long AddCoins { get; private set; }
+        public long AddCarry { get; private set; }
+    }
+
 }

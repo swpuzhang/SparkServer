@@ -24,7 +24,13 @@ namespace Sangong.Infrastruct
 
         public Task SetUserRoomInfo(UserRoomInfo info)
         {
-            return _redis.SetStringAsync<UserRoomInfo>(KeyGenHelper.GenUserKey(info.Id, UserRoomInfo.className), info);
+            return _redis.SetStringAsync<UserRoomInfo>(KeyGenHelper.GenUserKey(info.Id, UserRoomInfo.className), 
+                info, TimeSpan.FromHours(1));
+        }
+
+        public Task DeleteUserRoomInfo(long id)
+        {
+            return _redis.DeleteKeyAsync(KeyGenHelper.GenUserKey(id, UserRoomInfo.className));
         }
     }
 }

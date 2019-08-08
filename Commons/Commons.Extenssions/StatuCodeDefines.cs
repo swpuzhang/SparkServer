@@ -6,6 +6,11 @@ namespace Commons.Extenssions.Defines
 {
     public enum StatuCodeDefines
     {
+        /// <summary>
+        /// 通用错误
+        /// </summary>
+        Error = -1,
+
         Success = 0,
         /// <summary>
         /// 登录失败
@@ -54,5 +59,13 @@ namespace Commons.Extenssions.Defines
         GameInfoError = 11,
 
         IsMatching = 12,
+
+        /// <summary>
+        /// 钱不够
+        /// </summary>
+        NoEnoughMoney = 13,
+
+        PlayerNotInRoom = 14,
+
     }
 }

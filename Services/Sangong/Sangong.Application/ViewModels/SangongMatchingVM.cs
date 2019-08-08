@@ -12,7 +12,7 @@ namespace Sangong.Application.ViewModels
     /// </summary>
     public class SangongMatchingResponseVM
     {
-        public int RoomId {get; set;}
+        public string RoomId {get; set;}
         public long Blind { get; set;}
         public string GameKey { get; set; }
     }

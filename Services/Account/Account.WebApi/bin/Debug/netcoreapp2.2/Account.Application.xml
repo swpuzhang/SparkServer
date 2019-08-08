@@ -64,7 +64,7 @@
             账号类型
             </summary>
         </member>
-        <member name="P:Account.Application.ViewModels.AccountResponseVM.CurChips">
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.CurCoins">
             <summary>
             当前金币
             </summary>
@@ -77,6 +77,11 @@
         <member name="P:Account.Application.ViewModels.AccountResponseVM.Token">
             <summary>
             Token
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.LongConnectHost">
+            <summary>
+            长连接地址
             </summary>
         </member>
     </members>

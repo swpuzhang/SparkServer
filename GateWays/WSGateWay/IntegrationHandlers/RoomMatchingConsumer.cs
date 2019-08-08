@@ -8,20 +8,5 @@ using WSGateWay.Services;
 
 namespace WSGateWay.IntegrationHandlers
 {
-    public class RoomMatchingConsumer : IConsumer<RoomIdMapConfigMqCommand>
-    {
-
-        ICommandService _service;
-
-        public RoomMatchingConsumer(ICommandService service)
-        {
-            _service = service;
-        }
-
-        public Task Consume(ConsumeContext<RoomIdMapConfigMqCommand> context)
-        {
-            _service.OnRoomGameMapConfig(context.Message);
-            return Task.CompletedTask;
-        }
-    }
+   
 }

@@ -13,6 +13,7 @@ using WSGateWay.ViewModels;
 using WSGateWay.Services;
 using WSGateWay.Manager;
 using Commons.Infrastruct;
+using Commons.Extenssions;
 
 namespace WSGateWay.Hubs
 {
@@ -60,6 +61,7 @@ namespace WSGateWay.Hubs
                 return new BaseResponse(StatuCodeDefines.LoginError, new List<string>() { "Token error relogin" });
             }
             _userConnManager.OnLogined(result.Value, Context.ConnectionId);
+            
             return new BaseResponse(StatuCodeDefines.Success, null);
            
         }
@@ -67,30 +69,31 @@ namespace WSGateWay.Hubs
         public async Task<CommonResponse> RoomRequest(RoomRequest request)
         {
             CommonResponse commonResponse = null;
-            string gameKey =  _roomidMapper.GetGameByRoomid(request.RoomId);
-            var busClient = _bus.CreateRequestClient<RoomRequest>(new Uri($"{Startup.mqConnectionStr}/{gameKey}"), TimeSpan.FromSeconds(5));
+
+            //验证是否是本人ID
+            long uid = _userConnManager.GetUidByConn(Context.ConnectionId);
+            if (request.Id != uid)
+            {
+                return new CommonResponse(null, request.MessageId, StatuCodeDefines.Error, null);
+            }
+            var busClient = _bus.CreateRequestClient<RoomRequest>(new Uri($"{Startup.mqConnectionStr}/{request.GameRoomKey}"), TimeSpan.FromSeconds(5));
             try
             {
-                var busResponse = await busClient.GetResponse<CommonResponse>(request);
+                var busResponse = await busClient.GetResponseExt<RoomRequest, CommonResponse>(request);
                 commonResponse = busResponse?.Message;   
             }
             catch( Exception)
             {
-
+                
+                return new CommonResponse(null, request.MessageId, StatuCodeDefines.BusError, null);
             }
-            if (commonResponse == null)
-            {
-                var response = new BaseResponse((StatuCodeDefines.BusError), null);
-                return new CommonResponse(JsonConvert.SerializeObject(response), request.Id);
-            }
-
             return commonResponse;
         }
 
 
         public void CommonResponse(CommonResponse response)
         {
-            _rpcCaller.OnResponsed(response.Id);
+            _rpcCaller.OnResponsed(response.MessageId);
         }
     }
 }

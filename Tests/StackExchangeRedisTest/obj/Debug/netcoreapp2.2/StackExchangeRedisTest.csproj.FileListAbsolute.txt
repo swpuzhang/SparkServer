@@ -2,7 +2,6 @@ E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcorea
 E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.runtimeconfig.json
 E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.runtimeconfig.dev.json
 E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\bin\Debug\netcoreapp2.2\StackExchangeRedisTest.dll
-E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.csprojAssemblyReference.cache
 E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.csproj.CoreCompileInputs.cache
 E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.RazorAssemblyInfo.cache
 E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.RazorAssemblyInfo.cs
@@ -26,3 +25,4 @@ D:\document\code\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp
 D:\document\code\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.RazorTargetAssemblyInfo.cache
 D:\document\code\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.dll
 D:\document\code\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.pdb
+E:\document\mycode\project\Spark\Tests\StackExchangeRedisTest\obj\Debug\netcoreapp2.2\StackExchangeRedisTest.csprojAssemblyReference.cache

@@ -11,6 +11,9 @@ using AutoMapper;
 using Commons.Domain.Bus;
 using Commons.Domain.Models;
 using Commons.Infrastruct;
+using Sangong.MqCommands;
+using Sangong.Domain.Manager;
+using Sangong.MqEvents;
 
 namespace Sangong.Application.Services
 {
@@ -18,16 +21,38 @@ namespace Sangong.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly IMediatorHandler _bus;
-        public SangongMatchingService(ISangongInfoRepository repository, IMapper mapper, IMediatorHandler bus)
+        private readonly RoomManager _roomManager;
+        private readonly MatchingManager _matchingManager;
+        public SangongMatchingService(ISangongInfoRepository repository, IMapper mapper, IMediatorHandler bus, 
+            RoomManager roomManager, MatchingManager matchingManager)
         {
             _mapper = mapper;
             _bus = bus;
+            _roomManager = roomManager;
+            _matchingManager = matchingManager;
         }
-        
+
         public async Task<BodyResponse<SangongMatchingResponseVM>> Playnow(long id)
         {
             BodyResponse<SangongMatchingResponseInfo> response = await _bus.SendCommand(new SangongPlaynowCommand(id));
             return response.MapResponse<SangongMatchingResponseVM>(_mapper);
+        }
+
+        public void SynGameRooms(SyncGameRoomMqCommand command)
+        {
+            _roomManager.SyncRooms(command.GameKey, command.MatchingGroup, command.SyncInfo);
+        }
+
+        public void OnJoinGameRoom(JoinGameRoomMqEvent joinEvent)
+        {
+            _ =_matchingManager.OnJoinGame(joinEvent.Id, joinEvent.GameKey, joinEvent.RoomId, 
+                joinEvent.Blind, joinEvent.UserCount, joinEvent.MatchingGroup);
+        }
+
+        public void OnLeaveGameRoom(LeaveGameRoomMqEvent leaveEvent)
+        {
+            _ = _matchingManager.OnLeaveGame(leaveEvent.Id, leaveEvent.GameKey, leaveEvent.RoomId,
+                leaveEvent.Blind, leaveEvent.UserCount, leaveEvent.MatchingGroup);
         }
     }
 }

@@ -18,11 +18,8 @@ E:\document\mycode\project\Spark\GateWays\WSGateWay\obj\Debug\netcoreapp2.2\WSGa
 E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Commons.Extenssions.dll
 E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Commons.Infrastruct.dll
 E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
-E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
 E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Commons.Infrastruct.pdb
 E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\WSGateWay.xml
-E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\GameSangong.Domain.dll
-E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\GameSangong.Domain.pdb
 D:\document\code\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\WSGateWay.deps.json
 D:\document\code\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\WSGateWay.runtimeconfig.json
 D:\document\code\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\WSGateWay.runtimeconfig.dev.json
@@ -49,3 +46,5 @@ D:\document\code\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Common
 D:\document\code\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.pdb
 D:\document\code\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Sangong.Domain.dll
 D:\document\code\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Sangong.Domain.pdb
+E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Commons.Message.dll
+E:\document\mycode\project\Spark\GateWays\WSGateWay\bin\Debug\netcoreapp2.2\Commons.Message.pdb

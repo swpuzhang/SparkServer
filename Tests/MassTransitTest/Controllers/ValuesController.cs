@@ -29,28 +29,29 @@ namespace MassTransitTest.Controllers
          }*/
         // GET api/values
         [HttpGet]
-        public async Task<string> GetAsync( int Id)
+        public string GetAsync( int Id)
         {
             Console.WriteLine(HttpContext.Request.Method);
             Console.WriteLine(HttpContext.Request.Path);
             Console.WriteLine(Id);
             try
             {
-                //_bus.Publish<DoSomething>(new { Value = "hello world" });
+                _bus.Publish<DoSomething>(new { Value = "hello world" });
+                _bus.Publish<DoMessage>(new { Value = "hello world" });
                 //await _bus.Publish<DoSomething>(new { Value = "hello world" });
                 //var client = _bus.CreateRequestClient<DoSomething>(new Uri("rabbitmq://localhost/Test3/MassTestQueue"));
 
                 //var response = await client.GetResponse<SomethingDone>(new { Value = "hello world"});
                 //var response = await _requestClient.GetResponse<SomethingDone>(new { Value = "hello world" });
                 //return ($"{response.Message.Value}, MessageId: {response.MessageId:D}");
-                var client = Startup.Provider.GetService<IRequestClient<DoSomething>>();
-                var response = await client.GetResponse<SomethingDone>(new { Value = "hello world" });
-                
-                await client.GetResponse<SomethingDone>(new { Value = "hello world" });
-                await client.GetResponse<SomethingDone>(new { Value = "hello world" });
-                await client.GetResponse<SomethingDone>(new { Value = "hello world" });
-                await client.GetResponse<SomethingDone>(new { Value = "hello world" });
-                await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+                /* var client = Startup.Provider.GetService<IRequestClient<DoSomething>>();
+                 var response = await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+
+                 await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+                 await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+                 await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+                 await client.GetResponse<SomethingDone>(new { Value = "hello world" });
+                 await client.GetResponse<SomethingDone>(new { Value = "hello world" });*/
                 /*int i = 100;
                 while (i-- > 0)
                 {

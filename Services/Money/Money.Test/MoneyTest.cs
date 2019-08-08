@@ -32,7 +32,7 @@ namespace Money.Test
         {
             IRequestClient<GetMoneyMqCommand> client = _mqBus.CreateRequestClient<GetMoneyMqCommand>
                (new Uri("rabbitmq://localhost/SkyWatch/Money"));
-            var response = client.GetResponse<BodyResponse<GetMoneyMqResponse>>(new GetMoneyMqCommand(10000000002));
+            var response = client.GetResponse<BodyResponse<MoneyMqResponse>>(new GetMoneyMqCommand(10000000002));
 
             response.Wait();
 

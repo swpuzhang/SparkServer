@@ -16,7 +16,7 @@ namespace Sangong.Domain.Models
 
         }
 
-        public SangongMatchingResponseInfo(long id, int roomId, long blind, string gameKey)
+        public SangongMatchingResponseInfo(long id, string roomId, long blind, string gameKey)
         {
             Id = id;
             RoomId = roomId;
@@ -24,7 +24,7 @@ namespace Sangong.Domain.Models
             GameKey = gameKey;
         }
 
-        public int RoomId { get; private set; }
+        public string RoomId { get; private set; }
         public long Blind { get; private set; }
         public string GameKey { get; private set; }
     }

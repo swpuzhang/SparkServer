@@ -7,6 +7,7 @@ using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 using System;
 using System.Reflection;
 
@@ -20,20 +21,21 @@ namespace Account.WebApi.Extenssions
             services.AddSingleton<IHostedService, HostedService>();
             builder.AddMassTransit(x =>
             {
-                var rabbitCfg = Configuration.GetSection("rabbitmq");
+                var rabbitCfg = Configuration.GetSection("Rabbitmq");
                 x.AddConsumers(Assembly.GetExecutingAssembly());
                 x.AddBus(context => Bus.Factory.CreateUsingRabbitMq(cfg =>
                 {
                     cfg.UseSerilog();
-                   
-                    var host = cfg.Host(rabbitCfg["host"], rabbitCfg["vhost"], h =>
+
+                    Log.Information($"rabbitCfg host:{rabbitCfg["Host"]} vhost:{rabbitCfg["Vhost"]}");
+                    var host = cfg.Host(rabbitCfg["Host"], rabbitCfg["Vhost"], h =>
                     {
-                        h.Username(rabbitCfg["username"]);
-                        h.Password(rabbitCfg["passwd"]);
+                        h.Username(rabbitCfg["UserName"]);
+                        h.Password(rabbitCfg["Passwd"]);
 
                     });
 
-                    cfg.ReceiveEndpoint(rabbitCfg["queue"], ec =>
+                    cfg.ReceiveEndpoint(rabbitCfg["Queue"], ec =>
                     {
 
                         ec.ConfigureConsumers(context);

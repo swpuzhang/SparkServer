@@ -12,12 +12,13 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
+using Commons.Extenssions;
 
 namespace Sample.WebApi.Extenssions
 {
     public static class ServicesExtenssions
     {
-        public static void AddServices(this IServiceCollection services)
+        public static void AddServices(this IServiceCollection services, IConfiguration configuration)
         {
             //服务
             services.AddScoped<ISampleAppService, SampleAppService>();
@@ -30,8 +31,11 @@ namespace Sample.WebApi.Extenssions
             //命令
             services.AddScoped<IMediatorHandler, InProcessBus>();
             services.AddScoped<IRequestHandler<SampleCommand, BodyResponse<SampleInfo>>, SampleCommandHandler>();
-            services.AddMediatR(typeof(Startup));
 
+            services.AddMediatR(typeof(Startup));
+            services.AddSingleton(new RedisHelper(configuration["redis:ConnectionString"]));
+
+            //manager
 
         }
 

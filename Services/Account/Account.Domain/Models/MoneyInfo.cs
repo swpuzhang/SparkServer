@@ -12,15 +12,15 @@ namespace Account.Domain.Models
         }
 
         [JsonConstructor]
-        public MoneyInfo(long curChips, long curDiamonds, long maxChips, long maxDiamonds)
+        public MoneyInfo(long curCoins, long curDiamonds, long maxChips, long maxDiamonds)
         {
-            CurChips = curChips;
+            CurCoins = curCoins;
             CurDiamonds = curDiamonds;
             MaxChips = maxChips;
             MaxDiamonds = maxDiamonds;
         }
 
-        public long CurChips { get; private set; }
+        public long CurCoins { get; private set; }
         public long CurDiamonds { get; private set; }
         public long MaxChips { get; private set; }
         public long MaxDiamonds { get; private set; }

@@ -13,6 +13,26 @@ namespace WSGateWay.Manager
         private Dictionary<string, long> _connUserIds = new Dictionary<string, long>();
         public object _sync = new object();
 
+        public int GetUserCount()
+        {
+            lock (_sync)
+            {
+                return _userConnIds.Count;
+            }
+        }
+
+        public long GetUidByConn(string conn)
+        {
+            lock (_sync)
+            {
+                if (!_connUserIds.TryGetValue(conn, out var id))
+                {
+                    return 0;
+                }
+                return id;
+            }
+        }
+
         public string GetConnByUid(long uid)
         {
             string conn = null;

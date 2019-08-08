@@ -35,15 +35,8 @@ namespace Account.WebApi.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        //[Route("AccountLogin")]
         public async Task<BodyResponse<AccountResponseVM>> Login([FromBody] AccountVM model)
         {
-            if (!ModelState.IsValid)
-            {
-                return new BodyResponse<AccountResponseVM>(StatuCodeDefines.FieldError, null, null);
-
-            }
-
             return await _service.Login(model);
         }
 
@@ -52,7 +45,6 @@ namespace Account.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        //[Route("AccountSelf/id")]
         public async Task<BodyResponse<AccountDetailVM>> GetSelfAccount([FromHeader]long id)
         {
             var response = await _service.GetSelfAccount(id);

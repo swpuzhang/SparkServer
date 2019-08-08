@@ -24,12 +24,14 @@ namespace Sangong.Matching.WebApi
             var config = GetConfiguration(args);
             Log.Logger = CreateSerilogLogger(config);
 
-            Log.Information("CreateWebHostBuilder ({ApplicationContext})...", "Sangong");
-            CreateWebHostBuilder(args).Build().Run();
+            Log.Information("CreateWebHostBuilder ({ApplicationContext})...", "Account");
+            CreateWebHostBuilder(args, config).Build().RunAsync();
+            OneThreadSynchronizationContext.Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args, IConfiguration configuratioin) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseConfiguration(configuratioin)
                 .UseSerilog()
                 .UseStartup<Startup>();
 

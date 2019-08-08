@@ -41,9 +41,5 @@
     <ProjectReference Include="..\Account.Application\Account.Application.csproj" />
     <ProjectReference Include="..\Account.Infrastruct\Account.Infrastruct.csproj" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="IntegrationHandlers\" />
-  </ItemGroup>
 
 </Project>

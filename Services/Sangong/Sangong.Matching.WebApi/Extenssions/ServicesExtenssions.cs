@@ -13,17 +13,19 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Sangong.Domain.Manager;
+using Commons.Extenssions;
+using Sangong.MqCommands;
 
 namespace Sangong.Matching.WebApi.Extenssions
 {
     public static class ServicesExtenssions
     {
-        public static void AddServices(this IServiceCollection services)
+        public static void AddServices(this IServiceCollection services, IConfiguration configuration)
         {
             //数据存储
             services.AddScoped<ISangongRedisRepository, SangongRedisRepository>();
             services.AddScoped<ISangongInfoRepository, SangongInfoRepository>();
-            services.AddSingleton<ConfigRepository>();
+            services.AddSingleton<IConfigRepository, ConfigRepository>();
             services.AddScoped<SangongContext>();
 
             //服务
@@ -34,10 +36,11 @@ namespace Sangong.Matching.WebApi.Extenssions
             services.AddScoped<IMediatorHandler, InProcessBus>();
             services.AddScoped<IRequestHandler<SangongCommand, BodyResponse<SangongInfo>>, SangongCommandHandler>();
             services.AddScoped<IRequestHandler<SangongPlaynowCommand, BodyResponse<SangongMatchingResponseInfo>>, SangongMatchingCommandHandler>();
-            services.AddMediatR(typeof(Startup));
 
+            services.AddMediatR(typeof(Startup));
+            services.AddSingleton(new RedisHelper(configuration["redis:ConnectionString"]));
             //注册MANAGER
-            services.AddSingleton<MathcingManager>();
+            services.AddSingleton<MatchingManager>();
             services.AddSingleton<RoomManager>();
             
         }

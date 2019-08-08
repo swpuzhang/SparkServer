@@ -52,14 +52,14 @@ namespace Account.Domain.CommandHandlers
         {
             //读取redis account信息
             var tAccount = _redis.GetAccountInfo(request.Id);
-            var tMoney = _moneyClient.GetResponseExt<GetMoneyMqCommand, BodyResponse<GetMoneyMqResponse>>
+            var tMoney = _moneyClient.GetResponseExt<GetMoneyMqCommand, BodyResponse<MoneyMqResponse>>
                             (new GetMoneyMqCommand(request.Id));
           
             var tLevel = _bus.SendCommand(new GetLevelInfoCommand(request.Id));
             var tGame = _bus.SendCommand(new GetGameInfoCommand(request.Id));
             var accountInfo = await tAccount;
             var moneyInfores = await tMoney;
-            var moneyInfo = new MoneyInfo(moneyInfores.Message.Body.CurChips, moneyInfores.Message.Body.CurDiamonds,
+            var moneyInfo = new MoneyInfo(moneyInfores.Message.Body.CurCoins, moneyInfores.Message.Body.CurDiamonds,
                 moneyInfores.Message.Body.MaxChips, moneyInfores.Message.Body.MaxDiamonds);
             var levelInfo = await tLevel;
             var gameInfo = await tGame;

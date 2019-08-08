@@ -14,7 +14,6 @@ E:\document\mycode\project\Spark\Services\Account\Account.Domain\obj\Debug\netco
 E:\document\mycode\project\Spark\Services\Account\Account.Domain\obj\Debug\netcoreapp2.2\Account.Domain.pdb
 E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.dll
 E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
-E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
 D:\document\code\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Account.Domain.deps.json
 D:\document\code\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Account.Domain.dll
 D:\document\code\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Account.Domain.pdb
@@ -35,3 +34,5 @@ D:\document\code\project\Spark\Services\Account\Account.Domain\bin\Debug\netcore
 D:\document\code\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.pdb
 D:\document\code\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\document\code\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.xml
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.Message.dll
+E:\document\mycode\project\Spark\Services\Account\Account.Domain\bin\Debug\netcoreapp2.2\Commons.Message.pdb

@@ -17,38 +17,45 @@ namespace WSGateWay.Services
 {
     public class CommandService : ICommandService
     {
-
-        private RoomIdMapGameManager _idMapper;
         private IHubContext<AppHub> _appHubContext;
         private UserConnManager _userConnManager;
         private IMapper _mapper;
         private IRpcCaller<AppHub> _rpcCaller;
-        public CommandService(RoomIdMapGameManager idMapper, IHubContext<AppHub> appHubContext,
+        public CommandService(IHubContext<AppHub> appHubContext,
             UserConnManager userConnManager, IMapper mapper, IRpcCaller<AppHub> rpcCaller)
         {
-            _idMapper = idMapper;
+
             _appHubContext = appHubContext;
             _userConnManager = userConnManager;
             _mapper = mapper;
             _rpcCaller = rpcCaller;
         }
 
-        public void OnRoomGameMapConfig(RoomIdMapConfigMqCommand command)
+        public Task OnGameRoomRequest(ConsumeContext<GameServerRequest> context)
         {
-            _idMapper.AddMap(command.Config);
+            GameServerRequest serverReq = context.Message;
+            string conn = _userConnManager.GetConnByUid(serverReq.Id);
+            if (conn == null)
+            {
+               
+                return Task.CompletedTask;
+            }
+            ToAppRoomRequest req = _mapper.Map<ToAppRoomRequest>(serverReq);
+            _appHubContext.Clients.Clients(conn).SendAsync("ToAppRoomRequest");
+            return Task.CompletedTask;
         }
 
         public async Task OnServerRequest(ConsumeContext<ServerRequest> context)
         {
             ServerRequest serverReq = context.Message;
-            string conn = _userConnManager.GetConnByUid(serverReq.UserId);
+            string conn = _userConnManager.GetConnByUid(serverReq.Id);
             if (conn == null)
             {
                 await context.RespondAsync<BaseResponse>(new BaseResponse(StatuCodeDefines.AppIsDisconnected,null));
                 return;
             }
             ToAppRequest req = _mapper.Map<ToAppRequest>(context.Message);
-            var response = await _rpcCaller.RequestCallAsync(conn, "ToAppRequest", JsonConvert.SerializeObject(req), req.Id);
+            var response = await _rpcCaller.RequestCallAsync(conn, "ToAppRequest", JsonConvert.SerializeObject(req), req.MessageId);
             await context.RespondAsync<BaseResponse>(response);
         }
     }

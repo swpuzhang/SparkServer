@@ -13,7 +13,7 @@ namespace Money.Application.AutoMapper
         public MappingProfile()
         {
             
-            CreateMap<GetMoneyMqResponse, MoneyInfo>().ReverseMap();
+            CreateMap<MoneyMqResponse, MoneyInfo>().ReverseMap();
         }
     }
 }

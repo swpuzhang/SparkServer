@@ -12,6 +12,7 @@ using Serilog;
 using Serilog.Events;
 using MassTransit.SerilogIntegration;
 
+
 namespace Account.WebApi
 {
     public class Program
@@ -21,15 +22,17 @@ namespace Account.WebApi
 
         public static void Main(string[] args)
         {
+           
             var config = GetConfiguration(args);
             Log.Logger = CreateSerilogLogger(config);
 
             Log.Information("CreateWebHostBuilder ({ApplicationContext})...", "Account");
-            CreateWebHostBuilder(args).Build().Run();
+            CreateWebHostBuilder(args, config).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args, IConfiguration configuratioin) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseConfiguration(configuratioin)
                 .UseSerilog()
                 .UseStartup<Startup>();
 
@@ -39,7 +42,6 @@ namespace Account.WebApi
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables()
-                
                 .AddCommandLine(args);
             
             return builder.Build();

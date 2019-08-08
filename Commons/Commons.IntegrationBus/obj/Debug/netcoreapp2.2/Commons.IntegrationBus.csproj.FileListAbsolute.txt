@@ -16,3 +16,6 @@ D:\document\code\project\Spark\Commons\Commons.IntegrationBus\obj\Debug\netcorea
 D:\document\code\project\Spark\Commons\Commons.IntegrationBus\obj\Debug\netcoreapp2.2\Commons.IntegrationBus.dll
 D:\document\code\project\Spark\Commons\Commons.IntegrationBus\obj\Debug\netcoreapp2.2\Commons.IntegrationBus.pdb
 D:\document\code\project\Spark\Commons\Commons.IntegrationBus\obj\Debug\netcoreapp2.2\Commons.IntegrationBus.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Commons\Commons.IntegrationBus\bin\Debug\netcoreapp2.2\Commons.Extenssions.dll
+E:\document\mycode\project\Spark\Commons\Commons.IntegrationBus\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
+E:\document\mycode\project\Spark\Commons\Commons.IntegrationBus\obj\Debug\netcoreapp2.2\Commons.IntegrationBus.csproj.CopyComplete

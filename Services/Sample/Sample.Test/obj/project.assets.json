@@ -4019,7 +4019,7 @@
       ]
     },
     "System.Private.DataContractSerialization/4.1.1": {
-      "sha512": "lcqFBUaCZxPiUkA4dlSOoPZGtZsAuuElH2XHgLwGLxd7ZozWetV5yiz0qGAV2AUYOqw97MtZBjbLMN16Xz4vXA==",
+      "sha512": "gl2Iul5sN48Ud3HNC2Nt2UlmM8rpdEoWmEYI9Xav+UDbGId6ZwXnfuoZO2TknUOxXZHv0I2Mux9sO7Q+O+kBIg==",
       "type": "package",
       "path": "system.private.datacontractserialization/4.1.1",
       "files": [
@@ -5852,25 +5852,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\84075\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
+    "E:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Test\\Sample.Test.csproj",
+      "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Services\\Sample\\Sample.Test\\Sample.Test.csproj",
       "projectName": "Sample.Test",
-      "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Test\\Sample.Test.csproj",
-      "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
-      "outputPath": "D:\\document\\code\\project\\Spark\\Services\\Sample\\Sample.Test\\obj\\",
+      "projectPath": "E:\\document\\mycode\\project\\Spark\\Services\\Sample\\Sample.Test\\Sample.Test.csproj",
+      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+      "outputPath": "E:\\document\\mycode\\project\\Spark\\Services\\Sample\\Sample.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "E:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\84075\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],

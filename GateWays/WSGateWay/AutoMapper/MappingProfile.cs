@@ -11,6 +11,7 @@ namespace WSGateWay.AutoMapper
         public MappingProfile()
         {
             CreateMap<ServerRequest, ToAppRequest>().ReverseMap();
+            CreateMap<GameServerRequest, ToAppRoomRequest>().ReverseMap();
         }
     }
 }

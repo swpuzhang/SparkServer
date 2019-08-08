@@ -67,8 +67,8 @@ namespace Account.Domain.Models
 
         public AccountResponse(long id, string platformAccount,
             string userName, int sex, string headUrl,
-            string token
-, MoneyInfo moneyInfo)
+            string token, MoneyInfo moneyInfo, 
+            string longConnectHost)
         {
             Id = id;
             PlatformAccount = platformAccount;
@@ -77,6 +77,7 @@ namespace Account.Domain.Models
             HeadUrl = headUrl;
             Token = token;
             MoneyInfo = moneyInfo;
+            LongConnectHost = longConnectHost;
         }
 
         public Int64 Id { get; private set; }
@@ -89,6 +90,8 @@ namespace Account.Domain.Models
         
 
         public string Token { get; private set; }
+
+        public string LongConnectHost { get; set; }
     }
 
 }

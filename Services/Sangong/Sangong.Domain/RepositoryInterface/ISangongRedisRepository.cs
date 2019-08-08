@@ -11,5 +11,7 @@ namespace Sangong.Domain.RepositoryInterface
     {
         Task SetUserRoomInfo(UserRoomInfo info);
         Task<UserRoomInfo> GetUserRoomInfo(long id);
+
+        Task DeleteUserRoomInfo(long id);
     }
 }

@@ -6,19 +6,29 @@ namespace Sangong.Domain.Models
 {
     public class RoomInfo : IComparable<RoomInfo>
     {
-        const int MAX_USER_NUM = 7;
-        public RoomInfo(int roomId, int userCount, string gameKey)
+        public const int MAX_USER_NUM = 7;
+        public RoomInfo(string roomId, int userCount, string gameKey, long blind)
         {
             RoomId = roomId;
             UserCount = userCount;
             GameKey = gameKey;
+            Blind = blind;
         }
-
-        public int RoomId { get; private set; }
+        public void UpdateUserCount(int count)
+        {
+            UserCount = count;
+        }
+        public void AddUserCount(int addCount)
+        {
+            UserCount += addCount;
+        }
+        public string RoomId { get; private set; }
 
         public int UserCount { get; private set; }
 
         public string GameKey { get; private set; }
+
+        public long Blind { get; private set; }
 
         public bool IsFull() => UserCount == MAX_USER_NUM;
       
@@ -28,24 +38,10 @@ namespace Sangong.Domain.Models
         {
             if (UserCount == other.UserCount)
             {
-                if (RoomId < other.RoomId)
-                {
-                    return 1;
-                }
-                else if (RoomId > other.RoomId)
-                {
-                    return -1;
-                }
-                else
-                {
-                    return 0;
-                }
+                return RoomId.CompareTo(other.RoomId);
             }
-            if (UserCount > other.UserCount)
-            {
-                return -1;
-            }
-            return 1;
+            return -UserCount.CompareTo(other.UserCount);
+           
         }
     }
 }

@@ -3,7 +3,6 @@ E:\document\mycode\project\Spark\Tests\RabbitMqRecvTest\bin\Debug\netcoreapp2.2\
 E:\document\mycode\project\Spark\Tests\RabbitMqRecvTest\bin\Debug\netcoreapp2.2\RabbitMqRecvTest.runtimeconfig.dev.json
 E:\document\mycode\project\Spark\Tests\RabbitMqRecvTest\bin\Debug\netcoreapp2.2\RabbitMqRecvTest.dll
 E:\document\mycode\project\Spark\Tests\RabbitMqRecvTest\bin\Debug\netcoreapp2.2\RabbitMqRecvTest.pdb
-E:\document\mycode\project\Spark\Tests\RabbitMqRecvTest\obj\Debug\netcoreapp2.2\RabbitMqRecvTest.csprojAssemblyReference.cache
 E:\document\mycode\project\Spark\Tests\RabbitMqRecvTest\obj\Debug\netcoreapp2.2\RabbitMqRecvTest.csproj.CoreCompileInputs.cache
 E:\document\mycode\project\Spark\Tests\RabbitMqRecvTest\obj\Debug\netcoreapp2.2\RabbitMqRecvTest.AssemblyInfoInputs.cache
 E:\document\mycode\project\Spark\Tests\RabbitMqRecvTest\obj\Debug\netcoreapp2.2\RabbitMqRecvTest.AssemblyInfo.cs
@@ -26,3 +25,4 @@ D:\document\code\project\Spark\Tests\RabbitMqRecvTest\obj\Debug\netcoreapp2.2\Ra
 D:\document\code\project\Spark\Tests\RabbitMqRecvTest\obj\Debug\netcoreapp2.2\RabbitMqRecvTest.csproj.CopyComplete
 D:\document\code\project\Spark\Tests\RabbitMqRecvTest\obj\Debug\netcoreapp2.2\RabbitMqRecvTest.dll
 D:\document\code\project\Spark\Tests\RabbitMqRecvTest\obj\Debug\netcoreapp2.2\RabbitMqRecvTest.pdb
+E:\document\mycode\project\Spark\Tests\RabbitMqRecvTest\obj\Debug\netcoreapp2.2\RabbitMqRecvTest.csprojAssemblyReference.cache

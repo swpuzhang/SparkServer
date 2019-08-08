@@ -24,10 +24,20 @@ namespace Account.WebApi.Extenssions
         public static void AddServices(this IServiceCollection services, IConfiguration configuration)
         {
 
+            //服务
             services.AddScoped<IAccountAppService, AccountAppService>();
+            services.AddScoped<IMqService, MqService>();
+
+            //存储
             services.AddScoped<IAccountInfoRepository, AccountInfoRepository>();
             services.AddScoped<AccountContext>();
             services.AddScoped<IUserIdGenRepository, UserIdGenRepository>();
+            services.AddScoped<IAccountRedisRepository, AccountRedisRepository>();
+            services.AddScoped<IGameInfoRepository, GameInfoRepository>();
+            services.AddScoped<ILevelInfoRepository, LevelInfoRepository>();
+            services.AddTransient<ILevelConfigRepository, LevelConfigRepository>();
+
+            //命令
             services.AddScoped<IMediatorHandler, InProcessBus>();
             services.AddScoped<IRequestHandler<LoginCommand,
                 BodyResponse<AccountResponse>>, AccountCommandHandler>();
@@ -39,13 +49,13 @@ namespace Account.WebApi.Extenssions
                 GetSelfAccountCommandHandler>();
             services.AddScoped<INotificationHandler<LoginEvent>,
                 LoginEventHandler>();
-            services.AddScoped<IAccountRedisRepository, AccountRedisRepository>();
-            services.AddScoped<IGameInfoRepository, GameInfoRepository>();
-            services.AddScoped<ILevelInfoRepository, LevelInfoRepository>();
+           
             services.AddMediatR(typeof(Startup));
-            services.AddTransient<ILevelConfigRepository, LevelConfigRepository>();
             services.AddSingleton(new RedisHelper(configuration["redis:ConnectionString"]));
+
+            //manager
             services.AddSingleton<LevelManager>();
+            services.AddSingleton<WSHostManager>();
         }
 
         public static void ConfigServices(this IApplicationBuilder app, IConfiguration configuration)

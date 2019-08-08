@@ -3,7 +3,6 @@ E:\document\mycode\project\Spark\Tests\TaskTest\bin\Debug\netcoreapp2.2\TaskTest
 E:\document\mycode\project\Spark\Tests\TaskTest\bin\Debug\netcoreapp2.2\TaskTest.runtimeconfig.dev.json
 E:\document\mycode\project\Spark\Tests\TaskTest\bin\Debug\netcoreapp2.2\TaskTest.dll
 E:\document\mycode\project\Spark\Tests\TaskTest\bin\Debug\netcoreapp2.2\TaskTest.pdb
-E:\document\mycode\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.csprojAssemblyReference.cache
 E:\document\mycode\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.csproj.CoreCompileInputs.cache
 E:\document\mycode\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.AssemblyInfoInputs.cache
 E:\document\mycode\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.AssemblyInfo.cs
@@ -20,3 +19,4 @@ D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.A
 D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.dll
 D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.pdb
 D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.csprojAssemblyReference.cache
+E:\document\mycode\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.csprojAssemblyReference.cache

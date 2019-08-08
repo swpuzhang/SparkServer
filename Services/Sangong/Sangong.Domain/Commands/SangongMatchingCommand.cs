@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Commons.Domain.Models;
 using Sangong.Domain.Models;
+using Sangong.MqCommands;
 
 namespace Sangong.Domain.Commands
 {

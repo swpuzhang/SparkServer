@@ -9,8 +9,10 @@ using WSGateWay.Services;
 
 namespace WSGateWay.IntegrationHandlers
 {
-    public class ServerRequestConsumer : IConsumer<ServerRequest>
-    {
+    public class ServerRequestConsumer : 
+        IConsumer<ServerRequest>,
+        IConsumer<GameServerRequest>
+    { 
         ICommandService _service;
         public ServerRequestConsumer(ICommandService service)
         {
@@ -21,6 +23,11 @@ namespace WSGateWay.IntegrationHandlers
         {
             await _service.OnServerRequest(context);
            
+        }
+
+        public Task Consume(ConsumeContext<GameServerRequest> context)
+        {
+            throw new NotImplementedException();
         }
     }
 }

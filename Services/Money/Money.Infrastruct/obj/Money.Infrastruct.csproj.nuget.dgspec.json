@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\document\\code\\project\\Spark\\Services\\Money\\Money.Infrastruct\\Money.Infrastruct.csproj": {}
+    "E:\\document\\mycode\\project\\Spark\\Services\\Money\\Money.Infrastruct\\Money.Infrastruct.csproj": {}
   },
   "projects": {
-    "D:\\document\\code\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj": {
+    "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj",
+        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj",
         "projectName": "Commons.Domain",
-        "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj",
-        "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
-        "outputPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Domain\\obj\\",
+        "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "E:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\84075\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,11 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj": {
-                "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj"
+              "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj": {
+                "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj"
+              },
+              "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.Message.csproj": {
+                "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.Message.csproj"
               }
             }
           }
@@ -82,21 +85,21 @@
         }
       }
     },
-    "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj": {
+    "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj",
+        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj",
         "projectName": "Commons.Extenssions",
-        "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj",
-        "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
-        "outputPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\obj\\",
+        "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "E:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\84075\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -146,6 +149,10 @@
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
               "version": "[4.0.1, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[4.0.1, )"
             }
           },
           "imports": [
@@ -156,21 +163,21 @@
         }
       }
     },
-    "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
+    "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj",
+        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj",
         "projectName": "Commons.Infrastruct",
-        "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj",
-        "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
-        "outputPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\obj\\",
+        "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Infrastruct\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "E:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\84075\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -184,8 +191,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "D:\\document\\code\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj": {
-                "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj"
+              "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj": {
+                "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj"
               }
             }
           }
@@ -222,21 +229,21 @@
         }
       }
     },
-    "D:\\document\\code\\project\\Spark\\Services\\Money\\Money.Domain\\Money.Domain.csproj": {
+    "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.Message.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Services\\Money\\Money.Domain\\Money.Domain.csproj",
-        "projectName": "Money.Domain",
-        "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Money\\Money.Domain\\Money.Domain.csproj",
-        "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
-        "outputPath": "D:\\document\\code\\project\\Spark\\Services\\Money\\Money.Domain\\obj\\",
+        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.Message.csproj",
+        "projectName": "Commons.Message",
+        "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.IntegrationBus\\Commons.Message.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.IntegrationBus\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "E:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\84075\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -250,14 +257,76 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "D:\\document\\code\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj": {
-                "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj"
+              "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj": {
+                "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "MassTransit": {
+              "target": "Package",
+              "version": "[5.5.3, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "E:\\document\\mycode\\project\\Spark\\Services\\Money\\Money.Domain\\Money.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Services\\Money\\Money.Domain\\Money.Domain.csproj",
+        "projectName": "Money.Domain",
+        "projectPath": "E:\\document\\mycode\\project\\Spark\\Services\\Money\\Money.Domain\\Money.Domain.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "E:\\document\\mycode\\project\\Spark\\Services\\Money\\Money.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "E:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj": {
+                "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Domain\\Commons.Domain.csproj"
               },
-              "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj": {
-                "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj"
+              "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj": {
+                "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Extenssions\\Commons.Extenssions.csproj"
               },
-              "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
-                "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj"
+              "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
+                "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj"
               }
             }
           }
@@ -290,21 +359,21 @@
         }
       }
     },
-    "D:\\document\\code\\project\\Spark\\Services\\Money\\Money.Infrastruct\\Money.Infrastruct.csproj": {
+    "E:\\document\\mycode\\project\\Spark\\Services\\Money\\Money.Infrastruct\\Money.Infrastruct.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Services\\Money\\Money.Infrastruct\\Money.Infrastruct.csproj",
+        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Services\\Money\\Money.Infrastruct\\Money.Infrastruct.csproj",
         "projectName": "Money.Infrastruct",
-        "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Money\\Money.Infrastruct\\Money.Infrastruct.csproj",
-        "packagesPath": "C:\\Users\\84075\\.nuget\\packages\\",
-        "outputPath": "D:\\document\\code\\project\\Spark\\Services\\Money\\Money.Infrastruct\\obj\\",
+        "projectPath": "E:\\document\\mycode\\project\\Spark\\Services\\Money\\Money.Infrastruct\\Money.Infrastruct.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "E:\\document\\mycode\\project\\Spark\\Services\\Money\\Money.Infrastruct\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "E:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\84075\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -318,11 +387,11 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
-                "projectPath": "D:\\document\\code\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj"
+              "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj": {
+                "projectPath": "E:\\document\\mycode\\project\\Spark\\Commons\\Commons.Infrastruct\\Commons.Infrastruct.csproj"
               },
-              "D:\\document\\code\\project\\Spark\\Services\\Money\\Money.Domain\\Money.Domain.csproj": {
-                "projectPath": "D:\\document\\code\\project\\Spark\\Services\\Money\\Money.Domain\\Money.Domain.csproj"
+              "E:\\document\\mycode\\project\\Spark\\Services\\Money\\Money.Domain\\Money.Domain.csproj": {
+                "projectPath": "E:\\document\\mycode\\project\\Spark\\Services\\Money\\Money.Domain\\Money.Domain.csproj"
               }
             }
           }

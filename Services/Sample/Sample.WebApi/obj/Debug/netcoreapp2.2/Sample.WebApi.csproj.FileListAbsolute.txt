@@ -12,7 +12,6 @@ E:\document\mycode\project\Spark\Services\Sample\Sample.WebApi\bin\Debug\netcore
 E:\document\mycode\project\Spark\Services\Sample\Sample.WebApi\bin\Debug\netcoreapp2.2\Sample.Infrastruct.dll
 E:\document\mycode\project\Spark\Services\Sample\Sample.WebApi\bin\Debug\netcoreapp2.2\Commons.Domain.pdb
 E:\document\mycode\project\Spark\Services\Sample\Sample.WebApi\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
-E:\document\mycode\project\Spark\Services\Sample\Sample.WebApi\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
 E:\document\mycode\project\Spark\Services\Sample\Sample.WebApi\bin\Debug\netcoreapp2.2\Commons.Infrastruct.pdb
 E:\document\mycode\project\Spark\Services\Sample\Sample.WebApi\bin\Debug\netcoreapp2.2\Sample.Application.pdb
 E:\document\mycode\project\Spark\Services\Sample\Sample.WebApi\bin\Debug\netcoreapp2.2\Sample.Application.xml
@@ -57,3 +56,5 @@ D:\document\code\project\Spark\Services\Sample\Sample.WebApi\obj\Debug\netcoreap
 D:\document\code\project\Spark\Services\Sample\Sample.WebApi\obj\Debug\netcoreapp2.2\Sample.WebApi.csproj.CopyComplete
 D:\document\code\project\Spark\Services\Sample\Sample.WebApi\obj\Debug\netcoreapp2.2\Sample.WebApi.dll
 D:\document\code\project\Spark\Services\Sample\Sample.WebApi\obj\Debug\netcoreapp2.2\Sample.WebApi.pdb
+E:\document\mycode\project\Spark\Services\Sample\Sample.WebApi\bin\Debug\netcoreapp2.2\Commons.Message.dll
+E:\document\mycode\project\Spark\Services\Sample\Sample.WebApi\bin\Debug\netcoreapp2.2\Commons.Message.pdb

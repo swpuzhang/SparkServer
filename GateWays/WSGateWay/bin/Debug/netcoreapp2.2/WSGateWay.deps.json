@@ -31,7 +31,7 @@
           "Commons.Domain": "1.0.0",
           "Commons.Extenssions": "1.0.0",
           "Commons.Infrastruct": "1.0.0",
-          "Commons.IntegrationBus": "1.0.0",
+          "Commons.Message": "1.0.0",
           "MassTransit.Autofac": "5.5.3",
           "MassTransit.RabbitMQ": "5.5.3",
           "MassTransit.SerilogIntegration": "5.5.3",
@@ -40,7 +40,6 @@
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
           "Newtonsoft.Json": "12.0.2",
-          "Sangong.Domain": "1.0.0",
           "Serilog": "2.8.0",
           "Serilog.AspNetCore": "2.1.1",
           "Serilog.Settings.Configuration": "3.1.0",
@@ -981,6 +980,7 @@
         "dependencies": {
           "AutoMapper": "8.1.1",
           "Commons.Extenssions": "1.0.0",
+          "Commons.Message": "1.0.0",
           "MassTransit": "5.5.3",
           "MediatR": "7.0.0",
           "MongoDB.Driver": "2.8.1",
@@ -999,7 +999,8 @@
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Newtonsoft.Json": "12.0.2",
           "StackExchange.Redis": "2.0.601",
-          "Swashbuckle.AspNetCore.Swagger": "4.0.1"
+          "Swashbuckle.AspNetCore.Swagger": "4.0.1",
+          "Swashbuckle.AspNetCore.SwaggerGen": "4.0.1"
         },
         "runtime": {
           "Commons.Extenssions.dll": {}
@@ -1021,28 +1022,16 @@
           "Commons.Infrastruct.dll": {}
         }
       },
-      "Commons.IntegrationBus/1.0.0": {
-        "runtime": {
-          "Commons.IntegrationBus.dll": {}
-        },
-        "compile": {
-          "Commons.IntegrationBus.dll": {}
-        }
-      },
-      "Sangong.Domain/1.0.0": {
+      "Commons.Message/1.0.0": {
         "dependencies": {
-          "AutoMapper": "8.1.1",
-          "Commons.Domain": "1.0.0",
           "Commons.Extenssions": "1.0.0",
-          "Commons.Infrastruct": "1.0.0",
-          "Commons.IntegrationBus": "1.0.0",
-          "MediatR": "7.0.0"
+          "MassTransit": "5.5.3"
         },
         "runtime": {
-          "Sangong.Domain.dll": {}
+          "Commons.Message.dll": {}
         },
         "compile": {
-          "Sangong.Domain.dll": {}
+          "Commons.Message.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -4336,7 +4325,7 @@
     "runtime.native.System.Net.Security/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ARfgeRYF2AnYIcqEvy9VE0agN/3zexMMPtcegq1THpOMS63rIGMi706vCo6pbv9Xzw4qhdX1Gu1zyLZHj2WtLA==",
+      "sha512": "sha512-M2nN92ePS8BgQ2oi6Jj3PlTUzadYSIWLdZrHY1n1ZcW9o4wAQQ6W+aQ2lfq1ysZQfVCgDwY58alUdowrzezztg==",
       "path": "runtime.native.system.net.security/4.3.0",
       "hashPath": "runtime.native.system.net.security.4.3.0.nupkg.sha512"
     },
@@ -4628,12 +4617,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Commons.IntegrationBus/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Sangong.Domain/1.0.0": {
+    "Commons.Message/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -5306,7 +5290,7 @@
     "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
+      "sha512": "sha512-dxOzk5o2SrmGMs4nSFDhnIYfHz3osh/rFzOrP8584kJ3L16vB7hX83zZq9Ck+qEIyJcKf7ZSjZRMJ1EmBo6T+g==",
       "path": "microsoft.codeanalysis.analyzers/1.1.0",
       "hashPath": "microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512"
     },
@@ -5866,7 +5850,7 @@
     "runtime.native.System.IO.Compression/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-INBPonS5QPEgn7naufQFXJEp3zX6L4bwHgJ/ZH78aBTpeNfQMtf7C6VrAFhlq2xxWBveIOWyFzQjJ8XzHMhdOQ==",
+      "sha512": "sha512-b+V9JC/Ii3sR659flBeaBJww111425tgjcDS1k+hqV4sGh9FALRDBvJnDtQ895gAzpPTUOFDHdqaZ2Et7BpZMg==",
       "path": "runtime.native.system.io.compression/4.3.0",
       "hashPath": "runtime.native.system.io.compression.4.3.0.nupkg.sha512"
     },
@@ -5887,7 +5871,7 @@
     "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kVXCuMTrTlxq4XOOMAysuNwsXWpYeboGddNGpIgNSZmv1b6r/s/DPk0fYMB7Q5Qo4bY68o48jt4T4y5BVecbCQ==",
+      "sha512": "sha512-Kh9W4agE0r/hK8AX1LvyQI2NrKHBL8pO0gRoDTdDb0LL6Ta1Z2OtFx3lOaAE0ZpCUc/dt9Wzs3rA7a3IsKdOVA==",
       "path": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/4.3.0",
       "hashPath": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple.4.3.0.nupkg.sha512"
     },
@@ -5957,7 +5941,7 @@
     "System.Collections.Specialized/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Epx8PoVZR0iuOnJJDzp7pWvdfMMOAvpUo95pC4ScH2mJuXkKA2Y4aR3cG9qt2klHgSons1WFh4kcGW7cSXvrxg==",
+      "sha512": "sha512-NoPBj0ykejqAWW4p4gGtrrL+3c84ZLSvGnHgq422ew1Rj4WKj1FA8/BCybqC111EtgcqUl6ZJNFYYS22HLgbjA==",
       "path": "system.collections.specialized/4.3.0",
       "hashPath": "system.collections.specialized.4.3.0.nupkg.sha512"
     },
@@ -6321,7 +6305,7 @@
     "System.Security.Cryptography.Csp/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-X4s/FCkEUnRGnwR3aSfVIkldBmtURMhmexALNTwpjklzxWU7yjMk7GHLKOZTNkgnWnE0q7+BCf9N2LVRWxewaA==",
+      "sha512": "sha512-yO2k5o+Z+DiFRBvvB9vdRRAGHi6bm02M9OWXfCqQ8K0UxD3Woc3svQheZfb7PoTEFs0kGacO0IzzMWsb6Mkeow==",
       "path": "system.security.cryptography.csp/4.3.0",
       "hashPath": "system.security.cryptography.csp.4.3.0.nupkg.sha512"
     },
@@ -6489,7 +6473,7 @@
     "System.Xml.XmlSerializer/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VShQJhOxgD/5M2Z1IWm1vMaSqlbjo1zdFf8H7Ahte6bTvSUhUko/gDpAVVhGgGgTDeue4QyNg1fu1Zz2GKSEuQ==",
+      "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },

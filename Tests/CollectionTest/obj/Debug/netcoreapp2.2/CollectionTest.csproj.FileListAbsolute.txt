@@ -9,3 +9,13 @@ D:\document\code\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\Coll
 D:\document\code\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.AssemblyInfo.cs
 D:\document\code\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.dll
 D:\document\code\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.pdb
+E:\document\mycode\project\Spark\Tests\CollectionTest\bin\Debug\netcoreapp2.2\CollectionTest.deps.json
+E:\document\mycode\project\Spark\Tests\CollectionTest\bin\Debug\netcoreapp2.2\CollectionTest.runtimeconfig.json
+E:\document\mycode\project\Spark\Tests\CollectionTest\bin\Debug\netcoreapp2.2\CollectionTest.runtimeconfig.dev.json
+E:\document\mycode\project\Spark\Tests\CollectionTest\bin\Debug\netcoreapp2.2\CollectionTest.dll
+E:\document\mycode\project\Spark\Tests\CollectionTest\bin\Debug\netcoreapp2.2\CollectionTest.pdb
+E:\document\mycode\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.AssemblyInfo.cs
+E:\document\mycode\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.dll
+E:\document\mycode\project\Spark\Tests\CollectionTest\obj\Debug\netcoreapp2.2\CollectionTest.pdb

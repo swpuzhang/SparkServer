@@ -16,14 +16,16 @@ namespace Sangong.Domain.Models
     {
         public const string className = "UserRoomInfo";
         [JsonConstructor]
-        public UserRoomInfo(int roomId, string gameKey, long blind)
+        public UserRoomInfo(long id, string roomId, string gameKey, long blind, MatchingStatus status)
         {
+            Id = id;
             RoomId = roomId;
             GameKey = gameKey;
             Blind = blind;
+            Status = status;
         }
 
-        public int RoomId { get; private set; }
+        public string RoomId { get; private set; }
         public string GameKey { get; private set; }
 
         public long Blind { get; private set; }

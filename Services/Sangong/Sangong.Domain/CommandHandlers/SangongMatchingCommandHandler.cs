@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using MassTransit;
 using Commons.MqCommands;
 using Sangong.Domain.Manager;
+using Sangong.MqCommands;
 
 namespace Sangong.Domain.CommandHandlers
 {
@@ -25,12 +26,12 @@ namespace Sangong.Domain.CommandHandlers
         protected readonly IMediatorHandler _bus;
         private readonly ISangongRedisRepository _redis;
         private readonly IRequestClient<GetMoneyMqCommand> _moneyClient;
-        private readonly MathcingManager _matchingManager;
+        private readonly MatchingManager _matchingManager;
         public SangongMatchingCommandHandler(ISangongInfoRepository rep,
             ISangongRedisRepository redis,
             IMediatorHandler bus,
-            IRequestClient<GetMoneyMqCommand> moneyClient, 
-            MathcingManager matchingManager)
+            IRequestClient<GetMoneyMqCommand> moneyClient,
+            MatchingManager matchingManager)
         {
             _redis = redis;
             _bus = bus;
@@ -41,10 +42,11 @@ namespace Sangong.Domain.CommandHandlers
         {
             //获取玩家金币
             //根据金币判断玩家的场次
-            var moneyResponse = await _moneyClient.GetResponseExt<GetMoneyMqCommand, GetMoneyMqResponse>(new GetMoneyMqCommand(request.Id));
-            long curCoins = moneyResponse.Message.CurChips;
+            var moneyResponse = await _moneyClient.GetResponseExt<GetMoneyMqCommand, MoneyMqResponse>(new GetMoneyMqCommand(request.Id));
+            long curCoins = moneyResponse.Message.CurCoins;
             var blind = _matchingManager.GetBlindFromCoins(curCoins);
-            BodyResponse<SangongMatchingResponseInfo> response = new BodyResponse<SangongMatchingResponseInfo>(StatuCodeDefines.LoginError, null, null);
+            var response = await _matchingManager.MatchingRoom(request.Id, blind, "");
+            //BodyResponse<SangongMatchingResponseInfo> response = new BodyResponse<SangongMatchingResponseInfo>(StatuCodeDefines.LoginError, null, null);
             return (response);
 
         }

@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace MassTransitTest
 {
     public class DoSomethingConsumer :
-        IConsumer<DoSomething>
+        IConsumer<DoSomething>, IConsumer<DoMessage>
     {
         private IServiceProvider _provider;
         IService _service;
@@ -19,7 +19,7 @@ namespace MassTransitTest
             _service = service;
         }
 
-        public async Task Consume(ConsumeContext<DoSomething> context)
+        public  Task Consume(ConsumeContext<DoSomething> context)
         {
             /*using(IServiceScope scope = _provider.CreateScope())
             {
@@ -28,11 +28,20 @@ namespace MassTransitTest
                 await Console.Out.WriteLineAsync("context: " + context.Message);
                 
             }*/
-            _service.SomeService();
-            await context.RespondAsync<SomethingDone>(new
+            //_service.SomeService();
+            /*await context.RespondAsync<SomethingDone>(new
             {
                 Value = $"Received: {context.Message.Value}"
-            });
+            });*/
+            Console.WriteLine("DoSomething comsumer");
+            return Task.CompletedTask;
+
+        }
+
+        public Task Consume(ConsumeContext<DoMessage> context)
+        {
+            Console.WriteLine("DoMessage comsumer");
+            return Task.CompletedTask;
         }
     }
 

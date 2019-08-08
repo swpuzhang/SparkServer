@@ -17,7 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Commons\Commons.Domain\Commons.Domain.csproj" />
     <ProjectReference Include="..\..\..\Commons\Commons.Extenssions\Commons.Extenssions.csproj" />
-    <ProjectReference Include="..\..\..\Commons\Commons.IntegrationBus\Commons.IntegrationBus.csproj" />
+    <ProjectReference Include="..\..\..\Commons\Commons.IntegrationBus\Commons.Message.csproj" />
     <ProjectReference Include="..\Money.Domain\Money.Domain.csproj" />
   </ItemGroup>
 

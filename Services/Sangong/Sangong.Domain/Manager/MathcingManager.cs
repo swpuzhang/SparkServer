@@ -10,28 +10,31 @@ using Commons.Extenssions.Defines;
 using MassTransit;
 using Sangong.MqCommands;
 using Commons.Extenssions;
+using Serilog;
+using Microsoft.Extensions.Configuration;
 
 namespace Sangong.Domain.Manager
 {
    
 
 
-    public class MathcingManager
+    public class MatchingManager
     {
         private List<CoinsRangeConfig> _coinsRangeCfg;
         private IConfigRepository _configRespository;
         private ISangongRedisRepository _redis;
-        private IRequestClient<JoinGameRoomMqCommand> _roomClient;
+        public static string matchingGroup;
+
+
         private RoomManager _roomManager;
-        public MathcingManager(IConfigRepository configRespository,
+        public MatchingManager(IConfiguration config,  IConfigRepository configRespository,
             ISangongRedisRepository redis,
-            IRequestClient<JoinGameRoomMqCommand> roomClient, 
             RoomManager roomManager)
         {
             _configRespository = configRespository;
             _redis = redis;
-            _roomClient = roomClient;
             _roomManager = roomManager;
+            matchingGroup = config["MatchingGroup"];
         }
 
         public void LoadCoinsRangeConfig()
@@ -51,51 +54,88 @@ namespace Sangong.Domain.Manager
             return _coinsRangeCfg.Last().Blind;
         }
 
-        public async Task<BodyResponse<SangongMatchingResponseInfo>> MatchingRoom(long id, long blind, int curRoomId = 0)
+        public async Task<BodyResponse<SangongMatchingResponseInfo>> MatchingRoom(long id, long blind, string curRoomId)
         {
 
             //获取这个玩家的redis锁
             using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
             {
-                if (!locker.TryLock())
+                if (!await locker.TryLockAsync())
                 {
                     return new BodyResponse<SangongMatchingResponseInfo>(StatuCodeDefines.IsMatching, null, null);
                 }
-                BaseResponse roomResponse = null;
+
                 //查询redis是否有这个玩家
+                RoomInfo roomInfo = null;
                 var userRoomInfo = await _redis.GetUserRoomInfo(id);
                 if (userRoomInfo != null)
                 {
-                    if (userRoomInfo.Status == MatchingStatus.Success)
-                    {
-                        return new BodyResponse<SangongMatchingResponseInfo>(StatuCodeDefines.Success, null,
-                            new SangongMatchingResponseInfo(id, userRoomInfo.RoomId, userRoomInfo.Blind, userRoomInfo.GameKey));
-                    }
-                    //如果正在匹配说明上次程序异常，或者内网出现问题，尝试进行在一次匹配
-                    roomResponse = await SendToGameRoom(curRoomId, userRoomInfo.GameKey, id);
-
+                    roomInfo = new RoomInfo(userRoomInfo.RoomId, 0, userRoomInfo.GameKey, userRoomInfo.Blind);
                 }
                 else
                 {
-                    //查找等待人数最多的房间
-
-                    var roomInfo = await _roomManager.GetRoom(blind);
+                    roomInfo = await _roomManager.GetRoom(id, blind);
                 }
-                return new BodyResponse<SangongMatchingResponseInfo>(StatuCodeDefines.Success, null,
-                            new SangongMatchingResponseInfo(id, userRoomInfo.RoomId, userRoomInfo.Blind, userRoomInfo.GameKey));
+                try
+                {
+                    BodyResponse<JoinGameRoomMqResponse> roomResponse = 
+                        await _roomManager.SendToGameRoom<JoinGameRoomMqCommand, BodyResponse<JoinGameRoomMqResponse>>
+                        (roomInfo.GameKey, new JoinGameRoomMqCommand(id, roomInfo.RoomId, roomInfo.GameKey));
+                    RoomInfo newRoomInfo = new RoomInfo(roomResponse.Body.RoomId, roomResponse.Body.UserCount, roomResponse.Body.GameKey, roomResponse.Body.Blind);
+                    _roomManager.UpdateRoom(newRoomInfo);
+                    if (roomResponse.StatusCode == StatuCodeDefines.Success)
+                    {
+                        _ = _redis.SetUserRoomInfo(new UserRoomInfo(id, roomInfo.RoomId, roomInfo.GameKey, blind, MatchingStatus.Success));
+                        return new BodyResponse<SangongMatchingResponseInfo>(StatuCodeDefines.Success, null,
+                            new SangongMatchingResponseInfo(id, roomInfo.RoomId, roomInfo.Blind, roomInfo.GameKey));
+                    }
+                    else
+                    {
+                        _ = _redis.DeleteUserRoomInfo(id);
+                        return new BodyResponse<SangongMatchingResponseInfo>(roomResponse.StatusCode, roomResponse.ErrorInfos, null);
+                    }
+                }
 
+                catch
+                {
+                    _ = _redis.DeleteUserRoomInfo(id);
+                    Log.Error($"user {id} join room {roomInfo.RoomId} error");
+                    return new BodyResponse<SangongMatchingResponseInfo>(StatuCodeDefines.BusError, null, null);
+                }
             }
-
-            
-            
-           
         }
 
-        public async Task<BaseResponse>  SendToGameRoom(int roomId, string gameKey, long id)
+        public async Task OnJoinGame(long id, string gameKey, string roomId, long blind, int userCount, string group)
         {
-            var response = await _roomClient.GetResponseExt<JoinGameRoomMqCommand, BaseResponse>
-                (new JoinGameRoomMqCommand(id, roomId, gameKey));
-            return response.Message;
+            if (group != matchingGroup)
+            {
+                return;
+            }
+
+            using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
+            {
+                await locker.LockAsync();
+                _ = _redis.SetUserRoomInfo(new UserRoomInfo(id, roomId, gameKey, blind, MatchingStatus.Success));
+                
+            }
+                
+            _roomManager.OnUserCountChange(gameKey, roomId, blind, userCount);
+        }
+
+        public async Task OnLeaveGame(long id, string gameKey, string roomId, long blind, int userCount, string group)
+        {
+            if (group != matchingGroup)
+            {
+                return;
+            }
+
+            using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
+            {
+                await locker.LockAsync();
+                _ = _redis.DeleteUserRoomInfo(id);
+
+            }
+            _roomManager.OnUserCountChange(gameKey, roomId, blind, userCount);
         }
     }
 }

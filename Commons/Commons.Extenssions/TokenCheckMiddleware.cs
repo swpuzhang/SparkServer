@@ -41,14 +41,11 @@ namespace Commons.Extenssions
         public Task InvokeAsync(HttpContext context)
         {
             //可选参数始终不为null
-            
-           
-           
             string findPath = _filterApis.FirstOrDefault(x => x == context.Request.Path);
             if (!string.IsNullOrEmpty(findPath))
             {
                 return _next(context);
-           }
+            }
 
             var token = context.Request.Headers["Authorization"];
             if (string.IsNullOrEmpty(token))

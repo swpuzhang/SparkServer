@@ -47,7 +47,7 @@ namespace RabbitMqTest
                     
                 });
 
-                sbc.Message<YourMessage>(x => x.SetEntityName("YourMessageComm"));
+                sbc.Message<YourMessage>(x => { x.SetEntityName("YourMessageComm"); });
                 sbc.Publish<YourMessage>(x => {
                     x.ExchangeType = ExchangeType.Direct;
                     Console.WriteLine($"exchange:{x.Exchange.ExchangeName} {x.Exchange.ExchangeType} {x.Exchange.Durable}");

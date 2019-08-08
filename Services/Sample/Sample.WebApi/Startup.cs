@@ -35,8 +35,7 @@ namespace Sample.WebApi
             services.AddMongoServices(Configuration);
             services.AddAutoMapperSetup();
             services.RegisterSwaggerServices();
-            services.AddServices();
-            services.AddSingleton<RedisHelper>(new RedisHelper(Configuration["redis:ConnectionString"]));
+            services.AddServices(Configuration);
             ContainerBuilder builder = new ContainerBuilder();
             services.AddMassTransitService(Configuration, builder);
             builder.Populate(services);

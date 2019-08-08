@@ -17,18 +17,20 @@ namespace Money.Domain.Models
         }
 
         [JsonConstructor]
-        public MoneyInfo(long id, long curChips, long curDiamonds, long maxChips, long maxDiamonds)
+        public MoneyInfo(long id, long curCoins, long curDiamonds, long maxChips, long maxDiamonds, long carry)
         {
             Id = id;
-            CurChips = curChips;
+            CurCoins = curCoins;
             CurDiamonds = curDiamonds;
             MaxChips = maxChips;
             MaxDiamonds = maxDiamonds;
+            Carry = carry;
         }
 
-        public long CurChips { get; private set; }
-        public long CurDiamonds { get; private set; }
-        public long MaxChips { get; private set; }
-        public long MaxDiamonds { get; private set; }
+        public long CurCoins { get; set; }
+        public long CurDiamonds { get; set; }
+        public long MaxChips { get; set; }
+        public long MaxDiamonds { get; set; }
+        public long Carry { get; set; }
     }
 }

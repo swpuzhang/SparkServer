@@ -1,0 +1,579 @@
+2019-08-04 01:21:13.295 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-04 01:21:19.607 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-04 01:21:20.571 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-04 01:21:21.440 +08:00 [DBG] Starting bus hosts...
+2019-08-04 01:21:21.480 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:21:21.557 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 29929)
+2019-08-04 01:21:21.656 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-04 01:21:21.656 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9q9dbdmtopaydp, type: fanout, auto-delete)
+2019-08-04 01:21:21.656 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-04 01:21:21.672 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9q9dbdmtopaydp, x-expires: 60000)
+2019-08-04 01:21:21.673 +08:00 [DBG] Closing model: 1 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:21:21.678 +08:00 [DBG] Disconnecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:21:21.678 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9q9dbdmtopaydp, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9q9dbdmtopaydp)
+2019-08-04 01:21:21.681 +08:00 [DBG] Closing model: 2 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:21:21.683 +08:00 [DBG] Disconnected: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:21:21.696 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text="PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'Account' in vhost 'SkyWatch': received 'fanout' but current is 'direct'", classId=40, methodId=10, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model._Private_ExchangeDeclare(String exchange, String type, Boolean passive, Boolean durable, Boolean autoDelete, Boolean internal, Boolean nowait, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.ExchangeDeclare(String exchange, String type, Boolean durable, Boolean autoDelete, IDictionary`2 arguments)
+   at MassTransit.RabbitMqTransport.Contexts.RabbitMqModelContext.<>c__DisplayClass14_0.<MassTransit.RabbitMqTransport.ModelContext.ExchangeDeclare>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.ConfigureTopology(ModelContext context)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.<>c__DisplayClass4_0.<<GreenPipes-IFilter<MassTransit-RabbitMqTransport-ModelContext>-Send>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at GreenPipes.PipeExtensions.OneTimeSetup[T](PipeContext context, Func`2 setupMethod, PayloadFactory`1 payloadFactory)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:21:21.696 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Application, code=200, text="Connection Disposed", classId=0, methodId=0, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model._Private_QueueBind(String queue, String exchange, String routingKey, Boolean nowait, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.QueueBind(String queue, String exchange, String routingKey, IDictionary`2 arguments)
+   at MassTransit.RabbitMqTransport.Contexts.RabbitMqModelContext.<>c__DisplayClass16_0.<MassTransit.RabbitMqTransport.ModelContext.QueueBind>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.ConfigureTopology(ModelContext context)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.<>c__DisplayClass4_0.<<GreenPipes-IFilter<MassTransit-RabbitMqTransport-ModelContext>-Send>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at GreenPipes.PipeExtensions.OneTimeSetup[T](PipeContext context, Func`2 setupMethod, PayloadFactory`1 payloadFactory)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:21:21.725 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:21:21.725 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:26:33.511 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-04 01:26:39.601 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-04 01:26:40.539 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-04 01:26:40.761 +08:00 [DBG] Starting bus hosts...
+2019-08-04 01:26:40.799 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:40.878 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 30045)
+2019-08-04 01:26:40.958 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx961kbdmtop79br, type: fanout, auto-delete)
+2019-08-04 01:26:40.958 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-04 01:26:40.959 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-04 01:26:40.980 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx961kbdmtop79br, x-expires: 60000)
+2019-08-04 01:26:40.981 +08:00 [DBG] Closing model: 1 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:40.986 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx961kbdmtop79br, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx961kbdmtop79br)
+2019-08-04 01:26:40.986 +08:00 [DBG] Disconnecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:40.989 +08:00 [DBG] Closing model: 2 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:40.991 +08:00 [DBG] Disconnected: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:41.004 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text="PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'Account' in vhost 'SkyWatch': received 'fanout' but current is 'direct'", classId=40, methodId=10, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model._Private_ExchangeDeclare(String exchange, String type, Boolean passive, Boolean durable, Boolean autoDelete, Boolean internal, Boolean nowait, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.ExchangeDeclare(String exchange, String type, Boolean durable, Boolean autoDelete, IDictionary`2 arguments)
+   at MassTransit.RabbitMqTransport.Contexts.RabbitMqModelContext.<>c__DisplayClass14_0.<MassTransit.RabbitMqTransport.ModelContext.ExchangeDeclare>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.ConfigureTopology(ModelContext context)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.<>c__DisplayClass4_0.<<GreenPipes-IFilter<MassTransit-RabbitMqTransport-ModelContext>-Send>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at GreenPipes.PipeExtensions.OneTimeSetup[T](PipeContext context, Func`2 setupMethod, PayloadFactory`1 payloadFactory)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:26:41.004 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Application, code=200, text="Connection Disposed", classId=0, methodId=0, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model._Private_QueueBind(String queue, String exchange, String routingKey, Boolean nowait, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.QueueBind(String queue, String exchange, String routingKey, IDictionary`2 arguments)
+   at MassTransit.RabbitMqTransport.Contexts.RabbitMqModelContext.<>c__DisplayClass16_0.<MassTransit.RabbitMqTransport.ModelContext.QueueBind>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.ConfigureTopology(ModelContext context)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.<>c__DisplayClass4_0.<<GreenPipes-IFilter<MassTransit-RabbitMqTransport-ModelContext>-Send>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at GreenPipes.PipeExtensions.OneTimeSetup[T](PipeContext context, Func`2 setupMethod, PayloadFactory`1 payloadFactory)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:26:41.031 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:26:41.031 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:26:46.876 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:46.887 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 30046)
+2019-08-04 01:26:46.889 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx961kbdmtop79br, type: fanout, auto-delete)
+2019-08-04 01:26:46.890 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-04 01:26:46.890 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-04 01:26:46.890 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx961kbdmtop79br, x-expires: 60000)
+2019-08-04 01:26:46.891 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx961kbdmtop79br, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx961kbdmtop79br)
+2019-08-04 01:26:46.892 +08:00 [DBG] Closing model: 2 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:46.892 +08:00 [DBG] Disconnecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:46.893 +08:00 [DBG] Disconnected: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:46.904 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text="PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'Account' in vhost 'SkyWatch': received 'fanout' but current is 'direct'", classId=40, methodId=10, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model._Private_ExchangeDeclare(String exchange, String type, Boolean passive, Boolean durable, Boolean autoDelete, Boolean internal, Boolean nowait, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.ExchangeDeclare(String exchange, String type, Boolean durable, Boolean autoDelete, IDictionary`2 arguments)
+   at MassTransit.RabbitMqTransport.Contexts.RabbitMqModelContext.<>c__DisplayClass14_0.<MassTransit.RabbitMqTransport.ModelContext.ExchangeDeclare>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.ConfigureTopology(ModelContext context)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.<>c__DisplayClass4_0.<<GreenPipes-IFilter<MassTransit-RabbitMqTransport-ModelContext>-Send>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at GreenPipes.PipeExtensions.OneTimeSetup[T](PipeContext context, Func`2 setupMethod, PayloadFactory`1 payloadFactory)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:26:46.905 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:26:46.907 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-04 01:26:46.910 +08:00 [DBG] Closing model: 1 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:46.911 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.AlreadyClosedException: Already closed: The AMQP operation was interrupted: AMQP close-reason, initiated by Application, code=200, text="Connection Disposed", classId=0, methodId=0, cause=
+   at RabbitMQ.Client.Impl.SessionBase.Transmit(Command cmd)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model.BasicQos(UInt32 prefetchSize, UInt16 prefetchCount, Boolean global)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.PrefetchCountFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:26:46.911 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:26:57.114 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:57.169 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 30053)
+2019-08-04 01:26:57.171 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx961kbdmtop79br, type: fanout, auto-delete)
+2019-08-04 01:26:57.172 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-04 01:26:57.172 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-04 01:26:57.172 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx961kbdmtop79br, x-expires: 60000)
+2019-08-04 01:26:57.173 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx961kbdmtop79br, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx961kbdmtop79br)
+2019-08-04 01:26:57.174 +08:00 [DBG] Closing model: 2 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:57.174 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-04 01:26:57.175 +08:00 [DBG] Disconnecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:57.175 +08:00 [DBG] Disconnected: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:57.176 +08:00 [DBG] Closing model: 1 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:26:57.176 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text="PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'Account' in vhost 'SkyWatch': received 'fanout' but current is 'direct'", classId=40, methodId=10, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model._Private_ExchangeDeclare(String exchange, String type, Boolean passive, Boolean durable, Boolean autoDelete, Boolean internal, Boolean nowait, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.ExchangeDeclare(String exchange, String type, Boolean durable, Boolean autoDelete, IDictionary`2 arguments)
+   at MassTransit.RabbitMqTransport.Contexts.RabbitMqModelContext.<>c__DisplayClass14_0.<MassTransit.RabbitMqTransport.ModelContext.ExchangeDeclare>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.ConfigureTopology(ModelContext context)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.<>c__DisplayClass4_0.<<GreenPipes-IFilter<MassTransit-RabbitMqTransport-ModelContext>-Send>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at GreenPipes.PipeExtensions.OneTimeSetup[T](PipeContext context, Func`2 setupMethod, PayloadFactory`1 payloadFactory)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:26:57.176 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Application, code=200, text="Connection Disposed", classId=0, methodId=0, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model.BasicQos(UInt32 prefetchSize, UInt16 prefetchCount, Boolean global)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.PrefetchCountFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:26:57.176 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:26:57.177 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:26:57.181 +08:00 [DBG] Stopping bus hosts...
+2019-08-04 01:26:57.184 +08:00 [DBG] Stopping hosts...
+2019-08-04 01:26:57.212 +08:00 [WRN] Exception occurred while stopping hosts
+2019-08-04 01:26:57.212 +08:00 [ERR] Failed to stop partially created bus
+System.OperationCanceledException: The operation was canceled.
+   at GreenPipes.Internals.Extensions.TaskExtensions.UntilCompletedOrCanceled(Task task, CancellationToken cancellationToken)
+   at GreenPipes.Agents.Supervisor.StopSupervisor(StopSupervisorContext context)
+   at GreenPipes.Agents.Agent.Stop(StopContext context)
+   at GreenPipes.Internals.Extensions.TaskExtensions.UntilCompletedOrCanceled(Task task, CancellationToken cancellationToken)
+   at GreenPipes.Agents.Supervisor.StopSupervisor(StopSupervisorContext context)
+   at GreenPipes.Agents.Agent.Stop(StopContext context)
+   at MassTransit.Transports.ReceiveEndpointCollection.Handle.StopAsync(CancellationToken cancellationToken)
+   at MassTransit.Transports.ReceiveEndpointCollection.StopAgent(StopContext context)
+   at GreenPipes.Agents.Agent.Stop(StopContext context)
+   at MassTransit.Transports.BaseHost.GreenPipes.Agents.IAgent.Stop(StopContext context)
+   at MassTransit.MassTransitBus.Handle.StopAsync(CancellationToken cancellationToken)
+   at MassTransit.MassTransitBus.Handle.StopAsync(CancellationToken cancellationToken)
+   at MassTransit.MassTransitBus.StartAsync(CancellationToken cancellationToken)
+2019-08-04 01:26:57.218 +08:00 [FTL] An error occurred starting the application
+System.AggregateException: One or more errors occurred. (Operation interrupted) ---> MassTransit.RabbitMqTransport.RabbitMqConnectionException: Operation interrupted ---> RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text="PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'Account' in vhost 'SkyWatch': received 'fanout' but current is 'direct'", classId=40, methodId=10, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model._Private_ExchangeDeclare(String exchange, String type, Boolean passive, Boolean durable, Boolean autoDelete, Boolean internal, Boolean nowait, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.ExchangeDeclare(String exchange, String type, Boolean durable, Boolean autoDelete, IDictionary`2 arguments)
+   at MassTransit.RabbitMqTransport.Contexts.RabbitMqModelContext.<>c__DisplayClass14_0.<MassTransit.RabbitMqTransport.ModelContext.ExchangeDeclare>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.ConfigureTopology(ModelContext context)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.<>c__DisplayClass4_0.<<GreenPipes-IFilter<MassTransit-RabbitMqTransport-ModelContext>-Send>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at GreenPipes.PipeExtensions.OneTimeSetup[T](PipeContext context, Func`2 setupMethod, PayloadFactory`1 payloadFactory)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+   --- End of inner exception stack trace ---
+   at MassTransit.Transports.StartHostHandle.ReadyOrNot(IEnumerable`1 endpoints)
+   at MassTransit.MassTransitBus.Handle.ReadyOrNot(IEnumerable`1 hosts)
+   at MassTransit.MassTransitBus.StartAsync(CancellationToken cancellationToken)
+   at MassTransit.MassTransitBus.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.Internal.HostedServiceExecutor.ExecuteAsync(Func`2 callback)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Hosting.Internal.HostedServiceExecutor.ExecuteAsync(Func`2 callback)
+   at Microsoft.AspNetCore.Hosting.Internal.HostedServiceExecutor.StartAsync(CancellationToken token)
+---> (Inner Exception #0) MassTransit.RabbitMqTransport.RabbitMqConnectionException: Operation interrupted ---> RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text="PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'Account' in vhost 'SkyWatch': received 'fanout' but current is 'direct'", classId=40, methodId=10, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model._Private_ExchangeDeclare(String exchange, String type, Boolean passive, Boolean durable, Boolean autoDelete, Boolean internal, Boolean nowait, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.ExchangeDeclare(String exchange, String type, Boolean durable, Boolean autoDelete, IDictionary`2 arguments)
+   at MassTransit.RabbitMqTransport.Contexts.RabbitMqModelContext.<>c__DisplayClass14_0.<MassTransit.RabbitMqTransport.ModelContext.ExchangeDeclare>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.ConfigureTopology(ModelContext context)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.<>c__DisplayClass4_0.<<GreenPipes-IFilter<MassTransit-RabbitMqTransport-ModelContext>-Send>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at GreenPipes.PipeExtensions.OneTimeSetup[T](PipeContext context, Func`2 setupMethod, PayloadFactory`1 payloadFactory)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+   --- End of inner exception stack trace ---
+   at MassTransit.Transports.StartHostHandle.ReadyOrNot(IEnumerable`1 endpoints)
+   at MassTransit.MassTransitBus.Handle.ReadyOrNot(IEnumerable`1 hosts)
+   at MassTransit.MassTransitBus.StartAsync(CancellationToken cancellationToken)
+   at MassTransit.MassTransitBus.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.Internal.HostedServiceExecutor.ExecuteAsync(Func`2 callback)<---
+
+2019-08-04 01:26:57.243 +08:00 [WRN] The bus could not be stopped as it was never started: rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx961kbdmtop79br?durable=false&autodelete=true
+2019-08-04 01:27:40.946 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-04 01:27:42.709 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-04 01:27:43.648 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-04 01:27:43.868 +08:00 [DBG] Starting bus hosts...
+2019-08-04 01:27:43.905 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:43.983 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 30079)
+2019-08-04 01:27:44.075 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-04 01:27:44.075 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ru5bdmtop9rgn, type: fanout, auto-delete)
+2019-08-04 01:27:44.076 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-04 01:27:44.090 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ru5bdmtop9rgn, x-expires: 60000)
+2019-08-04 01:27:44.091 +08:00 [DBG] Closing model: 2 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:44.096 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ru5bdmtop9rgn, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ru5bdmtop9rgn)
+2019-08-04 01:27:44.096 +08:00 [DBG] Disconnecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:44.100 +08:00 [DBG] Closing model: 1 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:44.102 +08:00 [DBG] Disconnected: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:44.114 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text="PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'Account' in vhost 'SkyWatch': received 'fanout' but current is 'direct'", classId=40, methodId=10, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model._Private_ExchangeDeclare(String exchange, String type, Boolean passive, Boolean durable, Boolean autoDelete, Boolean internal, Boolean nowait, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.ExchangeDeclare(String exchange, String type, Boolean durable, Boolean autoDelete, IDictionary`2 arguments)
+   at MassTransit.RabbitMqTransport.Contexts.RabbitMqModelContext.<>c__DisplayClass14_0.<MassTransit.RabbitMqTransport.ModelContext.ExchangeDeclare>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.ConfigureTopology(ModelContext context)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.<>c__DisplayClass4_0.<<GreenPipes-IFilter<MassTransit-RabbitMqTransport-ModelContext>-Send>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at GreenPipes.PipeExtensions.OneTimeSetup[T](PipeContext context, Func`2 setupMethod, PayloadFactory`1 payloadFactory)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:27:44.114 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Application, code=200, text="Connection Disposed", classId=0, methodId=0, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model._Private_QueueBind(String queue, String exchange, String routingKey, Boolean nowait, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.QueueBind(String queue, String exchange, String routingKey, IDictionary`2 arguments)
+   at MassTransit.RabbitMqTransport.Contexts.RabbitMqModelContext.<>c__DisplayClass16_0.<MassTransit.RabbitMqTransport.ModelContext.QueueBind>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.ConfigureTopology(ModelContext context)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.<>c__DisplayClass4_0.<<GreenPipes-IFilter<MassTransit-RabbitMqTransport-ModelContext>-Send>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at GreenPipes.PipeExtensions.OneTimeSetup[T](PipeContext context, Func`2 setupMethod, PayloadFactory`1 payloadFactory)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:27:44.141 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:27:44.141 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:27:44.495 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/index.html  
+2019-08-04 01:27:44.720 +08:00 [INF] Request finished in 226.4106ms 200 text/html
+2019-08-04 01:27:44.837 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/v1/swagger.json  
+2019-08-04 01:27:44.990 +08:00 [INF] Request finished in 152.9867ms 200 application/json;charset=utf-8
+2019-08-04 01:27:49.663 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:49.684 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 30088)
+2019-08-04 01:27:49.686 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ru5bdmtop9rgn, type: fanout, auto-delete)
+2019-08-04 01:27:49.686 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-04 01:27:49.686 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-04 01:27:49.687 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ru5bdmtop9rgn, x-expires: 60000)
+2019-08-04 01:27:49.687 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ru5bdmtop9rgn, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ru5bdmtop9rgn)
+2019-08-04 01:27:49.688 +08:00 [DBG] Closing model: 2 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:49.688 +08:00 [DBG] Disconnecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:49.689 +08:00 [DBG] Closing model: 1 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:49.690 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Application, code=200, text="Connection Disposed", classId=0, methodId=0, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model._Private_QueueBind(String queue, String exchange, String routingKey, Boolean nowait, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.QueueBind(String queue, String exchange, String routingKey, IDictionary`2 arguments)
+   at MassTransit.RabbitMqTransport.Contexts.RabbitMqModelContext.<>c__DisplayClass16_0.<MassTransit.RabbitMqTransport.ModelContext.QueueBind>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.ConfigureTopology(ModelContext context)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.<>c__DisplayClass4_0.<<GreenPipes-IFilter<MassTransit-RabbitMqTransport-ModelContext>-Send>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at GreenPipes.PipeExtensions.OneTimeSetup[T](PipeContext context, Func`2 setupMethod, PayloadFactory`1 payloadFactory)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:27:49.690 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:27:49.691 +08:00 [DBG] Disconnected: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:49.695 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text="PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'Account' in vhost 'SkyWatch': received 'fanout' but current is 'direct'", classId=40, methodId=10, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model._Private_ExchangeDeclare(String exchange, String type, Boolean passive, Boolean durable, Boolean autoDelete, Boolean internal, Boolean nowait, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.ExchangeDeclare(String exchange, String type, Boolean durable, Boolean autoDelete, IDictionary`2 arguments)
+   at MassTransit.RabbitMqTransport.Contexts.RabbitMqModelContext.<>c__DisplayClass14_0.<MassTransit.RabbitMqTransport.ModelContext.ExchangeDeclare>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.ConfigureTopology(ModelContext context)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.<>c__DisplayClass4_0.<<GreenPipes-IFilter<MassTransit-RabbitMqTransport-ModelContext>-Send>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at GreenPipes.PipeExtensions.OneTimeSetup[T](PipeContext context, Func`2 setupMethod, PayloadFactory`1 payloadFactory)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:27:49.696 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:27:58.841 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:58.864 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 30092)
+2019-08-04 01:27:58.866 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-04 01:27:58.866 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-04 01:27:58.866 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ru5bdmtop9rgn, type: fanout, auto-delete)
+2019-08-04 01:27:58.867 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ru5bdmtop9rgn, x-expires: 60000)
+2019-08-04 01:27:58.867 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ru5bdmtop9rgn, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9ru5bdmtop9rgn)
+2019-08-04 01:27:58.868 +08:00 [DBG] Closing model: 1 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:58.868 +08:00 [DBG] Disconnecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:58.871 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-04 01:27:58.874 +08:00 [DBG] Disconnected: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:58.878 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text="PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'Account' in vhost 'SkyWatch': received 'fanout' but current is 'direct'", classId=40, methodId=10, cause=
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model._Private_ExchangeDeclare(String exchange, String type, Boolean passive, Boolean durable, Boolean autoDelete, Boolean internal, Boolean nowait, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.ExchangeDeclare(String exchange, String type, Boolean durable, Boolean autoDelete, IDictionary`2 arguments)
+   at MassTransit.RabbitMqTransport.Contexts.RabbitMqModelContext.<>c__DisplayClass14_0.<MassTransit.RabbitMqTransport.ModelContext.ExchangeDeclare>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.ConfigureTopology(ModelContext context)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.<>c__DisplayClass4_0.<<GreenPipes-IFilter<MassTransit-RabbitMqTransport-ModelContext>-Send>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at GreenPipes.PipeExtensions.OneTimeSetup[T](PipeContext context, Func`2 setupMethod, PayloadFactory`1 payloadFactory)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:27:58.879 +08:00 [DBG] Closing model: 2 / SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:27:58.879 +08:00 [DBG] Operation interrupted
+RabbitMQ.Client.Exceptions.AlreadyClosedException: Already closed: The AMQP operation was interrupted: AMQP close-reason, initiated by Application, code=200, text="Connection Disposed", classId=0, methodId=0, cause=
+   at RabbitMQ.Client.Impl.SessionBase.Transmit(Command cmd)
+   at RabbitMQ.Client.Impl.ModelBase.ModelRpc(MethodBase method, ContentHeaderBase header, Byte[] body)
+   at RabbitMQ.Client.Framing.Impl.Model.BasicQos(UInt32 prefetchSize, UInt16 prefetchCount, Boolean global)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MassTransit.RabbitMqTransport.Pipeline.PrefetchCountFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ConfigureTopologyFilter`1.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ModelContext>.Send(ModelContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at MassTransit.RabbitMqTransport.Pipeline.ReceiveEndpointFilter.GreenPipes.IFilter<MassTransit.RabbitMqTransport.ConnectionContext>.Send(ConnectionContext context, IPipe`1 next)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Transport.RabbitMqReceiveTransport.<Receiver>b__13_0()
+2019-08-04 01:27:58.879 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:27:58.880 +08:00 [ERR] RabbitMQ Connect Failed: Operation interrupted
+2019-08-04 01:34:24.516 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-04 01:34:27.600 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-04 01:34:30.120 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-04 01:34:30.424 +08:00 [DBG] Starting bus hosts...
+2019-08-04 01:34:30.467 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:34:30.571 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 1835)
+2019-08-04 01:34:30.684 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-04 01:34:30.684 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6t41bdmtoqgzyj, type: fanout, auto-delete)
+2019-08-04 01:34:30.685 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-04 01:34:30.697 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6t41bdmtoqgzyj, x-expires: 60000)
+2019-08-04 01:34:30.705 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-04 01:34:30.708 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6t41bdmtoqgzyj, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6t41bdmtoqgzyj)
+2019-08-04 01:34:30.717 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-04 01:34:30.717 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-04 01:34:30.722 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-04 01:34:30.727 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-04 01:34:30.765 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6t41bdmtoqgzyj?durable=false&autodelete=true" - amq.ctag-Avmh0Ys8M2NST7vwVKSHZQ
+2019-08-04 01:34:30.765 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-fBRuZfI-1PjA8k8V9tKSUw
+2019-08-04 01:35:04.047 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/  
+2019-08-04 01:35:04.138 +08:00 [INF] Request finished in 91.7509ms 301 
+2019-08-04 01:35:04.141 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/index.html  
+2019-08-04 01:35:04.311 +08:00 [INF] Request finished in 170.5625ms 200 text/html
+2019-08-04 01:35:04.328 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/swagger-ui.css  
+2019-08-04 01:35:04.329 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/swagger-ui-standalone-preset.js  
+2019-08-04 01:35:04.329 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/swagger-ui-bundle.js  
+2019-08-04 01:35:04.359 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2019-08-04 01:35:04.359 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2019-08-04 01:35:04.361 +08:00 [INF] Request finished in 33.6441ms 200 text/css
+2019-08-04 01:35:04.361 +08:00 [INF] Request finished in 32.2064ms 200 application/javascript
+2019-08-04 01:35:04.376 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2019-08-04 01:35:04.376 +08:00 [INF] Request finished in 47.1108ms 200 application/javascript
+2019-08-04 01:35:05.081 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/swagger/v1/swagger.json  
+2019-08-04 01:35:05.081 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/favicon-32x32.png  
+2019-08-04 01:35:05.082 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2019-08-04 01:35:05.082 +08:00 [INF] Request finished in 0.3957ms 200 image/png
+2019-08-04 01:35:05.214 +08:00 [INF] Request finished in 132.7208ms 200 application/json;charset=utf-8
+2019-08-04 01:35:30.929 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-04 01:35:32.844 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-04 01:35:33.837 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-04 01:35:34.067 +08:00 [DBG] Starting bus hosts...
+2019-08-04 01:35:34.108 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:35:34.183 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 1987)
+2019-08-04 01:35:34.276 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-04 01:35:34.276 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx91i7bdmtoq87yd, type: fanout, auto-delete)
+2019-08-04 01:35:34.277 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-04 01:35:34.283 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-04 01:35:34.284 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx91i7bdmtoq87yd, x-expires: 60000)
+2019-08-04 01:35:34.286 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-04 01:35:34.289 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-04 01:35:34.289 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx91i7bdmtoq87yd, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx91i7bdmtoq87yd)
+2019-08-04 01:35:34.298 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-04 01:35:34.298 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-04 01:35:34.350 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx91i7bdmtoq87yd?durable=false&autodelete=true" - amq.ctag-82l5eAE7DDpEJwePR__Wag
+2019-08-04 01:35:34.350 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-_1xdOkq-IDpA2zXNH6DKeg
+2019-08-04 01:36:05.076 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 114
+2019-08-04 01:36:05.159 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-04 01:36:05.182 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-04 01:36:05.580 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-04 01:36:28.310 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-04 01:36:30.108 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-04 01:36:31.087 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-04 01:36:31.307 +08:00 [DBG] Starting bus hosts...
+2019-08-04 01:36:31.344 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:36:31.412 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 2110)
+2019-08-04 01:36:31.515 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx69xobdmtoqe9bd, type: fanout, auto-delete)
+2019-08-04 01:36:31.515 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-04 01:36:31.516 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-04 01:36:31.521 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-04 01:36:31.521 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx69xobdmtoqe9bd, x-expires: 60000)
+2019-08-04 01:36:31.524 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-04 01:36:31.526 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-04 01:36:31.526 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx69xobdmtoqe9bd, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx69xobdmtoqe9bd)
+2019-08-04 01:36:31.534 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-04 01:36:31.534 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-04 01:36:31.573 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-DEXbkh6kL448PDplsK6GfQ
+2019-08-04 01:36:31.573 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx69xobdmtoqe9bd?durable=false&autodelete=true" - amq.ctag-hvUE__huOT0RXp-WkmJAEQ
+2019-08-04 01:37:16.086 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-04 01:37:17.986 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-04 01:37:18.941 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-04 01:37:19.164 +08:00 [DBG] Starting bus hosts...
+2019-08-04 01:37:19.201 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-04 01:37:19.278 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 2151)
+2019-08-04 01:37:19.360 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-04 01:37:19.360 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx699zbdmtoqj5fj, type: fanout, auto-delete)
+2019-08-04 01:37:19.361 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-04 01:37:19.372 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-04 01:37:19.372 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx699zbdmtoqj5fj, x-expires: 60000)
+2019-08-04 01:37:19.375 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-04 01:37:19.377 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-04 01:37:19.377 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx699zbdmtoqj5fj, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx699zbdmtoqj5fj)
+2019-08-04 01:37:19.386 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-04 01:37:19.386 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-04 01:37:19.428 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag--PKIwjPOMVC1kCGmR9AwMg
+2019-08-04 01:37:19.428 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx699zbdmtoqj5fj?durable=false&autodelete=true" - amq.ctag-wHrn8eeALGK8zLSX3zQW8Q
+2019-08-04 01:37:26.622 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/index.html  
+2019-08-04 01:37:26.834 +08:00 [INF] Request finished in 213.2488ms 200 text/html
+2019-08-04 01:37:26.929 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/swagger/v1/swagger.json  
+2019-08-04 01:37:27.053 +08:00 [INF] Request finished in 124.2204ms 200 application/json;charset=utf-8

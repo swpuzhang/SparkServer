@@ -14,15 +14,15 @@ namespace Money.Application.ViewModels
         {
         }
 
-        public MoneyInfoVM(long curChips, long curDiamonds, long maxChips, long maxDiamonds)
+        public MoneyInfoVM(long curCoins, long curDiamonds, long maxChips, long maxDiamonds)
         {
-            CurChips = curChips;
+            CurCoins = curCoins;
             CurDiamonds = curDiamonds;
             MaxChips = maxChips;
             MaxDiamonds = maxDiamonds;
         }
 
-        public long CurChips { get; private set; }
+        public long CurCoins { get; private set; }
         public long CurDiamonds { get; private set; }
         public long MaxChips { get; private set; }
         public long MaxDiamonds { get; private set; }

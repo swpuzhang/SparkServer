@@ -26,16 +26,16 @@ namespace WSGateWay.Extenssions
                 x.AddBus(context => Bus.Factory.CreateUsingRabbitMq(cfg =>
                 {
                     cfg.UseSerilog();
-                    var rabbitCfg = Configuration.GetSection("rabbitmq");
-                    Startup.mqConnectionStr = $"rabbitmq://{rabbitCfg["host"]}/{rabbitCfg["vhost"]}";
-                    var host = cfg.Host(rabbitCfg["host"], rabbitCfg["vhost"], h =>
+                    var rabbitCfg = Configuration.GetSection("Rabbitmq");
+                    Startup.mqConnectionStr = $"rabbitmq://{rabbitCfg["Host"]}/{rabbitCfg["Vhost"]}";
+                    var host = cfg.Host(rabbitCfg["Host"], rabbitCfg["Vhost"], h =>
                     {
-                        h.Username(rabbitCfg["username"]);
-                        h.Password(rabbitCfg["passwd"]);
+                        h.Username(rabbitCfg["UserName"]);
+                        h.Password(rabbitCfg["Passwd"]);
 
                     });
 
-                    cfg.ReceiveEndpoint(rabbitCfg["queue"], ec =>
+                    cfg.ReceiveEndpoint(rabbitCfg["Queue"], ec =>
                     {
                         //ec.Consumer(typeof(DoSomethingConsumer), c => Activator.CreateInstance(c));
                         ec.ConfigureConsumers(context);

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Commons.Domain.Models;
 using Sangong.Domain.Models;
 using Commons.Extenssions.Defines;
+using Commons.Extenssions;
 
 namespace Sangong.Matching.WebApi.Controllers
 {
@@ -20,9 +21,9 @@ namespace Sangong.Matching.WebApi.Controllers
     [ApiController]
     public class SangongMatchingController : ControllerBase
     {
-        private readonly ISangongAppService _service;
+        private readonly ISangongMatchingService _service;
 
-        public SangongMatchingController(ISangongAppService service)
+        public SangongMatchingController(ISangongMatchingService service)
         {
             _service = service;
         }
@@ -32,24 +33,9 @@ namespace Sangong.Matching.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public  BodyResponse<SangongMatchingResponseVM> PlayNow([FromHeader]long id)
+        public async Task<BodyResponse<SangongMatchingResponseVM>> PlayNow([FromHeader]long id)
         {
-            return new BodyResponse<SangongMatchingResponseVM>(StatuCodeDefines.FieldError, null, null);    
-        }
-
-        [HttpGet("{id}")]
-        //[Route("SangongSelf/id")]
-        public BodyResponse<SangongVM> GetSelfSangong([FromHeader]long id)
-        {
-            return new BodyResponse<SangongVM>(0, null, _service.GetById(id));
-            
-        }
-
-        [HttpGet]
-        public BodyResponse<SangongVM> GetOtherSangong(Int64 otherId)
-        {
-            var sangong = _service.GetById(otherId);
-            return new BodyResponse<SangongVM>(0, null, sangong);
+            return await OneThreadSynchronizationContext.UserRequest(id, _service.Playnow);
         }
     }
 }

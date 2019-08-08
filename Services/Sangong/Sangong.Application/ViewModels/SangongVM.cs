@@ -14,4 +14,5 @@ namespace Sangong.Application.ViewModels
     {
         public Int64 Id { get; set; }  
     }
+    
 }

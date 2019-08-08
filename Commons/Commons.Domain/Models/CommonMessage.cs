@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Commons.Extenssions.Defines;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,17 +20,62 @@ namespace Commons.Domain.Models
         public static string RequestName = "ToAppRequest";
 
         [JsonConstructor]
-        public ToAppRequest(string name, string data, Guid id)
+        public ToAppRequest(string name, string data, Guid gid)
         {
             ReqName = name;
             ReqData = data;
-            Id = id;
+            MessageId = gid;
         }
 
         /// <summary>
         /// 消息的唯一码
         /// </summary>
-        public Guid Id { get; private set; }
+        public Guid MessageId { get; private set; }
+
+        /// <summary>
+        /// 请求的消息名
+        /// </summary>
+        public string ReqName { get; private set; }
+        /// <summary>
+        /// 请求的消息数据
+        /// </summary>
+        public string ReqData { get; private set; }
+    }
+
+
+    public class ToAppRoomRequest
+    {
+        public ToAppRoomRequest()
+        {
+
+        }
+
+        public static string RequestName = "ToAppRoomRequest";
+
+        [JsonConstructor]
+        public ToAppRoomRequest(string name, string data, Guid gid, string gameKey, int roomId)
+        {
+            ReqName = name;
+            ReqData = data;
+            MessageId = gid;
+            GameKey = gameKey;
+            RoomId = roomId;
+        }
+
+        /// <summary>
+        /// 消息的唯一码
+        /// </summary>
+        public Guid MessageId { get; private set; }
+
+        /// <summary>
+        /// gamekey 标识哪个gamesvr
+        /// </summary>
+        public string GameKey { get; private set; }
+
+        /// <summary>
+        /// 标识那个房间
+        /// </summary>
+        public int RoomId { get; private set; }
 
         /// <summary>
         /// 请求的消息名
@@ -52,20 +98,20 @@ namespace Commons.Domain.Models
         }
 
         [JsonConstructor]
-        public ServerRequest(int userId, string name, string data, Guid id)
+        public ServerRequest(int id, string name, string data, Guid gid)
         {
-            UserId = userId;
+            Id = id;
             ReqName = name;
             ReqData = data;
-            Id = id;
+            MessageId = gid;
         }
 
-        public int UserId { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// 消息的唯一码
         /// </summary>
-        public Guid Id { get; private set; }
+        public Guid MessageId { get; private set; }
 
         /// <summary>
         /// 请求的消息名
@@ -75,6 +121,55 @@ namespace Commons.Domain.Models
         /// 请求的消息数据
         /// </summary>
         public string ReqData { get; private set; }
+
+    }
+
+    /// <summary>
+    /// GameServer内部请求
+    /// </summary>
+    public class GameServerRequest
+    {
+        public GameServerRequest()
+        {
+
+        }
+
+        [JsonConstructor]
+        public GameServerRequest(long userId, object request, string reqName, string gameKey, string roomId)
+        {
+            Id = userId;
+            ReqName = reqName;
+            ReqData = JsonConvert.SerializeObject(request);
+            MessageId = Guid.NewGuid();
+            GameKey = gameKey;
+            RoomId = roomId;
+        }
+
+        public long Id { get; set; }
+
+        /// <summary>
+        /// 消息的唯一码
+        /// </summary>
+        public Guid MessageId { get; private set; }
+
+        /// <summary>
+        /// 请求的消息名
+        /// </summary>
+        public string ReqName { get; private set; }
+        /// <summary>
+        /// 请求的消息数据
+        /// </summary>
+        public string ReqData { get; private set; }
+
+        /// <summary>
+        /// gamekey 标识哪个gamesvr
+        /// </summary>
+        public string GameKey { get; private set; }
+
+        /// <summary>
+        /// 标识那个房间
+        /// </summary>
+        public string RoomId { get; private set; }
     }
 
     /// <summary>
@@ -88,17 +183,20 @@ namespace Commons.Domain.Models
         }
 
         [JsonConstructor]
-        public AppRequest(string name, string data, Guid id)
+        public AppRequest(long id, string name, string data, Guid messageId)
         {
             ReqName = name ?? "";
             ReqData = data ?? "";
+            MessageId = messageId;
             Id = id;
         }
+
+        public long Id { get; private set; }
 
         /// <summary>
         /// 消息的唯一码
         /// </summary>
-        public Guid Id { get; private set; }
+        public Guid MessageId { get; private set; }
 
         /// <summary>
         /// 请求的消息名
@@ -120,13 +218,15 @@ namespace Commons.Domain.Models
         }
 
         [JsonConstructor]
-        public RoomRequest(string name, string data, Guid id, int roomId):
-           base(name, data, id)
+        public RoomRequest(long id, string name, string data, Guid gid, string gameRoomKey, string roomId) :
+           base(id, name, data, gid)
         {
+            GameRoomKey = gameRoomKey;
             RoomId = roomId;
         }
 
-        public int RoomId { get; private set; }
+        public string GameRoomKey { get; private set; }
+        public string RoomId { get; private set; }
     }
 
     /// <summary>
@@ -140,47 +240,36 @@ namespace Commons.Domain.Models
         }
 
         [JsonConstructor]
-        public CommonResponse(string data, Guid id)
+        public CommonResponse(string data, Guid gid, StatuCodeDefines statusCode, List<string> errorInfos)
         {
-            Data = data ?? "";
-            Id = id;
+            Data = data;
+            MessageId = gid;
+            StatusCode = statusCode;
+            ErrorInfos = errorInfos;
+        }
+
+        public CommonResponse(Guid gid)
+        {
+            Data = null;
+            MessageId = gid;
+            StatusCode = StatuCodeDefines.Success;
+            ErrorInfos = null;
         }
 
         /// <summary>
         /// 返回请求消息的唯一码
         /// </summary>
-        public Guid Id { get; private set; }
+        public Guid MessageId { get; private set; }
 
         /// <summary>
         /// 消息数据
         /// </summary>
         public string Data { get; private set; }
 
-        public static implicit operator CommonResponse(RoomRequest v)
-        {
-            throw new NotImplementedException();
-        }
+        public StatuCodeDefines StatusCode { get; private set; }
+        public List<string> ErrorInfos { get; private set; }
     }
 
-    public class BaseRoomMessage
-    {
-        public BaseRoomMessage()
-        {
-        }
-
-        [JsonConstructor]
-        public BaseRoomMessage(int roomId, int userId)
-        {
-            RoomId = roomId;
-            UserId = userId;
-        }
-
-
-        public int RoomId { get; private set; }
-
-
-        public int UserId { get; private set; }
-
-    }
+    
 
 }

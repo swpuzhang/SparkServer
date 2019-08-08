@@ -40,7 +40,7 @@ namespace Account.Domain.CommandHandlers
         public async Task<BodyResponse<GameInfo>> Handle(GetGameInfoCommand request, 
             CancellationToken cancellationToken)
         {
-            //读取redis account信息
+  
             GameInfo gameinfo = await _redis.GetGameInfo(request.Id);
             if (gameinfo == null)
             {

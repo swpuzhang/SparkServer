@@ -14,6 +14,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Commons.Extenssions\Commons.Extenssions.csproj" />
+    <ProjectReference Include="..\Commons.IntegrationBus\Commons.Message.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Managers\" />
   </ItemGroup>
 
 </Project>

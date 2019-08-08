@@ -18,6 +18,7 @@ using AutoMapper;
 using Serilog;
 using Account.Domain.Events;
 using Commons.MqCommands;
+using Account.Domain.Manager;
 
 namespace Account.Domain.CommandHandlers
 {
@@ -31,12 +32,14 @@ namespace Account.Domain.CommandHandlers
         private readonly IBusControl _mqBus;
         private readonly IRequestClient<GetMoneyMqCommand> _moneyClient;
         private readonly IMapper _mapper;
+        private readonly WSHostManager _hostManager;
         public AccountCommandHandler(IAccountInfoRepository rep,
             IUserIdGenRepository genRepository,
             IAccountRedisRepository redis,
             IMediatorHandler bus,
-            IBusControl mqBus, IMapper mapper, 
-            IRequestClient<GetMoneyMqCommand> moneyClient)
+            IBusControl mqBus, IMapper mapper,
+            IRequestClient<GetMoneyMqCommand> moneyClient, 
+            WSHostManager hostManager)
         {
             _accountRepository = rep;
             _genRepository = genRepository;
@@ -45,6 +48,7 @@ namespace Account.Domain.CommandHandlers
             _mqBus = mqBus;
             _mapper = mapper;
             _moneyClient = moneyClient;
+            _hostManager = hostManager;
         }
 
 
@@ -101,14 +105,15 @@ namespace Account.Domain.CommandHandlers
                     newAccountInfo.UserName,
                     newAccountInfo.Sex,
                     newAccountInfo.HeadUrl,
-                    token,new MoneyInfo());
+                    token,new MoneyInfo(),
+                    _hostManager.GetOneHost());
                 }
                 else
                 {
                     //查询玩家金币
-                    GetMoneyMqResponse moneyResponse = null;
+                    MoneyMqResponse moneyResponse = null;
                    
-                    var mqResponse = await _moneyClient.GetResponseExt<GetMoneyMqCommand, BodyResponse<GetMoneyMqResponse>>
+                    var mqResponse = await _moneyClient.GetResponseExt<GetMoneyMqCommand, BodyResponse<MoneyMqResponse>>
                             (new GetMoneyMqCommand(accountInfo.Id));
                     moneyResponse = mqResponse.Message.Body;
                     accounResponse = new AccountResponse(newAccountInfo.Id,
@@ -116,10 +121,11 @@ namespace Account.Domain.CommandHandlers
                     newAccountInfo.UserName,
                     newAccountInfo.Sex,
                     newAccountInfo.HeadUrl,
-                    token, new MoneyInfo(moneyResponse.CurChips,
+                    token, new MoneyInfo(moneyResponse.CurCoins + moneyResponse.Carry,
                     moneyResponse.CurDiamonds,
                     moneyResponse.MaxChips,
-                    moneyResponse.MaxDiamonds));
+                    moneyResponse.MaxDiamonds),
+                    _hostManager.GetOneHost());
                 }
 
                 _ = _bus.RaiseEvent<LoginEvent>(new LoginEvent(Guid.NewGuid(), 

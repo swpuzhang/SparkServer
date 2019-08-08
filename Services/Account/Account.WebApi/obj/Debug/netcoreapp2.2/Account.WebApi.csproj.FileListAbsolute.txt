@@ -27,7 +27,6 @@ E:\document\mycode\project\Spark\Services\Account\Account.WebApi\obj\Debug\netco
 E:\document\mycode\project\Spark\Services\Account\Account.WebApi\obj\Debug\netcoreapp2.2\Account.WebApi.dll
 E:\document\mycode\project\Spark\Services\Account\Account.WebApi\obj\Debug\netcoreapp2.2\Account.WebApi.pdb
 E:\document\mycode\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Account.Application.xml
-E:\document\mycode\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
 D:\document\code\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Account.WebApi.deps.json
 D:\document\code\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Account.WebApi.runtimeconfig.json
 D:\document\code\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Account.WebApi.runtimeconfig.dev.json
@@ -59,3 +58,5 @@ D:\document\code\project\Spark\Services\Account\Account.WebApi\obj\Debug\netcore
 D:\document\code\project\Spark\Services\Account\Account.WebApi\obj\Debug\netcoreapp2.2\Account.WebApi.pdb
 D:\document\code\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.dll
 D:\document\code\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Commons.IntegrationBus.pdb
+E:\document\mycode\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Commons.Message.dll
+E:\document\mycode\project\Spark\Services\Account\Account.WebApi\bin\Debug\netcoreapp2.2\Commons.Message.pdb

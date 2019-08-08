@@ -12,7 +12,6 @@ E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\obj\Debug\netcoreap
 E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\obj\Debug\netcoreapp2.2\Commons.Infrastruct.pdb
 E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Extenssions.dll
 E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Extenssions.pdb
-E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Extenssions.xml
 D:\document\code\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Infrastruct.deps.json
 D:\document\code\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Infrastruct.dll
 D:\document\code\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Infrastruct.pdb
@@ -29,3 +28,5 @@ D:\document\code\project\Spark\Commons\Commons.Infrastruct\obj\Debug\netcoreapp2
 D:\document\code\project\Spark\Commons\Commons.Infrastruct\obj\Debug\netcoreapp2.2\Commons.Infrastruct.pdb
 D:\document\code\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\document\code\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Swashbuckle.AspNetCore.SwaggerGen.xml
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Message.dll
+E:\document\mycode\project\Spark\Commons\Commons.Infrastruct\bin\Debug\netcoreapp2.2\Commons.Message.pdb

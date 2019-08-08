@@ -12,3 +12,17 @@ D:\document\code\project\Spark\Services\Sangong\Sangong.Test\obj\Debug\netcoreap
 D:\document\code\project\Spark\Services\Sangong\Sangong.Test\obj\Debug\netcoreapp2.2\Sangong.Test.AssemblyInfo.cs
 D:\document\code\project\Spark\Services\Sangong\Sangong.Test\obj\Debug\netcoreapp2.2\Sangong.Test.dll
 D:\document\code\project\Spark\Services\Sangong\Sangong.Test\obj\Debug\netcoreapp2.2\Sangong.Test.pdb
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\bin\Debug\netcoreapp2.2\Sangong.Test.deps.json
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\bin\Debug\netcoreapp2.2\Sangong.Test.runtimeconfig.json
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\bin\Debug\netcoreapp2.2\Sangong.Test.runtimeconfig.dev.json
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\bin\Debug\netcoreapp2.2\Sangong.Test.dll
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\bin\Debug\netcoreapp2.2\Sangong.Test.pdb
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\obj\Debug\netcoreapp2.2\Sangong.Test.csproj.CoreCompileInputs.cache
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\obj\Debug\netcoreapp2.2\Sangong.Test.AssemblyInfoInputs.cache
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\obj\Debug\netcoreapp2.2\Sangong.Test.AssemblyInfo.cs
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\obj\Debug\netcoreapp2.2\Sangong.Test.dll
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\obj\Debug\netcoreapp2.2\Sangong.Test.pdb
+E:\document\mycode\project\Spark\Services\Sangong\Sangong.Test\obj\Debug\netcoreapp2.2\Sangong.Test.csprojAssemblyReference.cache
