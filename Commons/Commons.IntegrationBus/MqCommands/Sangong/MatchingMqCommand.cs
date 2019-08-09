@@ -124,16 +124,21 @@ namespace Sangong.MqCommands
 
     public class UserApplySitMqCommand
     {
-        public UserApplySitMqCommand(long id, string roomId, string gameKey)
+        public UserApplySitMqCommand(long id, string roomId, string gameKey, long blind)
         {
             Id = id;
             RoomId = roomId;
             GameKey = gameKey;
+            Blind = blind;
         }
 
         public long Id { get; private set; }
         public string RoomId { get; private set; }
 
         public string GameKey { get; private set; }
+
+        public long Blind { get; private set; }
     }
+
+    
 }

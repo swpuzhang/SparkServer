@@ -71,12 +71,30 @@ namespace Sangong.Matching.WebApi.MqConsumers
         }
 
 
-        public override Task<BaseResponse> ConsumerHandler(UserApplySitMqCommand request)
+        public async override Task<BaseResponse> ConsumerHandler(UserApplySitMqCommand request)
         {
-            throw new NotImplementedException();
+            return await _service.OnUserApplySit(request);
         }
     }
 
-    
+    public class UserSitFailedConsumer :
+       OneThreadConsumer<UserSitFailedMqEvent>
+    {
+        ISangongMatchingService _service;
+
+        public UserSitFailedConsumer(ISangongMatchingService service)
+        {
+            _service = service;
+        }
+
+
+        
+
+        public override void ConsumerHandler(UserSitFailedMqEvent request)
+        {
+            _service.OnUserSiteFailed(request);
+        }
+    }
+
 
 }

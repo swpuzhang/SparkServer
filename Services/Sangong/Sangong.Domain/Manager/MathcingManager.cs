@@ -81,8 +81,11 @@ namespace Sangong.Domain.Manager
                     BodyResponse<JoinGameRoomMqResponse> roomResponse = 
                         await _roomManager.SendToGameRoom<JoinGameRoomMqCommand, BodyResponse<JoinGameRoomMqResponse>>
                         (roomInfo.GameKey, new JoinGameRoomMqCommand(id, roomInfo.RoomId, roomInfo.GameKey));
+
                     RoomInfo newRoomInfo = new RoomInfo(roomResponse.Body.RoomId, roomResponse.Body.UserCount, roomResponse.Body.GameKey, roomResponse.Body.Blind);
+
                     _roomManager.UpdateRoom(newRoomInfo);
+
                     if (roomResponse.StatusCode == StatuCodeDefines.Success)
                     {
                         _ = _redis.SetUserRoomInfo(new UserRoomInfo(id, roomInfo.RoomId, roomInfo.GameKey, blind, MatchingStatus.Success));
@@ -105,9 +108,9 @@ namespace Sangong.Domain.Manager
             }
         }
 
-        public async Task OnJoinGame(long id, string gameKey, string roomId, long blind, int userCount, string group)
+        public  Task OnJoinGame(long id, string gameKey, string roomId, long blind, int userCount, string group)
         {
-            if (group != matchingGroup)
+            /*if (group != matchingGroup)
             {
                 return;
             }
@@ -119,7 +122,8 @@ namespace Sangong.Domain.Manager
                 
             }
                 
-            _roomManager.OnUserCountChange(gameKey, roomId, blind, userCount);
+            _roomManager.OnUserCountChange(gameKey, roomId, blind, userCount);*/
+            return Task.CompletedTask;
         }
 
         public async Task OnLeaveGame(long id, string gameKey, string roomId, long blind, int userCount, string group)
@@ -133,29 +137,41 @@ namespace Sangong.Domain.Manager
             {
                 await locker.LockAsync();
                 _ = _redis.DeleteUserRoomInfo(id);
-
             }
-            _roomManager.OnUserCountChange(gameKey, roomId, blind, userCount);
+            _roomManager.OnUserCountChange(gameKey, roomId, blind, -1);
         }
 
-        public async Task<BaseResponse> OnUserApplySit(long id, string gameKey, string roomId)
+        public async Task<BaseResponse> OnUserApplySit(long id, string gameKey, Int64 blind, string roomId)
         {
             using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
             {
                 await locker.LockAsync();
-
-              
                 var userRoomInfo = await _redis.GetUserRoomInfo(id);
                 if (userRoomInfo != null)
                 {
-
                     return new BaseResponse(StatuCodeDefines.Error, new List<string>() { "user already in room " });
                 }
                 if (!_roomManager.JoinOneRoom(gameKey, roomId))
                 {
                     return new BaseResponse(StatuCodeDefines.Error, new List<string>() { "room is full " });
                 }
+                _ = _redis.SetUserRoomInfo(new UserRoomInfo(id, roomId, gameKey, blind, MatchingStatus.Success));
                 return new BaseResponse(StatuCodeDefines.Success, null);
+            }
+        }
+
+        public async Task OnSiteFailed(long id, string gameKey, string roomId, string group)
+        {
+
+            if (group != matchingGroup)
+            {
+                return;
+            }
+            using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
+            {
+                await locker.LockAsync();
+                _ = _redis.DeleteUserRoomInfo(id);
+                _roomManager.JoinOneRoomFailed(gameKey, roomId);
             }
         }
     }

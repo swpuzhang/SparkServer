@@ -86,7 +86,19 @@ namespace Sangong.Domain.Logic
 
         public long Carry { get; private set; } = 0;
 
-        
+        public void UpdateInfo(long id, string platformAccount,
+            string userName, int sex, string headUrl,
+            long coins, long diamonds, long carry)
+        {
+            Id = id;
+            PlatformAccount = platformAccount;
+            UserName = userName;
+            Sex = sex;
+            HeadUrl = headUrl;
+            Coins = coins;
+            Diamonds = diamonds;
+            Carry = carry;
+        }
 
 
     }

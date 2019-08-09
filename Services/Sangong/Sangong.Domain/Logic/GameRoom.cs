@@ -202,31 +202,47 @@ namespace Sangong.Domain.Logic
         }
         public async Task<BodyResponse<JoinGameRoomMqResponse>> JoinRoom(long id)
         {
+            var accountInfo = _mqManager.GetAccountInfo(id);
+            var moneyInfo = _mqManager.BuyIn(id, MinCarry, MaxCarry);
+            await Task.WhenAll(accountInfo, moneyInfo);
+            if (moneyInfo == null)
+            {
+                return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Error, new List<string>() { "make player error " }, null);
+            }
             _playerInfos.TryGetValue(id, out var player);
             //已经在房间直接返回成功
             if (player != null)
             {
-                return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Success, null,
-                    new JoinGameRoomMqResponse(id, RoomId, GameRoomManager.gameKey, GetPlayerCount(), Blind));
+                if (accountInfo == null)
+                {
+                    player.UpdateInfo(id, "", "", 0, "", moneyInfo.Result.CurCoins, 
+                        moneyInfo.Result.CurDiamonds, moneyInfo.Result.Carry);
+                }
+                else
+                {
+                    player.UpdateInfo(id, accountInfo.Result.PlatformAccount, accountInfo.Result.UserName,
+                        accountInfo.Result.Sex, accountInfo.Result.HeadUrl, moneyInfo.Result.CurCoins,
+                        moneyInfo.Result.CurDiamonds, moneyInfo.Result.Carry);
+                }
             }
-
             else
             {
-                  player = await MakePlayer(id);
+                  player =  MakePlayer(id, accountInfo.Result, moneyInfo.Result);
             }
        
-          
             if (player == null)
             {
                 return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Error, new List<string>() { "make player error " }, null);
             }
 
-            //注意异步回来后, 可能整个对象都变化了, 所以要重新判断
             if (!player.IsSeated())
             {
-                var seat = GetEmptySeat();
+                
+                GameSeat seat = GetEmptySeat();
+               
                 if (seat == null)
                 {
+                    _playerInfos.Remove(id);
                     return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Error, new List<string>() { "room is full " }, null);
                 }
                 player.Seat(seat);
@@ -428,28 +444,17 @@ namespace Sangong.Domain.Logic
             return true;
         }
 
-        public async Task<GamePlayer> MakePlayer(long id)
+        public GamePlayer MakePlayer(long id, GetAccountInfoMqResponse accountInfo, MoneyMqResponse moneyInfo)
         {
-            var accountInfo =   _mqManager.GetAccountInfo(id);
-            var moneyInfo =  _mqManager.BuyIn(id, MinCarry, MaxCarry);
-            await Task.WhenAll(accountInfo, moneyInfo);
-            if (moneyInfo == null)
-            {
-                return null;
-            }
             GamePlayer player = null;
             if (accountInfo == null)
             {
-                player = new GamePlayer(id, moneyInfo.Result.CurCoins, moneyInfo.Result.CurDiamonds, moneyInfo.Result.Carry);
+                player = new GamePlayer(id, moneyInfo.CurCoins, moneyInfo.CurDiamonds, moneyInfo.Carry);
             }
             else
             {
-                player = new GamePlayer(id, accountInfo.Result.PlatformAccount, accountInfo.Result.UserName, accountInfo.Result.Sex,
-                    accountInfo.Result.HeadUrl, moneyInfo.Result.CurCoins, moneyInfo.Result.CurDiamonds, moneyInfo.Result.Carry);
-            }
-            if (_playerInfos.TryGetValue(id, out var existPlayer))
-            {
-                return existPlayer;
+                player = new GamePlayer(id, accountInfo.PlatformAccount, accountInfo.UserName, accountInfo.Sex,
+                    accountInfo.HeadUrl, moneyInfo.CurCoins, moneyInfo.CurDiamonds, moneyInfo.Carry);
             }
             _playerInfos.Add(id, player);
             return player;
@@ -715,7 +720,7 @@ namespace Sangong.Domain.Logic
             return new CommonResponse(gid);
         }
 
-        public async Task<CommonResponse> OnApplySitDownCommand(long id, Guid gid, ApplySitdownCommand command)
+        public  CommonResponse OnApplySitDownCommand(long id, Guid gid, ApplySitdownCommand command)
         {
             _playerInfos.TryGetValue(id, out var player);
             if (player == null || player.IsSeated() || command.SeatNum >= SeatCount || _seats[command.SeatNum].IsSeated())
@@ -724,21 +729,28 @@ namespace Sangong.Domain.Logic
             }
 
             //向matching请求加入该房间
-            var response = await _mqManager.UserApplySit(id, RoomId, GameRoomManager.gameKey);
+            var mqresponse = _mqManager.UserApplySit(id, RoomId, GameRoomManager.gameKey, Blind);
+            mqresponse.Wait();
+            var response = mqresponse.Result;
             if (response == null || response.StatusCode != StatuCodeDefines.Success)
             {
                 return new CommonResponse(null, gid, StatuCodeDefines.Error, null);
             }
-
-            _playerInfos.TryGetValue(id, out var playerBack);
-
-            if (player == null || player.IsSeated() || _seats[command.SeatNum].IsSeated())
+            var moneyMqResponse = _mqManager.BuyIn(id, MinCarry, MaxCarry);
+            moneyMqResponse.Wait();
+            var moneyInfo = moneyMqResponse.Result;
+            if (moneyInfo == null)
             {
-                return new CommonResponse(null, gid, StatuCodeDefines.PlayerNotInRoom, null);
+                //买入失败
+                _bus.Publish(new UserSitFailedMqEvent(id, RoomId, GameRoomManager.gameKey, GameRoomManager.matchingGroup));
+                return new CommonResponse(null, gid, StatuCodeDefines.Error, null);
             }
-            playerBack.Seat(_seats[command.SeatNum]);
-            BroadCastMessage(new PlayerSeatedEvent(playerBack.Id, playerBack.UserName,
-                playerBack.Coins, playerBack.Diamonds, playerBack.SeatInfo.SeatNum, playerBack.Carry),
+            player.UpdateInfo(id, player.PlatformAccount, player.UserName,
+                player.Sex, player.HeadUrl, moneyInfo.CurCoins,
+                moneyInfo.CurDiamonds, moneyInfo.Carry);
+            player.Seat(_seats[command.SeatNum]);
+            BroadCastMessage(new PlayerSeatedEvent(player.Id, player.UserName,
+                player.Coins, player.Diamonds, player.SeatInfo.SeatNum, player.Carry),
                 "PlayerSeatedEvent");
             //判断房间人数>2 人， 而且是正在准备状态， 开始牌局， 否者旁观
             if (IsGameCanStart())

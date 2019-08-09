@@ -8,6 +8,7 @@ using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Commons.Domain.Models;
 using Sangong.MqCommands;
+using Sangong.MqEvents;
 
 namespace Commons.Domain.Managers
 {
@@ -33,12 +34,12 @@ namespace Commons.Domain.Managers
             //moneyUrl = configuration.GetSection("Rabbitmq")["Money"];
         }
 
-        public async Task<BaseResponse> UserApplySit(long id, string roomId, string gameKey)
+        public async Task<BaseResponse> UserApplySit(long id, string roomId, string gameKey, long blind)
         {
             try
             {
                 var response = await _sitClient.GetResponseExt<UserApplySitMqCommand, BaseResponse>(
-                    new UserApplySitMqCommand(id, roomId, gameKey));
+                    new UserApplySitMqCommand(id, roomId, gameKey, blind));
                 return response.Message;
             }
             catch (Exception)
@@ -47,6 +48,8 @@ namespace Commons.Domain.Managers
             }
 
         }
+
+    
 
         public async Task<GetAccountInfoMqResponse> GetAccountInfo(long id)
         {

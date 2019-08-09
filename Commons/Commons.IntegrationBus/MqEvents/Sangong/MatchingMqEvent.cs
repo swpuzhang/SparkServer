@@ -73,4 +73,22 @@ namespace Sangong.MqEvents
         public string MatchingGroup { get; private set; }
 
     }
+
+    public class UserSitFailedMqEvent
+    {
+        public UserSitFailedMqEvent(long id, string roomId, string gameKey, string matchingGroup)
+        {
+            Id = id;
+            RoomId = roomId;
+            GameKey = gameKey;
+            MatchingGroup = matchingGroup;
+        }
+
+        public long Id { get; private set; }
+        public string RoomId { get; private set; }
+
+        public string GameKey { get; private set; }
+
+        public string MatchingGroup { get; private set; }
+    }
 }
