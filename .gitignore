@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/Spark
+/Tests/CollectionTest/obj/Debug/netcoreapp2.2
+/.vs
+/Commons/Helper/obj
