@@ -97,6 +97,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynchronizationContextTest"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Account.Test", "Services\Account\Account.Test\Account.Test.csproj", "{26E7D4F5-BE8E-434A-9699-D3B9BBC72CC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Signalr.Client", "Commons\Common.Signalr.Client\Common.Signalr.Client.csproj", "{736EF190-30AF-4894-849F-AD0D751E28C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -259,6 +261,10 @@ Global
 		{26E7D4F5-BE8E-434A-9699-D3B9BBC72CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26E7D4F5-BE8E-434A-9699-D3B9BBC72CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26E7D4F5-BE8E-434A-9699-D3B9BBC72CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{736EF190-30AF-4894-849F-AD0D751E28C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{736EF190-30AF-4894-849F-AD0D751E28C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{736EF190-30AF-4894-849F-AD0D751E28C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{736EF190-30AF-4894-849F-AD0D751E28C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -307,6 +313,7 @@ Global
 		{79A2A58E-36DA-44C7-B0CE-DEEAAB65A7C2} = {A540DE55-3F4B-48C0-9AE9-00B08FA4D134}
 		{180EB876-330A-4F5C-B13A-C941987E38C2} = {A540DE55-3F4B-48C0-9AE9-00B08FA4D134}
 		{26E7D4F5-BE8E-434A-9699-D3B9BBC72CC8} = {9D498299-4E5F-4E1C-945B-E8920C38B1D4}
+		{736EF190-30AF-4894-849F-AD0D751E28C3} = {37CC1C95-2773-4916-8D99-3759510BA3E1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B9948BCA-13BE-40A6-AE83-C3AE6645B3A3}

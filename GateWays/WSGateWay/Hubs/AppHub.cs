@@ -24,18 +24,15 @@ namespace WSGateWay.Hubs
         private readonly ICommonService _commonService;
         private readonly UserConnManager _userConnManager;
         private readonly IRpcCaller<AppHub> _rpcCaller;
-        private RoomIdMapGameManager _roomidMapper;
         private readonly IBusControl _bus;
         public AppHub(//IRequestClient<RoomRequest> requestClient,
             ICommonService commonService,
-            UserConnManager userConnManager, IRpcCaller<AppHub> rpcCaller,
-            RoomIdMapGameManager roomidMapper, IBusControl bus)
+            UserConnManager userConnManager, IRpcCaller<AppHub> rpcCaller, IBusControl bus)
         {
             //_requestClient = requestClient;
             _commonService = commonService;
             _userConnManager = userConnManager;
             _rpcCaller = rpcCaller;
-            _roomidMapper = roomidMapper;
             _bus = bus;
         }
 
