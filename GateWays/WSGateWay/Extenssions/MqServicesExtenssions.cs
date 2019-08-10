@@ -1,0 +1,61 @@
+﻿using Autofac;
+using Commons.MqCommands;
+using MassTransit;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Serilog;
+using System;
+using System.Reflection;
+
+namespace WSGateWay.Extenssions
+{
+    public static class MqServicesExtenssions
+    {
+        public static void AddMassTransitServices(this IServiceCollection services, IConfiguration Configuration, 
+            ContainerBuilder builder)
+        {
+            services.AddSingleton<IHostedService, HostedService>();
+            builder.AddMassTransit(x =>
+            {
+                var rabbitCfg = Configuration.GetSection("Rabbitmq");
+                x.AddConsumers(Assembly.GetExecutingAssembly());
+                x.AddBus(context => Bus.Factory.CreateUsingRabbitMq(cfg =>
+                {
+                    cfg.UseSerilog();
+
+                    Log.Information($"rabbitCfg host:{rabbitCfg["Host"]} vhost:{rabbitCfg["Vhost"]}");
+                    var host = cfg.Host(rabbitCfg["Host"], rabbitCfg["Vhost"], h =>
+                    {
+                        h.Username(rabbitCfg["UserName"]);
+                        h.Password(rabbitCfg["Passwd"]);
+
+                    });
+
+                    cfg.ReceiveEndpoint(rabbitCfg["Queue"], ec =>
+                    {
+
+                        ec.ConfigureConsumers(context);
+                        //ec.Consumer(typeof(DoSomethingConsumer), c => Activator.CreateInstance(c));
+                        //特殊消息
+                        //EndpointConvention.Map<DoSomething>(e.InputAddress);
+                    });
+
+                    //cfg.ConfigureEndpoints(context);
+
+
+                }));
+
+                //添加RequestClient
+                //var moneyMqUrl = rabbitCfg["Money"];
+                //x.AddRequestClient<GetMoneyMqCommand>(new Uri(moneyMqUrl));
+            });
+        }
+
+
+       
+       
+
+       
+    }
+}

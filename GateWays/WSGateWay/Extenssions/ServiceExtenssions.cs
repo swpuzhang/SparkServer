@@ -2,6 +2,7 @@
 using Commons.Domain.Models;
 using Commons.Infrastruct;
 using MassTransit;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,59 +12,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using WSGateWay.Hubs;
+using WSGateWay.Manager;
+using WSGateWay.Services;
 
 namespace WSGateWay.Extenssions
 {
     public static class ServiceExtenssions
     {
-        public static void AddMassTransitService(this IServiceCollection services, IConfiguration Configuration, 
-            ContainerBuilder builder)
+        public static void AddServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddSingleton<IHostedService, HostedService>();
-            builder.AddMassTransit(x =>
-            {
-                x.AddConsumers(Assembly.GetExecutingAssembly());
-                x.AddBus(context => Bus.Factory.CreateUsingRabbitMq(cfg =>
-                {
-                    cfg.UseSerilog();
-                    var rabbitCfg = Configuration.GetSection("Rabbitmq");
-                    Startup.mqConnectionStr = $"rabbitmq://{rabbitCfg["Host"]}/{rabbitCfg["Vhost"]}";
-                    var host = cfg.Host(rabbitCfg["Host"], rabbitCfg["Vhost"], h =>
-                    {
-                        h.Username(rabbitCfg["UserName"]);
-                        h.Password(rabbitCfg["Passwd"]);
-
-                    });
-
-                    cfg.ReceiveEndpoint(rabbitCfg["Queue"], ec =>
-                    {
-                        //ec.Consumer(typeof(DoSomethingConsumer), c => Activator.CreateInstance(c));
-                        ec.ConfigureConsumers(context);
-                        //特殊消息
-                        //EndpointConvention.Map<DoSomething>(e.InputAddress);
-                    });
-
-                    //cfg.ConfigureEndpoints(context);
-
-
-                }));
-
-                //添加RequestClient
-                //x.AddRequestClient<DoSomething>();
-            });
+            services.AddSingleton<UserConnManager>(new UserConnManager());
+            services.AddSingleton<IRpcCaller<AppHub>, RpcCaller<AppHub>>();
+            services.AddScoped<ICommandService, CommandService>();
+            services.AddScoped<ICommonService, CommonService>();
         }
-
-
-        public static void AddMongoService(this IServiceCollection services, IConfiguration configuration)
+        public static void ConfigServices(this IApplicationBuilder app, IConfiguration configuration)
         {
-            services.Configure<MongoSettings>(
-                configuration.GetSection(nameof(MongoSettings)));
 
-            services.AddSingleton<IMongoSettings>(sp =>
-                sp.GetRequiredService<IOptions<MongoSettings>>().Value);
+            //var container = app.ApplicationServices;
+            
         }
-       
-
-       
     }
 }

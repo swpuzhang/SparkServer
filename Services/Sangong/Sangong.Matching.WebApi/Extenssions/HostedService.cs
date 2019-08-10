@@ -17,10 +17,13 @@ namespace Sangong.Matching.WebApi.Extenssions
         private readonly IConfiguration _configuration;
         private readonly MatchingManager _matchingManager;
         private readonly RoomManager _roomManager;
-        public HostedService(IBusControl busControl, IConfiguration configuration)
+        public HostedService(IBusControl busControl, IConfiguration configuration,
+            MatchingManager matchingManager, RoomManager roomManager)
         {
             _busControl = busControl;
             _configuration = configuration;
+            _matchingManager = matchingManager;
+            _roomManager = roomManager;
         }
 
         public async Task StartAsync(CancellationToken cancellationToken)

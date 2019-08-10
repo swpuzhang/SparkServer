@@ -61,7 +61,7 @@ namespace Sangong.Matching.WebApi.MqConsumers
 
 
     public class UserApplySitConsumer :
-        OneThreadConsumer<UserApplySitMqCommand, BaseResponse>
+        OneThreadConsumer<UserApplySitMqCommand, BodyResponse<NullBody>>
     {
         ISangongMatchingService _service;
 
@@ -71,7 +71,7 @@ namespace Sangong.Matching.WebApi.MqConsumers
         }
 
 
-        public async override Task<BaseResponse> ConsumerHandler(UserApplySitMqCommand request)
+        public async override Task<BodyResponse<NullBody>> ConsumerHandler(UserApplySitMqCommand request)
         {
             return await _service.OnUserApplySit(request);
         }

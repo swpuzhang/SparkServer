@@ -14,7 +14,7 @@ namespace Sangong.Game.WebApi.MqConsumers
 {
 
     public class CreateRooConsumer :
-        OneThreadConsumer<CreateRoomMqCommand, BaseResponse>
+        OneThreadConsumer<CreateRoomMqCommand, BodyResponse<NullBody>>
     {
 
         ISangongGameService _service;
@@ -23,7 +23,7 @@ namespace Sangong.Game.WebApi.MqConsumers
             _service = service;
         }
 
-        public override Task<BaseResponse> ConsumerHandler(CreateRoomMqCommand request)
+        public override Task<BodyResponse<NullBody>> ConsumerHandler(CreateRoomMqCommand request)
         {
             return _service.CreatRoom(request);
         }
@@ -42,14 +42,14 @@ namespace Sangong.Game.WebApi.MqConsumers
         }
     }
 
-    public class GameRoomConsummer : OneThreadConsumer<RoomRequest, CommonResponse>
+    public class GameRoomConsummer : OneThreadConsumer<RoomRequest, ToAppResponse>
     {
         ISangongGameService _service;
         public GameRoomConsummer(ISangongGameService service)
         {
             _service = service;
         }
-        public override async Task<CommonResponse> ConsumerHandler(RoomRequest request)
+        public override async Task<ToAppResponse> ConsumerHandler(RoomRequest request)
         {
             return await _service.GameRoomMessage(request);
         }

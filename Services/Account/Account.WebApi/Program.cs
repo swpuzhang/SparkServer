@@ -21,8 +21,7 @@ namespace Account.WebApi
         public static readonly string AppName = Namespace.Substring(Namespace.LastIndexOf('.', Namespace.LastIndexOf('.') - 1) + 1);
 
         public static void Main(string[] args)
-        {
-           
+        {          
             var config = GetConfiguration(args);
             Log.Logger = CreateSerilogLogger(config);
 
@@ -43,7 +42,6 @@ namespace Account.WebApi
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables()
                 .AddCommandLine(args);
-            
             return builder.Build();
         }
 

@@ -48,47 +48,47 @@ namespace WSGateWay.Hubs
             _userConnManager.OnDisconnected(Context.ConnectionId);
         }
 
-        public BaseResponse LoginRequest(LoginRequest request)
+        public BodyResponse<NullBody> LoginRequest(LoginRequest request)
         {
             //验证token是否有效
             //如果有效将创建uid和玩家对应的关系
             var result = _commonService.TokenValidation(request.Token);
             if (!result.Key)
             {
-                return new BaseResponse(StatuCodeDefines.LoginError, new List<string>() { "Token error relogin" });
+                return new BodyResponse<NullBody>(StatuCodeDefines.LoginError, new List<string>() { "Token error relogin" });
             }
             _userConnManager.OnLogined(result.Value, Context.ConnectionId);
             
-            return new BaseResponse(StatuCodeDefines.Success, null);
+            return new BodyResponse<NullBody>(StatuCodeDefines.Success, null);
            
         }
 
-        public async Task<CommonResponse> RoomRequest(RoomRequest request)
+        public async Task<ToAppResponse> RoomRequest(RoomRequest request)
         {
-            CommonResponse commonResponse = null;
+            ToAppResponse commonResponse = null;
 
             //验证是否是本人ID
             long uid = _userConnManager.GetUidByConn(Context.ConnectionId);
             if (request.Id != uid)
             {
-                return new CommonResponse(null, request.MessageId, StatuCodeDefines.Error, null);
+                return new ToAppResponse(null, StatuCodeDefines.Error, null);
             }
             var busClient = _bus.CreateRequestClient<RoomRequest>(new Uri($"{Startup.mqConnectionStr}/{request.GameRoomKey}"), TimeSpan.FromSeconds(5));
             try
             {
-                var busResponse = await busClient.GetResponseExt<RoomRequest, CommonResponse>(request);
+                var busResponse = await busClient.GetResponseExt<RoomRequest, ToAppResponse>(request);
                 commonResponse = busResponse?.Message;   
             }
             catch( Exception)
             {
                 
-                return new CommonResponse(null, request.MessageId, StatuCodeDefines.BusError, null);
+                return new ToAppResponse(null, StatuCodeDefines.BusError, null);
             }
             return commonResponse;
         }
 
 
-        public void CommonResponse(CommonResponse response)
+        public void ToServerResponse(ToServerResponse response)
         {
             _rpcCaller.OnResponsed(response.MessageId);
         }

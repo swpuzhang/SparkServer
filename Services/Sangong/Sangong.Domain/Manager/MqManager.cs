@@ -34,11 +34,11 @@ namespace Commons.Domain.Managers
             //moneyUrl = configuration.GetSection("Rabbitmq")["Money"];
         }
 
-        public async Task<BaseResponse> UserApplySit(long id, string roomId, string gameKey, long blind)
+        public async Task<BodyResponse<NullBody>> UserApplySit(long id, string roomId, string gameKey, long blind)
         {
             try
             {
-                var response = await _sitClient.GetResponseExt<UserApplySitMqCommand, BaseResponse>(
+                var response = await _sitClient.GetResponseExt<UserApplySitMqCommand, BodyResponse<NullBody>>(
                     new UserApplySitMqCommand(id, roomId, gameKey, blind));
                 return response.Message;
             }

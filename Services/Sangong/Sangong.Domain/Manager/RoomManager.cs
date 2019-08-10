@@ -257,7 +257,7 @@ namespace Sangong.Domain.Manager
 
             var busClient = _bus.CreateRequestClient<CreateRoomMqCommand>(new Uri($"{mqUri}/{gameKey}"), TimeSpan.FromSeconds(3));
             
-            var busResponse = await busClient.GetResponseExt<CreateRoomMqCommand, BaseResponse>
+            var busResponse = await busClient.GetResponseExt<CreateRoomMqCommand, BodyResponse<NullBody>>
                 (new CreateRoomMqCommand(roomId, gameKey,  blind, blindConfig.MinCoins,
                 blindConfig.MaxCoins, blindConfig.TipsPersent, RoomInfo.MAX_USER_NUM, 
                 blindConfig.MinCarry, blindConfig.MaxCarry));

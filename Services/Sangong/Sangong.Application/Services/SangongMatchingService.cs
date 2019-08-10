@@ -55,7 +55,7 @@ namespace Sangong.Application.Services
                 leaveEvent.Blind, leaveEvent.UserCount, leaveEvent.MatchingGroup);
         }
 
-        public Task<BaseResponse> OnUserApplySit(UserApplySitMqCommand sitcmd)
+        public Task<BodyResponse<NullBody>> OnUserApplySit(UserApplySitMqCommand sitcmd)
         {
             return _matchingManager.OnUserApplySit(sitcmd.Id, sitcmd.GameKey, sitcmd.Blind, sitcmd.RoomId);
         }

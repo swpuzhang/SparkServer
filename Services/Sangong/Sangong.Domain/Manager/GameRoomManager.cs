@@ -40,19 +40,19 @@ namespace Sangong.Domain.Manager
             _mapper = mapper;
         }
 
-        public BaseResponse CreateRoom(string roomId, long blind, int seatCount, 
+        public BodyResponse<NullBody> CreateRoom(string roomId, long blind, int seatCount, 
             long minCoins, long maxCoins, int tipsPersent,
             long minCarry, long maxCarry)
         {
             if (_rooms.ContainsKey(roomId))
             {
-                return new BaseResponse(StatuCodeDefines.Error, new List<string>() { "room has already created" });
+                return new BodyResponse<NullBody>(StatuCodeDefines.Error, new List<string>() { "room has already created" });
             }
             GameRoom roomInfo = new GameRoom(roomId, blind, seatCount, minCoins, 
                 maxCoins, tipsPersent, _mqManager, _bus, _mapper, minCarry, maxCarry);
             roomInfo.Init();
             _rooms.Add(roomId, roomInfo);
-            return new BaseResponse(StatuCodeDefines.Success, null);
+            return new BodyResponse<NullBody>(StatuCodeDefines.Success, null);
         }
 
         public async Task<BodyResponse<JoinGameRoomMqResponse>> JoinRoom(long id, string roomId)
@@ -64,22 +64,22 @@ namespace Sangong.Domain.Manager
             return await oneRoom.JoinRoom(id);
         }
 
-        public CommonResponse OnRoomRequest(long id, string roomId, Guid gid, string requestName, object request)
+        public ToAppResponse OnRoomRequest(long id, string roomId, string requestName, object request)
         {
             if (!_rooms.TryGetValue(roomId, out var oneRoom))
             {
-                return new CommonResponse(null, gid, StatuCodeDefines.Error, null);
+                return new ToAppResponse(null, StatuCodeDefines.Error, null);
             }
             try
             {
                 var player = oneRoom.GetPlayer(id);
                 player.FlushAlive();
                 var handler = typeof(GameRoom).GetMethod($"On{requestName}");
-                return handler.Invoke (oneRoom, new object[] { id, gid, request }) as CommonResponse;
+                return handler.Invoke (oneRoom, new object[] { id, request }) as ToAppResponse;
             }
             catch
             {
-                return new CommonResponse(null, gid, StatuCodeDefines.Error, null);
+                return new ToAppResponse(null, StatuCodeDefines.Error, null);
             }
             
         }

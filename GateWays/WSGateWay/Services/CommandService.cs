@@ -51,12 +51,12 @@ namespace WSGateWay.Services
             string conn = _userConnManager.GetConnByUid(serverReq.Id);
             if (conn == null)
             {
-                await context.RespondAsync<BaseResponse>(new BaseResponse(StatuCodeDefines.AppIsDisconnected,null));
+                await context.RespondAsync<BodyResponse<NullBody>>(new BodyResponse<NullBody>(StatuCodeDefines.AppIsDisconnected,null));
                 return;
             }
             ToAppRequest req = _mapper.Map<ToAppRequest>(context.Message);
             var response = await _rpcCaller.RequestCallAsync(conn, "ToAppRequest", JsonConvert.SerializeObject(req), req.MessageId);
-            await context.RespondAsync<BaseResponse>(response);
+            await context.RespondAsync<BodyResponse<NullBody>>(response);
         }
     }
 }

@@ -13,10 +13,10 @@ namespace Sangong.Application.Services
 {
     public interface ISangongGameService
     {
-        Task<BaseResponse> CreatRoom(CreateRoomMqCommand creatInfo);
+        Task<BodyResponse<NullBody>> CreatRoom(CreateRoomMqCommand creatInfo);
         Task<BodyResponse<JoinGameRoomMqResponse>> JoinRoom(JoinGameRoomMqCommand joinInfo);
 
-        Task<CommonResponse> GameRoomMessage(RoomRequest request);
+        Task<ToAppResponse> GameRoomMessage(RoomRequest request);
 
         void MatchingStarted(string MatchingGroup);
         

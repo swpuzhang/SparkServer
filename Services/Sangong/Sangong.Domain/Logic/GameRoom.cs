@@ -683,94 +683,94 @@ namespace Sangong.Domain.Logic
         }
 
         #region 消息处理
-        public CommonResponse OnApplyStandupCommand(long id, Guid gid, ApplyStandupCommand command)
+        public ToAppResponse OnApplyStandupCommand(long id, ApplyStandupCommand command)
         {
             _playerInfos.TryGetValue(id, out var player);
             if (player == null || !player.IsSeated())
             {
-                return new CommonResponse(null, gid, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
             }
             PlayerStandup(player);
-            return new CommonResponse(gid);
+            return new ToAppResponse();
         }
 
-        public CommonResponse OnApplyLeaveCommand(long id, Guid gid, ApplyLeaveCommand command)
+        public ToAppResponse OnApplyLeaveCommand(long id, ApplyLeaveCommand command)
         {
             _playerInfos.TryGetValue(id, out var player);
             if (player == null)
             {
-                return new CommonResponse(null, gid, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
             }
             PlayerStandup(player);
-            return new CommonResponse(gid);
+            return new ToAppResponse();
         }
 
-        public CommonResponse OnApplyDropCommand(long id, Guid gid, ApplyDropCommand command)
+        public ToAppResponse OnApplyDropCommand(long id, ApplyDropCommand command)
         {
             _playerInfos.TryGetValue(id, out var player);
             if (player == null || !IsPlayerActive(player))
             {
-                return new CommonResponse(null, gid, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
             }
             PlayerDrop(player);
-            return new CommonResponse(gid);
+            return new ToAppResponse();
         }
 
-        public CommonResponse OnApplyPassCommand(long id, Guid gid, ApplyPassCommand command)
+        public ToAppResponse OnApplyPassCommand(long id, ApplyPassCommand command)
         {
             _playerInfos.TryGetValue(id, out var player);
             if (player == null || !IsPlayerActive(player))
             {
-                return new CommonResponse(null, gid, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
             }
             
             PlayerPass(player);
-            return new CommonResponse(gid);
+            return new ToAppResponse();
         }
 
 
-        public CommonResponse OnApplyFollowCommand(long id, Guid gid, ApplyFollowCommand command)
+        public ToAppResponse OnApplyFollowCommand(long id, ApplyFollowCommand command)
         {
             _playerInfos.TryGetValue(id, out var player);
             if (player == null || !IsPlayerActive(player))
             {
-                return new CommonResponse(null, gid, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
             }
 
             if (!PlayerFollow(player, out var followChips))
             {
-                return new CommonResponse(null, gid, StatuCodeDefines.NoEnoughMoney, null);
+                return new ToAppResponse(null, StatuCodeDefines.NoEnoughMoney, null);
             }
             
-            return new CommonResponse(gid);
+            return new ToAppResponse();
         }
 
-        public CommonResponse OnApplyAddCommand(long id, Guid gid, ApplyAddCommand command)
+        public ToAppResponse OnApplyAddCommand(long id, ApplyAddCommand command)
         {
             _playerInfos.TryGetValue(id, out var player);
             if (player == null || !IsPlayerActive(player))
             {
-                return new CommonResponse(null, gid, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
             }
 
             if (!PlayerAdd(player, command.AddCoins))
             {
-                return new CommonResponse(null, gid, StatuCodeDefines.NoEnoughMoney, null);
+                return new ToAppResponse(null, StatuCodeDefines.NoEnoughMoney, null);
             }
 
-            return new CommonResponse(gid);
+            return new ToAppResponse();
         }
-        public CommonResponse OnApplyStayInRoom(long id, Guid gid, ApplyStayInRoom command)
+        public ToAppResponse OnApplyStayInRoom(long id, ApplyStayInRoom command)
         {
-            return new CommonResponse(gid);
+            return new ToAppResponse();
         }
 
-        public  CommonResponse OnApplySitDownCommand(long id, Guid gid, ApplySitdownCommand command)
+        public ToAppResponse OnApplySitDownCommand(long id, Guid gid, ApplySitdownCommand command)
         {
             _playerInfos.TryGetValue(id, out var player);
             if (player == null || player.IsSeated() || command.SeatNum >= SeatCount || _seats[command.SeatNum].IsSeated())
             {
-                return new CommonResponse(null, gid, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
             }
 
             //向matching请求加入该房间
@@ -779,7 +779,7 @@ namespace Sangong.Domain.Logic
             var response = mqresponse.Result;
             if (response == null || response.StatusCode != StatuCodeDefines.Success)
             {
-                return new CommonResponse(null, gid, StatuCodeDefines.Error, null);
+                return new ToAppResponse(null, StatuCodeDefines.Error, null);
             }
             var moneyMqResponse = _mqManager.BuyIn(id, MinCarry, MaxCarry);
             moneyMqResponse.Wait();
@@ -788,7 +788,7 @@ namespace Sangong.Domain.Logic
             {
                 //买入失败
                 _bus.Publish(new UserSitFailedMqEvent(id, RoomId, GameRoomManager.gameKey, GameRoomManager.matchingGroup));
-                return new CommonResponse(null, gid, StatuCodeDefines.Error, null);
+                return new ToAppResponse(null, StatuCodeDefines.Error, null);
             }
             player.UpdateInfo(id, player.PlatformAccount, player.UserName,
                 player.Sex, player.HeadUrl, moneyInfo.CurCoins,
@@ -803,11 +803,11 @@ namespace Sangong.Domain.Logic
                 _statusInfo.WaitForNexStatus(OnGameReady, GameStatus.ready, GameTimerConfig.ReadyWait);
             }
             
-            return new CommonResponse(gid);
+            return new ToAppResponse();
         }
 
 
-        public CommonResponse OnApplySyncGameRoomCommand(long id, Guid gid, ApplySyncGameRoomCommand command)
+        public ToAppResponse OnApplySyncGameRoomCommand(long id, ApplySyncGameRoomCommand command)
         {
             ApplySyncGameRoomResponse.GameStatusMq status = ApplySyncGameRoomResponse.GameStatusMq.Idle;
             int optLeftMs = 0;
@@ -868,7 +868,7 @@ namespace Sangong.Domain.Logic
 
             ApplySyncGameRoomResponse response = new ApplySyncGameRoomResponse(status, players, _coinsPool._pool, optLeftMs,
                 GameTimerConfig.BetChips, GameTimerConfig.GameAccount);
-            return new CommonResponse(response, gid, StatuCodeDefines.Success, null);
+            return new ToAppResponse(response, StatuCodeDefines.Success, null);
         }
         #endregion
     }

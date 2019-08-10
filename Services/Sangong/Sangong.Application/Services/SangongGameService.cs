@@ -30,7 +30,7 @@ namespace Sangong.Application.Services
             _gameRoomManager = gameRoomManager;
         }
 
-        public Task<BaseResponse> CreatRoom(CreateRoomMqCommand creatInfo)
+        public Task<BodyResponse<NullBody>> CreatRoom(CreateRoomMqCommand creatInfo)
         {
             return Task.FromResult(_gameRoomManager.CreateRoom(creatInfo.RoomId, creatInfo.Blind, creatInfo.SeatCount,
                 creatInfo.MaxCoins, creatInfo.MaxCoins, creatInfo.TipsPersent, creatInfo.MinCarry, creatInfo.MaxCarry)); 
@@ -41,12 +41,12 @@ namespace Sangong.Application.Services
             return _gameRoomManager.JoinRoom(joinInfo.Id, joinInfo.RoomId);
         }
 
-        public Task<CommonResponse> GameRoomMessage(RoomRequest request)
+        public Task<ToAppResponse> GameRoomMessage(RoomRequest request)
         {
 
             Type t = Type.GetType($"Sangong.GameMessage.{request.ReqName}");
             var obj = JsonConvert.DeserializeObject(request.ReqData, t);
-            return Task.FromResult(_gameRoomManager.OnRoomRequest(request.Id, request.RoomId, request.MessageId, request.ReqName, obj));
+            return Task.FromResult(_gameRoomManager.OnRoomRequest(request.Id, request.RoomId, request.ReqName, obj));
         }
 
         public void MatchingStarted(string MatchingGroup)

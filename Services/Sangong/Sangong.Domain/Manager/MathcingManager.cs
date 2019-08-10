@@ -141,7 +141,7 @@ namespace Sangong.Domain.Manager
             _roomManager.OnUserCountChange(gameKey, roomId, blind, -1);
         }
 
-        public async Task<BaseResponse> OnUserApplySit(long id, string gameKey, Int64 blind, string roomId)
+        public async Task<BodyResponse<NullBody>> OnUserApplySit(long id, string gameKey, Int64 blind, string roomId)
         {
             using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
             {
@@ -149,14 +149,14 @@ namespace Sangong.Domain.Manager
                 var userRoomInfo = await _redis.GetUserRoomInfo(id);
                 if (userRoomInfo != null)
                 {
-                    return new BaseResponse(StatuCodeDefines.Error, new List<string>() { "user already in room " });
+                    return new BodyResponse<NullBody>(StatuCodeDefines.Error, new List<string>() { "user already in room " });
                 }
                 if (!_roomManager.JoinOneRoom(gameKey, roomId))
                 {
-                    return new BaseResponse(StatuCodeDefines.Error, new List<string>() { "room is full " });
+                    return new BodyResponse<NullBody>(StatuCodeDefines.Error, new List<string>() { "room is full " });
                 }
                 _ = _redis.SetUserRoomInfo(new UserRoomInfo(id, roomId, gameKey, blind, MatchingStatus.Success));
-                return new BaseResponse(StatuCodeDefines.Success, null);
+                return new BodyResponse<NullBody>(StatuCodeDefines.Success, null);
             }
         }
 
