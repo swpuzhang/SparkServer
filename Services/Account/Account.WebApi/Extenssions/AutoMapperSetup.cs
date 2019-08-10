@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using MongoDB.Bson.Serialization;
+using Account.Domain.Models;
 
 namespace Account.WebApi.Extenssions
 {
@@ -16,6 +18,7 @@ namespace Account.WebApi.Extenssions
             services.AddAutoMapper(typeof(MappingProfile));
             //services.AddSingleton(cfg);
             //services.AddAutoMapperSetup()
+            BsonClassMap.RegisterClassMap<AccountInfo>();
         }
     }
 }

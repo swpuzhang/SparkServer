@@ -15,4 +15,3 @@ D:\document\code\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\
 D:\document\code\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\Message.dll
 D:\document\code\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\Message.pdb
 D:\document\code\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\Message.csprojAssemblyReference.cache
-E:\document\mycode\project\Spark\Tests\MassTransitMessage\obj\Debug\netcoreapp2.2\Message.csprojAssemblyReference.cache

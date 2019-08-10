@@ -25,7 +25,8 @@ namespace Sangong.Game.WebApi.Extenssions
         {
             //服务
             services.AddScoped<ISangongAppService, SangongAppService>();
-
+            services.AddScoped<ISangongGameService, SangongGameService>();
+            
             //存储
             services.AddScoped<ISangongInfoRepository, SangongInfoRepository>();
             services.AddScoped<SangongContext>();

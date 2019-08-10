@@ -13,6 +13,7 @@ using Money.Domain.Commands;
 using Money.Domain.Models;
 using Money.Domain.CommandHandlers;
 using Commons.Extenssions;
+using Commons.MqCommands;
 
 namespace Money.WebApi.Extenssions
 {
@@ -26,6 +27,8 @@ namespace Money.WebApi.Extenssions
             services.AddScoped<MoneyContext>();
             services.AddScoped<IMediatorHandler, InProcessBus>();
             services.AddScoped<IRequestHandler<GetMoneyCommand, BodyResponse<MoneyInfo>>, GetMoneyCommandHandler>();
+            services.AddScoped<IRequestHandler<AddMoneyCommand, BodyResponse<MoneyMqResponse>>, GetMoneyCommandHandler>();
+            services.AddScoped<IRequestHandler<BuyInCommand, BodyResponse<MoneyMqResponse>>, GetMoneyCommandHandler>();
             services.AddSingleton<RedisHelper>(new RedisHelper(configuration["redis:ConnectionString"]));
             services.AddMediatR(typeof(Startup));
 

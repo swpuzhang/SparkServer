@@ -15,6 +15,8 @@ using Sangong.GameMessage;
 using AutoMapper;
 using Commons.MqCommands;
 using Sangong.MqEvents;
+using System.Timers;
+using Commons.Extenssions;
 
 namespace Sangong.Domain.Logic
 {
@@ -28,7 +30,8 @@ namespace Sangong.Domain.Logic
  
         private IMapper _mapper;
         private List<PokerCard> _bottomCards;
-        
+        private System.Timers.Timer _timer = new System.Timers.Timer();
+
         #region 成员
         public string RoomId { get; private set; }
         public long Blind { get; private set; }
@@ -95,6 +98,10 @@ namespace Sangong.Domain.Logic
             _mapper = mapper;
             MinCarry = minCarry;
             MaxCarry = maxCarry;
+            _timer.Interval = 60;
+            _timer.AutoReset = true;
+            _timer.Elapsed += CheckPlayerAlive;
+            _timer.Start();
         }
         public void Init()
         {
@@ -104,6 +111,30 @@ namespace Sangong.Domain.Logic
             }
         }
 
+        public GamePlayer GetPlayer(long id)
+        {
+            _playerInfos.TryGetValue(id, out var player);
+            return player;
+        }
+
+        public void CheckPlayerAlive(object sender, ElapsedEventArgs e)
+        {
+            OneThreadSynchronizationContext.Instance.Post(x =>
+            {
+                List<GamePlayer> willLeavePlayer = new List<GamePlayer>();
+                foreach (var player in _playerInfos)
+                {
+                    if (!player.Value.IsAlive())
+                    {
+                        willLeavePlayer.Add(player.Value);
+                    }
+                }
+                foreach (var player in willLeavePlayer)
+                {
+                    PlayerLeave(player);
+                }
+            }, null);
+        }
         public void EnsurDealer()
         {
             if (lastWinSeat == -1 || !_seats[lastWinSeat].IsSeated())
@@ -312,9 +343,12 @@ namespace Sangong.Domain.Logic
             {
                 dealerOrder.Add(index);
                 _seats[index].DealCard(allUserCards.Last(), Blind);
+                _coinsPool.PlayerBetCoins(_seats[index].SeatNum, Blind);
                 carrys.Add(_seats[index].InGamePlayerInfo.Carry);
                 allUserCards.RemoveAt(allUserCards.Count - 1);
             } while ((index = NextSeatedNum(index)) != _dealerSeatIndex);
+
+            _coinsPool.BlindPool(dealerOrder.Count, Blind);
 
             foreach (var player in _playerInfos)
             {
@@ -374,6 +408,8 @@ namespace Sangong.Domain.Logic
                 {
                     oneResult.Key.PlayerInfo.BuyIn(oneResult.Value.Result.CurCoins, oneResult.Value.Result.CurDiamonds,
                         oneResult.Value.Result.Carry);
+                    BroadCastMessage(new PlayerBuyInEvent(oneResult.Key.PlayerInfo.SeatInfo.SeatNum, oneResult.Key.PlayerInfo.Carry),
+                        "PlayerBuyInEvent");
                 }
             }
             _statusInfo.WaitForNexStatus(OnGameIdle, GameStatus.Idle, 1000);
@@ -427,6 +463,7 @@ namespace Sangong.Domain.Logic
             {
                 return false;
             }
+            _coinsPool.PlayerBetCoins(player.SeatInfo.SeatNum, followChips);
             BroadCastMessage(new FollowEvent(player.SeatInfo.SeatNum, followChips, player.Carry), "FollowEvent");
             ActivePlayer(_statusInfo.IsFirstRound());
             return true;
@@ -439,6 +476,7 @@ namespace Sangong.Domain.Logic
             {
                 return false;
             }
+            _coinsPool.PlayerBetCoins(player.SeatInfo.SeatNum, addChips);
             BroadCastMessage(new AddEvent(player.SeatInfo.SeatNum, addChips, player.Carry), "AddEvent");
             ActivePlayer(_statusInfo.IsFirstRound());
             return true;
@@ -522,7 +560,8 @@ namespace Sangong.Domain.Logic
             ActiveSeatNum = -1;
             List<int> order = new List<int>();
             FindSecondRondDealer();
-            int index = _secondDealer; ;
+            _coinsPool.FirstEndPool();
+            int index = _secondDealer;
             do
             {
                 _seats[index].SecondRoundStarted(_bottomCards.Last());
@@ -535,7 +574,7 @@ namespace Sangong.Domain.Logic
                 DealThirdCardEvent thirdEvent = null;
                 if (!one.Value.IsSeated())
                 {
-                    thirdEvent = new DealThirdCardEvent(_coinsPool.GetFirstPoolsResult(),
+                    thirdEvent = new DealThirdCardEvent(_coinsPool._pool,
                         null, order, 0, 0);
                     
                 }
@@ -543,13 +582,13 @@ namespace Sangong.Domain.Logic
                 {
                     if (one.Value.SeatInfo.IsCanContinue())
                     {
-                        thirdEvent = new DealThirdCardEvent(_coinsPool.GetFirstPoolsResult(),
+                        thirdEvent = new DealThirdCardEvent(_coinsPool._pool,
                         one.Value.SeatInfo.handCards.Last(), order, (int)one.Value.SeatInfo.Combination.ComType,
                         one.Value.SeatInfo.Combination.Point);
                     }
                     else
                     {
-                        thirdEvent = new DealThirdCardEvent(_coinsPool.GetFirstPoolsResult(),
+                        thirdEvent = new DealThirdCardEvent(_coinsPool._pool,
                         null, order, 0, 0);
                     }
                 }
@@ -590,8 +629,10 @@ namespace Sangong.Domain.Logic
 
         public void GameAccount()
         {
-            GameOverEvent gameOverEvent = GameAccounter.Caculate(_seats, _coinsPool.GetSecondPools());
+            _coinsPool.SecondEndPool();
+            GameOverEvent gameOverEvent = GameAccounter.Caculate(_seats, _coinsPool.GetUserPools());
             BroadCastMessage(gameOverEvent, "GameOverEvent");
+
             foreach (var seat in _seats)
             {
                 if (seat.InGamePlayerInfo == null)
@@ -719,6 +760,10 @@ namespace Sangong.Domain.Logic
 
             return new CommonResponse(gid);
         }
+        public CommonResponse OnApplyStayInRoom(long id, Guid gid, ApplyStayInRoom command)
+        {
+            return new CommonResponse(gid);
+        }
 
         public  CommonResponse OnApplySitDownCommand(long id, Guid gid, ApplySitdownCommand command)
         {
@@ -761,6 +806,70 @@ namespace Sangong.Domain.Logic
             return new CommonResponse(gid);
         }
 
+
+        public CommonResponse OnApplySyncGameRoomCommand(long id, Guid gid, ApplySyncGameRoomCommand command)
+        {
+            ApplySyncGameRoomResponse.GameStatusMq status = ApplySyncGameRoomResponse.GameStatusMq.Idle;
+            int optLeftMs = 0;
+            var interval = DateTime.Now - _statusInfo._beginTime;
+            List<long> pools = new List<long>();
+            if (_statusInfo.IsActive())
+            {
+                status = ApplySyncGameRoomResponse.GameStatusMq.PlayerOpt;
+               
+                optLeftMs = (int)interval.TotalMilliseconds;
+            }
+            else if (_statusInfo.IsGameOver())
+            {
+                status = ApplySyncGameRoomResponse.GameStatusMq.GameOver;
+                optLeftMs = (int)interval.TotalMilliseconds;
+
+            }
+            List<PlayerInfo> players = new List<PlayerInfo>();
+            foreach (var seat in _seats)
+            {
+                if (!seat.IsSeated())
+                {
+                    continue;
+                }
+                int handcardCount = 0;
+                PlayerInfo.PlayerStatus seatStatus = PlayerInfo.PlayerStatus.Idle;
+                if (_statusInfo.IsGamePlaying())
+                {
+                    if (!seat.IsInGame())
+                    {
+                        seatStatus = PlayerInfo.PlayerStatus.Watching;
+                    }
+                    else if (!seat.IsCanContinue())
+                    {
+                        seatStatus = PlayerInfo.PlayerStatus.Drop;
+                    }
+                    else
+                    {
+                        if (seat.IsAllin())
+                        {
+                            seatStatus = PlayerInfo.PlayerStatus.Allin;
+                        }
+                        else
+                        {
+                            seatStatus = PlayerInfo.PlayerStatus.Playing;
+                        }
+                    }
+                    handcardCount = seat.handCards.Count;
+                    seatStatus = PlayerInfo.PlayerStatus.Playing;
+                }
+                var com = seat.GetAppHandCards();
+
+
+                 var player = new PlayerInfo(seat.PlayerInfo.Id, seat.SeatNum, seat.PlayerInfo.UserName, seat.PlayerInfo.Carry,
+                seat.PlayerInfo.HeadUrl, handcardCount, seatStatus, com.Cards, (int)com.ComType, com.Point, seat.BetedCoins);
+                players.Add(player);
+            }
+
+            ApplySyncGameRoomResponse response = new ApplySyncGameRoomResponse(status, players, _coinsPool._pool, optLeftMs,
+                GameTimerConfig.BetChips, GameTimerConfig.GameAccount);
+            return new CommonResponse(response, gid, StatuCodeDefines.Success, null);
+        }
         #endregion
     }
 }

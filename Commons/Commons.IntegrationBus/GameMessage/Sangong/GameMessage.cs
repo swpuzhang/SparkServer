@@ -450,4 +450,161 @@ namespace Sangong.GameMessage
 
         public long AddCoins { get; private set; }
     }
+
+    public class ApplyStayInRoom
+    {
+
+    }
+
+    public class PlayerBuyInEvent
+    {
+        
+        [JsonConstructor]
+        public PlayerBuyInEvent(int seatNum, long carry)
+        {
+            SeatNum = seatNum;
+            Carry = carry;
+        }
+
+        public int SeatNum { get; private set; }
+        public long Carry { get; private set; }
+    }
+
+    public class ApplySyncGameRoomCommand
+    {
+        
+    }
+
+
+
+    public class PlayerInfo
+    {
+        /// <summary>
+        /// 玩家状态， 在牌局中进行判断， 牌局未开始终未0
+        /// </summary>
+        public enum PlayerStatus
+        {
+            Idle = 0,
+            Watching = 1,
+            Playing = 2,
+            Drop = 3,
+            Allin = 4,
+
+        }
+
+        public PlayerInfo()
+        {
+        }
+
+        [JsonConstructor]
+        public PlayerInfo(long id, int seatNum, string name, long carry, 
+            string headUrl, int handCardCount, PlayerStatus status, 
+            List<PokerCard> handCards, int cardType, int points, 
+            long betCoins)
+        {
+            Id = id;
+            SeatNum = seatNum;
+            Name = name;
+            Carry = carry;
+            HeadUrl = headUrl;
+            HandCardCount = handCardCount;
+            Status = status;
+            HandCards = handCards;
+            CardType = cardType;
+            Points = points;
+            BetCoins = betCoins;
+        }
+
+        public long Id { get; private set; }
+        public int SeatNum { get; private set; }
+        public string Name { get; private set; }
+        public long Carry { get; private set; }
+        public string HeadUrl { get; private set; }
+        public int HandCardCount { get; private set; }
+        public PlayerStatus Status { get; private set; }
+        /// <summary>
+        /// 自己的手牌
+        /// </summary>
+        public List<PokerCard> HandCards {get; private set;}
+        /// <summary>
+        /// 手牌类型
+        /// </summary>
+        public int CardType { get; private set; }
+
+        /// <summary>
+        /// 如果是点数牌， 点数
+        /// </summary>
+        public int Points { get; private set; }
+
+        /// <summary>
+        /// 当前已经下注额度
+        /// </summary>
+        public long BetCoins { get; private set; }
+
+    }
+
+    public class ApplySyncGameRoomResponse
+    {
+        public enum GameStatusMq
+        {
+            /// <summary>
+            /// 空闲状态，处于这个状态什么都不用做
+            /// </summary>
+            Idle = 0,
+            /// <summary>
+            /// 等待玩家操作， 显示倒计时，
+            /// </summary>
+            PlayerOpt,
+            /// <summary>
+            /// 结束状态， 等待下一局开始
+            /// </summary>
+            GameOver,
+        }
+
+        public ApplySyncGameRoomResponse()
+        {
+        }
+
+        [JsonConstructor]
+        public ApplySyncGameRoomResponse(GameStatusMq status, List<PlayerInfo> players, 
+            List<long> pools, int timeLeftMs, int playerOptMs, int gameOverMs)
+        {
+            Status = status;
+            Players = players;
+            Pools = pools;
+            TimeLeftMs = timeLeftMs;
+            PlayerOptMs = playerOptMs;
+            GameOverMs = gameOverMs;
+        }
+
+
+        /// <summary>
+        /// 牌桌状态 
+        /// Idle = 0 空闲状态，处于这个状态什么都不用做
+        /// PlayerOpt = 1 等待玩家操作， 显示倒计时，
+        /// GameOver =2, 结束状态， 等待下一局开始
+        public GameStatusMq Status { get; private set; }
+         
+        public List<PlayerInfo> Players { get; private set; }
+
+        /// <summary>
+        /// 当前奖池
+        /// </summary>
+        public List<long> Pools { get; private set; }
+
+        /// <summary>
+        /// 当前状态剩余多少秒
+        /// </summary>
+        public int TimeLeftMs { get; private set; } 
+
+        /// <summary>
+        /// 玩家操作等待总时长
+        /// </summary>
+        public int PlayerOptMs { get; private set; }
+
+        /// <summary>
+        /// 牌局结算总时长
+        /// </summary>
+        public int GameOverMs { get; private set; }
+    }
 }

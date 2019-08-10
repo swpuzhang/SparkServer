@@ -30,6 +30,13 @@ namespace Sangong.Domain.Logic
             
         }
 
+        public CardCombination(CardCombinationType comType, List<PokerCard> cards, int point)
+        {
+            ComType = comType;
+            Cards = cards;
+            Point = point;
+        }
+
         public void Reset()
         {
             Cards = null;

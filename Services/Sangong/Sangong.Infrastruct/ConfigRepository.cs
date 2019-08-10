@@ -22,7 +22,7 @@ namespace Sangong.Infrastruct
             _dbCol = _db.GetCollection<CoinsRangeConfig>(typeof(CoinsRangeConfig).Name);
         }
 
-        public List<CoinsRangeConfig> LoadLevelConfig()
+        public List<CoinsRangeConfig> LoadCoinsRangeConfig()
         {
            
             var configs = _dbCol.Find<CoinsRangeConfig>(x => true);//.Project(Builders<LevelConfig>.
@@ -30,9 +30,6 @@ namespace Sangong.Infrastruct
 
             return configs.Project<CoinsRangeConfig>(Builders<CoinsRangeConfig>.Projection.Exclude("_id")).ToList();
         }
-        public List<CoinsRangeConfig> LoadCoinsRangeConfig()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -1379,7 +1379,8 @@
           "Commons.Domain": "1.0.0",
           "Commons.Extenssions": "1.0.0",
           "Commons.Infrastruct": "1.0.0",
-          "MediatR": "7.0.0"
+          "MediatR": "7.0.0",
+          "Serilog": "2.8.0"
         },
         "runtime": {
           "Money.Domain.dll": {}

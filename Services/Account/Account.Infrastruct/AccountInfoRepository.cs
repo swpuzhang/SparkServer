@@ -37,8 +37,10 @@ namespace Account.Infrastruct
 
         public Task Update(AccountInfo account)
         {
-            _dbCol.UpdateOneAsync<AccountInfo>(e => e.Id == account.Id,
-                BsonDocument.Create(account));
+            //var bs = BsonDocument.Create(account);
+
+            BsonDocument bs = new BsonDocument("$set", account.ToBsonDocument<AccountInfo>());
+            _dbCol.UpdateOneAsync<AccountInfo>(e => e.Id == account.Id, bs);
             return Task.CompletedTask;
         }
     }

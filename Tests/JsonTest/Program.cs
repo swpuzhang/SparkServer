@@ -1,14 +1,18 @@
 ﻿using System;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 
 namespace JsonTest
 {
     public class Person
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+       
+        public string Id { get; set; }
+        /*public string Name { get; set; }
         public int Age { get; set; }
-        public string Address { get; set; }
+        public string Address { get; set; }*/
     }
 
     public class AccountInfo
@@ -64,6 +68,13 @@ namespace JsonTest
         {
             string str = "{\"PlatformAccount\":\"facebookzhangyang\",\"UserName\":\"zhangyang\",\"Sex\":0,\"HeadUrl\":\"www.baidu.com\",\"Type\":0,\"Id\":10000000002}";
             var account = JsonConvert.DeserializeObject<AccountInfo>(str);
+            Person p = new Person() { Id = "1" };//, Age = 20, Id = 1, Name = "zhangyang" };
+            BsonClassMap.RegisterClassMap<Person>(x =>
+            {
+                x.MapIdProperty(c => c.Id);
+            });
+            var bson = BsonDocument.Create((object)p);
+
             Console.WriteLine("111");
             /**/
             /*Person p = new Person()

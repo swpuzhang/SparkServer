@@ -25,10 +25,12 @@ namespace Sangong.Domain.Logic
         }
 
         public GameStatus _status { get; private set; } = GameStatus.Idle;
+        public DateTime _beginTime { get; private set; }
         private System.Timers.Timer _timer = new System.Timers.Timer();
         private Action _a;
         public void  WaitForNexStatus(Action a, GameStatus nexStatus, double ms)
         {
+            _beginTime = DateTime.Now;
             _timer.Stop();
             if (ms == 0)
             {
@@ -51,6 +53,32 @@ namespace Sangong.Domain.Logic
         public bool IsFirstRound()
         {
             return _status == GameStatus.FirstRound;
+        }
+
+        public bool IsSecondRound()
+        {
+            return _status == GameStatus.SecondRound;
+        }
+
+        public bool IsActive()
+        {
+            return IsFirstRound() || IsSecondRound();
+        }
+
+        public bool IsGameOver()
+        {
+            return _status == GameStatus.GameOver;
+        }
+
+        public bool IsGamePlaying()
+        {
+            return _status == GameStatus.playing || _status == GameStatus.SecondRound
+                || _status == GameStatus.FirstRound;
+        }
+
+        public bool IsPlaying()
+        {
+            return _status == GameStatus.playing;
         }
 
         public void StopTimer()

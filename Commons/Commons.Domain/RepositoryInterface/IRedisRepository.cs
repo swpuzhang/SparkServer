@@ -24,34 +24,32 @@ namespace Commons.Domain.RepositoryInterface
             _key = key + "_l_o_k_e_r";
             _ownValue = Guid.NewGuid().ToString();
         }
-        public void Lock(int ms = 3000)
+        public void Lock(int ms = 5000)
         {
             while (!_redis.LockTake(_key, _ownValue, TimeSpan.FromMilliseconds(ms)))
             {
-                Thread.Sleep(10);
+                Thread.Sleep(2);
             }
       
         }
-        public bool TryLock(int ms = 3000)
+        public bool TryLock(int ms = 5000)
         {
             return _redis.LockTake(_key, _ownValue, TimeSpan.FromMilliseconds(ms));
    
         
         }
 
-        public async Task LockAsync(int ms = 3000)
+        public async Task LockAsync(int ms = 5000)
         {
             while (!await _redis.LockTakeAsync(_key, _ownValue, TimeSpan.FromMilliseconds(ms)))
             {
-                Thread.Sleep(10);
+                Thread.Sleep(2);
             }
 
         }
-        public Task<bool> TryLockAsync(int ms = 3000)
+        public Task<bool> TryLockAsync(int ms = 5000)
         {
             return _redis.LockTakeAsync(_key, _ownValue, TimeSpan.FromMilliseconds(ms));
-
-
         }
 
         public void Dispose()

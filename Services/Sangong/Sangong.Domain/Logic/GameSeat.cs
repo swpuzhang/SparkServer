@@ -35,6 +35,21 @@ namespace Sangong.Domain.Logic
 
         public long WinCoins { get; private set; } = 0;
 
+        public CardCombination GetAppHandCards()
+        {
+            if (!IsInGame())
+            {
+                return null;
+            }
+            if (!IsCanContinue())
+            {
+                return null;
+            }
+         
+            var combine = new CardCombination(Combination.ComType, handCards, Combination.Point);
+            return combine;
+        }
+
         public void Win(long coins)
         {
             WinCoins = coins;
@@ -111,6 +126,15 @@ namespace Sangong.Domain.Logic
                 return false;
             }
             return true;
+        }
+
+        public bool IsAllin()
+        {
+            if (IsInGame() && Status == SeatStatus.AllIn)
+            {
+                return true;
+            }
+            return false;
         }
 
         public bool IsCanActive(long maxAdd)

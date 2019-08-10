@@ -10,6 +10,7 @@ using Commons.Domain.Models;
 using Commons.Extenssions.Defines;
 using System.Threading.Tasks;
 using Commons.Extenssions;
+using Sangong.Domain.RepositoryInterface;
 
 namespace Sangong.Domain.Manager
 {
@@ -17,6 +18,7 @@ namespace Sangong.Domain.Manager
     {
         private Dictionary<string, RoomInfo> _allRooms = new Dictionary<string, RoomInfo>();
         private Dictionary<long, Dictionary<string, RoomInfo>> _emptyQueues = new Dictionary<long, Dictionary<string, RoomInfo>>();
+
         public int UserCount { get; private set; }
         public RoomInfo GetEmptyRoom(long blind)
         {
@@ -97,19 +99,30 @@ namespace Sangong.Domain.Manager
         private IBusControl _bus;
         private Dictionary<long, SortedSet<RoomInfo>> _matchingQueue = new Dictionary<long, SortedSet<RoomInfo>>();
         Dictionary<string, OneRoomGroup> _roomGroups = new Dictionary<string, OneRoomGroup>();
-        
+        IRoomListConfigRepository _roomListConfigRepository;
         public static string mqUri = string.Empty;
-        private Dictionary<long, BlindConfig> _roomConfig = new Dictionary<long, BlindConfig>();
+        private Dictionary<long, RoomListConfig> _roomConfig = new Dictionary<long, RoomListConfig>();
         private AsyncSemaphore _semaphpre = new AsyncSemaphore();
-
+        private HashSet<string> _allRoomId = new HashSet<string>();
         public static string matchingGroup = null;
         public int _roomIdSeed = 0;
-        public RoomManager(IBusControl bus, IConfiguration configuration)
+        public RoomManager(IBusControl bus, IConfiguration configuration, 
+            IRoomListConfigRepository roomListConfigRepository)
         {
             _bus = bus;
             var rabbitCfg = configuration.GetSection("Rabbitmq");
             mqUri = $"rabbitmq://{rabbitCfg["Host"]}/{rabbitCfg["Vhost"]}";
             matchingGroup = configuration["MatchingGroup"];
+            _roomListConfigRepository = roomListConfigRepository;
+        }
+
+        public void LoadRoomListConfig()
+        {
+            var roomList = _roomListConfigRepository.LoadConfig();
+            foreach (var one in roomList)
+            {
+                _roomConfig.Add(one.Blind, one);
+            }
         }
 
         /// <summary>
@@ -144,6 +157,7 @@ namespace Sangong.Domain.Manager
             {
                 findedRoom = newRoomInfo;
                 oneGroup.CreatRoom(findedRoom);
+                _allRoomId.Add(newRoomInfo.RoomId);
                 if (findedRoom.IsEmpty())
                 {
                     oneGroup.AddEmptyRoom(findedRoom);
@@ -225,7 +239,16 @@ namespace Sangong.Domain.Manager
         public async Task<RoomInfo> CreateRoom(string gameKey, long blind)
         {
             //生成roomId
-            string roomId = $"{matchingGroup}-{++_roomIdSeed}";
+            string roomId = "";
+            while (true)
+            {
+                roomId = $"{matchingGroup}-{++_roomIdSeed}";
+                if (!_allRoomId.Contains(roomId))
+                {
+                    break;
+                }
+            }
+            
             
             if (!_roomConfig.TryGetValue(blind, out var blindConfig))
             {
@@ -327,6 +350,7 @@ namespace Sangong.Domain.Manager
                     //创建新房间
                     roomInfo = await CreateRoom(oneGroup.Key, blind);
                     oneGroup.Value.CreatRoom(roomInfo);
+                    _allRoomId.Add(roomInfo.RoomId);
                     roomInfo.AddUserCount(1);
                 }
             }

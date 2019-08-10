@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Commons.Extenssions.Defines;
 using Account.Domain.Models;
+using Newtonsoft.Json;
 
 namespace Account.Application.ViewModels
 {
@@ -43,6 +44,7 @@ namespace Account.Application.ViewModels
 
         }
 
+        [JsonConstructor]
         public AccountVM(string platformAccount, string userName, int sex, string headUrl, AccountType type)
         {
             PlatformAccount = platformAccount;
@@ -63,7 +65,7 @@ namespace Account.Application.ViewModels
         public AccountResponseVM(string platformAccount,
             string userName, int sex, string headUrl, AccountType type,
             string token, long curCoins,
-            long curDiamonds, string longConnectHost)
+            long curDiamonds, string longConnectHost, long id)
         {
             PlatformAccount = platformAccount;
             UserName = userName;
@@ -74,7 +76,12 @@ namespace Account.Application.ViewModels
             CurDiamonds = curDiamonds;
             Type = type;
             LongConnectHost = longConnectHost;
+            Id = id;
         }
+        /// <summary>
+        ///玩家唯一Id 
+        /// </summary>
+        public long Id { get; set; }
 
         /// <summary>
         /// 平台账号

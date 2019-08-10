@@ -14,8 +14,11 @@ namespace Account.Application.AutoMapper
         public MappingProfile()
         {
             CreateMap<AccountVM, AccountInfo>().ReverseMap();
-            CreateMap<AccountResponseVM, AccountResponse>().ReverseMap();
-            CreateMap<AccountDetailVM, AccountDetail>().ReverseMap();
+            CreateMap<AccountResponse, AccountResponseVM>()
+                .ForMember(x=>x.CurCoins, (map)=>map.MapFrom(dto => dto.MoneyInfo.CurCoins))
+                .ForMember(x => x.CurDiamonds, (map) => map.MapFrom(dto => dto.MoneyInfo.CurDiamonds))
+                .ReverseMap();
+            CreateMap<AccountDetail, AccountDetailVM>().ReverseMap();
             CreateMap<GameInfoVM, GameInfo>().ReverseMap();
             CreateMap<LevelInfoVM, LevelInfo>().ReverseMap();
             CreateMap<MoneyInfoVM, MoneyInfo>().ReverseMap();

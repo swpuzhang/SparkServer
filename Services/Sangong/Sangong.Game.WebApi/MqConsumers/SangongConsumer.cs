@@ -8,6 +8,7 @@ using Commons.Extenssions;
 using Sangong.Application.Services;
 using Commons.Domain.Models;
 using Sangong.MqEvents;
+using Sangong.GameMessage;
 
 namespace Sangong.Game.WebApi.MqConsumers
 {
@@ -66,5 +67,9 @@ namespace Sangong.Game.WebApi.MqConsumers
             _service.MatchingStarted(request.MatchingGroup);
         }
     }
+
+
+
+    
 
 }

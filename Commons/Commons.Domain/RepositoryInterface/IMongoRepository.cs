@@ -18,6 +18,7 @@ namespace Commons.Domain.RepositoryInterface
         Task<T> GetByIdAsync(Int64 id);
         Task<List<T>> GetAllAsync();
         Task ReplaceAsync(T obj);
+        Task UpdateAsync(T obj);
         Task RemoveAsync(Int64 id);
 
         Task<T> FindAndAdd(long id, T info);

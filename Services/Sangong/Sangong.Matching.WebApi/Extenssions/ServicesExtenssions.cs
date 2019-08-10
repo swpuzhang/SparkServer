@@ -26,7 +26,8 @@ namespace Sangong.Matching.WebApi.Extenssions
             services.AddScoped<ISangongRedisRepository, SangongRedisRepository>();
             services.AddScoped<ISangongInfoRepository, SangongInfoRepository>();
             services.AddSingleton<IConfigRepository, ConfigRepository>();
-            services.AddScoped<SangongContext>();
+            services.AddSingleton<IRoomListConfigRepository, RoomListConfigRepository>();
+            
 
             //服务
             services.AddScoped<ISangongAppService, SangongAppService>();

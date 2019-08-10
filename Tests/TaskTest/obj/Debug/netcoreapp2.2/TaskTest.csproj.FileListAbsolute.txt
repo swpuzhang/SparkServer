@@ -19,4 +19,3 @@ D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.A
 D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.dll
 D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.pdb
 D:\document\code\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.csprojAssemblyReference.cache
-E:\document\mycode\project\Spark\Tests\TaskTest\obj\Debug\netcoreapp2.2\TaskTest.csprojAssemblyReference.cache

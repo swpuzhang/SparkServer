@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Account.Application</name>
+    </assembly>
+    <members>
+        <member name="P:Account.Application.ViewModels.AccountDetailVM.Type">
+            <summary>
+            账号类型
+            </summary>
+        </member>
+        <member name="T:Account.Application.ViewModels.AccountVM">
+            <summary>
+            登录账号信息
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountVM.PlatformAccount">
+            <summary>
+            平台账号
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountVM.UserName">
+            <summary>
+            平台账号名
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountVM.Sex">
+            <summary>
+            性别0 男， 1女
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountVM.HeadUrl">
+            <summary>
+            平台头像url
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountVM.Type">
+            <summary>
+            账号类型
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.Id">
+             <summary>
+            玩家唯一Id 
+             </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.PlatformAccount">
+            <summary>
+            平台账号
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.UserName">
+            <summary>
+            平台账号名
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.Sex">
+            <summary>
+            性别0 男， 1女
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.HeadUrl">
+            <summary>
+            平台头像url
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.Type">
+            <summary>
+            账号类型
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.CurCoins">
+            <summary>
+            当前金币
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.CurDiamonds">
+            <summary>
+            当前砖石数
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.Token">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.LongConnectHost">
+            <summary>
+            长连接地址
+            </summary>
+        </member>
+    </members>
+</doc>

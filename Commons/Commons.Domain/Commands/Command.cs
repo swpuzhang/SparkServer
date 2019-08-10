@@ -21,6 +21,8 @@ namespace Commons.Domain.Commands
             CommandType = GetType().Name;
 
             TimeStamp = DateTime.Now;
+
+            AggregateId = Guid.NewGuid();
         }
         
         //public abstract bool IsValid();

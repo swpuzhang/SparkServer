@@ -72,6 +72,8 @@ namespace Sangong.Domain.Manager
             }
             try
             {
+                var player = oneRoom.GetPlayer(id);
+                player.FlushAlive();
                 var handler = typeof(GameRoom).GetMethod($"On{requestName}");
                 return handler.Invoke (oneRoom, new object[] { id, gid, request }) as CommonResponse;
             }

@@ -45,7 +45,7 @@ namespace Money.Application.Services
 
         public async Task<BodyResponse<MoneyMqResponse>> AddMoney(long id, long addCoins, long addCarry)
         {
-            var moneyInfo = await _bus.SendCommand(new GetMoneyCommand(id));
+            var moneyInfo = await _bus.SendCommand(new AddMoneyCommand(id, addCoins, addCarry));
             if (moneyInfo.StatusCode != StatuCodeDefines.Success)
             {
                 return new BodyResponse<MoneyMqResponse>(moneyInfo.StatusCode, null, null);

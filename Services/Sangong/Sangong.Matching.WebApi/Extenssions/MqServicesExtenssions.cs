@@ -2,12 +2,14 @@
 using Autofac;
 using Commons.Domain.Models;
 using Commons.Infrastruct;
+using Commons.MqCommands;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Sangong.Matching.WebApi.Extenssions;
+using Sangong.MqCommands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,11 +26,12 @@ namespace Sangong.Matching.WebApi.Extenssions
             services.AddSingleton<IHostedService, HostedService>();
             builder.AddMassTransit(x =>
             {
+                var rabbitCfg = Configuration.GetSection("Rabbitmq");
                 x.AddConsumers(Assembly.GetExecutingAssembly());
                 x.AddBus(context => Bus.Factory.CreateUsingRabbitMq(cfg =>
                 {
                     cfg.UseSerilog();
-                    var rabbitCfg = Configuration.GetSection("Rabbitmq");
+                   
                     var host = cfg.Host(rabbitCfg["Host"], rabbitCfg["Vhost"], h =>
                     {
                         h.Username(rabbitCfg["UserName"]);
@@ -50,8 +53,7 @@ namespace Sangong.Matching.WebApi.Extenssions
 
                 }));
 
-                //添加RequestClient
-                //x.AddRequestClient<DoSomething>();
+                x.AddRequestClient<GetMoneyMqCommand>(new Uri(rabbitCfg["Money"]));
             });
         }
 

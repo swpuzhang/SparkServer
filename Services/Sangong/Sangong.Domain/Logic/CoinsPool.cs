@@ -72,47 +72,53 @@ namespace Sangong.Domain.Logic
             return totalPools;
         }
 
-        public void CaculateFirstPools()
+        public List<KeyValuePair<long, List<int>>>  GetUserPools()
         {
-            _firstPools = CaculatePools();
-        }
-
-        public void CaculateSecondPools()
-        {
-            _secondPools = CaculatePools();
-        }
-
-        public List<long> GetFirstPoolsResult()
-        {
-           
-            if (_firstPools == null)
-            {
-                CaculateFirstPools();
-            }
             
-            return _firstPools.Select(x => x.Key).ToList();
-        }
-
-      
-        public List<KeyValuePair<long, List<int>>>  GetSecondPools()
-        {
-            if (_secondPools == null)
-            {
-                CaculateSecondPools();
-            }
-            return _secondPools;
+            return _userPools;
         }
 
         public void Clean()
         {
             _allBetRecords.Clear();
-            _firstPools = null;
-            _secondPools = null;
+            _userPools = null;
+            _pool = null;
         }
 
+        public void BlindPool(int count, long blind)
+        {
+            _pool = new List<long>();
+            _pool.Add(count * blind);
+        }
+
+        public void FirstEndPool()
+        {
+            _userPools = CaculatePools();
+            _pool = _userPools.Select(x => x.Key).ToList();
+        }
+
+        public void SecondEndPool()
+        {
+            _userPools = CaculatePools();
+            _pool = _userPools.Select(x => x.Key).ToList();
+        }
+
+        public void PlayerBetCoins(int seatNum, long coins)
+        {
+            if (!_allBetRecords.TryGetValue(seatNum, out var totoalBets))
+            {
+                _allBetRecords.Add(seatNum, coins);
+            }
+            else
+            {
+                _allBetRecords[seatNum] += coins;
+            }
+        }
+
+       
         private Dictionary<int, long> _allBetRecords = new Dictionary<int, long>();
-        private List<KeyValuePair<long, List<int>>> _firstPools = null;
-        private List<KeyValuePair<long, List<int>>> _secondPools = null;
+        public List<long> _pool { get; private set; }
+        private List<KeyValuePair<long, List<int>>> _userPools = null;
 
     }
 }

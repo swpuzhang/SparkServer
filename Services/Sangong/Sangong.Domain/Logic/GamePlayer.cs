@@ -73,19 +73,6 @@ namespace Sangong.Domain.Logic
             Carry += addCarry;
         }
 
-        public Int64 Id { get; private set; }
-        public GameSeat SeatInfo { get; private set; } = null;
-        public string PlatformAccount { get; private set; }
-        public string UserName { get; private set; }
-        public int Sex { get; set; }
-        public string HeadUrl { get; private set; }
-        
-        public long Coins { get; private set; }
-
-        public long Diamonds { get; private set; }
-
-        public long Carry { get; private set; } = 0;
-
         public void UpdateInfo(long id, string platformAccount,
             string userName, int sex, string headUrl,
             long coins, long diamonds, long carry)
@@ -100,6 +87,29 @@ namespace Sangong.Domain.Logic
             Carry = carry;
         }
 
+        public void FlushAlive()
+        {
+            lastAliveTime = DateTime.Now;
+        }
 
+        public bool IsAlive()
+        {
+            return DateTime.Now - lastAliveTime < TimeSpan.FromSeconds(60);
+        }
+
+        public Int64 Id { get; private set; }
+        public GameSeat SeatInfo { get; private set; } = null;
+        public string PlatformAccount { get; private set; }
+        public string UserName { get; private set; }
+        public int Sex { get; set; }
+        public string HeadUrl { get; private set; }
+        
+        public long Coins { get; private set; }
+
+        public long Diamonds { get; private set; }
+
+        public long Carry { get; private set; } = 0;
+
+        public DateTime lastAliveTime { get; private set; } = DateTime.Now;
     }
 }

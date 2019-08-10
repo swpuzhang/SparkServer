@@ -39,6 +39,11 @@
             账号类型
             </summary>
         </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.Id">
+             <summary>
+            玩家唯一Id 
+             </summary>
+        </member>
         <member name="P:Account.Application.ViewModels.AccountResponseVM.PlatformAccount">
             <summary>
             平台账号

@@ -27,10 +27,28 @@ namespace Money.Domain.Models
             Carry = carry;
         }
 
-        public long CurCoins { get; set; }
-        public long CurDiamonds { get; set; }
-        public long MaxChips { get; set; }
-        public long MaxDiamonds { get; set; }
-        public long Carry { get; set; }
+        public void AddCoins(long coins)
+        {
+            CurCoins += coins;
+            if (CurCoins + Carry > MaxChips)
+            {
+                MaxChips = CurCoins;
+            }
+        }
+
+        public void AddCarry(long coins)
+        {
+            Carry += coins;
+            if (CurCoins + Carry > MaxChips)
+            {
+                MaxChips = CurCoins;
+            }
+        }
+        public long CurCoins { get; private set; }
+        
+        public long CurDiamonds { get; private set; }
+        public long MaxChips { get; private set; }
+        public long MaxDiamonds { get; private set; }
+        public long Carry { get; private set; }
     }
 }

@@ -240,9 +240,17 @@ namespace Commons.Domain.Models
         }
 
         [JsonConstructor]
-        public CommonResponse(string data, Guid gid, StatuCodeDefines statusCode, List<string> errorInfos)
+        public CommonResponse(object data, Guid gid, StatuCodeDefines statusCode, List<string> errorInfos)
         {
-            Data = data;
+            if (data == null)
+            {
+                Data = null;
+            }
+            else
+            {
+                Data = JsonConvert.SerializeObject(data);
+            }
+            
             MessageId = gid;
             StatusCode = statusCode;
             ErrorInfos = errorInfos;

@@ -11,7 +11,8 @@ namespace Money.WebApi.MqConsumers
 {
     public class MoneyConsumer :
         IConsumer<GetMoneyMqCommand>,
-        IConsumer<BuyInMqCommand>
+        IConsumer<BuyInMqCommand>,
+        IConsumer<AddMoneyMqCommand>
     {
 
         IMoneyService _service;

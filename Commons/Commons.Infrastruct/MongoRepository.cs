@@ -75,6 +75,12 @@ namespace Commons.Infrastruct
             await _dbCol.ReplaceOneAsync<TEntity>(e => e.Id == obj.Id, obj);
         }
 
+        public async Task UpdateAsync(TEntity obj)
+        {
+            BsonDocument bs = new BsonDocument("$set", obj.ToBsonDocument<TEntity>());
+            await _dbCol.UpdateOneAsync<TEntity>(e => e.Id == obj.Id, bs);
+        }
+
         public async Task<TEntity> FindAndAdd(long id, TEntity info)
         {
             var options = new FindOneAndReplaceOptions<TEntity>

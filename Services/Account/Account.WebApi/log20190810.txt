@@ -1,0 +1,619 @@
+2019-08-10 15:02:02.631 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 15:02:06.278 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 15:02:07.541 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 15:02:07.824 +08:00 [DBG] Starting bus hosts...
+2019-08-10 15:02:07.863 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:02:07.953 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 21586)
+2019-08-10 15:02:08.050 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 15:02:08.050 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9edxbdmt4afedd, type: fanout, auto-delete)
+2019-08-10 15:02:08.051 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 15:02:08.051 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 15:02:08.055 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9edxbdmt4afedd, x-expires: 60000)
+2019-08-10 15:02:08.059 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 15:02:08.060 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 15:02:08.061 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9edxbdmt4afedd, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9edxbdmt4afedd)
+2019-08-10 15:02:08.068 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 15:02:08.068 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:02:08.069 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 15:02:08.069 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:02:08.106 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-bMxn3kmYH1DgaGYP0aZcJg
+2019-08-10 15:02:08.106 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9edxbdmt4afedd?durable=false&autodelete=true" - amq.ctag-9na5kumeXZGU0jXqh_NHSg
+2019-08-10 15:02:21.067 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/  
+2019-08-10 15:02:21.195 +08:00 [INF] Request finished in 130.8539ms 301 
+2019-08-10 15:02:21.203 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/index.html  
+2019-08-10 15:02:21.420 +08:00 [INF] Request finished in 216.5854ms 200 text/html
+2019-08-10 15:02:21.440 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/swagger-ui.css  
+2019-08-10 15:02:21.444 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/swagger-ui-standalone-preset.js  
+2019-08-10 15:02:21.447 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/swagger-ui-bundle.js  
+2019-08-10 15:02:21.482 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2019-08-10 15:02:21.482 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2019-08-10 15:02:21.484 +08:00 [INF] Request finished in 44.1821ms 200 text/css
+2019-08-10 15:02:21.484 +08:00 [INF] Request finished in 40.3848ms 200 application/javascript
+2019-08-10 15:02:21.523 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2019-08-10 15:02:21.523 +08:00 [INF] Request finished in 76.0128ms 200 application/javascript
+2019-08-10 15:02:21.781 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/swagger/v1/swagger.json  
+2019-08-10 15:02:21.938 +08:00 [INF] Request finished in 157.2458ms 200 application/json;charset=utf-8
+2019-08-10 15:09:28.726 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 15:09:31.306 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 15:09:32.326 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 15:09:32.591 +08:00 [DBG] Starting bus hosts...
+2019-08-10 15:09:32.634 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:09:32.708 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 21890)
+2019-08-10 15:09:32.802 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6t3sbdmt4aptry, type: fanout, auto-delete)
+2019-08-10 15:09:32.802 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 15:09:32.803 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 15:09:32.803 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 15:09:32.812 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 15:09:32.812 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6t3sbdmt4aptry, x-expires: 60000)
+2019-08-10 15:09:32.812 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 15:09:32.816 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 15:09:32.818 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 15:09:32.818 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6t3sbdmt4aptry, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6t3sbdmt4aptry)
+2019-08-10 15:09:32.827 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:09:32.827 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:09:32.867 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6t3sbdmt4aptry?durable=false&autodelete=true" - amq.ctag-9JzD-mn3WrDN39ubeh0yZw
+2019-08-10 15:09:32.867 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-N0i_ViCxGREMxpapgSPvFQ
+2019-08-10 15:09:51.474 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login text/plain; charset=utf-8 105
+2019-08-10 15:09:51.575 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:09:51.605 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 15:09:51.862 +08:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2019-08-10 15:09:51.992 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.Login (Account.WebApi) in 384.88870000000003ms
+2019-08-10 15:09:51.993 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:09:51.995 +08:00 [INF] Request finished in 522.3053ms 415 application/problem+json; charset=utf-8
+2019-08-10 15:09:52.001 +08:00 [INF] Connection id "0HLOTC6UE36SS", Request id "0HLOTC6UE36SS:00000001": the application completed without reading the entire request body.
+2019-08-10 15:17:34.868 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 15:17:36.830 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 15:17:37.786 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 15:17:38.034 +08:00 [DBG] Starting bus hosts...
+2019-08-10 15:17:38.074 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:17:38.142 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 22262)
+2019-08-10 15:17:38.234 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9nbmbdmt4as1g5, type: fanout, auto-delete)
+2019-08-10 15:17:38.234 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 15:17:38.235 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 15:17:38.235 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 15:17:38.241 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 15:17:38.242 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9nbmbdmt4as1g5, x-expires: 60000)
+2019-08-10 15:17:38.242 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 15:17:38.245 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 15:17:38.247 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 15:17:38.247 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9nbmbdmt4as1g5, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9nbmbdmt4as1g5)
+2019-08-10 15:17:38.256 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:17:38.256 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:17:38.298 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9nbmbdmt4as1g5?durable=false&autodelete=true" - amq.ctag-ehWCUMY6UBwOtvYIP_c2ug
+2019-08-10 15:17:38.298 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-R1MKXNTQES1N-LtjPYw9aw
+2019-08-10 15:17:55.502 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json; charset=utf-8 105
+2019-08-10 15:17:55.596 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:17:55.622 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 15:17:56.081 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 15:17:56.494 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 410.262ms.
+2019-08-10 15:17:56.506 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountResponseVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 15:17:56.510 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:17:56.530 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:RegistMqEvent, type: fanout, durable)
+2019-08-10 15:17:56.530 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:LoginMqEvent, type: fanout, durable)
+2019-08-10 15:17:56.530 +08:00 [DBG] Declare exchange (name: Commons.IntegrationBus.MqEvents:MqEvent, type: fanout, durable)
+2019-08-10 15:17:56.536 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.Login (Account.WebApi) in 910.6552ms
+2019-08-10 15:17:56.537 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:17:56.545 +08:00 [INF] Request finished in 1044.6739ms 200 application/json; charset=utf-8
+2019-08-10 15:17:56.559 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:RegistMqEvent, destination: Commons.MqEvents:LoginMqEvent)
+2019-08-10 15:17:56.559 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:RegistMqEvent, destination: Commons.IntegrationBus.MqEvents:MqEvent)
+2019-08-10 15:17:56.709 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Commons.MqEvents:RegistMqEvent 64540000-1df0-00ff-15ab-08d71d62de0f Commons.MqEvents.RegistMqEvent
+2019-08-10 15:18:16.145 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json; charset=utf-8 105
+2019-08-10 15:18:16.147 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:18:16.148 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 15:18:16.164 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 15:18:16.202 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:18:16.212 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-08-10 15:18:16.243 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-efe5-08d71d62e9c3 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 15:18:16.450 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 286.5521ms.
+2019-08-10 15:18:16.451 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountResponseVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 15:18:16.451 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:18:16.451 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.Login (Account.WebApi) in 303.53770000000003ms
+2019-08-10 15:18:16.451 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:18:16.452 +08:00 [INF] Request finished in 306.4404ms 200 application/json; charset=utf-8
+2019-08-10 15:18:16.453 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:LoginMqEvent, type: fanout, durable)
+2019-08-10 15:18:16.453 +08:00 [DBG] Declare exchange (name: Commons.IntegrationBus.MqEvents:MqEvent, type: fanout, durable)
+2019-08-10 15:18:16.453 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:LoginMqEvent, destination: Commons.IntegrationBus.MqEvents:MqEvent)
+2019-08-10 15:18:16.455 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9nbmbdmt4as1g5?durable=false&autodelete=true 64540000-1df0-00ff-da8e-08d71d62e9d2 Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse> MassTransit.MessageHandler<Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse>>(00:00:00.0201431)
+2019-08-10 15:18:16.467 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Commons.MqEvents:LoginMqEvent 64540000-1df0-00ff-58de-08d71d62e9e9 Commons.MqEvents.LoginMqEvent
+2019-08-10 15:18:35.023 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 143
+2019-08-10 15:18:35.023 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:18:35.024 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 15:18:35.062 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 15:18:35.075 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-9f05-08d71d62f500 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 15:19:49.430 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 74368.0778ms.
+2019-08-10 15:19:49.441 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountResponseVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 15:19:49.447 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.Login (Account.WebApi) in 74423.5956ms
+2019-08-10 15:19:49.447 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:19:49.447 +08:00 [INF] Request finished in 74425.0348ms 200 application/json; charset=utf-8
+2019-08-10 15:19:49.448 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9nbmbdmt4as1g5?durable=false&autodelete=true 64540000-1df0-00ff-b677-08d71d62f501 Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse> MassTransit.MessageHandler<Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse>>(00:01:14.3729577)
+2019-08-10 15:20:37.145 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 143
+2019-08-10 15:20:37.145 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:20:37.145 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 15:20:37.163 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 15:21:51.762 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 15:21:53.653 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 15:21:54.663 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 15:21:54.901 +08:00 [DBG] Starting bus hosts...
+2019-08-10 15:21:54.942 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:21:55.023 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 22479)
+2019-08-10 15:21:55.133 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9hdobdmt4a5m8z, type: fanout, auto-delete)
+2019-08-10 15:21:55.133 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 15:21:55.134 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 15:21:55.134 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 15:21:55.146 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9hdobdmt4a5m8z, x-expires: 60000)
+2019-08-10 15:21:55.150 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 15:21:55.151 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 15:21:55.155 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 15:21:55.158 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9hdobdmt4a5m8z, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9hdobdmt4a5m8z)
+2019-08-10 15:21:55.158 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 15:21:55.169 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:21:55.169 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:21:55.209 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9hdobdmt4a5m8z?durable=false&autodelete=true" - amq.ctag-JocPlVWQme4ZynvBcGSrgQ
+2019-08-10 15:21:55.209 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-Gr46JPxSRFpO2lYO5HZwVg
+2019-08-10 15:21:57.333 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 143
+2019-08-10 15:21:57.422 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:21:57.451 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 15:21:57.892 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 15:23:39.599 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:23:39.623 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-08-10 15:23:39.731 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-4785-08d71d63aa89 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 15:30:52.931 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 15:30:55.297 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 15:30:56.437 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 15:30:56.725 +08:00 [DBG] Starting bus hosts...
+2019-08-10 15:30:56.773 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:30:56.848 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 22949)
+2019-08-10 15:30:56.938 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6kbgbdmt43fq8r, type: fanout, auto-delete)
+2019-08-10 15:30:56.938 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 15:30:56.938 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 15:30:56.938 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 15:30:56.970 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 15:30:56.971 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6kbgbdmt43fq8r, x-expires: 60000)
+2019-08-10 15:30:56.971 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 15:30:56.973 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 15:30:56.975 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 15:30:56.975 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6kbgbdmt43fq8r, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6kbgbdmt43fq8r)
+2019-08-10 15:30:56.985 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:30:56.985 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:30:57.026 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6kbgbdmt43fq8r?durable=false&autodelete=true" - amq.ctag-Qxc8tf19Ssn_Qtc1FDS-2w
+2019-08-10 15:30:57.026 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-6a1vXCI0b--pZIxINDhNkQ
+2019-08-10 15:31:06.750 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 143
+2019-08-10 15:31:06.854 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:31:06.882 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 15:31:07.374 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 15:31:12.402 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:31:12.424 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-08-10 15:31:12.559 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-5cb1-08d71d64b86d Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 15:35:59.681 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 15:36:01.811 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 15:36:02.796 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 15:36:03.041 +08:00 [DBG] Starting bus hosts...
+2019-08-10 15:36:03.084 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:36:03.160 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 23464)
+2019-08-10 15:36:03.250 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9uuzbdmt43mfd6, type: fanout, auto-delete)
+2019-08-10 15:36:03.250 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 15:36:03.250 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 15:36:03.251 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 15:36:03.256 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9uuzbdmt43mfd6, x-expires: 60000)
+2019-08-10 15:36:03.256 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 15:36:03.258 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 15:36:03.266 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 15:36:03.269 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 15:36:03.269 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9uuzbdmt43mfd6, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9uuzbdmt43mfd6)
+2019-08-10 15:36:03.278 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:36:03.278 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:36:03.322 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-DT8sqRCu6aSTyEpipc_K2w
+2019-08-10 15:36:03.322 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9uuzbdmt43mfd6?durable=false&autodelete=true" - amq.ctag-BABUtC1SRG7j4b1yWTGLPQ
+2019-08-10 15:36:08.940 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 143
+2019-08-10 15:36:09.035 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:36:09.061 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 15:36:09.548 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 15:36:11.826 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:36:11.844 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-08-10 15:36:11.958 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-b92a-08d71d656ae4 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 15:39:36.162 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 15:39:38.698 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 15:39:39.636 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 15:39:39.884 +08:00 [DBG] Starting bus hosts...
+2019-08-10 15:39:39.924 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:39:40.013 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 23608)
+2019-08-10 15:39:40.108 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 15:39:40.108 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx948qbdmt43xgf7, type: fanout, auto-delete)
+2019-08-10 15:39:40.109 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 15:39:40.109 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 15:39:40.113 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 15:39:40.114 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx948qbdmt43xgf7, x-expires: 60000)
+2019-08-10 15:39:40.114 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 15:39:40.117 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 15:39:40.119 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx948qbdmt43xgf7, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx948qbdmt43xgf7)
+2019-08-10 15:39:40.119 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 15:39:40.128 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:39:40.128 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:39:40.173 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-ON-hEaELlp13CsuMvgrVog
+2019-08-10 15:39:40.173 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx948qbdmt43xgf7?durable=false&autodelete=true" - amq.ctag-pvkJ5imAcJ9UETaoWaPPiQ
+2019-08-10 15:39:44.631 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 143
+2019-08-10 15:39:44.730 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:39:44.759 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 15:39:45.239 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 15:39:47.439 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:39:47.462 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-08-10 15:39:47.579 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-5dd6-08d71d65eb69 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 15:43:48.798 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 15:43:51.249 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 15:43:52.285 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 15:43:52.568 +08:00 [DBG] Starting bus hosts...
+2019-08-10 15:43:52.607 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:43:52.688 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 23897)
+2019-08-10 15:43:52.806 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 15:43:52.806 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6npwbdmt43u7ni, type: fanout, auto-delete)
+2019-08-10 15:43:52.807 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 15:43:52.807 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 15:43:52.812 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 15:43:52.812 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6npwbdmt43u7ni, x-expires: 60000)
+2019-08-10 15:43:52.813 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 15:43:52.816 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 15:43:52.818 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 15:43:52.818 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6npwbdmt43u7ni, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6npwbdmt43u7ni)
+2019-08-10 15:43:52.828 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:43:52.828 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 15:43:52.876 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-rN2YuXwrY_cH6JWZv-dCWQ
+2019-08-10 15:43:52.876 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6npwbdmt43u7ni?durable=false&autodelete=true" - amq.ctag-xKysNcOe-UcL8Isyna1bqw
+2019-08-10 15:43:54.341 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 143
+2019-08-10 15:43:54.454 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 15:43:54.483 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 15:43:54.957 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 15:43:56.731 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 15:43:56.749 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-08-10 15:43:56.864 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-9175-08d71d667fff Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 16:39:56.805 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 16:39:59.086 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 16:40:00.100 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 16:40:00.350 +08:00 [DBG] Starting bus hosts...
+2019-08-10 16:40:00.392 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:40:00.487 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 27938)
+2019-08-10 16:40:00.587 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9wu9bdmt451wfw, type: fanout, auto-delete)
+2019-08-10 16:40:00.587 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 16:40:00.587 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 16:40:00.587 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 16:40:00.600 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 16:40:00.601 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9wu9bdmt451wfw, x-expires: 60000)
+2019-08-10 16:40:00.602 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 16:40:00.606 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 16:40:00.608 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9wu9bdmt451wfw, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9wu9bdmt451wfw)
+2019-08-10 16:40:00.608 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 16:40:00.617 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:40:00.617 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:40:00.661 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9wu9bdmt451wfw?durable=false&autodelete=true" - amq.ctag-0ZdoKigU29wEga3drowLCQ
+2019-08-10 16:40:00.661 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-R072poD1p19QKIqVgyFQyQ
+2019-08-10 16:40:15.965 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 143
+2019-08-10 16:40:16.071 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:40:16.109 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:40:16.625 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:40:18.437 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:40:18.456 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-08-10 16:40:18.587 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-54c8-08d71d6e5fa7 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 16:40:56.024 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 16:40:58.161 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 16:40:59.083 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 16:40:59.340 +08:00 [DBG] Starting bus hosts...
+2019-08-10 16:40:59.383 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:40:59.467 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 28004)
+2019-08-10 16:40:59.564 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 16:40:59.564 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx99mgbdmt45uzgh, type: fanout, auto-delete)
+2019-08-10 16:40:59.565 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 16:40:59.565 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 16:40:59.570 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 16:40:59.571 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 16:40:59.571 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx99mgbdmt45uzgh, x-expires: 60000)
+2019-08-10 16:40:59.573 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 16:40:59.575 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 16:40:59.575 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx99mgbdmt45uzgh, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx99mgbdmt45uzgh)
+2019-08-10 16:40:59.585 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:40:59.585 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:40:59.624 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-_1DGTSutGgPqC0TcOQSwxA
+2019-08-10 16:40:59.624 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx99mgbdmt45uzgh?durable=false&autodelete=true" - amq.ctag-pTMNUhDU5ez57v_R_Hdksw
+2019-08-10 16:41:04.665 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 143
+2019-08-10 16:41:04.762 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:41:04.793 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:41:05.256 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:41:07.085 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:41:07.104 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-08-10 16:41:07.225 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-3caa-08d71d6e7ca6 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 16:42:46.615 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 16:42:48.813 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 16:42:49.759 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 16:42:50.018 +08:00 [DBG] Starting bus hosts...
+2019-08-10 16:42:50.075 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:42:50.180 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 28082)
+2019-08-10 16:42:50.276 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 16:42:50.276 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9kssbdmt45i3gw, type: fanout, auto-delete)
+2019-08-10 16:42:50.277 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 16:42:50.277 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 16:42:50.286 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 16:42:50.287 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 16:42:50.287 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9kssbdmt45i3gw, x-expires: 60000)
+2019-08-10 16:42:50.291 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 16:42:50.294 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 16:42:50.296 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9kssbdmt45i3gw, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9kssbdmt45i3gw)
+2019-08-10 16:42:50.315 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:42:50.315 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:42:50.364 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9kssbdmt45i3gw?durable=false&autodelete=true" - amq.ctag-XZShClvx8ALK6LHWaJMEJA
+2019-08-10 16:42:50.364 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-947xx-JiquHdIz87MtKtQA
+2019-08-10 16:42:55.294 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 143
+2019-08-10 16:42:55.387 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:42:55.416 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:42:55.876 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:42:57.573 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:42:57.593 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-08-10 16:42:57.717 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-9ec1-08d71d6ebe81 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 16:47:35.305 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 16:47:37.689 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 16:47:38.650 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 16:47:38.916 +08:00 [DBG] Starting bus hosts...
+2019-08-10 16:47:38.967 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:47:39.053 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 28268)
+2019-08-10 16:47:39.132 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx971wbdmt455gyf, type: fanout, auto-delete)
+2019-08-10 16:47:39.132 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 16:47:39.133 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 16:47:39.133 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 16:47:39.138 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx971wbdmt455gyf, x-expires: 60000)
+2019-08-10 16:47:39.139 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 16:47:39.140 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 16:47:39.143 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 16:47:39.145 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx971wbdmt455gyf, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx971wbdmt455gyf)
+2019-08-10 16:47:39.145 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 16:47:39.155 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:47:39.155 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:47:39.199 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-1CitxjYDLdue3E4Iq1GwsA
+2019-08-10 16:47:39.199 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx971wbdmt455gyf?durable=false&autodelete=true" - amq.ctag-IeuuVN-EmhM8w7_IQAg0yg
+2019-08-10 16:47:58.205 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 143
+2019-08-10 16:47:58.309 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:47:58.338 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:47:58.838 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:47:59.016 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:47:59.045 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-08-10 16:47:59.169 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-6325-08d71d6f722f Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 16:47:59.515 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:47:59.518 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 676.7491ms.
+2019-08-10 16:47:59.519 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:LoginMqEvent, type: fanout, durable)
+2019-08-10 16:47:59.519 +08:00 [DBG] Declare exchange (name: Commons.IntegrationBus.MqEvents:MqEvent, type: fanout, durable)
+2019-08-10 16:47:59.521 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:LoginMqEvent, destination: Commons.IntegrationBus.MqEvents:MqEvent)
+2019-08-10 16:47:59.532 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountResponseVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 16:47:59.554 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.Login (Account.WebApi) in 1212.3068ms
+2019-08-10 16:47:59.556 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:47:59.564 +08:00 [INF] Request finished in 1361.8521ms 200 application/json; charset=utf-8
+2019-08-10 16:47:59.568 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Commons.MqEvents:LoginMqEvent 64540000-1df0-00ff-6d00-08d71d6f7277 Commons.MqEvents.LoginMqEvent
+2019-08-10 16:47:59.569 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx971wbdmt455gyf?durable=false&autodelete=true 64540000-1df0-00ff-1cf9-08d71d6f7240 Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse> MassTransit.MessageHandler<Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse>>(00:00:00.2696504)
+2019-08-10 16:48:14.764 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/api/Account/GetSelfAccount  
+2019-08-10 16:48:14.773 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi)'
+2019-08-10 16:48:14.791 +08:00 [INF] Route matched with {action = "GetSelfAccount", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountDetailVM]] GetSelfAccount(Int64) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:48:14.819 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:48:14.844 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-0dcc-08d71d6f7b97 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 16:48:14.852 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx971wbdmt455gyf?durable=false&autodelete=true 64540000-1df0-00ff-5ac1-08d71d6f7b99 Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse> MassTransit.MessageHandler<Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse>>(00:00:00.0003163)
+2019-08-10 16:48:15.000 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 180.32590000000002ms.
+2019-08-10 16:48:15.000 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountDetailVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 16:48:15.014 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi) in 222.3639ms
+2019-08-10 16:48:15.014 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi)'
+2019-08-10 16:48:15.014 +08:00 [INF] Request finished in 249.7126ms 200 application/json; charset=utf-8
+2019-08-10 16:48:46.433 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/api/Account/GetSelfAccount  
+2019-08-10 16:48:46.434 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi)'
+2019-08-10 16:48:46.434 +08:00 [INF] Route matched with {action = "GetSelfAccount", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountDetailVM]] GetSelfAccount(Int64) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:48:46.452 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:48:46.467 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-bb6f-08d71d6f8e70 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 16:48:46.469 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx971wbdmt455gyf?durable=false&autodelete=true 64540000-1df0-00ff-4714-08d71d6f8e72 Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse> MassTransit.MessageHandler<Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse>>(00:00:00.0008974)
+2019-08-10 16:48:46.472 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 19.4835ms.
+2019-08-10 16:48:46.472 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountDetailVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 16:48:46.473 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi) in 38.7828ms
+2019-08-10 16:48:46.473 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi)'
+2019-08-10 16:48:46.476 +08:00 [INF] Request finished in 39.7109ms 200 application/json; charset=utf-8
+2019-08-10 16:48:48.895 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/api/Account/GetSelfAccount  
+2019-08-10 16:48:48.895 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi)'
+2019-08-10 16:48:48.895 +08:00 [INF] Route matched with {action = "GetSelfAccount", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountDetailVM]] GetSelfAccount(Int64) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:48:48.913 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:48:48.924 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx971wbdmt455gyf?durable=false&autodelete=true 64540000-1df0-00ff-85c6-08d71d6f8fe9 Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse> MassTransit.MessageHandler<Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse>>(00:00:00.0001783)
+2019-08-10 16:48:48.927 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-2e5d-08d71d6f8fe8 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 16:48:48.930 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 16.3933ms.
+2019-08-10 16:48:48.930 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountDetailVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 16:48:48.931 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi) in 35.3162ms
+2019-08-10 16:48:48.931 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi)'
+2019-08-10 16:48:48.931 +08:00 [INF] Request finished in 35.9301ms 200 application/json; charset=utf-8
+2019-08-10 16:48:51.384 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/api/Account/GetSelfAccount  
+2019-08-10 16:48:51.385 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi)'
+2019-08-10 16:48:51.385 +08:00 [INF] Route matched with {action = "GetSelfAccount", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountDetailVM]] GetSelfAccount(Int64) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:48:51.401 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:48:51.408 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx971wbdmt455gyf?durable=false&autodelete=true 64540000-1df0-00ff-6ba6-08d71d6f9164 Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse> MassTransit.MessageHandler<Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse>>(00:00:00.0004212)
+2019-08-10 16:48:51.409 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-b5c2-08d71d6f9163 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 16:48:51.410 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 8.8413ms.
+2019-08-10 16:48:51.410 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountDetailVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 16:48:51.410 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi) in 25.410500000000003ms
+2019-08-10 16:48:51.410 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi)'
+2019-08-10 16:48:51.410 +08:00 [INF] Request finished in 25.7953ms 200 application/json; charset=utf-8
+2019-08-10 16:49:14.265 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 145
+2019-08-10 16:49:14.265 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:49:14.265 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:49:14.282 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:49:14.386 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 103.8875ms.
+2019-08-10 16:49:14.386 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountResponseVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 16:49:14.386 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.Login (Account.WebApi) in 121.17710000000001ms
+2019-08-10 16:49:14.386 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:49:14.386 +08:00 [INF] Request finished in 121.5529ms 200 application/json; charset=utf-8
+2019-08-10 16:49:14.390 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:49:14.391 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:RegistMqEvent, type: fanout, durable)
+2019-08-10 16:49:14.391 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:LoginMqEvent, type: fanout, durable)
+2019-08-10 16:49:14.391 +08:00 [DBG] Declare exchange (name: Commons.IntegrationBus.MqEvents:MqEvent, type: fanout, durable)
+2019-08-10 16:49:14.392 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:RegistMqEvent, destination: Commons.MqEvents:LoginMqEvent)
+2019-08-10 16:49:14.392 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:RegistMqEvent, destination: Commons.IntegrationBus.MqEvents:MqEvent)
+2019-08-10 16:49:14.408 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Commons.MqEvents:RegistMqEvent 64540000-1df0-00ff-d7d9-08d71d6f9f18 Commons.MqEvents.RegistMqEvent
+2019-08-10 16:51:01.799 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 16:51:04.013 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 16:51:05.000 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 16:51:05.268 +08:00 [DBG] Starting bus hosts...
+2019-08-10 16:51:05.313 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:51:05.385 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 28441)
+2019-08-10 16:51:05.486 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 16:51:05.486 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx657wbdmt459byr, type: fanout, auto-delete)
+2019-08-10 16:51:05.487 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 16:51:05.487 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 16:51:05.494 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 16:51:05.494 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx657wbdmt459byr, x-expires: 60000)
+2019-08-10 16:51:05.495 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 16:51:05.499 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 16:51:05.500 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx657wbdmt459byr, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx657wbdmt459byr)
+2019-08-10 16:51:05.500 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 16:51:05.509 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:51:05.509 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:51:05.551 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx657wbdmt459byr?durable=false&autodelete=true" - amq.ctag-KqK7QJ-ubw-iG_NjECYmDQ
+2019-08-10 16:51:05.551 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-t21GOIY11Cc6ohnspg4d0A
+2019-08-10 16:51:11.038 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 145
+2019-08-10 16:51:11.133 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:51:11.157 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:51:11.612 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:51:11.997 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 382.57500000000005ms.
+2019-08-10 16:51:12.011 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountResponseVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 16:51:12.012 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:51:12.031 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:RegistMqEvent, type: fanout, durable)
+2019-08-10 16:51:12.031 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:LoginMqEvent, type: fanout, durable)
+2019-08-10 16:51:12.031 +08:00 [DBG] Declare exchange (name: Commons.IntegrationBus.MqEvents:MqEvent, type: fanout, durable)
+2019-08-10 16:51:12.039 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.Login (Account.WebApi) in 879.9364ms
+2019-08-10 16:51:12.040 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:51:12.046 +08:00 [INF] Request finished in 1009.9475ms 200 application/json; charset=utf-8
+2019-08-10 16:51:12.047 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:RegistMqEvent, destination: Commons.MqEvents:LoginMqEvent)
+2019-08-10 16:51:12.047 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:RegistMqEvent, destination: Commons.IntegrationBus.MqEvents:MqEvent)
+2019-08-10 16:51:12.169 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Commons.MqEvents:RegistMqEvent 64540000-1df0-00ff-870b-08d71d6fe539 Commons.MqEvents.RegistMqEvent
+2019-08-10 16:51:21.546 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 145
+2019-08-10 16:51:21.548 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:51:21.549 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:51:21.570 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:51:21.608 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:51:21.611 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-08-10 16:51:21.650 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-04bd-08d71d6feaec Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 16:51:21.781 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 210.6271ms.
+2019-08-10 16:51:21.781 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountResponseVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 16:51:21.781 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:51:21.782 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.Login (Account.WebApi) in 233.18810000000002ms
+2019-08-10 16:51:21.782 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:51:21.782 +08:00 [INF] Request finished in 236.4475ms 200 application/json; charset=utf-8
+2019-08-10 16:51:21.782 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:LoginMqEvent, type: fanout, durable)
+2019-08-10 16:51:21.782 +08:00 [DBG] Declare exchange (name: Commons.IntegrationBus.MqEvents:MqEvent, type: fanout, durable)
+2019-08-10 16:51:21.784 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:LoginMqEvent, destination: Commons.IntegrationBus.MqEvents:MqEvent)
+2019-08-10 16:51:21.786 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx657wbdmt459byr?durable=false&autodelete=true 64540000-1df0-00ff-3487-08d71d6feaf1 Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse> MassTransit.MessageHandler<Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse>>(00:00:00.0204080)
+2019-08-10 16:51:21.791 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Commons.MqEvents:LoginMqEvent 64540000-1df0-00ff-6c4f-08d71d6feb06 Commons.MqEvents.LoginMqEvent
+2019-08-10 16:53:06.104 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 145
+2019-08-10 16:53:06.104 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:53:06.104 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:53:06.119 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:53:08.187 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-d1a7-08d71d702a6f Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 16:53:25.889 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Commons.MqEvents:LoginMqEvent 64540000-1df0-00ff-047f-08d71d7034ff Commons.MqEvents.LoginMqEvent
+2019-08-10 16:58:17.195 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 16:58:19.504 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 16:58:20.461 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 16:58:20.718 +08:00 [DBG] Starting bus hosts...
+2019-08-10 16:58:20.759 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:58:20.836 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 28927)
+2019-08-10 16:58:20.929 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6eadbdmt4h8rr1, type: fanout, auto-delete)
+2019-08-10 16:58:20.929 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 16:58:20.929 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 16:58:20.929 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 16:58:20.934 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 16:58:20.934 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6eadbdmt4h8rr1, x-expires: 60000)
+2019-08-10 16:58:20.935 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 16:58:20.937 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 16:58:20.940 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6eadbdmt4h8rr1, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6eadbdmt4h8rr1)
+2019-08-10 16:58:20.940 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 16:58:20.948 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:58:20.948 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:58:20.994 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6eadbdmt4h8rr1?durable=false&autodelete=true" - amq.ctag-xddPqGRFTG9YNdCanVsGDQ
+2019-08-10 16:58:20.994 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-qxet65lLHVPFgvogkd_hBQ
+2019-08-10 16:58:38.450 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 16:58:40.850 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 16:58:41.840 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 16:58:42.098 +08:00 [DBG] Starting bus hosts...
+2019-08-10 16:58:42.138 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:58:42.215 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 28974)
+2019-08-10 16:58:42.301 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 16:58:42.301 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9qjubdmt4h8tno, type: fanout, auto-delete)
+2019-08-10 16:58:42.301 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 16:58:42.302 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 16:58:42.307 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 16:58:42.307 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 16:58:42.309 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9qjubdmt4h8tno, x-expires: 60000)
+2019-08-10 16:58:42.311 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 16:58:42.313 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 16:58:42.313 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9qjubdmt4h8tno, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9qjubdmt4h8tno)
+2019-08-10 16:58:42.321 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:58:42.321 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 16:58:42.361 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-fKgH0QSl-VP5Tjwz_u386A
+2019-08-10 16:58:42.361 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9qjubdmt4h8tno?durable=false&autodelete=true" - amq.ctag-YmFrfk6A1m4vLzD2lZp1Dw
+2019-08-10 16:58:47.930 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:8080/api/Account/Login application/json-patch+json 145
+2019-08-10 16:58:48.024 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:58:48.059 +08:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountResponseVM]] Login(Account.Application.ViewModels.AccountVM) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:58:48.554 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:58:54.583 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:58:54.603 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-08-10 16:58:54.721 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-ae71-08d71d70f8ed Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 16:58:54.908 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 16:58:54.912 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:LoginMqEvent, type: fanout, durable)
+2019-08-10 16:58:54.912 +08:00 [DBG] Declare exchange (name: Commons.IntegrationBus.MqEvents:MqEvent, type: fanout, durable)
+2019-08-10 16:58:54.913 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.Login (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 6355.3421000000008ms.
+2019-08-10 16:58:54.913 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:LoginMqEvent, destination: Commons.IntegrationBus.MqEvents:MqEvent)
+2019-08-10 16:58:54.928 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountResponseVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 16:58:54.954 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.Login (Account.WebApi) in 6887.5979000000007ms
+2019-08-10 16:58:54.956 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.Login (Account.WebApi)'
+2019-08-10 16:58:54.962 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Commons.MqEvents:LoginMqEvent 64540000-1df0-00ff-6c12-08d71d70f91c Commons.MqEvents.LoginMqEvent
+2019-08-10 16:58:54.966 +08:00 [INF] Request finished in 7037.2451ms 200 application/json; charset=utf-8
+2019-08-10 16:58:54.971 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9qjubdmt4h8tno?durable=false&autodelete=true 64540000-1df0-00ff-65fb-08d71d70f8fd Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse> MassTransit.MessageHandler<Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse>>(00:00:00.1165669)
+2019-08-10 16:59:22.448 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/api/Account/GetSelfAccount  
+2019-08-10 16:59:22.452 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi)'
+2019-08-10 16:59:22.460 +08:00 [INF] Route matched with {action = "GetSelfAccount", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountDetailVM]] GetSelfAccount(Int64) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 16:59:22.480 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi) - Validation state: "Valid"
+2019-08-10 16:59:22.502 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-e53a-08d71d71098b Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 16:59:22.503 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx9qjubdmt4h8tno?durable=false&autodelete=true 64540000-1df0-00ff-9539-08d71d71098d Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse> MassTransit.MessageHandler<Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse>>(00:00:00.0001260)
+2019-08-10 16:59:22.692 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 211.3718ms.
+2019-08-10 16:59:22.692 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountDetailVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 16:59:22.701 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi) in 240.7091ms
+2019-08-10 16:59:22.701 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi)'
+2019-08-10 16:59:22.701 +08:00 [INF] Request finished in 253.0065ms 200 application/json; charset=utf-8
+2019-08-10 17:00:56.666 +08:00 [INF] CreateWebHostBuilder (Account)...
+2019-08-10 17:00:58.766 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-08-10 17:00:59.712 +08:00 [INF] rabbitCfg host:localhost vhost:SkyWatch
+2019-08-10 17:00:59.960 +08:00 [DBG] Starting bus hosts...
+2019-08-10 17:00:59.999 +08:00 [DBG] Connecting: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 17:01:00.073 +08:00 [DBG] Connected: SkyWatch@localhost:5672/SkyWatch (address: amqp://localhost:5672, local: 29105)
+2019-08-10 17:01:00.162 +08:00 [DBG] Declare exchange (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6wh8bdmt4hkdd6, type: fanout, auto-delete)
+2019-08-10 17:01:00.162 +08:00 [DBG] Declare exchange (name: Account, type: fanout, durable)
+2019-08-10 17:01:00.163 +08:00 [DBG] Declare exchange (name: Commons.MqCommands:GetAccountInfoMqCommand, type: fanout, durable)
+2019-08-10 17:01:00.163 +08:00 [DBG] Declare exchange (name: Commons.MqEvents:HostInfoEvent, type: fanout, durable)
+2019-08-10 17:01:00.168 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqCommands:GetAccountInfoMqCommand, destination: Account)
+2019-08-10 17:01:00.169 +08:00 [DBG] Declare queue (name: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6wh8bdmt4hkdd6, x-expires: 60000)
+2019-08-10 17:01:00.169 +08:00 [DBG] Bind exchange to exchange (source: Commons.MqEvents:HostInfoEvent, destination: Account)
+2019-08-10 17:01:00.177 +08:00 [DBG] Declare queue (name: Account, durable)
+2019-08-10 17:01:00.179 +08:00 [DBG] Bind exchange to queue (source: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6wh8bdmt4hkdd6, destination: DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6wh8bdmt4hkdd6)
+2019-08-10 17:01:00.179 +08:00 [DBG] Bind exchange to queue (source: Account, destination: Account)
+2019-08-10 17:01:00.187 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 17:01:00.187 +08:00 [DBG] Setting Prefetch Count: 12
+2019-08-10 17:01:00.227 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6wh8bdmt4hkdd6?durable=false&autodelete=true" - amq.ctag-MPPk1rKpm8JpOUYJq4dWXg
+2019-08-10 17:01:00.227 +08:00 [DBG] ConsumerOk: "rabbitmq://localhost/SkyWatch/Account" - amq.ctag-mGXJ5Ev98QHNkomNqBQ1Eg
+2019-08-10 17:01:14.860 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/api/Account/GetSelfAccount  
+2019-08-10 17:01:15.069 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi)'
+2019-08-10 17:01:15.095 +08:00 [INF] Route matched with {action = "GetSelfAccount", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountDetailVM]] GetSelfAccount(Int64) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 17:01:15.424 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi) - Validation state: "Valid"
+2019-08-10 17:01:15.518 +08:00 [DBG] Creating model: SkyWatch@localhost:5672/SkyWatch
+2019-08-10 17:01:15.543 +08:00 [DBG] Declare exchange (name: Money, type: fanout, durable)
+2019-08-10 17:01:15.695 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-34e6-08d71d714cf1 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 17:01:15.841 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 415.15180000000004ms.
+2019-08-10 17:01:15.854 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountDetailVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 17:01:15.875 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi) in 777.39740000000006ms
+2019-08-10 17:01:15.876 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.GetSelfAccount (Account.WebApi)'
+2019-08-10 17:01:15.882 +08:00 [INF] Request finished in 1023.7835ms 200 application/json; charset=utf-8
+2019-08-10 17:01:15.885 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6wh8bdmt4hkdd6?durable=false&autodelete=true 64540000-1df0-00ff-74a9-08d71d714d04 Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse> MassTransit.MessageHandler<Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse>>(00:00:00.0868547)
+2019-08-10 17:01:51.189 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/api/Account/GetOtherAccount?otherId=10000000002  
+2019-08-10 17:01:51.192 +08:00 [INF] Executing endpoint 'Account.WebApi.Controllers.AccountController.GetOtherAccount (Account.WebApi)'
+2019-08-10 17:01:51.196 +08:00 [INF] Route matched with {action = "GetOtherAccount", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Commons.Domain.Models.BodyResponse`1[Account.Application.ViewModels.AccountDetailVM]] GetOtherAccount(Int64) on controller Account.WebApi.Controllers.AccountController (Account.WebApi).
+2019-08-10 17:01:51.213 +08:00 [INF] Executing action method Account.WebApi.Controllers.AccountController.GetOtherAccount (Account.WebApi) - Validation state: "Valid"
+2019-08-10 17:01:51.234 +08:00 [DBG] SEND rabbitmq://localhost/SkyWatch/Money 64540000-1df0-00ff-f6dc-08d71d716231 Commons.MqCommands.GetMoneyMqCommand
+2019-08-10 17:01:51.236 +08:00 [INF] Executed action method Account.WebApi.Controllers.AccountController.GetOtherAccount (Account.WebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 22.547800000000002ms.
+2019-08-10 17:01:51.236 +08:00 [INF] Executing ObjectResult, writing value of type 'Commons.Domain.Models.BodyResponse`1[[Account.Application.ViewModels.AccountDetailVM, Account.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-08-10 17:01:51.236 +08:00 [INF] Executed action Account.WebApi.Controllers.AccountController.GetOtherAccount (Account.WebApi) in 40.3907ms
+2019-08-10 17:01:51.236 +08:00 [INF] Executed endpoint 'Account.WebApi.Controllers.AccountController.GetOtherAccount (Account.WebApi)'
+2019-08-10 17:01:51.236 +08:00 [INF] Request finished in 46.9782ms 200 application/json; charset=utf-8
+2019-08-10 17:01:51.237 +08:00 [DBG] RECEIVE rabbitmq://localhost/SkyWatch/DESKTOP37VK0IV_dotnet_bus_ctkyyyy76yyx6wh8bdmt4hkdd6?durable=false&autodelete=true 64540000-1df0-00ff-3240-08d71d716233 Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse> MassTransit.MessageHandler<Commons.Domain.Models.BodyResponse<Commons.MqCommands.MoneyMqResponse>>(00:00:00.0018247)
