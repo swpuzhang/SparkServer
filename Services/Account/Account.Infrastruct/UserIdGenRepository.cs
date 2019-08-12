@@ -27,7 +27,7 @@ namespace Account.Infrastruct
             };
 
             var update = Builders<UserIdGenInfo>.Update.Inc(nameof(UserIdGenInfo.UserId), 1);
-            _dbCol.Find(e => true);
+            
             var ret = await _dbCol.FindOneAndUpdateAsync<UserIdGenInfo>(new BsonDocument(), update, options);
             return ret.UserId;
         }
