@@ -16,19 +16,14 @@ namespace Sangong.Application.Services
 {
     public class SangongAppService : ISangongAppService
     {
-        private readonly ISangongInfoRepository _repository;
         private readonly IMapper _mapper;
         private readonly IMediatorHandler _bus;
-        public SangongAppService(ISangongInfoRepository repository, IMapper mapper, IMediatorHandler bus)
+        public SangongAppService(IMapper mapper, IMediatorHandler bus)
         {
-            _repository = repository;
             _mapper = mapper;
             _bus = bus;
         }
-        public SangongVM GetById(Int64 id)
-        {
-            return _mapper.Map<SangongVM>( _repository.GetById(id));
-        }
+
 
 
     }

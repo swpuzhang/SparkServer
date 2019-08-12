@@ -8,12 +8,16 @@ namespace Sangong.Domain.Logic
 {
     public static class GameAccounter
     {
-        public static GameOverEvent Caculate(List<GameSeat> seates, List<KeyValuePair<long, List<int>>> poolsSeats)
+        public static GameOverEvent Caculate(List<GameSeat> seates, List<KeyValuePair<long, List<int>>> poolsSeats, out int winSeat)
         {
             List<KeyValuePair<int, CardCombination>> seatRand = new List<KeyValuePair<int, CardCombination>>();
             foreach(var seat in seates)
             {
-                seatRand.Add(new KeyValuePair<int, CardCombination>(seat.SeatNum, seat.Combination));
+                if (seat.IsInGame())
+                {
+                    seatRand.Add(new KeyValuePair<int, CardCombination>(seat.SeatNum, seat.Combination));
+                }
+               
             }
             seatRand.Sort((x, y) =>
             {
@@ -23,7 +27,8 @@ namespace Sangong.Domain.Logic
                 }
                 return x.Value.CompareTo(y.Value);
              });
-            seates.Reverse();
+            seatRand.Reverse();
+            winSeat = seatRand.First().Key;
             List<WinnerCoinsPool> poolWinners = new List<WinnerCoinsPool>();
             foreach (var onePool in poolsSeats)
             {

@@ -53,7 +53,9 @@ namespace Sangong.Game.WebApi.Extenssions
 
                 }));
                 x.AddRequestClient<GetMoneyMqCommand>(new Uri(rabbitCfg["Money"]));
+                x.AddRequestClient<BuyInMqCommand>(new Uri(rabbitCfg["Money"]));
                 x.AddRequestClient<GetAccountInfoMqCommand>(new Uri(rabbitCfg["Account"]));
+                
                 x.AddRequestClient<UserApplySitMqCommand>(new Uri(rabbitCfg["Mathcing"]));
                 //添加RequestClient
                 //x.AddRequestClient<DoSomething>();

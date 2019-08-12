@@ -26,7 +26,7 @@ namespace Commons.Extenssions
                 {
                     operation.Parameters.Add(new NonBodyParameter()
                     {
-                        Name = "Authorization",
+                        Name = "Token",
                         In = "header",//query header body path formData
                         Type = "string",
                         Required = false //是否必选

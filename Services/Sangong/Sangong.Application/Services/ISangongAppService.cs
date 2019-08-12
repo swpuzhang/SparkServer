@@ -11,8 +11,6 @@ namespace Sangong.Application.Services
 {
     public interface ISangongAppService
     {
-        SangongVM GetById(Int64 id);
-      
 
     }
 }

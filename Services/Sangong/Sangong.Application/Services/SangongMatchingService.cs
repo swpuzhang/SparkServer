@@ -23,7 +23,7 @@ namespace Sangong.Application.Services
         private readonly IMediatorHandler _bus;
         private readonly RoomManager _roomManager;
         private readonly MatchingManager _matchingManager;
-        public SangongMatchingService(ISangongInfoRepository repository, IMapper mapper, IMediatorHandler bus, 
+        public SangongMatchingService(IMapper mapper, IMediatorHandler bus, 
             RoomManager roomManager, MatchingManager matchingManager)
         {
             _mapper = mapper;

@@ -47,7 +47,7 @@ namespace Commons.Extenssions
                 return _next(context);
             }
 
-            var token = context.Request.Headers["Authorization"];
+            var token = context.Request.Headers["Token"];
             if (string.IsNullOrEmpty(token))
             {
                 return context.Response.WriteAsync(JsonConvert.SerializeObject(

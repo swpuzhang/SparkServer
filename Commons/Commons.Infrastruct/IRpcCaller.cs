@@ -6,7 +6,7 @@ namespace Commons.Infrastruct
 {
     public interface IRpcCaller<THub>
     {
-        Task<BaseResponse> RequestCallAsync(string conn, string method, 
+        Task<BodyResponse<NullBody>> RequestCallAsync(string conn, string method, 
             string reqData, Guid id, int waitMiliSeconds = 5000);
         void OnResponsed(Guid id);
     }

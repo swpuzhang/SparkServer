@@ -13,16 +13,14 @@ namespace Sangong.Domain.EventHandlers
 {
     public class SangongEventHandler : INotificationHandler<SangongEvent>
     {
-        private readonly ISangongInfoRepository _accountRepository;
         private readonly ISangongRedisRepository _redis;
         private readonly IBusControl _mqBus;
         private readonly IMapper _mapper;
-        public SangongEventHandler(ISangongInfoRepository rep,
+        public SangongEventHandler(
             ISangongRedisRepository redis,
             IBusControl mqBus,
             IMapper mapper)
         {
-            _accountRepository = rep;
             _redis = redis;
             _mqBus = mqBus;
             _mapper = mapper;

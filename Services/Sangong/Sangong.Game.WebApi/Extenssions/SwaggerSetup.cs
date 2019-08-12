@@ -24,13 +24,15 @@ namespace Sangong.Game.WebApi.Extenssions
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
                 c.OperationFilter<HttpHeaderFilter>();
                 c.DescribeAllEnumsAsStrings();
-                
-                var basePath = Directory.GetCurrentDirectory();
-                var xmlPath = Path.Combine(basePath, Assembly.GetExecutingAssembly().GetName().Name + ".xml");
-                var viewModelXmlPath = Path.Combine(basePath, $"{Startup.ServiceName}.Application.xml");
-                c.IncludeXmlComments(xmlPath);
-                c.IncludeXmlComments(viewModelXmlPath);
-                
+
+                var basePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../SwaggerInterface");
+                var files = Directory.GetFiles(basePath, "*.xml");
+                foreach (var oneFile in files)
+                {
+                    var xmlPath = Path.Combine(basePath, oneFile);
+                    c.IncludeXmlComments(xmlPath, true);
+                }
+
             });
         }
 

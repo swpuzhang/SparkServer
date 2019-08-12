@@ -23,7 +23,7 @@ namespace Sangong.Application.Services
         private readonly IMapper _mapper;
         private readonly GameRoomManager _gameRoomManager;
   
-        public SangongGameService(ISangongInfoRepository repository, IMapper mapper,
+        public SangongGameService(IMapper mapper,
             GameRoomManager gameRoomManager)
         {
             _mapper = mapper;

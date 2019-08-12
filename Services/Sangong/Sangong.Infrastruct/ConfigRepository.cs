@@ -5,6 +5,7 @@ using Sangong.Domain.RepositoryInterface;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Sangong.Infrastruct
 {
@@ -22,13 +23,14 @@ namespace Sangong.Infrastruct
             _dbCol = _db.GetCollection<CoinsRangeConfig>(typeof(CoinsRangeConfig).Name);
         }
 
-        public List<CoinsRangeConfig> LoadCoinsRangeConfig()
+        public  List<CoinsRangeConfig> LoadCoinsRangeConfig()
         {
            
             var configs = _dbCol.Find<CoinsRangeConfig>(x => true);//.Project(Builders<LevelConfig>.
                                                              //Projection.Exclude("_id")).ToList();
 
-            return configs.Project<CoinsRangeConfig>(Builders<CoinsRangeConfig>.Projection.Exclude("_id")).ToList();
+            return  configs.Project<CoinsRangeConfig>(Builders<CoinsRangeConfig>.Projection.Exclude("_id")).ToList();
+        
         }
         
     }

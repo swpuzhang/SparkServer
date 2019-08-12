@@ -33,10 +33,10 @@ namespace Account.WebApi.MqConsumers
                     null, null));
                 return;
             }
-            await context.RespondAsync<GetAccountInfoMqResponse>(new GetAccountInfoMqResponse(context.Message.Id,
+            await context.RespondAsync<BodyResponse<GetAccountInfoMqResponse>>(new BodyResponse<GetAccountInfoMqResponse>(StatuCodeDefines.Success, null, new GetAccountInfoMqResponse(context.Message.Id,
                 response.Body.PlatformAccount, response.Body.UserName, response.Body.Sex, response.Body.HeadUrl,
                 new GameInfoMq(response.Body.GameInfo.GameTimes, response.Body.GameInfo.WinTimes, response.Body.GameInfo.MaxWinCoins),
-                new LevelInfoMq(response.Body.LevelInfo.CurLevel, response.Body.LevelInfo.CurExp, response.Body.LevelInfo.NeedExp)));
+                new LevelInfoMq(response.Body.LevelInfo.CurLevel, response.Body.LevelInfo.CurExp, response.Body.LevelInfo.NeedExp))));
         }
     }
 }

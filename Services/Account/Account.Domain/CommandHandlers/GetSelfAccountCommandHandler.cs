@@ -30,6 +30,7 @@ namespace Account.Domain.CommandHandlers
         private readonly IAccountRedisRepository _redis;
         private readonly IBusControl _mqBus;
         private readonly IRequestClient<GetMoneyMqCommand> _moneyClient;
+
         private readonly IMapper _mapper;
         public GetSelfAccountCommandHandler(IAccountInfoRepository rep,
             IUserIdGenRepository genRepository,
@@ -54,15 +55,18 @@ namespace Account.Domain.CommandHandlers
             var tAccount = _redis.GetAccountInfo(request.Id);
             var tMoney = _moneyClient.GetResponseExt<GetMoneyMqCommand, BodyResponse<MoneyMqResponse>>
                             (new GetMoneyMqCommand(request.Id));
-          
+       
             var tLevel = _bus.SendCommand(new GetLevelInfoCommand(request.Id));
             var tGame = _bus.SendCommand(new GetGameInfoCommand(request.Id));
-            var accountInfo = await tAccount;
-            var moneyInfores = await tMoney;
+            await Task.WhenAll(tAccount, tMoney, tLevel, tGame);
+
+            var accountInfo =  tAccount.Result;
+            var moneyInfores = tMoney.Result;
             var moneyInfo = new MoneyInfo(moneyInfores.Message.Body.CurCoins + moneyInfores.Message.Body.Carry, moneyInfores.Message.Body.CurDiamonds,
                 moneyInfores.Message.Body.MaxChips, moneyInfores.Message.Body.MaxDiamonds);
-            var levelInfo = await tLevel;
-            var gameInfo = await tGame;
+            var levelInfo = tLevel.Result.Body;
+            var gameInfo = tGame.Result.Body;
+        
             if (accountInfo == null || moneyInfo == null || levelInfo == null || gameInfo == null)
             {
                 return new BodyResponse<AccountDetail>(StatuCodeDefines.AccountError,
@@ -71,7 +75,7 @@ namespace Account.Domain.CommandHandlers
             BodyResponse<AccountDetail> response = new BodyResponse<AccountDetail>(StatuCodeDefines.Success,
                 null, new AccountDetail(accountInfo.Id, accountInfo.PlatformAccount,
                 accountInfo.UserName, accountInfo.Sex, accountInfo.HeadUrl,
-                accountInfo.Type, levelInfo.Body, gameInfo.Body, moneyInfo));
+                accountInfo.Type, levelInfo, gameInfo, moneyInfo));
             
             return response;
 

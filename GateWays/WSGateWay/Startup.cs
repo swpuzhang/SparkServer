@@ -29,7 +29,6 @@ namespace WSGateWay
         {
             services.AddSignalR();
             services.AddAutoMapperSetup();
-            services.RegisterSwaggerServices();
             services.AddServices(Configuration);
             ContainerBuilder builder = new ContainerBuilder();
             services.AddMassTransitServices(Configuration, builder);
@@ -41,13 +40,11 @@ namespace WSGateWay
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
 
-            app.ConfigSwaggerServices();
             app.ConfigServices(Configuration);
 
-            app.ConfigSwaggerServices();
             app.UseSignalR(routes =>
             {
-                routes.MapHub<AppHub>("/AppHub");
+                routes.MapHub<AppHub>("/App");
             });
 
         }

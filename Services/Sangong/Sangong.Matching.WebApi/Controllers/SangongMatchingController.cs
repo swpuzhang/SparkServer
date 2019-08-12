@@ -35,7 +35,8 @@ namespace Sangong.Matching.WebApi.Controllers
         [HttpGet]
         public async Task<BodyResponse<SangongMatchingResponseVM>> PlayNow([FromHeader]long id)
         {
-            return await OneThreadSynchronizationContext.UserRequest(id, _service.Playnow);
+            var response = await OneThreadSynchronizationContext.UserRequest(id, _service.Playnow);
+            return response;
         }
     }
 }

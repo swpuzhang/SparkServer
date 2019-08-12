@@ -87,6 +87,20 @@ namespace Commons.Domain.Models
         public string ReqData { get; private set; }
     }
 
+    public class ServerRequest1<T> where T : class
+    {
+        public ServerRequest1()
+        {
+        }
+
+        public ServerRequest1(T body)
+        {
+            this.body = body;
+        }
+
+        public T body {get; private set;}
+    }
+
     /// <summary>
     /// Server内部请求
     /// </summary>
@@ -229,18 +243,53 @@ namespace Commons.Domain.Models
         public string RoomId { get; private set; }
     }
 
+    public class ToAppResponse
+    {
+
+        [JsonConstructor]
+        public ToAppResponse(object data, StatuCodeDefines statusCode, List<string> errorInfos)
+        {
+            if (data == null)
+            {
+                Data = null;
+            }
+            else
+            {
+                Data = JsonConvert.SerializeObject(data);
+            }
+            StatusCode = statusCode;
+            ErrorInfos = errorInfos;
+        }
+
+        public ToAppResponse()
+        {
+            Data = null;
+            StatusCode = StatuCodeDefines.Success;
+            ErrorInfos = null;
+        }
+
+        /// <summary>
+        /// 消息数据
+        /// </summary>
+        public string Data { get; private set; }
+
+        public StatuCodeDefines StatusCode { get; private set; }
+
+        public List<string> ErrorInfos { get; private set; }
+    }
+
     /// <summary>
     /// response
     /// </summary>
-    public class CommonResponse
+    public class ToServerResponse
     {
-        public CommonResponse()
+        public ToServerResponse()
         {
 
         }
 
         [JsonConstructor]
-        public CommonResponse(object data, Guid gid, StatuCodeDefines statusCode, List<string> errorInfos)
+        public ToServerResponse(object data, Guid gid, StatuCodeDefines statusCode, List<string> errorInfos)
         {
             if (data == null)
             {
@@ -256,7 +305,7 @@ namespace Commons.Domain.Models
             ErrorInfos = errorInfos;
         }
 
-        public CommonResponse(Guid gid)
+        public ToServerResponse(Guid gid)
         {
             Data = null;
             MessageId = gid;

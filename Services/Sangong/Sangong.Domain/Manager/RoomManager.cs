@@ -116,11 +116,12 @@ namespace Sangong.Domain.Manager
             _roomListConfigRepository = roomListConfigRepository;
         }
 
-        public void LoadRoomListConfig()
+        public  void LoadRoomListConfig()
         {
-            var roomList = _roomListConfigRepository.LoadConfig();
+            var roomList =  _roomListConfigRepository.LoadConfig();
             foreach (var one in roomList)
             {
+               
                 _roomConfig.Add(one.Blind, one);
             }
         }
@@ -209,6 +210,10 @@ namespace Sangong.Domain.Manager
             if (group != MatchingManager.matchingGroup)
             {
                 return;
+            }
+            if (syncInfo == null)
+            {
+                syncInfo = new List<SyncRoomInfo>();
             }
             OneRoomGroup oneGroup = null;
             if (!_roomGroups.TryGetValue(gameKey, out oneGroup))

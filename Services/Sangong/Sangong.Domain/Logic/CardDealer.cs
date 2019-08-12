@@ -35,7 +35,7 @@ namespace Sangong.Domain.Logic
         public static int CardsCount  = 52;
         public static int UserCardsCount = 2;
 
-        public static List<PokerCard> _cards;
+        public static List<PokerCard> _cards = new List<PokerCard>();
 
         static CardDealer()
         {

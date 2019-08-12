@@ -27,6 +27,7 @@ namespace Sangong.Matching.WebApi.MqConsumers
         }
     }
 
+
     public class JoinGameRoomConsumer :
         OneThreadConsumer<JoinGameRoomMqEvent>
     {

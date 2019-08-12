@@ -48,6 +48,13 @@ namespace WSGateWay.Hubs
             _userConnManager.OnDisconnected(Context.ConnectionId);
         }
 
+        public ToAppResponse TestRequest(string test)
+        {
+            long uid = _userConnManager.GetUidByConn(Context.ConnectionId);
+           
+            return new ToAppResponse(null, StatuCodeDefines.Success, null);
+        }
+
         public BodyResponse<NullBody> LoginRequest(LoginRequest request)
         {
             //验证token是否有效

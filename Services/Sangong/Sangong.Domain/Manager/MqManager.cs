@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Commons.Domain.Models;
 using Sangong.MqCommands;
 using Sangong.MqEvents;
+using Serilog;
 
 namespace Commons.Domain.Managers
 {
@@ -21,15 +22,17 @@ namespace Commons.Domain.Managers
         public readonly IRequestClient<GetMoneyMqCommand> _moneyClient;
         public readonly IRequestClient<BuyInMqCommand> _buyInClient;
         private readonly IRequestClient<UserApplySitMqCommand> _sitClient;
-        public MqManager(IBusControl bus, 
-            IRequestClient<GetAccountInfoMqCommand> accountClient, 
+        public MqManager(IBusControl bus,
+            IRequestClient<GetAccountInfoMqCommand> accountClient,
             IRequestClient<GetMoneyMqCommand> moneyClient,
-            IRequestClient<UserApplySitMqCommand> sitClient)
+            IRequestClient<UserApplySitMqCommand> sitClient, 
+            IRequestClient<BuyInMqCommand> buyInClient)
         {
             _bus = bus;
             _accountClient = accountClient;
             _moneyClient = moneyClient;
             _sitClient = sitClient;
+            _buyInClient = buyInClient;
             //accountUrl = configuration.GetSection("Rabbitmq")["Account"];
             //moneyUrl = configuration.GetSection("Rabbitmq")["Money"];
         }
@@ -55,11 +58,12 @@ namespace Commons.Domain.Managers
         {
             try
             {
-                var response = await _accountClient.GetResponseExt<GetAccountInfoMqCommand, GetAccountInfoMqResponse>(new GetAccountInfoMqCommand(id));
-                return response.Message;
+                var response = await _accountClient.GetResponseExt<GetAccountInfoMqCommand, BodyResponse<GetAccountInfoMqResponse>>(new GetAccountInfoMqCommand(id));
+                return response.Message.Body;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Log.Error($"user {id} GetMoneyInfo failed: {ex}");
                 return null;
             }
             
@@ -72,8 +76,9 @@ namespace Commons.Domain.Managers
                 var response = await _moneyClient.GetResponseExt<GetMoneyMqCommand, BodyResponse<MoneyMqResponse>>(new GetMoneyMqCommand(id));
                 return response.Message.Body;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Log.Error($"user {id} GetMoneyInfo failed: {ex}");
                 return null;
             }
 
@@ -87,8 +92,9 @@ namespace Commons.Domain.Managers
                     new BuyInMqCommand(id, min, max));
                 return response.Message.Body;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Log.Error($"user {id} BuyIn failed: {ex}");
                 return null;
             }
 

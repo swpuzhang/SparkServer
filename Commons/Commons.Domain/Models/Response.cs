@@ -7,41 +7,32 @@ using System.Text;
 
 namespace Commons.Domain.Models
 {
-    public class BaseResponse
+    public  class NullBody
     {
-        public BaseResponse()
-        {
-        }
 
-        [JsonConstructor]
-        public BaseResponse(StatuCodeDefines statusCode, List<string> errorInfos)
-        {
-            StatusCode = statusCode;
-            ErrorInfos = errorInfos;
-        }
-
-        public StatuCodeDefines StatusCode { get; private set; }
-        public List<string> ErrorInfos { get; private set; }
     }
 
-    public class BodyResponse<T> : BaseResponse
+    public class BodyResponse<T> where T :class
     {
         public BodyResponse()
         {
 
         }
-        public BodyResponse(StatuCodeDefines statusCode, List<string> errorInfos, T body) :
-            base(statusCode, errorInfos)
+        [JsonConstructor]
+        public BodyResponse(StatuCodeDefines statusCode, List<string> errorInfos, T body = null)
         {
+            StatusCode = statusCode;
+            ErrorInfos = errorInfos;
             Body = body;
         }
 
-        public BodyResponse<u>  MapResponse<u>(IMapper mapper)
+        public BodyResponse<V>  MapResponse<V>(IMapper mapper) where V : class
         {
-            return new BodyResponse<u>(StatusCode, ErrorInfos, mapper.Map<u>(Body));
+            return new BodyResponse<V>(StatusCode, ErrorInfos, mapper.Map<V>(Body));
         }
 
-
+        public StatuCodeDefines StatusCode { get; private set; }
+        public List<string> ErrorInfos { get; private set; }
         public T Body { get; set; }
     }
 }

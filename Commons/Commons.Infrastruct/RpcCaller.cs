@@ -13,12 +13,12 @@ namespace Commons.Infrastruct
 {
     public class RpcCaller<THub> : IRpcCaller<THub> where THub : Hub
     {
-       // private readonly ConcurrentDictionary<Guid, KeyValuePair<TaskCompletionSource<BaseResponse>, Timer>> _pendingMethodCalls = 
-        //    new ConcurrentDictionary<Guid, KeyValuePair<TaskCompletionSource<BaseResponse>, Timer>>();
+       // private readonly ConcurrentDictionary<Guid, KeyValuePair<TaskCompletionSource<BodyResponse<NullBody>>, Timer>> _pendingMethodCalls = 
+        //    new ConcurrentDictionary<Guid, KeyValuePair<TaskCompletionSource<BodyResponse<NullBody>>, Timer>>();
 
         private readonly ConcurrentDictionary
-            <Guid,KeyValuePair<TaskCompletionSource<BaseResponse>,CancellationTokenSource>> _Calls =
-            new ConcurrentDictionary<Guid, KeyValuePair<TaskCompletionSource<BaseResponse>, CancellationTokenSource>>();
+            <Guid,KeyValuePair<TaskCompletionSource<BodyResponse<NullBody>>,CancellationTokenSource>> _Calls =
+            new ConcurrentDictionary<Guid, KeyValuePair<TaskCompletionSource<BodyResponse<NullBody>>, CancellationTokenSource>>();
 
 
         private readonly IHubContext<THub> _hubContext;
@@ -34,12 +34,12 @@ namespace Commons.Infrastruct
             /*if (_pendingMethodCalls.TryRemove(id, out var value))
             {
                 value.Value.Dispose();
-                value.Key.TrySetResult(new BaseResponse(StatuCodeDefines.Success, null));
+                value.Key.TrySetResult(new BodyResponse<NullBody>(StatuCodeDefines.Success, null));
             }*/
 
             if (_Calls.TryRemove(id, out var value))
             {
-                value.Key.TrySetResult(new BaseResponse(StatuCodeDefines.Success, null));
+                value.Key.TrySetResult(new BodyResponse<NullBody>(StatuCodeDefines.Success, null));
                 value.Value.Dispose();
             }
 
@@ -51,18 +51,18 @@ namespace Commons.Infrastruct
             if (_pendingMethodCalls.TryRemove(id, out var value))
             {
                 value.Value.Dispose();
-                value.Key.TrySetResult(new BaseResponse(StatuCodeDefines.Timeout, new List<string>() { "timeout" }));
+                value.Key.TrySetResult(new BodyResponse<NullBody>(StatuCodeDefines.Timeout, new List<string>() { "timeout" }));
             }
         }*/
 
-        /*public async Task<BaseResponse> RequestCallAsync(string conn, string method, 
+        /*public async Task<BodyResponse<NullBody>> RequestCallAsync(string conn, string method, 
             string reqData, Guid id, int waitMiliSeconds = 5000)
         {
    
-            TaskCompletionSource<BaseResponse> methodCallCompletionSource = new TaskCompletionSource<BaseResponse>();
+            TaskCompletionSource<BodyResponse<NullBody>> methodCallCompletionSource = new TaskCompletionSource<BodyResponse<NullBody>>();
             var timer = new Timer(OnTimeOut, id, waitMiliSeconds,Timeout.Infinite);
             
-            if (_pendingMethodCalls.TryAdd(id, new KeyValuePair<TaskCompletionSource<BaseResponse>, Timer>(methodCallCompletionSource, timer)))
+            if (_pendingMethodCalls.TryAdd(id, new KeyValuePair<TaskCompletionSource<BodyResponse<NullBody>>, Timer>(methodCallCompletionSource, timer)))
             {
                 try
                 {
@@ -75,22 +75,22 @@ namespace Commons.Infrastruct
                     {
                         value.Value.Dispose();
                     }
-                    return new BaseResponse(StatuCodeDefines.AppIsDisconnected, new List<string>() { ex.Message });
+                    return new BodyResponse<NullBody>(StatuCodeDefines.AppIsDisconnected, new List<string>() { ex.Message });
                 }
                 
                 return await methodCallCompletionSource.Task;
             }
             timer.Dispose();
-            return new BaseResponse(StatuCodeDefines.GuidError, new List<string>() { StatuCodeDefines.GuidError.ToString() });
+            return new BodyResponse<NullBody>(StatuCodeDefines.GuidError, new List<string>() { StatuCodeDefines.GuidError.ToString() });
         }*/
 
-        public async Task<BaseResponse> RequestCallAsync(string conn, string method,
+        public async Task<BodyResponse<NullBody>> RequestCallAsync(string conn, string method,
             string reqData, Guid id, int waitMiliSeconds = 5000)
         {
 
-            TaskCompletionSource<BaseResponse> methodCallCompletionSource = new TaskCompletionSource<BaseResponse>();
+            TaskCompletionSource<BodyResponse<NullBody>> methodCallCompletionSource = new TaskCompletionSource<BodyResponse<NullBody>>();
             CancellationTokenSource token = new CancellationTokenSource(waitMiliSeconds);
-            if (_Calls.TryAdd(id, new KeyValuePair<TaskCompletionSource<BaseResponse>,
+            if (_Calls.TryAdd(id, new KeyValuePair<TaskCompletionSource<BodyResponse<NullBody>>,
                 CancellationTokenSource>(methodCallCompletionSource, token)))
             {
                 try
@@ -100,7 +100,7 @@ namespace Commons.Infrastruct
                         {
                             if (_Calls.TryRemove(id, out var value))
                             {
-                                value.Key.TrySetResult(new BaseResponse(StatuCodeDefines.Timeout, new List<string>() { "timeout" }));
+                                value.Key.TrySetResult(new BodyResponse<NullBody>(StatuCodeDefines.Timeout, new List<string>() { "timeout" }));
                                 value.Value.Dispose();
                             }
                         }
@@ -117,7 +117,7 @@ namespace Commons.Infrastruct
                     {
                         value.Value.Dispose();
                     }
-                    return new BaseResponse(StatuCodeDefines.AppIsDisconnected, new List<string>() { ex.Message });
+                    return new BodyResponse<NullBody>(StatuCodeDefines.AppIsDisconnected, new List<string>() { ex.Message });
                 }
                
             }
@@ -125,7 +125,7 @@ namespace Commons.Infrastruct
             else
             {
                 token.Dispose();
-                return new BaseResponse(StatuCodeDefines.GuidError, new List<string>() { StatuCodeDefines.GuidError.ToString() });
+                return new BodyResponse<NullBody>(StatuCodeDefines.GuidError, new List<string>() { StatuCodeDefines.GuidError.ToString() });
             }
             
         }
@@ -143,7 +143,7 @@ namespace Commons.Infrastruct
                     if (_Calls.TryRemove(id, out var value))
                     {
                         
-                        value.Key.TrySetResult(new BaseResponse(StatuCodeDefines.AppIsDisconnected, new List<string>() { ex.Message }));
+                        value.Key.TrySetResult(new BodyResponse<NullBody>(StatuCodeDefines.AppIsDisconnected, new List<string>() { ex.Message }));
                         value.Value.Dispose();
 
                     }

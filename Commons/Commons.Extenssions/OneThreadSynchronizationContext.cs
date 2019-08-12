@@ -14,8 +14,16 @@ namespace Commons.Extenssions
         {
             TaskCompletionSource<TResponse> methodCallCompletionSource = new TaskCompletionSource<TResponse>();
             OneThreadSynchronizationContext.Instance.Post(async x => {
+                try
+                {
+                    methodCallCompletionSource.SetResult(await ConsumerHandler(context.Message));
+                }
+                catch (Exception ex)
+                {
+                    methodCallCompletionSource.SetException(ex);
+                }
 
-                methodCallCompletionSource.SetResult(await ConsumerHandler(context.Message));
+                
             }, null);
             var response = await methodCallCompletionSource.Task;
             await context.RespondAsync<TResponse>(response);
@@ -29,8 +37,16 @@ namespace Commons.Extenssions
         {
             TaskCompletionSource<int> methodCallCompletionSource = new TaskCompletionSource<int>();
             OneThreadSynchronizationContext.Instance.Post(x => {
-                ConsumerHandler(context.Message);
-                methodCallCompletionSource.SetResult(0);
+                try
+                {
+                    ConsumerHandler(context.Message);
+                    methodCallCompletionSource.SetResult(0);
+                }
+                catch(Exception ex)
+                {
+                    methodCallCompletionSource.SetException(ex);
+                }
+              
             }, null);
             await methodCallCompletionSource.Task;
         }
@@ -51,8 +67,17 @@ namespace Commons.Extenssions
         {
             TaskCompletionSource<TResponse> methodCallCompletionSource = new TaskCompletionSource<TResponse>();
             OneThreadSynchronizationContext.Instance.Post(async x => {
-
-                methodCallCompletionSource.SetResult(await fuc(id));
+                try
+                {
+                    var innnerresponse = await fuc(id);
+                    methodCallCompletionSource.SetResult(innnerresponse);
+                }
+                catch (Exception ex)
+                {
+                    methodCallCompletionSource.TrySetException(ex);
+                }
+                
+               
             }, null);
             var response = await methodCallCompletionSource.Task;
             return response;

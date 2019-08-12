@@ -28,8 +28,6 @@ namespace Sangong.Game.WebApi.Extenssions
             services.AddScoped<ISangongGameService, SangongGameService>();
             
             //存储
-            services.AddScoped<ISangongInfoRepository, SangongInfoRepository>();
-            services.AddScoped<SangongContext>();
 
             //命令
             services.AddScoped<IMediatorHandler, InProcessBus>();

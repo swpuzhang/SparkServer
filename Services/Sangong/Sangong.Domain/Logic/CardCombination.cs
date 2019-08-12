@@ -55,7 +55,7 @@ namespace Sangong.Domain.Logic
         public int CompareTo(CardCombination other)
         {
             int comType = (int)ComType;
-            int ret = comType.CompareTo(other.ComType);
+            int ret = comType.CompareTo((int)other.ComType);
             if (ret != 0)
             {
                 return ret;

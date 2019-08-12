@@ -37,16 +37,16 @@ namespace Sangong.Domain.Manager
             matchingGroup = config["MatchingGroup"];
         }
 
-        public void LoadCoinsRangeConfig()
+        public void  LoadCoinsRangeConfig()
         {
-            _coinsRangeCfg = _configRespository.LoadCoinsRangeConfig();
+             _coinsRangeCfg = _configRespository.LoadCoinsRangeConfig();
         }
 
         public long GetBlindFromCoins(long coins)
         {
             foreach (var oneCfg in _coinsRangeCfg)
             {
-                if (coins >= oneCfg.CoinsBegin && coins < oneCfg.CoinsEnd)
+                if (coins >= oneCfg.CoinsBegin && coins < (oneCfg.CoinsEnd == -1 ? long.MaxValue : oneCfg.CoinsEnd))
                 {
                     return oneCfg.Blind;
                 }
@@ -81,11 +81,7 @@ namespace Sangong.Domain.Manager
                     BodyResponse<JoinGameRoomMqResponse> roomResponse = 
                         await _roomManager.SendToGameRoom<JoinGameRoomMqCommand, BodyResponse<JoinGameRoomMqResponse>>
                         (roomInfo.GameKey, new JoinGameRoomMqCommand(id, roomInfo.RoomId, roomInfo.GameKey));
-
-                    RoomInfo newRoomInfo = new RoomInfo(roomResponse.Body.RoomId, roomResponse.Body.UserCount, roomResponse.Body.GameKey, roomResponse.Body.Blind);
-
-                    _roomManager.UpdateRoom(newRoomInfo);
-
+                    
                     if (roomResponse.StatusCode == StatuCodeDefines.Success)
                     {
                         _ = _redis.SetUserRoomInfo(new UserRoomInfo(id, roomInfo.RoomId, roomInfo.GameKey, blind, MatchingStatus.Success));
@@ -94,6 +90,13 @@ namespace Sangong.Domain.Manager
                     }
                     else
                     {
+                        if (roomResponse.Body != null)
+                        {
+                            RoomInfo newRoomInfo = new RoomInfo(roomResponse.Body.RoomId, roomResponse.Body.UserCount, 
+                                roomResponse.Body.GameKey, roomResponse.Body.Blind);
+                            _roomManager.UpdateRoom(newRoomInfo);
+                        }
+                        
                         _ = _redis.DeleteUserRoomInfo(id);
                         return new BodyResponse<SangongMatchingResponseInfo>(roomResponse.StatusCode, roomResponse.ErrorInfos, null);
                     }

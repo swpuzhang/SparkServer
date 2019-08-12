@@ -66,7 +66,7 @@ namespace Sangong.Domain.Logic
             _secondDealer = -1;
             _maxAdd = 0;
             _coinsPool.Clean();
-            _bottomCards.Clear();
+            _bottomCards = null;
             foreach (var seat in _seats)
             {
                 seat.Clean();
@@ -131,7 +131,7 @@ namespace Sangong.Domain.Logic
                 }
                 foreach (var player in willLeavePlayer)
                 {
-                    PlayerLeave(player);
+                    //PlayerLeave(player);
                 }
             }, null);
         }
@@ -140,6 +140,7 @@ namespace Sangong.Domain.Logic
             if (lastWinSeat == -1 || !_seats[lastWinSeat].IsSeated())
             {
                 _dealerSeatIndex = _seats.Where(x => x.IsSeated()).First().SeatNum;
+                return;
             }
             _dealerSeatIndex = lastWinSeat;
         }
@@ -236,7 +237,7 @@ namespace Sangong.Domain.Logic
             var accountInfo = _mqManager.GetAccountInfo(id);
             var moneyInfo = _mqManager.BuyIn(id, MinCarry, MaxCarry);
             await Task.WhenAll(accountInfo, moneyInfo);
-            if (moneyInfo == null)
+            if (moneyInfo.Result == null)
             {
                 return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Error, new List<string>() { "make player error " }, null);
             }
@@ -244,7 +245,7 @@ namespace Sangong.Domain.Logic
             //已经在房间直接返回成功
             if (player != null)
             {
-                if (accountInfo == null)
+                if (accountInfo.Result == null)
                 {
                     player.UpdateInfo(id, "", "", 0, "", moneyInfo.Result.CurCoins, 
                         moneyInfo.Result.CurDiamonds, moneyInfo.Result.Carry);
@@ -274,7 +275,8 @@ namespace Sangong.Domain.Logic
                 if (seat == null)
                 {
                     _playerInfos.Remove(id);
-                    return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Error, new List<string>() { "room is full " }, null);
+                    return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Error, new List<string>() { "room is full " }, 
+                        new JoinGameRoomMqResponse(id, RoomId, GameRoomManager.gameKey, SeatCount, Blind));
                 }
                 player.Seat(seat);
                 BroadCastMessage(new PlayerSeatedEvent(player.Id, player.UserName,
@@ -535,7 +537,7 @@ namespace Sangong.Domain.Logic
                 var seat = _seats[ActiveSeatNum];
                 ActiveEvent actEvent = new ActiveEvent(ActiveSeatNum, FollowCoins(seat));
                 BroadCastMessage(actEvent, "ActiveEvent");
-                _statusInfo.WaitForNexStatus(OnPlayerOpt, GameStatus.FirstRound, GameTimerConfig.BetChips);
+                _statusInfo.WaitForNexStatus(OnPlayerOpt, isFirstRound?GameStatus.FirstRound : GameStatus.SecondRound, GameTimerConfig.BetChips);
             }
         }
 
@@ -630,7 +632,7 @@ namespace Sangong.Domain.Logic
         public void GameAccount()
         {
             _coinsPool.SecondEndPool();
-            GameOverEvent gameOverEvent = GameAccounter.Caculate(_seats, _coinsPool.GetUserPools());
+            GameOverEvent gameOverEvent = GameAccounter.Caculate(_seats, _coinsPool.GetUserPools(), out lastWinSeat);
             BroadCastMessage(gameOverEvent, "GameOverEvent");
 
             foreach (var seat in _seats)
