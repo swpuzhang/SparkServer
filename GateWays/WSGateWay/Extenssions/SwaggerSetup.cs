@@ -1,5 +1,6 @@
 ﻿using Commons.Extenssions;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -23,7 +24,16 @@ namespace WSGateWay.Extenssions
                 c.OperationFilter<HttpHeaderFilter>();
                 c.DescribeAllEnumsAsStrings();
 
-                var basePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../SwaggerInterface");
+                string basePath;
+                var env = services.BuildServiceProvider().GetService<IHostingEnvironment>();
+                if (env.IsDevelopment())
+                {
+                    basePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../SwaggerInterface");
+                }
+                else
+                {
+                    basePath = Path.Combine(Directory.GetCurrentDirectory(), "~/work/SwaggerInterface");
+                }
                 var xmlPath = Path.Combine(basePath, Assembly.GetExecutingAssembly().GetName().Name + ".xml");
                 var viewModelXmlPath = Path.Combine(basePath, $"{Startup.ServiceName}.Application.xml");
                 c.IncludeXmlComments(xmlPath);
