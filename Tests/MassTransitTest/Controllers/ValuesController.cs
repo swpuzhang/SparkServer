@@ -7,6 +7,7 @@ using MassTransit;
 using TestMessage;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Commons.Domain.Models;
 
 namespace MassTransitTest.Controllers
 {
@@ -36,8 +37,10 @@ namespace MassTransitTest.Controllers
             Console.WriteLine(Id);
             try
             {
-                _bus.Publish<DoSomething>(new { Value = "hello world" });
-                _bus.Publish<DoMessage>(new { Value = "hello world" });
+                _bus.Publish<ServerRequest1<DoSomething>>(new ServerRequest1<DoSomething>(new DoSomething() { Value = "DoSomething" }));
+                _bus.Publish<ServerRequest1<DoMessage>>(new ServerRequest1<DoMessage>(new DoMessage() { Value = "DoMessage" }));
+                //_bus.Publish<DoSomething>(new { Value = "hello world" });
+                //_bus.Publish<DoMessage>(new { Value = "hello world" });
                 //await _bus.Publish<DoSomething>(new { Value = "hello world" });
                 //var client = _bus.CreateRequestClient<DoSomething>(new Uri("rabbitmq://localhost/Test3/MassTestQueue"));
 

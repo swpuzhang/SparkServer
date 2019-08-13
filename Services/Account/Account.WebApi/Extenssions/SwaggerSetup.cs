@@ -1,5 +1,6 @@
 ﻿using Commons.Extenssions;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -24,8 +25,16 @@ namespace Account.WebApi.Extenssions
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
                 c.OperationFilter<HttpHeaderFilter>();
                 c.DescribeAllEnumsAsStrings();
-            
-                var basePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../SwaggerInterface");
+                string  basePath;
+                var env = services.BuildServiceProvider().GetService<IHostingEnvironment>();
+                if (env.IsDevelopment())
+                {
+                    basePath  = Path.Combine(Directory.GetCurrentDirectory(), "../../../SwaggerInterface");
+                }
+                else
+                {
+                    basePath = Path.Combine(Directory.GetCurrentDirectory(), "~/work/SwaggerInterface");
+                }
                 var files = Directory.GetFiles(basePath, "*.xml");
                 foreach (var oneFile in files)
                 {

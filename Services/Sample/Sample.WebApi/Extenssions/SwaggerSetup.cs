@@ -24,8 +24,17 @@ namespace Sample.WebApi.Extenssions
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
                 c.OperationFilter<HttpHeaderFilter>();
                 c.DescribeAllEnumsAsStrings();
-                
-                var basePath = Directory.GetCurrentDirectory();
+
+                string basePath;
+                var env = services.BuildServiceProvider().GetService<IHostingEnvironment>();
+                if (env.IsDevelopment())
+                {
+                    basePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../SwaggerInterface");
+                }
+                else
+                {
+                    basePath = Path.Combine(Directory.GetCurrentDirectory(), "~/work/SwaggerInterface");
+                }
                 var xmlPath = Path.Combine(basePath, Assembly.GetExecutingAssembly().GetName().Name + ".xml");
                 var viewModelXmlPath = Path.Combine(basePath, $"{Startup.ServiceName}.Application.xml");
                 c.IncludeXmlComments(xmlPath);

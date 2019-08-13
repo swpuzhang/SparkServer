@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TestMessage;
 using Microsoft.Extensions.DependencyInjection;
+using Commons.Domain.Models;
 
 namespace MassTransitTest
 {
@@ -45,5 +46,15 @@ namespace MassTransitTest
         }
     }
 
-    
+    public class ServerRequestConsumer<T> :
+        IConsumer<ServerRequest1<T>> where T : class
+    {
+
+        public Task Consume(ConsumeContext<ServerRequest1<T>> context)
+        {
+            Console.WriteLine("ServerRequest1 comsumer");
+            return Task.CompletedTask;
+        }
+    }
+
 }
