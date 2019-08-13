@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\document\\mycode\\project\\Spark\\Tests\\JsonTest\\JsonTest.csproj": {}
+    "D:\\document\\code\\project\\Spark\\Tests\\JsonTest\\JsonTest.csproj": {}
   },
   "projects": {
-    "E:\\document\\mycode\\project\\Spark\\Tests\\JsonTest\\JsonTest.csproj": {
+    "D:\\document\\code\\project\\Spark\\Tests\\JsonTest\\JsonTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Tests\\JsonTest\\JsonTest.csproj",
+        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Tests\\JsonTest\\JsonTest.csproj",
         "projectName": "JsonTest",
-        "projectPath": "E:\\document\\mycode\\project\\Spark\\Tests\\JsonTest\\JsonTest.csproj",
+        "projectPath": "D:\\document\\code\\project\\Spark\\Tests\\JsonTest\\JsonTest.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\document\\mycode\\project\\Spark\\Tests\\JsonTest\\obj\\",
+        "outputPath": "D:\\document\\code\\project\\Spark\\Tests\\JsonTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "E:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [

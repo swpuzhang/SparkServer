@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\document\\mycode\\project\\Spark\\Tests\\StackExchangeRedisTest\\StackExchangeRedisTest.csproj": {}
+    "D:\\document\\code\\project\\Spark\\Tests\\StackExchangeRedisTest\\StackExchangeRedisTest.csproj": {}
   },
   "projects": {
-    "E:\\document\\mycode\\project\\Spark\\Tests\\StackExchangeRedisTest\\StackExchangeRedisTest.csproj": {
+    "D:\\document\\code\\project\\Spark\\Tests\\StackExchangeRedisTest\\StackExchangeRedisTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Tests\\StackExchangeRedisTest\\StackExchangeRedisTest.csproj",
+        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Tests\\StackExchangeRedisTest\\StackExchangeRedisTest.csproj",
         "projectName": "StackExchangeRedisTest",
-        "projectPath": "E:\\document\\mycode\\project\\Spark\\Tests\\StackExchangeRedisTest\\StackExchangeRedisTest.csproj",
+        "projectPath": "D:\\document\\code\\project\\Spark\\Tests\\StackExchangeRedisTest\\StackExchangeRedisTest.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\document\\mycode\\project\\Spark\\Tests\\StackExchangeRedisTest\\obj\\",
+        "outputPath": "D:\\document\\code\\project\\Spark\\Tests\\StackExchangeRedisTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "E:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [

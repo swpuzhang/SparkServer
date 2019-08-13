@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\document\\mycode\\project\\Spark\\Tests\\SynchronizationContextTest\\SynchronizationContextTest.csproj": {}
+    "D:\\document\\code\\project\\Spark\\Tests\\SynchronizationContextTest\\SynchronizationContextTest.csproj": {}
   },
   "projects": {
-    "E:\\document\\mycode\\project\\Spark\\Tests\\SynchronizationContextTest\\SynchronizationContextTest.csproj": {
+    "D:\\document\\code\\project\\Spark\\Tests\\SynchronizationContextTest\\SynchronizationContextTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Tests\\SynchronizationContextTest\\SynchronizationContextTest.csproj",
+        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Tests\\SynchronizationContextTest\\SynchronizationContextTest.csproj",
         "projectName": "SynchronizationContextTest",
-        "projectPath": "E:\\document\\mycode\\project\\Spark\\Tests\\SynchronizationContextTest\\SynchronizationContextTest.csproj",
+        "projectPath": "D:\\document\\code\\project\\Spark\\Tests\\SynchronizationContextTest\\SynchronizationContextTest.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\document\\mycode\\project\\Spark\\Tests\\SynchronizationContextTest\\obj\\",
+        "outputPath": "D:\\document\\code\\project\\Spark\\Tests\\SynchronizationContextTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "E:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [

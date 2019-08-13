@@ -687,20 +687,20 @@
   },
   "packageFolders": {
     "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "E:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Tests\\TaskTest\\TaskTest.csproj",
+      "projectUniqueName": "D:\\document\\code\\project\\Spark\\Tests\\TaskTest\\TaskTest.csproj",
       "projectName": "TaskTest",
-      "projectPath": "E:\\document\\mycode\\project\\Spark\\Tests\\TaskTest\\TaskTest.csproj",
+      "projectPath": "D:\\document\\code\\project\\Spark\\Tests\\TaskTest\\TaskTest.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\document\\mycode\\project\\Spark\\Tests\\TaskTest\\obj\\",
+      "outputPath": "D:\\document\\code\\project\\Spark\\Tests\\TaskTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "E:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [

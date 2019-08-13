@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\document\\mycode\\project\\Spark\\Tests\\RabbitMqTestSender\\RabbitMqTestSender.csproj": {}
+    "D:\\document\\code\\project\\Spark\\Tests\\RabbitMqTestSender\\RabbitMqTestSender.csproj": {}
   },
   "projects": {
-    "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj": {
+    "D:\\document\\code\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj",
+        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj",
         "projectName": "Message",
-        "projectPath": "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj",
+        "projectPath": "D:\\document\\code\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\obj\\",
+        "outputPath": "D:\\document\\code\\project\\Spark\\Tests\\MassTransitMessage\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "E:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
@@ -58,17 +58,17 @@
         }
       }
     },
-    "E:\\document\\mycode\\project\\Spark\\Tests\\RabbitMqTestSender\\RabbitMqTestSender.csproj": {
+    "D:\\document\\code\\project\\Spark\\Tests\\RabbitMqTestSender\\RabbitMqTestSender.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\document\\mycode\\project\\Spark\\Tests\\RabbitMqTestSender\\RabbitMqTestSender.csproj",
+        "projectUniqueName": "D:\\document\\code\\project\\Spark\\Tests\\RabbitMqTestSender\\RabbitMqTestSender.csproj",
         "projectName": "RabbitMqTestSender",
-        "projectPath": "E:\\document\\mycode\\project\\Spark\\Tests\\RabbitMqTestSender\\RabbitMqTestSender.csproj",
+        "projectPath": "D:\\document\\code\\project\\Spark\\Tests\\RabbitMqTestSender\\RabbitMqTestSender.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\document\\mycode\\project\\Spark\\Tests\\RabbitMqTestSender\\obj\\",
+        "outputPath": "D:\\document\\code\\project\\Spark\\Tests\\RabbitMqTestSender\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "E:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
@@ -86,8 +86,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj": {
-                "projectPath": "E:\\document\\mycode\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj"
+              "D:\\document\\code\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj": {
+                "projectPath": "D:\\document\\code\\project\\Spark\\Tests\\MassTransitMessage\\Message.csproj"
               }
             }
           }
