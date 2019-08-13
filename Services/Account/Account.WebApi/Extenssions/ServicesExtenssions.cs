@@ -13,6 +13,7 @@ using Commons.Extenssions;
 using Commons.Infrastruct;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,7 +22,8 @@ namespace Account.WebApi.Extenssions
 {
     public static class ServicesExtenssions
     {
-        public static void AddServices(this IServiceCollection services, IConfiguration configuration)
+        public static void AddServices(this IServiceCollection services,
+            IConfiguration configuration)
         {
 
             //服务

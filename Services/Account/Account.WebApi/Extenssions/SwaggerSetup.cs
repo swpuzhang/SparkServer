@@ -24,7 +24,7 @@ namespace Account.WebApi.Extenssions
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
                 c.OperationFilter<HttpHeaderFilter>();
                 c.DescribeAllEnumsAsStrings();
-
+            
                 var basePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../SwaggerInterface");
                 var files = Directory.GetFiles(basePath, "*.xml");
                 foreach (var oneFile in files)
