@@ -1,0 +1,1 @@
+dotnet ApiGateWay.dll --urls="http://*:5000"

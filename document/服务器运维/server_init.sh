@@ -10,6 +10,9 @@ mkdir /ebs_server/rabbitmq/
 mkdir /ebs_server/rabbitmq/mnesia
 mkdir /ebs_server/rabbitmq/log
 chmod 777  /ebs_server -R
+chown mongodb:mongodb /ebs_server/mongodb -R
+chown rabbitmq:rabbitmq /ebs_server/rabbitmq -R
+
 apt-get update
 apt-get install make
 apt-get install gcc
