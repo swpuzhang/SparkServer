@@ -16,7 +16,6 @@ namespace WSGateWay
     {
         public static readonly string Namespace = typeof(Startup).Namespace;
         public static readonly string ServiceName = Namespace.Substring(0, Namespace.IndexOf("."));
-        public static string mqConnectionStr = null;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;

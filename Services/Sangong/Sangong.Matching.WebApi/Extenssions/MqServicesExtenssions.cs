@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Sangong.Matching.WebApi.Extenssions;
 using Sangong.MqCommands;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace Sangong.Matching.WebApi.Extenssions
             ContainerBuilder builder)
         {
             services.AddSingleton<IHostedService, HostedService>();
+           
             builder.AddMassTransit(x =>
             {
                 var rabbitCfg = Configuration.GetSection("Rabbitmq");
@@ -31,8 +33,10 @@ namespace Sangong.Matching.WebApi.Extenssions
                 x.AddBus(context => Bus.Factory.CreateUsingRabbitMq(cfg =>
                 {
                     cfg.UseSerilog();
-                   
-                    var host = cfg.Host(rabbitCfg["Host"], rabbitCfg["Vhost"], h =>
+
+                    Log.Information($"rabbitCfg host:{rabbitCfg["Uri"]}");
+
+                    var host = cfg.Host(new Uri(rabbitCfg["Uri"]), h =>
                     {
                         h.Username(rabbitCfg["UserName"]);
                         h.Password(rabbitCfg["Passwd"]);
@@ -53,7 +57,7 @@ namespace Sangong.Matching.WebApi.Extenssions
 
                 }));
 
-                x.AddRequestClient<GetMoneyMqCommand>(new Uri(rabbitCfg["Money"]));
+                x.AddRequestClient<GetMoneyMqCommand>(new Uri($"{rabbitCfg["Uri"]}Money"));
             });
         }
 

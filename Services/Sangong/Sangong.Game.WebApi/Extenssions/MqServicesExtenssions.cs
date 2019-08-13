@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Sangong.Game.WebApi.Extenssions;
 using Sangong.MqCommands;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,8 +32,10 @@ namespace Sangong.Game.WebApi.Extenssions
                 x.AddBus(context => Bus.Factory.CreateUsingRabbitMq(cfg =>
                 {
                     cfg.UseSerilog();
-                   
-                    var host = cfg.Host(rabbitCfg["Host"], rabbitCfg["Vhost"], h =>
+
+                    Log.Information($"rabbitCfg host:{rabbitCfg["Uri"]}");
+
+                    var host = cfg.Host(new Uri(rabbitCfg["Uri"]), h =>
                     {
                         h.Username(rabbitCfg["UserName"]);
                         h.Password(rabbitCfg["Passwd"]);
@@ -52,11 +55,10 @@ namespace Sangong.Game.WebApi.Extenssions
 
 
                 }));
-                x.AddRequestClient<GetMoneyMqCommand>(new Uri(rabbitCfg["Money"]));
-                x.AddRequestClient<BuyInMqCommand>(new Uri(rabbitCfg["Money"]));
-                x.AddRequestClient<GetAccountInfoMqCommand>(new Uri(rabbitCfg["Account"]));
-                
-                x.AddRequestClient<UserApplySitMqCommand>(new Uri(rabbitCfg["Mathcing"]));
+                x.AddRequestClient<GetMoneyMqCommand>(new Uri($"{rabbitCfg["Uri"]}Money"));
+                x.AddRequestClient<BuyInMqCommand>(new Uri($"{rabbitCfg["Uri"]}Money"));
+                x.AddRequestClient<GetAccountInfoMqCommand>(new Uri($"{rabbitCfg["Uri"]}Account"));
+                x.AddRequestClient<UserApplySitMqCommand>(new Uri($"{rabbitCfg["Uri"]}{rabbitCfg["Mathcing"]}"));
                 //添加RequestClient
                 //x.AddRequestClient<DoSomething>();
             });

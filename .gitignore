@@ -142,3 +142,7 @@
 /Services/Money/Money.WebApi/obj/Debug/netcoreapp2.2/Money.WebApi.RazorTargetAssemblyInfo.cache
 /Services/Account/Account.WebApi/Properties/PublishProfiles/FolderProfile.pubxml.user
 /Services/Account/Account.WebApi/Properties/PublishProfiles/FolderProfile.pubxml
+/GateWays/WSGateWay/bin/Release/netcoreapp2.2
+/work/GateWays/ApiGateWay/runtimes/win/lib/netcoreapp2.0
+/work/GateWays/ApiGateWay/runtimes/win/lib/netstandard2.0
+/work/GateWays/ApiGateWay

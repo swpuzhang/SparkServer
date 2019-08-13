@@ -14,6 +14,7 @@ using WSGateWay.Services;
 using WSGateWay.Manager;
 using Commons.Infrastruct;
 using Commons.Extenssions;
+using Microsoft.Extensions.Configuration;
 
 namespace WSGateWay.Hubs
 {
@@ -25,15 +26,18 @@ namespace WSGateWay.Hubs
         private readonly UserConnManager _userConnManager;
         private readonly IRpcCaller<AppHub> _rpcCaller;
         private readonly IBusControl _bus;
+        private IConfiguration Configuration;
         public AppHub(//IRequestClient<RoomRequest> requestClient,
             ICommonService commonService,
-            UserConnManager userConnManager, IRpcCaller<AppHub> rpcCaller, IBusControl bus)
+            UserConnManager userConnManager, IRpcCaller<AppHub> rpcCaller, 
+            IBusControl bus, IConfiguration configuration)
         {
             //_requestClient = requestClient;
             _commonService = commonService;
             _userConnManager = userConnManager;
             _rpcCaller = rpcCaller;
             _bus = bus;
+            Configuration = configuration;
         }
 
         public override async Task OnConnectedAsync()
@@ -80,7 +84,7 @@ namespace WSGateWay.Hubs
             {
                 return new ToAppResponse(null, StatuCodeDefines.Error, null);
             }
-            var busClient = _bus.CreateRequestClient<RoomRequest>(new Uri($"{Startup.mqConnectionStr}/{request.GameRoomKey}"), TimeSpan.FromSeconds(5));
+            var busClient = _bus.CreateRequestClient<RoomRequest>(new Uri($"{Configuration["Rabbitmq:Uri"]}{request.GameRoomKey}"), TimeSpan.FromSeconds(5));
             try
             {
                 var busResponse = await busClient.GetResponseExt<RoomRequest, ToAppResponse>(request);

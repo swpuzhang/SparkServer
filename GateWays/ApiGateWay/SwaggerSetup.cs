@@ -34,7 +34,7 @@ namespace ApiGateWay
                 var env = services.BuildServiceProvider().GetService<IHostingEnvironment>();
                 if (env.IsDevelopment())
                 {
-                    basePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../SwaggerInterface");
+                    basePath = Path.Combine(Directory.GetCurrentDirectory(), "../../SwaggerInterface");
                 }
                 else
                 {

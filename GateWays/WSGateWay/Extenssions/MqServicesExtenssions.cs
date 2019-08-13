@@ -24,8 +24,9 @@ namespace WSGateWay.Extenssions
                 {
                     cfg.UseSerilog();
 
-                    Log.Information($"rabbitCfg host:{rabbitCfg["Host"]} vhost:{rabbitCfg["Vhost"]}");
-                    var host = cfg.Host(rabbitCfg["Host"], rabbitCfg["Vhost"], h =>
+                    Log.Information($"rabbitCfg host:{rabbitCfg["Uri"]}");
+
+                    var host = cfg.Host(new Uri(rabbitCfg["Uri"]), h =>
                     {
                         h.Username(rabbitCfg["UserName"]);
                         h.Password(rabbitCfg["Passwd"]);

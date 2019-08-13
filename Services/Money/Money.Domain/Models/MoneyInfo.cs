@@ -30,20 +30,21 @@ namespace Money.Domain.Models
         public void AddCoins(long coins)
         {
             CurCoins += coins;
-            if (CurCoins + Carry > MaxChips)
-            {
-                MaxChips = CurCoins;
-            }
         }
 
         public void AddCarry(long coins)
         {
             Carry += coins;
+        }
+
+        public void UpdateMaxCoins()
+        {
             if (CurCoins + Carry > MaxChips)
             {
-                MaxChips = CurCoins;
+                MaxChips = CurCoins + Carry;
             }
         }
+
         public long CurCoins { get; private set; }
         
         public long CurDiamonds { get; private set; }

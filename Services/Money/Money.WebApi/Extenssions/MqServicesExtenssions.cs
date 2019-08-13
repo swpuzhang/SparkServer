@@ -3,6 +3,7 @@ using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,9 @@ namespace Money.WebApi.Extenssions
                 {
                     cfg.UseSerilog();
                     var rabbitCfg = Configuration.GetSection("Rabbitmq");
-                    var host = cfg.Host(rabbitCfg["Host"], rabbitCfg["Vhost"], h =>
+                    Log.Information($"rabbitCfg host:{rabbitCfg["Uri"]}");
+
+                    var host = cfg.Host(new Uri(rabbitCfg["Uri"]), h =>
                     {
                         h.Username(rabbitCfg["UserName"]);
                         h.Password(rabbitCfg["Passwd"]);

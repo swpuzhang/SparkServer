@@ -120,7 +120,7 @@ namespace Money.Domain.CommandHandlers
                 }
                 moneyInfo.AddCoins(request.AddCoins);
                 moneyInfo.AddCarry(request.AddCarry);
-                
+                moneyInfo.UpdateMaxCoins();
                 await Task.WhenAll(_redis.SetMoney(request.Id, moneyInfo), _moneyRepository.ReplaceAsync(moneyInfo));
                 Log.Debug($"AddMoneyCommand add end:{request.AddCoins},{request.AddCarry} {request.AggregateId} curCoins:{moneyInfo.CurCoins} curCarry:{moneyInfo.Carry}--3");
                 return new BodyResponse<MoneyMqResponse>(StatuCodeDefines.Success, null,
