@@ -1,6 +1,7 @@
 ﻿using Commons.Extenssions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.DotNet.PlatformAbstractions;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -26,18 +27,26 @@ namespace WSGateWay.Extenssions
 
                 string basePath;
                 var env = services.BuildServiceProvider().GetService<IHostingEnvironment>();
-                if (env.IsDevelopment())
+                if (Environment.OSVersion.Platform == PlatformID.MacOSX ||
+                        Environment.OSVersion.Platform == PlatformID.Unix)
                 {
-                    basePath = Path.Combine(Directory.GetCurrentDirectory(), "../../SwaggerInterface");
+
+                    string home = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                    basePath = Path.Combine(home, "work/SwaggerInterface");
                 }
                 else
                 {
-                    basePath = Path.Combine(Directory.GetCurrentDirectory(), "~/work/SwaggerInterface");
+                    string curPath = ApplicationEnvironment.ApplicationBasePath;
+                    int index = curPath.LastIndexOf("Spark");
+                    basePath = curPath.Substring(0, index + 5) + "/work/SwaggerInterface";
                 }
-                var xmlPath = Path.Combine(basePath, Assembly.GetExecutingAssembly().GetName().Name + ".xml");
-                var viewModelXmlPath = Path.Combine(basePath, $"{Startup.ServiceName}.Application.xml");
-                c.IncludeXmlComments(xmlPath);
-                c.IncludeXmlComments(viewModelXmlPath);
+
+                var files = Directory.GetFiles(basePath, "*.xml");
+                foreach (var oneFile in files)
+                {
+                    var xmlPath = Path.Combine(basePath, oneFile);
+                    c.IncludeXmlComments(xmlPath, true);
+                }
 
             });
         }

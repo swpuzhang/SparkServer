@@ -15,7 +15,6 @@ namespace Commons.Extenssions
         public static Serilog.ILogger CreateSerilogLogger(IConfiguration configuration, string appName)
         {
             string processid = Process.GetCurrentProcess().Id.ToString();
-            string sttime = DateTime.Now.ToNormal();
             return new LoggerConfiguration()
                 .MinimumLevel.Information()
                 .Enrich.With(new ThreadIDEnricher(processid))
@@ -23,9 +22,9 @@ namespace Commons.Extenssions
                 //.Enrich.FromLogContext()
                 .WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Error)
                 .ReadFrom.Configuration(configuration)
-                .WriteTo.File($"{appName}-{processid}-{sttime}.log",
+                .WriteTo.File($"{appName}/logs/{appName}-{processid}-.log",
                     rollOnFileSizeLimit: true, fileSizeLimitBytes: 1024 * 1024 * 100,
-                    rollingInterval: RollingInterval.Infinite,
+                    rollingInterval: RollingInterval.Day,
                     outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz}][{Level}][{ThreadId}][{ProcessId}] {Message:lj} {NewLine}{Exception}")
                 .CreateLogger();
         }

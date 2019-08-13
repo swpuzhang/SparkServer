@@ -1,6 +1,7 @@
 ﻿using Commons.Extenssions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.DotNet.PlatformAbstractions;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -34,7 +35,7 @@ namespace Sample.WebApi.Extenssions
                 }
                 else
                 {
-                    basePath = Path.Combine(Directory.GetCurrentDirectory(), "~/work/SwaggerInterface");
+                    basePath = "~/work/SwaggerInterface";
                 }
                 var xmlPath = Path.Combine(basePath, Assembly.GetExecutingAssembly().GetName().Name + ".xml");
                 var viewModelXmlPath = Path.Combine(basePath, $"{Startup.ServiceName}.Application.xml");

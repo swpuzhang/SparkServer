@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
 using MassTransit.SerilogIntegration;
+using Microsoft.DotNet.PlatformAbstractions;
 
 namespace Money.WebApi
 {
@@ -36,7 +37,7 @@ namespace Money.WebApi
         private static IConfiguration GetConfiguration(string[] args)
         {
             var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
+                .SetBasePath(ApplicationEnvironment.ApplicationBasePath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables()
                 .AddCommandLine(args);

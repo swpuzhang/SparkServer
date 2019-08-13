@@ -1,7 +1,5 @@
 ﻿using System;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Attributes;
+using System.IO;
 using Newtonsoft.Json;
 
 namespace JsonTest
@@ -66,7 +64,16 @@ namespace JsonTest
 
         static void Main(string[] args)
         {
-            string str = "{\"PlatformAccount\":\"facebookzhangyang\",\"UserName\":\"zhangyang\",\"Sex\":0,\"HeadUrl\":\"www.baidu.com\",\"Type\":0,\"Id\":10000000002}";
+            Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
+            string home = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            string basePath = Path.Combine(home, "work/SwaggerInterface");
+            Console.WriteLine(basePath);
+            DirectoryInfo folder = new DirectoryInfo(basePath);
+            foreach (FileInfo file in folder.GetFiles())
+            {
+                Console.WriteLine(file.FullName);
+            }
+            /*string str = "{\"PlatformAccount\":\"facebookzhangyang\",\"UserName\":\"zhangyang\",\"Sex\":0,\"HeadUrl\":\"www.baidu.com\",\"Type\":0,\"Id\":10000000002}";
             var account = JsonConvert.DeserializeObject<AccountInfo>(str);
             Person p = new Person() { Id = "1" };//, Age = 20, Id = 1, Name = "zhangyang" };
             BsonClassMap.RegisterClassMap<Person>(x =>
@@ -75,7 +82,7 @@ namespace JsonTest
             });
             var bson = BsonDocument.Create((object)p);
 
-            Console.WriteLine("111");
+            Console.WriteLine("111");*/
             /**/
             /*Person p = new Person()
             {

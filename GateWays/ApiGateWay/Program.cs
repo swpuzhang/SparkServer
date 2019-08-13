@@ -14,6 +14,7 @@ using Serilog;
 using Serilog.Core;
 using Serilog.Events;
 using Serilog.AspNetCore;
+using Microsoft.DotNet.PlatformAbstractions;
 
 namespace ApiGateWay
 {
@@ -27,6 +28,7 @@ namespace ApiGateWay
             Log.Logger = LogConfig.CreateSerilogLogger(config, AppName);
 
             Log.Information("CreateWebHostBuilder ({ApplicationContext})...", "Account");
+            Log.Information($"path:{ApplicationEnvironment.ApplicationBasePath}");
             CreateWebHostBuilder(args, config).Build().Run();
         }
 
@@ -39,7 +41,7 @@ namespace ApiGateWay
         private static IConfiguration GetConfiguration(string[] args)
         {
             var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
+                .SetBasePath(ApplicationEnvironment.ApplicationBasePath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile("Ocelot.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables()

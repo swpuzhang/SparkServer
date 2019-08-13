@@ -49,10 +49,6 @@
               "version": "[2.2.0, )",
               "autoReferenced": true
             },
-            "MongoDB.Bson": {
-              "target": "Package",
-              "version": "[2.8.1, )"
-            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.2, )"
