@@ -146,3 +146,10 @@
 /work/GateWays/ApiGateWay/runtimes/win/lib/netcoreapp2.0
 /work/GateWays/ApiGateWay/runtimes/win/lib/netstandard2.0
 /work/GateWays/ApiGateWay
+/Commons/Common.Signalr.Client/obj
+/Commons/Commons.Domain/obj
+/Commons/Commons.Extenssions/obj
+/Commons/Commons.Infrastruct/obj
+/Commons/Commons.IntegrationBus/obj
+/Services
+/Tests
