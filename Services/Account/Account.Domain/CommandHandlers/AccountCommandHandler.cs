@@ -123,7 +123,7 @@ namespace Account.Domain.CommandHandlers
                     newAccountInfo.HeadUrl,
                     token, new MoneyInfo(moneyResponse.CurCoins + moneyResponse.Carry,
                     moneyResponse.CurDiamonds,
-                    moneyResponse.MaxChips,
+                    moneyResponse.MaxCoins,
                     moneyResponse.MaxDiamonds),
                     _hostManager.GetOneHost(), false);
                 }

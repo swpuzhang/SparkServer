@@ -17,12 +17,12 @@ namespace Money.Domain.Models
         }
 
         [JsonConstructor]
-        public MoneyInfo(long id, long curCoins, long curDiamonds, long maxChips, long maxDiamonds, long carry)
+        public MoneyInfo(long id, long curCoins, long curDiamonds, long maxCoins, long maxDiamonds, long carry)
         {
             Id = id;
             CurCoins = curCoins;
             CurDiamonds = curDiamonds;
-            MaxChips = maxChips;
+            MaxCoins = maxCoins;
             MaxDiamonds = maxDiamonds;
             Carry = carry;
         }
@@ -39,16 +39,16 @@ namespace Money.Domain.Models
 
         public void UpdateMaxCoins()
         {
-            if (CurCoins + Carry > MaxChips)
+            if (CurCoins + Carry > MaxCoins)
             {
-                MaxChips = CurCoins + Carry;
+                MaxCoins = CurCoins + Carry;
             }
         }
 
         public long CurCoins { get; private set; }
         
         public long CurDiamonds { get; private set; }
-        public long MaxChips { get; private set; }
+        public long MaxCoins { get; private set; }
         public long MaxDiamonds { get; private set; }
         public long Carry { get; private set; }
     }

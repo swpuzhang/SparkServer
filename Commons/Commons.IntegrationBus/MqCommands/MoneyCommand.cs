@@ -30,12 +30,12 @@ namespace Commons.MqCommands
 
     public class MoneyMqResponse
     {
-        public MoneyMqResponse(long id, long curCoins, long curDiamonds, long maxChips, long maxDiamonds, long carry)
+        public MoneyMqResponse(long id, long curCoins, long curDiamonds, long maxCoins, long maxDiamonds, long carry)
         {
             Id = id;
             CurCoins = curCoins;
             CurDiamonds = curDiamonds;
-            MaxChips = maxChips;
+            MaxCoins = maxCoins;
             MaxDiamonds = maxDiamonds;
             Carry = carry;
         }
@@ -43,7 +43,7 @@ namespace Commons.MqCommands
         public long Id { get; private set; }
         public long CurCoins { get; private set; }
         public long CurDiamonds { get; private set; }
-        public long MaxChips { get; private set; }
+        public long MaxCoins { get; private set; }
         public long MaxDiamonds { get; private set; }
         public long Carry { get; private set; }
     }

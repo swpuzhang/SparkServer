@@ -90,7 +90,7 @@ namespace Money.Domain.CommandHandlers
                 await Task.WhenAll(_redis.SetMoney(request.Id, moneyInfo), _moneyRepository.ReplaceAsync(moneyInfo));
                 return new BodyResponse<MoneyMqResponse>(StatuCodeDefines.Success, null, 
                     new MoneyMqResponse(request.Id, moneyInfo.CurCoins, moneyInfo.CurDiamonds, 
-                    moneyInfo.MaxChips, moneyInfo.MaxDiamonds, moneyInfo.Carry));
+                    moneyInfo.MaxCoins, moneyInfo.MaxDiamonds, moneyInfo.Carry));
             }
         }
 
@@ -125,7 +125,7 @@ namespace Money.Domain.CommandHandlers
                 Log.Debug($"AddMoneyCommand add end:{request.AddCoins},{request.AddCarry} {request.AggregateId} curCoins:{moneyInfo.CurCoins} curCarry:{moneyInfo.Carry}--3");
                 return new BodyResponse<MoneyMqResponse>(StatuCodeDefines.Success, null,
                     new MoneyMqResponse(request.Id, moneyInfo.CurCoins, moneyInfo.CurDiamonds,
-                    moneyInfo.MaxChips, moneyInfo.MaxDiamonds, moneyInfo.Carry));
+                    moneyInfo.MaxCoins, moneyInfo.MaxDiamonds, moneyInfo.Carry));
             }
 
         }

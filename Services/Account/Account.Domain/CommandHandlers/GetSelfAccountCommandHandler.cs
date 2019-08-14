@@ -63,7 +63,7 @@ namespace Account.Domain.CommandHandlers
             var accountInfo =  tAccount.Result;
             var moneyInfores = tMoney.Result;
             var moneyInfo = new MoneyInfo(moneyInfores.Message.Body.CurCoins + moneyInfores.Message.Body.Carry, moneyInfores.Message.Body.CurDiamonds,
-                moneyInfores.Message.Body.MaxChips, moneyInfores.Message.Body.MaxDiamonds);
+                moneyInfores.Message.Body.MaxCoins, moneyInfores.Message.Body.MaxDiamonds);
             var levelInfo = tLevel.Result.Body;
             var gameInfo = tGame.Result.Body;
         

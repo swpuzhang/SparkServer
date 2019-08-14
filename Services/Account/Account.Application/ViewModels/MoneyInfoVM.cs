@@ -10,17 +10,17 @@ namespace Account.Application.ViewModels
         {
         }
 
-        public MoneyInfoVM(long curCoins, long curDiamonds, long maxChips, long maxDiamonds)
+        public MoneyInfoVM(long curCoins, long curDiamonds, long maxCoins, long maxDiamonds)
         {
             CurCoins = curCoins;
             CurDiamonds = curDiamonds;
-            MaxChips = maxChips;
+            MaxCoins = maxCoins;
             MaxDiamonds = maxDiamonds;
         }
 
         public long CurCoins { get; set; }
         public long CurDiamonds { get; set; }
-        public long MaxChips { get; set; }
+        public long MaxCoins { get; set; }
         public long MaxDiamonds { get; set; }
     }
 }
