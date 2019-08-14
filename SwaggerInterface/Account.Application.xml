@@ -89,5 +89,10 @@
             长连接地址
             </summary>
         </member>
+        <member name="P:Account.Application.ViewModels.AccountResponseVM.IsRegister">
+            <summary>
+            是否是注册，还是普通登录
+            </summary>
+        </member>
     </members>
 </doc>

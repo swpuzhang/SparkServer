@@ -106,7 +106,7 @@ namespace Account.Domain.CommandHandlers
                     newAccountInfo.Sex,
                     newAccountInfo.HeadUrl,
                     token,new MoneyInfo(),
-                    _hostManager.GetOneHost());
+                    _hostManager.GetOneHost(),true);
                 }
                 else
                 {
@@ -125,7 +125,7 @@ namespace Account.Domain.CommandHandlers
                     moneyResponse.CurDiamonds,
                     moneyResponse.MaxChips,
                     moneyResponse.MaxDiamonds),
-                    _hostManager.GetOneHost());
+                    _hostManager.GetOneHost(), false);
                 }
 
                 _ = _bus.RaiseEvent<LoginEvent>(new LoginEvent(Guid.NewGuid(), 

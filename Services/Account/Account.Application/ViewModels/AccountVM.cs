@@ -65,7 +65,7 @@ namespace Account.Application.ViewModels
         public AccountResponseVM(string platformAccount,
             string userName, int sex, string headUrl, AccountType type,
             string token, long curCoins,
-            long curDiamonds, string longConnectHost, long id)
+            long curDiamonds, string longConnectHost, long id, bool isRegister)
         {
             PlatformAccount = platformAccount;
             UserName = userName;
@@ -77,6 +77,7 @@ namespace Account.Application.ViewModels
             Type = type;
             LongConnectHost = longConnectHost;
             Id = id;
+            IsRegister = isRegister;
         }
         /// <summary>
         ///玩家唯一Id 
@@ -126,6 +127,10 @@ namespace Account.Application.ViewModels
         /// 长连接地址
         /// </summary>
         public string LongConnectHost { get; set; }
+        /// <summary>
+        /// 是否是注册，还是普通登录
+        /// </summary>
+        public bool IsRegister { get; set; }
     }
 
 }
