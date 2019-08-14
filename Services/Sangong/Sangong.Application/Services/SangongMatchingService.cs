@@ -14,6 +14,7 @@ using Commons.Infrastruct;
 using Sangong.MqCommands;
 using Sangong.Domain.Manager;
 using Sangong.MqEvents;
+using Commons.Extenssions.Defines;
 
 namespace Sangong.Application.Services
 {
@@ -32,10 +33,10 @@ namespace Sangong.Application.Services
             _matchingManager = matchingManager;
         }
 
-        public async Task<BodyResponse<SangongMatchingResponseVM>> Playnow(long id)
+        public async Task<BodyResponse<MatchingResponseVM>> Playnow(long id)
         {
             BodyResponse<SangongMatchingResponseInfo> response = await _bus.SendCommand(new SangongPlaynowCommand(id));
-            return response.MapResponse<SangongMatchingResponseVM>(_mapper);
+            return response.MapResponse<MatchingResponseVM>(_mapper);
         }
 
         public void SynGameRooms(SyncGameRoomMqCommand command)
@@ -63,6 +64,13 @@ namespace Sangong.Application.Services
         public void OnUserSiteFailed(UserSitFailedMqEvent sitEvent)
         {
             _ = _matchingManager.OnSiteFailed(sitEvent.Id, sitEvent.GameKey, sitEvent.RoomId, sitEvent.MatchingGroup);
+        }
+
+        public BodyResponse<GetBlindRoomListResponse> GetBlindRoomList(long id)
+        {
+            return new BodyResponse<GetBlindRoomListResponse>(StatuCodeDefines.Success, null,
+                _roomManager.GetBindRoomList());
+            
         }
     }
 }

@@ -8,13 +8,19 @@ using Commons.Extenssions.Defines;
 namespace Sangong.Application.ViewModels
 {
     /// <summary>
-    /// 接口字段
+    /// 匹配结果
     /// </summary>
-    public class SangongMatchingResponseVM
+    public class MatchingResponseVM
     {
-        public string RoomId {get; set;}
-        public long Blind { get; set;}
+        public string RoomId { get; set; }
+        public long Blind { get; set; }
+        /// <summary>
+        /// 请求gameserver的Key
+        /// </summary>
         public string GameKey { get; set; }
     }
 
+   
+
+        
 }

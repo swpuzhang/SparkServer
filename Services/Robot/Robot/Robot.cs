@@ -67,7 +67,7 @@ namespace Robot
                 
         }
 
-        public async Task<BodyResponse<SangongMatchingResponseVM>> MatchGameAsync()
+        public async Task<BodyResponse<MatchingResponseVM>> MatchGameAsync()
         {
             _client.DefaultRequestHeaders.Add("Token", _token);
              var response = await _client.GetAsync("/api/SangongMatching/PlayNow");
@@ -76,7 +76,7 @@ namespace Robot
             {
                 return null;
             }
-            return JsonConvert.DeserializeObject<BodyResponse<SangongMatchingResponseVM>>(await response.Content.ReadAsStringAsync());
+            return JsonConvert.DeserializeObject<BodyResponse<MatchingResponseVM>>(await response.Content.ReadAsStringAsync());
         }
 
         public void Dispose()

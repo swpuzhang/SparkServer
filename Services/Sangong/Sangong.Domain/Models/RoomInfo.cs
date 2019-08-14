@@ -44,4 +44,43 @@ namespace Sangong.Domain.Models
            
         }
     }
+
+    /// <summary>
+    /// 房间列表结果
+    /// </summary>
+    public class BlindRoomList
+    {
+        public BlindRoomList()
+        {
+        }
+
+        public BlindRoomList(long bind, long minCarry, long maxCarry, long minCoins, long maxCoins)
+        {
+            Bind = bind;
+            MinCarry = minCarry;
+            MaxCarry = maxCarry;
+            MinCoins = minCoins;
+            MaxCoins = maxCoins;
+        }
+
+        public long Bind { get; set; }
+        public long MinCarry { get; set; }
+        public long MaxCarry { get; set; }
+        /// <summary>
+        /// 最小准入
+        /// </summary>
+        public long MinCoins { get; set; }
+        /// <summary>
+        /// 最大准入， 如果最大准入和最小准入相等， 那么就没有最大准入限制
+        /// </summary>
+        public long MaxCoins { get; set; }
+    }
+
+    /// <summary>
+    /// 获取房间列表
+    /// </summary>
+    public class GetBlindRoomListResponse
+    {
+        public List<BlindRoomList> RoomList { get; set; }
+    }
 }

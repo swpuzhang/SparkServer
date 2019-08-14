@@ -15,7 +15,7 @@ namespace Sangong.Application.AutoMapper
         public MappingProfile()
         {
             CreateMap<SangongVM, SangongInfo>().ReverseMap();
-            CreateMap<SangongMatchingResponseInfo, SangongMatchingResponseVM>().ReverseMap();
+            CreateMap<SangongMatchingResponseInfo, MatchingResponseVM>().ReverseMap();
            
           
         }

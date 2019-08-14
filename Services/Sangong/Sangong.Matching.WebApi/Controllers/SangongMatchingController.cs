@@ -33,10 +33,15 @@ namespace Sangong.Matching.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<BodyResponse<SangongMatchingResponseVM>> PlayNow([FromHeader]long id)
+        public async Task<BodyResponse<MatchingResponseVM>> PlayNow([FromHeader]long id)
         {
             var response = await OneThreadSynchronizationContext.UserRequest(id, _service.Playnow);
             return response;
+        }
+
+        public async Task<BodyResponse<GetBlindRoomListResponse>> GetBlindRoomList([FromHeader]long id)
+        {
+            return OneThreadSynchronizationContext.UserRequest(id, _service.GetBlindRoomList);
         }
     }
 }

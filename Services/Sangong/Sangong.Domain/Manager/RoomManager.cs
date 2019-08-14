@@ -458,5 +458,18 @@ namespace Sangong.Domain.Manager
             }
             UpdateOneGroup(oneGroup, room.RoomId, room.UserCount - 1);
         }
+
+        public GetBlindRoomListResponse GetBindRoomList()
+        {
+            List<BlindRoomList> roomList = new List<BlindRoomList>();
+
+            foreach (var one in _roomConfig)
+            {
+                roomList.Add(new BlindRoomList(one.Value.Blind, one.Value.MinCarry,
+                    one.Value.MaxCarry, one.Value.MinCoins, one.Value.MaxCoins));
+               
+            }
+            return new GetBlindRoomListResponse() { RoomList = roomList };
+        }
     }
 }

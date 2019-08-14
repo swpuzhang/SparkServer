@@ -13,7 +13,8 @@ namespace Sangong.Application.Services
 {
     public interface ISangongMatchingService
     {
-        Task<BodyResponse<SangongMatchingResponseVM>> Playnow(long id);
+        Task<BodyResponse<MatchingResponseVM>> Playnow(long id);
+        Task<BodyResponse<GetBlindRoomListResponse>> GetBlindRoomList(long id);
         void SynGameRooms(SyncGameRoomMqCommand command);
         void OnJoinGameRoom(JoinGameRoomMqEvent joinEvent);
         void OnLeaveGameRoom(LeaveGameRoomMqEvent leaveEvent);
