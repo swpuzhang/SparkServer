@@ -42,14 +42,14 @@ namespace Sangong.Game.WebApi.MqConsumers
         }
     }
 
-    public class GameRoomConsummer : OneThreadConsumer<RoomRequest, ToAppResponse>
+    public class GameRoomConsummer : OneThreadConsumer<AppRoomRequest, ToAppResponse>
     {
         ISangongGameService _service;
         public GameRoomConsummer(ISangongGameService service)
         {
             _service = service;
         }
-        public override async Task<ToAppResponse> ConsumerHandler(RoomRequest request)
+        public override async Task<ToAppResponse> ConsumerHandler(AppRoomRequest request)
         {
             return await _service.GameRoomMessage(request);
         }

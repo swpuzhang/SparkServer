@@ -41,7 +41,7 @@ namespace Sangong.Application.Services
             return _gameRoomManager.JoinRoom(joinInfo.Id, joinInfo.RoomId);
         }
 
-        public Task<ToAppResponse> GameRoomMessage(RoomRequest request)
+        public Task<ToAppResponse> GameRoomMessage(AppRoomRequest request)
         {
 
             Type t = Type.GetType($"Sangong.GameMessage.{request.ReqName}");

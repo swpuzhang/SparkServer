@@ -26,7 +26,7 @@ namespace EasyNetQTest
             ErrorQueueNamingConvention = messageInfo => "MyErrorQueue";
             ExchangeNamingConvention = (msg) =>
             {
-                if (msg.Equals(typeof(RoomRequest)))
+                if (msg.Equals(typeof(AppRoomRequest)))
                 {
 
                 }

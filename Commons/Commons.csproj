@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\" />
     <Folder Include="Extenssions\" />
     <Folder Include="Infrastruct\" />
     <Folder Include="IntegrationBus\" />

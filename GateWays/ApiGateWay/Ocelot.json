@@ -6,16 +6,13 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 8080
+          "Port": 7000
         }
       ],
       "UpstreamPathTemplate": "/api/Account/{url}",
       "UpstreamHttpMethod": [
         [ "GET", "POST", "DELETE", "PUT" ]
-      ],
-      "LoadBalancerOptions": {
-        "Type": "RoundRobin"
-      }
+      ]
     },
     {
       "DownstreamPathTemplate": "/api/Money/{url}",
@@ -23,7 +20,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 9080
+          "Port": 8000
         }
       ],
       "UpstreamPathTemplate": "/api/Money/{url}",
@@ -37,7 +34,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 11080
+          "Port": 9000
         }
       ],
       "UpstreamPathTemplate": "/api/SangongMatching/{url}",
@@ -50,7 +47,7 @@
 
 
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5050"
+    "BaseUrl": "http://localhost:5000"
 
   }
 }

@@ -70,16 +70,16 @@ namespace Common.Signalr.Client
             await _hubConnection.DisposeAsync();
         }
 
-        public async Task<ToAppResponse> SendRoomRequest(RoomRequest request)
+        public async Task<ToAppResponse> SendRoomRequest(AppRoomRequest request)
         {
-            var response = await _hubConnection.InvokeAsync<ToAppResponse>("RoomRequest", request);
+            var response = await _hubConnection.InvokeAsync<ToAppResponse>("AppRoomRequest", request);
             return response;
         }
 
         public async Task<ToAppResponse> SendRoomRequest<TReuqest>(long id, string gameKey, string roomId, TReuqest request)
             where TReuqest :class
         {
-            var roomRequest = new RoomRequest(id, typeof(TReuqest).Name, JsonConvert.SerializeObject(request), Guid.NewGuid(), gameKey, roomId);
+            var roomRequest = new AppRoomRequest(id, typeof(TReuqest).Name, JsonConvert.SerializeObject(request), gameKey, roomId);
             return await SendRoomRequest(roomRequest);
         }
     }

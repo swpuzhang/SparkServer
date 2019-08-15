@@ -11,7 +11,7 @@
         </member>
         <member name="P:WSGateWay.ViewModels.LoginRequest.Token">
             <summary>
-            Token
+            账号登录时的token
             </summary>
         </member>
     </members>

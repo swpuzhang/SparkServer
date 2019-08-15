@@ -21,13 +21,13 @@ namespace WSGateWay.Hubs
 
     public class AppHub : Hub
     {
-        //private readonly IRequestClient<RoomRequest> _requestClient;
+        //private readonly IRequestClient<AppRoomRequest> _requestClient;
         private readonly ICommonService _commonService;
         private readonly UserConnManager _userConnManager;
         private readonly IRpcCaller<AppHub> _rpcCaller;
         private readonly IBusControl _bus;
         private IConfiguration Configuration;
-        public AppHub(//IRequestClient<RoomRequest> requestClient,
+        public AppHub(//IRequestClient<AppRoomRequest> requestClient,
             ICommonService commonService,
             UserConnManager userConnManager, IRpcCaller<AppHub> rpcCaller, 
             IBusControl bus, IConfiguration configuration)
@@ -74,7 +74,7 @@ namespace WSGateWay.Hubs
            
         }
 
-        public async Task<ToAppResponse> RoomRequest(RoomRequest request)
+        public async Task<ToAppResponse> AppRoomRequest(AppRoomRequest request)
         {
             ToAppResponse commonResponse = null;
 
@@ -84,10 +84,10 @@ namespace WSGateWay.Hubs
             {
                 return new ToAppResponse(null, StatusCodeDefines.Error, null);
             }
-            var busClient = _bus.CreateRequestClient<RoomRequest>(new Uri($"{Configuration["Rabbitmq:Uri"]}{request.GameRoomKey}"), TimeSpan.FromSeconds(5));
+            var busClient = _bus.CreateRequestClient<AppRoomRequest>(new Uri($"{Configuration["Rabbitmq:Uri"]}{request.GameRoomKey}"), TimeSpan.FromSeconds(5));
             try
             {
-                var busResponse = await busClient.GetResponseExt<RoomRequest, ToAppResponse>(request);
+                var busResponse = await busClient.GetResponseExt<AppRoomRequest, ToAppResponse>(request);
                 commonResponse = busResponse?.Message;   
             }
             catch( Exception)

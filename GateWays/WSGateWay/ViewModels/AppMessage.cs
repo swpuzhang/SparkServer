@@ -11,7 +11,7 @@ namespace WSGateWay.ViewModels
     public class LoginRequest
     {
         /// <summary>
-        /// Token
+        /// 账号登录时的token
         /// </summary>
         public string Token { get; set; }
     }

@@ -16,7 +16,7 @@ namespace Sangong.Application.Services
         Task<BodyResponse<NullBody>> CreatRoom(CreateRoomMqCommand creatInfo);
         Task<BodyResponse<JoinGameRoomMqResponse>> JoinRoom(JoinGameRoomMqCommand joinInfo);
 
-        Task<ToAppResponse> GameRoomMessage(RoomRequest request);
+        Task<ToAppResponse> GameRoomMessage(AppRoomRequest request);
 
         void MatchingStarted(string MatchingGroup);
         

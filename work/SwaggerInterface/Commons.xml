@@ -104,11 +104,6 @@
             APP主动请求
             </summary>
         </member>
-        <member name="P:Commons.Domain.Models.AppRequest.MessageId">
-            <summary>
-            消息的唯一码
-            </summary>
-        </member>
         <member name="P:Commons.Domain.Models.AppRequest.ReqName">
             <summary>
             请求的消息名
@@ -119,7 +114,7 @@
             请求的消息数据
             </summary>
         </member>
-        <member name="T:Commons.Domain.Models.RoomRequest">
+        <member name="T:Commons.Domain.Models.AppRoomRequest">
             <summary>
             APP请求房间
             </summary>
@@ -140,6 +135,123 @@
             </summary>
         </member>
         <member name="P:Commons.Domain.Models.ToServerResponse.Data">
+            <summary>
+            消息数据
+            </summary>
+        </member>
+        <member name="T:Commons.Domain.Models.ToAppRequest`1">
+            <summary>
+            Server推送APP的消息
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRequest`1.MessageId">
+            <summary>
+            消息的唯一码
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRequest`1.ReqName">
+            <summary>
+            请求的消息名
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRequest`1.ReqData">
+            <summary>
+            请求的消息数据
+            </summary>
+        </member>
+        <member name="T:Commons.Domain.Models.ToAppRoomRequest`1">
+            <summary>
+            server推送房间消息
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRoomRequest`1.MessageId">
+            <summary>
+            消息的唯一码
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRoomRequest`1.GameKey">
+            <summary>
+            gamekey 标识哪个gamesvr
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRoomRequest`1.RoomId">
+            <summary>
+            标识那个房间
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRoomRequest`1.ReqName">
+            <summary>
+            请求的消息名
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRoomRequest`1.ReqData">
+            <summary>
+            请求的消息数据
+            </summary>
+        </member>
+        <member name="T:Commons.Domain.Models.AppRoomRequest`1">
+            <summary>
+            App发送给server的房间消息
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Commons.Domain.Models.AppRoomRequest`1.Id">
+            <summary>
+            玩家ID
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.AppRoomRequest`1.ReqName">
+            <summary>
+            请求的消息名, ReqData的消息名
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.AppRoomRequest`1.ReqData">
+            <summary>
+            请求的消息数据
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.AppRoomRequest`1.GameRoomKey">
+            <summary>
+            房间key, 这个key通过匹配接口返回
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.AppRoomRequest`1.RoomId">
+            <summary>
+            房间ID 通过匹配返回
+            </summary>
+        </member>
+        <member name="T:Commons.Domain.Models.ToAppResponse`1">
+            <summary>
+            给APP返回的response
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppResponse`1.Data">
+            <summary>
+            消息数据，如果没有就为Null
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppResponse`1.StatusCode">
+            <summary>
+            返回码
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppResponse`1.ErrorInfos">
+            <summary>
+            错误信息 如果没有就为Null
+            </summary>
+        </member>
+        <member name="T:Commons.Domain.Models.ToServerResponse`1">
+            <summary>
+            APP给server返回的response
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToServerResponse`1.MessageId">
+            <summary>
+            返回请求消息的唯一码
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToServerResponse`1.Data">
             <summary>
             消息数据
             </summary>
@@ -220,23 +332,6 @@
             </summary>
             <param name="key1"></param>
             <param name="ps"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Commons.Extenssions.RedisHelper.SetString(System.String,System.String,System.Nullable{System.TimeSpan})">
-            <summary>
-            set or update the value for string key 
-            </summary>
-            <param name="key"></param>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Commons.Extenssions.RedisHelper.SetString``1(System.String,``0,System.Nullable{System.TimeSpan})">
-            <summary>
-            保存一个对象
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="key"></param>
-            <param name="obj"></param>
             <returns></returns>
         </member>
         <member name="M:Commons.Extenssions.RedisHelper.GetString``1(System.String)">
@@ -541,7 +636,14 @@
             结束状态， 等待下一局开始
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:Sangong.GameMessage.ApplySyncGameRoomResponse.Status" -->
+        <member name="P:Sangong.GameMessage.ApplySyncGameRoomResponse.Status">
+            <summary>
+            牌桌状态 
+            Idle = 0 空闲状态，处于这个状态什么都不用做
+            PlayerOpt = 1 等待玩家操作， 显示倒计时，
+            GameOver =2, 结束状态， 等待下一局开始
+            </summary>
+        </member>
         <member name="P:Sangong.GameMessage.ApplySyncGameRoomResponse.Pools">
             <summary>
             当前奖池

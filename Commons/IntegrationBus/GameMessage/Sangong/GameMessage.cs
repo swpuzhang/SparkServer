@@ -578,11 +578,14 @@ namespace Sangong.GameMessage
         }
 
 
+
+
         /// <summary>
         /// 牌桌状态 
         /// Idle = 0 空闲状态，处于这个状态什么都不用做
         /// PlayerOpt = 1 等待玩家操作， 显示倒计时，
         /// GameOver =2, 结束状态， 等待下一局开始
+        /// </summary>
         public GameStatusMq Status { get; private set; }
          
         public List<PlayerInfo> Players { get; private set; }

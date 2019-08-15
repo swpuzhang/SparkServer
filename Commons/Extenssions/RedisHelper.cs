@@ -59,12 +59,6 @@ namespace Commons.Extenssions
         #endregion 
 
         #region string类型操作
-        /// <summary>
-        /// set or update the value for string key 
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public bool SetString(string key, string value, TimeSpan? expiry = null)
         {
             return db.StringSet(key, value, expiry);
@@ -80,13 +74,7 @@ namespace Commons.Extenssions
             return db.StringSetAsync(key, value, expiry);
         }
 
-        /// <summary>
-        /// 保存一个对象
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="key"></param>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+
         public bool SetString<T>(string key, T obj, TimeSpan? expiry = default(TimeSpan?)) 
         {
             string json = JsonConvert.SerializeObject(obj);

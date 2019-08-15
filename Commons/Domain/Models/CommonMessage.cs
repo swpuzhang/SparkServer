@@ -206,20 +206,14 @@ namespace Commons.Domain.Models
         }
 
         [JsonConstructor]
-        public AppRequest(long id, string name, string data, Guid messageId)
+        public AppRequest(long id, string name, string data)
         {
             ReqName = name ?? "";
             ReqData = data ?? "";
-            MessageId = messageId;
             Id = id;
         }
 
         public long Id { get; private set; }
-
-        /// <summary>
-        /// 消息的唯一码
-        /// </summary>
-        public Guid MessageId { get; private set; }
 
         /// <summary>
         /// 请求的消息名
@@ -234,15 +228,15 @@ namespace Commons.Domain.Models
     /// <summary>
     /// APP请求房间
     /// </summary>
-    public class RoomRequest : AppRequest
+    public class AppRoomRequest : AppRequest
     {
-        public RoomRequest()
+        public AppRoomRequest()
         {
         }
 
         [JsonConstructor]
-        public RoomRequest(long id, string name, string data, Guid gid, string gameRoomKey, string roomId) :
-           base(id, name, data, gid)
+        public AppRoomRequest(long id, string name, string data, string gameRoomKey, string roomId) :
+           base(id, name, data)
         {
             GameRoomKey = gameRoomKey;
             RoomId = roomId;
@@ -252,6 +246,7 @@ namespace Commons.Domain.Models
         public string RoomId { get; private set; }
     }
 
+   
     public class ToAppResponse
     {
 
