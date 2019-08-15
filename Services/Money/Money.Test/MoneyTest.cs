@@ -44,7 +44,7 @@ namespace Money.Test
             var moneyRes = await response;
 
             _testOutputHelper.WriteLine($"GetMoney:{moneyRes.Message.Body.CurCoins} --01");
-            Assert.Equal(StatuCodeDefines.Success, moneyRes.Message.StatusCode);
+            Assert.Equal(StatusCodeDefines.Success, moneyRes.Message.StatusCode);
         }
 
         [Fact]
@@ -59,7 +59,7 @@ namespace Money.Test
             getResponse.Wait();
             _testOutputHelper.WriteLine($"GetMoney:{getResponse.Result.Message.Body.CurCoins} --02");
             await client.GetResponseExt<AddMoneyMqCommand, BodyResponse<MoneyMqResponse>>(new AddMoneyMqCommand(10000000002, 10000000, 0));
-            Assert.Equal(StatuCodeDefines.Success, getResponse.Result.Message.StatusCode);
+            Assert.Equal(StatusCodeDefines.Success, getResponse.Result.Message.StatusCode);
            
             /*for (int i = 0; i < 36000000; ++i)
             {
@@ -70,11 +70,11 @@ namespace Money.Test
                 //var response1 = _mqBus.Publish(new AddMoneyMqCommand(10000000002, 10000, 10000));
                 //var response2 = _mqBus.Publish(new AddMoneyMqCommand(10000000002, -10000, -10000));
                
-                /*Assert.Equal(StatuCodeDefines.Success, moneyRes.Message.StatusCode);
+                /*Assert.Equal(StatusCodeDefines.Success, moneyRes.Message.StatusCode);
                 Assert.Equal(moneyResponse.Body.CurCoins + 10000, response.Result.Message.Body.CurCoins);
                 Assert.Equal(moneyResponse.Body.Carry + 10000, response.Result.Message.Body.Carry);
 
-                Assert.Equal(StatuCodeDefines.Success, moneyRes.Message.StatusCode);
+                Assert.Equal(StatusCodeDefines.Success, moneyRes.Message.StatusCode);
                 Assert.Equal(moneyResponse.Body.CurCoins, moneyRes.Message.Body.CurCoins);
                 Assert.Equal(moneyResponse.Body.Carry, moneyRes.Message.Body.Carry);
             }*/
@@ -83,7 +83,7 @@ namespace Money.Test
             /*var getResponse2 = getClient.GetResponseExt<GetMoneyMqCommand, BodyResponse<MoneyMqResponse>>(new GetMoneyMqCommand(10000000002));
             await getResponse2;
             _testOutputHelper.WriteLine($"GetMoney:{getResponse2.Result.Message.Body.CurCoins} --03");
-            Assert.Equal(StatuCodeDefines.Success, getResponse2.Result.Message.StatusCode);
+            Assert.Equal(StatusCodeDefines.Success, getResponse2.Result.Message.StatusCode);
             Assert.Equal(80000, getResponse2.Result.Message.Body.CurCoins);
             Assert.Equal(80000, getResponse2.Result.Message.Body.Carry);
             Assert.Equal(getResponse.Result.Message.Body.CurCoins, getResponse2.Result.Message.Body.CurCoins);
@@ -101,7 +101,7 @@ namespace Money.Test
 
             getResponse.Wait();
 
-            Assert.Equal(StatuCodeDefines.Success, getResponse.Result.Message.StatusCode);
+            Assert.Equal(StatusCodeDefines.Success, getResponse.Result.Message.StatusCode);
             var moneyResponse = getResponse.Result.Message;
             var response = client.GetResponseExt<BuyInMqCommand, BodyResponse<MoneyMqResponse>>(new BuyInMqCommand(10000000002, 1000, 10000));
 
@@ -109,7 +109,7 @@ namespace Money.Test
 
             var moneyRes = response.Result;
 
-            Assert.Equal(StatuCodeDefines.Success, moneyRes.Message.StatusCode);
+            Assert.Equal(StatusCodeDefines.Success, moneyRes.Message.StatusCode);
             
             Assert.True(10000 <= response.Result.Message.Body.Carry);
         }

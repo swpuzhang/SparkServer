@@ -131,11 +131,11 @@ namespace Account.Domain.CommandHandlers
                 _ = _bus.RaiseEvent<LoginEvent>(new LoginEvent(Guid.NewGuid(), 
                     accounResponse, isRegister, isNeedUpdate, newAccountInfo));
                 BodyResponse<AccountResponse> retRresponse =
-                    new BodyResponse<AccountResponse>(StatuCodeDefines.Success, null, accounResponse);
+                    new BodyResponse<AccountResponse>(StatusCodeDefines.Success, null, accounResponse);
                 return retRresponse;
             }
 
-            BodyResponse<AccountResponse> response = new BodyResponse<AccountResponse>(StatuCodeDefines.LoginError,
+            BodyResponse<AccountResponse> response = new BodyResponse<AccountResponse>(StatusCodeDefines.LoginError,
                 null, null);
             
             return response;

@@ -5,8 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Commons\Commons.Infrastruct\Commons.Infrastruct.csproj" />
     <ProjectReference Include="..\Account.Domain\Account.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Commons\Commons.csproj" />
+    <ProjectReference Include="..\..\..\Commons\Commons.csproj" />
   </ItemGroup>
 
 </Project>

@@ -69,10 +69,10 @@ namespace Account.Domain.CommandHandlers
         
             if (accountInfo == null || moneyInfo == null || levelInfo == null || gameInfo == null)
             {
-                return new BodyResponse<AccountDetail>(StatuCodeDefines.AccountError,
+                return new BodyResponse<AccountDetail>(StatusCodeDefines.AccountError,
                     null, null);
             }
-            BodyResponse<AccountDetail> response = new BodyResponse<AccountDetail>(StatuCodeDefines.Success,
+            BodyResponse<AccountDetail> response = new BodyResponse<AccountDetail>(StatusCodeDefines.Success,
                 null, new AccountDetail(accountInfo.Id, accountInfo.PlatformAccount,
                 accountInfo.UserName, accountInfo.Sex, accountInfo.HeadUrl,
                 accountInfo.Type, levelInfo, gameInfo, moneyInfo));

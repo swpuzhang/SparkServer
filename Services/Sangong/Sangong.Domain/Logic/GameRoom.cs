@@ -239,7 +239,7 @@ namespace Sangong.Domain.Logic
             await Task.WhenAll(accountInfo, moneyInfo);
             if (moneyInfo.Result == null)
             {
-                return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Error, new List<string>() { "make player error " }, null);
+                return new BodyResponse<JoinGameRoomMqResponse>(StatusCodeDefines.Error, new List<string>() { "make player error " }, null);
             }
             _playerInfos.TryGetValue(id, out var player);
             //已经在房间直接返回成功
@@ -264,7 +264,7 @@ namespace Sangong.Domain.Logic
        
             if (player == null)
             {
-                return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Error, new List<string>() { "make player error " }, null);
+                return new BodyResponse<JoinGameRoomMqResponse>(StatusCodeDefines.Error, new List<string>() { "make player error " }, null);
             }
 
             if (!player.IsSeated())
@@ -275,7 +275,7 @@ namespace Sangong.Domain.Logic
                 if (seat == null)
                 {
                     _playerInfos.Remove(id);
-                    return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Error, new List<string>() { "room is full " }, 
+                    return new BodyResponse<JoinGameRoomMqResponse>(StatusCodeDefines.Error, new List<string>() { "room is full " }, 
                         new JoinGameRoomMqResponse(id, RoomId, GameRoomManager.gameKey, SeatCount, Blind));
                 }
                 player.Seat(seat);
@@ -289,7 +289,7 @@ namespace Sangong.Domain.Logic
                 }
             }
             
-            return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Success, null,
+            return new BodyResponse<JoinGameRoomMqResponse>(StatusCodeDefines.Success, null,
                 new JoinGameRoomMqResponse(id, RoomId, GameRoomManager.gameKey, GetPlayerCount(), Blind));
         }
         public void BroadCastMessage(object request, string reqName)
@@ -690,7 +690,7 @@ namespace Sangong.Domain.Logic
             _playerInfos.TryGetValue(id, out var player);
             if (player == null || !player.IsSeated())
             {
-                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatusCodeDefines.PlayerNotInRoom, null);
             }
             PlayerStandup(player);
             return new ToAppResponse();
@@ -701,7 +701,7 @@ namespace Sangong.Domain.Logic
             _playerInfos.TryGetValue(id, out var player);
             if (player == null)
             {
-                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatusCodeDefines.PlayerNotInRoom, null);
             }
             PlayerStandup(player);
             return new ToAppResponse();
@@ -712,7 +712,7 @@ namespace Sangong.Domain.Logic
             _playerInfos.TryGetValue(id, out var player);
             if (player == null || !IsPlayerActive(player))
             {
-                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatusCodeDefines.PlayerNotInRoom, null);
             }
             PlayerDrop(player);
             return new ToAppResponse();
@@ -723,7 +723,7 @@ namespace Sangong.Domain.Logic
             _playerInfos.TryGetValue(id, out var player);
             if (player == null || !IsPlayerActive(player))
             {
-                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatusCodeDefines.PlayerNotInRoom, null);
             }
             
             PlayerPass(player);
@@ -736,12 +736,12 @@ namespace Sangong.Domain.Logic
             _playerInfos.TryGetValue(id, out var player);
             if (player == null || !IsPlayerActive(player))
             {
-                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatusCodeDefines.PlayerNotInRoom, null);
             }
 
             if (!PlayerFollow(player, out var followChips))
             {
-                return new ToAppResponse(null, StatuCodeDefines.NoEnoughMoney, null);
+                return new ToAppResponse(null, StatusCodeDefines.NoEnoughMoney, null);
             }
             
             return new ToAppResponse();
@@ -752,12 +752,12 @@ namespace Sangong.Domain.Logic
             _playerInfos.TryGetValue(id, out var player);
             if (player == null || !IsPlayerActive(player))
             {
-                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatusCodeDefines.PlayerNotInRoom, null);
             }
 
             if (!PlayerAdd(player, command.AddCoins))
             {
-                return new ToAppResponse(null, StatuCodeDefines.NoEnoughMoney, null);
+                return new ToAppResponse(null, StatusCodeDefines.NoEnoughMoney, null);
             }
 
             return new ToAppResponse();
@@ -772,16 +772,16 @@ namespace Sangong.Domain.Logic
             _playerInfos.TryGetValue(id, out var player);
             if (player == null || player.IsSeated() || command.SeatNum >= SeatCount || _seats[command.SeatNum].IsSeated())
             {
-                return new ToAppResponse(null, StatuCodeDefines.PlayerNotInRoom, null);
+                return new ToAppResponse(null, StatusCodeDefines.PlayerNotInRoom, null);
             }
 
             //向matching请求加入该房间
             var mqresponse = _mqManager.UserApplySit(id, RoomId, GameRoomManager.gameKey, Blind);
             mqresponse.Wait();
             var response = mqresponse.Result;
-            if (response == null || response.StatusCode != StatuCodeDefines.Success)
+            if (response == null || response.StatusCode != StatusCodeDefines.Success)
             {
-                return new ToAppResponse(null, StatuCodeDefines.Error, null);
+                return new ToAppResponse(null, StatusCodeDefines.Error, null);
             }
             var moneyMqResponse = _mqManager.BuyIn(id, MinCarry, MaxCarry);
             moneyMqResponse.Wait();
@@ -790,7 +790,7 @@ namespace Sangong.Domain.Logic
             {
                 //买入失败
                 _bus.Publish(new UserSitFailedMqEvent(id, RoomId, GameRoomManager.gameKey, GameRoomManager.matchingGroup));
-                return new ToAppResponse(null, StatuCodeDefines.Error, null);
+                return new ToAppResponse(null, StatusCodeDefines.Error, null);
             }
             player.UpdateInfo(id, player.PlatformAccount, player.UserName,
                 player.Sex, player.HeadUrl, moneyInfo.CurCoins,
@@ -870,7 +870,7 @@ namespace Sangong.Domain.Logic
 
             ApplySyncGameRoomResponse response = new ApplySyncGameRoomResponse(status, players, _coinsPool._pool, optLeftMs,
                 GameTimerConfig.BetChips, GameTimerConfig.GameAccount);
-            return new ToAppResponse(response, StatuCodeDefines.Success, null);
+            return new ToAppResponse(response, StatusCodeDefines.Success, null);
         }
         #endregion
     }

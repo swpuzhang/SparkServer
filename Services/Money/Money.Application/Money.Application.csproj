@@ -20,9 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Commons\Commons.Infrastruct\Commons.Infrastruct.csproj" />
-    <ProjectReference Include="..\..\..\Commons\Commons.IntegrationBus\Commons.Message.csproj" />
     <ProjectReference Include="..\Money.Domain\Money.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Commons\Commons.csproj" />
   </ItemGroup>
   
 </Project>

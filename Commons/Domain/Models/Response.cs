@@ -19,7 +19,7 @@ namespace Commons.Domain.Models
 
         }
         [JsonConstructor]
-        public BodyResponse(StatuCodeDefines statusCode, List<string> errorInfos, T body = null)
+        public BodyResponse(StatusCodeDefines statusCode, List<string> errorInfos, T body = null)
         {
             StatusCode = statusCode;
             ErrorInfos = errorInfos;
@@ -31,7 +31,7 @@ namespace Commons.Domain.Models
             return new BodyResponse<V>(StatusCode, ErrorInfos, mapper.Map<V>(Body));
         }
 
-        public StatuCodeDefines StatusCode { get; private set; }
+        public StatusCodeDefines StatusCode { get; private set; }
         public List<string> ErrorInfos { get; private set; }
         public T Body { get; set; }
     }

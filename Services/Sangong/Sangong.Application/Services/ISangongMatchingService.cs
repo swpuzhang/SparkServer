@@ -15,6 +15,8 @@ namespace Sangong.Application.Services
     {
         Task<BodyResponse<MatchingResponseVM>> Playnow(long id);
         Task<BodyResponse<GetBlindRoomListResponse>> GetBlindRoomList(long id);
+        Task<BodyResponse<MatchingResponseVM>> BlindMatching(long id, long blind);
+        
         void SynGameRooms(SyncGameRoomMqCommand command);
         void OnJoinGameRoom(JoinGameRoomMqEvent joinEvent);
         void OnLeaveGameRoom(LeaveGameRoomMqEvent leaveEvent);

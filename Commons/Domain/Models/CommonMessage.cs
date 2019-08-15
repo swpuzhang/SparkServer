@@ -247,7 +247,7 @@ namespace Commons.Domain.Models
     {
 
         [JsonConstructor]
-        public ToAppResponse(object data, StatuCodeDefines statusCode, List<string> errorInfos)
+        public ToAppResponse(object data, StatusCodeDefines statusCode, List<string> errorInfos)
         {
             if (data == null)
             {
@@ -264,7 +264,7 @@ namespace Commons.Domain.Models
         public ToAppResponse()
         {
             Data = null;
-            StatusCode = StatuCodeDefines.Success;
+            StatusCode = StatusCodeDefines.Success;
             ErrorInfos = null;
         }
 
@@ -273,7 +273,7 @@ namespace Commons.Domain.Models
         /// </summary>
         public string Data { get; private set; }
 
-        public StatuCodeDefines StatusCode { get; private set; }
+        public StatusCodeDefines StatusCode { get; private set; }
 
         public List<string> ErrorInfos { get; private set; }
     }
@@ -289,7 +289,7 @@ namespace Commons.Domain.Models
         }
 
         [JsonConstructor]
-        public ToServerResponse(object data, Guid gid, StatuCodeDefines statusCode, List<string> errorInfos)
+        public ToServerResponse(object data, Guid gid, StatusCodeDefines statusCode, List<string> errorInfos)
         {
             if (data == null)
             {
@@ -309,7 +309,7 @@ namespace Commons.Domain.Models
         {
             Data = null;
             MessageId = gid;
-            StatusCode = StatuCodeDefines.Success;
+            StatusCode = StatusCodeDefines.Success;
             ErrorInfos = null;
         }
 
@@ -323,7 +323,7 @@ namespace Commons.Domain.Models
         /// </summary>
         public string Data { get; private set; }
 
-        public StatuCodeDefines StatusCode { get; private set; }
+        public StatusCodeDefines StatusCode { get; private set; }
         public List<string> ErrorInfos { get; private set; }
     }
 

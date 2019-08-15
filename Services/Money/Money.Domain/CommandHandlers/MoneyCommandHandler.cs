@@ -53,12 +53,12 @@ namespace Money.Domain.CommandHandlers
 
                 if (moneyInfo == null)
                 {
-                    return new BodyResponse<MoneyInfo>(StatuCodeDefines.GetMoneyError, null, null);
+                    return new BodyResponse<MoneyInfo>(StatusCodeDefines.GetMoneyError, null, null);
                 }
 
             }
             BodyResponse<MoneyInfo> response = new BodyResponse<MoneyInfo>
-                (StatuCodeDefines.Success, null, moneyInfo);
+                (StatusCodeDefines.Success, null, moneyInfo);
             Log.Debug($"GetMoneyCommand:{moneyInfo.CurCoins},{moneyInfo.Carry}");
             return response;
 
@@ -82,7 +82,7 @@ namespace Money.Domain.CommandHandlers
                 if (moneyInfo.CurCoins + moneyInfo.Carry < request.MinBuy)
                 {
                     return new BodyResponse<MoneyMqResponse>
-                        (StatuCodeDefines.NoEnoughMoney, null, null);
+                        (StatusCodeDefines.NoEnoughMoney, null, null);
                 }
                 long realBuy = 0;
                 if (moneyInfo.CurCoins + moneyInfo.Carry >= request.MaxBuy)
@@ -101,7 +101,7 @@ namespace Money.Domain.CommandHandlers
                 }
                 
                 await Task.WhenAll(_redis.SetMoney(request.Id, moneyInfo), _moneyRepository.ReplaceAsync(moneyInfo));
-                return new BodyResponse<MoneyMqResponse>(StatuCodeDefines.Success, null, 
+                return new BodyResponse<MoneyMqResponse>(StatusCodeDefines.Success, null, 
                     new MoneyMqResponse(request.Id, moneyInfo.CurCoins, moneyInfo.CurDiamonds, 
                     moneyInfo.MaxCoins, moneyInfo.MaxDiamonds, moneyInfo.Carry));
             }
@@ -129,7 +129,7 @@ namespace Money.Domain.CommandHandlers
                 {
                     Log.Debug($"AddMoneyCommand add end:{request.AddCoins},{request.AddCarry} {request.AggregateId}--1");
                     return new BodyResponse<MoneyMqResponse>
-                        (StatuCodeDefines.NoEnoughMoney, null, null);
+                        (StatusCodeDefines.NoEnoughMoney, null, null);
                 }
 
                 if (request.AddCarry < 0 && 
@@ -137,7 +137,7 @@ namespace Money.Domain.CommandHandlers
                 {
                     Log.Debug($"AddMoneyCommand add end:{request.AddCoins},{request.AddCarry} {request.AggregateId}--2");
                     return new BodyResponse<MoneyMqResponse>
-                        (StatuCodeDefines.NoEnoughMoney, null, null);
+                        (StatusCodeDefines.NoEnoughMoney, null, null);
                 }
                 moneyInfo.AddCoins(request.AddCoins);
                 moneyInfo.AddCarry(request.AddCarry);
@@ -154,7 +154,7 @@ namespace Money.Domain.CommandHandlers
                     _moneyRepository.ReplaceAsync(moneyInfo));
                 Log.Debug($"AddMoneyCommand add end:{request.AddCoins},{request.AddCarry} {request.AggregateId} curCoins:{moneyInfo.CurCoins} curCarry:{moneyInfo.Carry}--3");
 
-                return new BodyResponse<MoneyMqResponse>(StatuCodeDefines.Success, null,
+                return new BodyResponse<MoneyMqResponse>(StatusCodeDefines.Success, null,
                     new MoneyMqResponse(request.Id, moneyInfo.CurCoins, moneyInfo.CurDiamonds,
                     moneyInfo.MaxCoins, moneyInfo.MaxDiamonds, moneyInfo.Carry));
             }

@@ -155,3 +155,7 @@
 /Tests
 /GateWays/ApiGateWay/work/GateWays/ApiGateWay
 /GateWays/WSGateWay/work/GateWays/WSGateWay
+/Commons/bin/Debug/netcoreapp2.2
+/Commons/obj
+/Robot/bin/Debug/netcoreapp2.2
+/Robot/obj/Debug/netcoreapp2.2

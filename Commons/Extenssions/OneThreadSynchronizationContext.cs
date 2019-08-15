@@ -63,13 +63,13 @@ namespace Commons.Extenssions
 
         //private Action a;
 
-        public static async Task<TResponse> UserRequest<TResponse>(long id, Func<long, Task<TResponse>> fuc)  where TResponse:class
+        public static async Task<TResponse> UserRequest<T, TResponse>(T p1, Func<T, Task<TResponse>> fuc)  where TResponse:class
         {
             TaskCompletionSource<TResponse> methodCallCompletionSource = new TaskCompletionSource<TResponse>();
             OneThreadSynchronizationContext.Instance.Post(async x => {
                 try
                 {
-                    var innnerresponse = await fuc(id);
+                    var innnerresponse = await fuc(p1);
                     methodCallCompletionSource.SetResult(innnerresponse);
                 }
                 catch (Exception ex)
@@ -83,7 +83,27 @@ namespace Commons.Extenssions
             return response;
         }
 
-		public void Update()
+        public static async Task<TResponse> UserRequest<T1, T2, TResponse>(T1 p1, T2 p2, Func<T1, T2, Task<TResponse>> fuc) where TResponse : class
+        {
+            TaskCompletionSource<TResponse> methodCallCompletionSource = new TaskCompletionSource<TResponse>();
+            OneThreadSynchronizationContext.Instance.Post(async x => {
+                try
+                {
+                    var innnerresponse = await fuc(p1, p2);
+                    methodCallCompletionSource.SetResult(innnerresponse);
+                }
+                catch (Exception ex)
+                {
+                    methodCallCompletionSource.TrySetException(ex);
+                }
+
+
+            }, null);
+            var response = await methodCallCompletionSource.Task;
+            return response;
+        }
+
+        public void Update()
 		{
             foreach (var one in _queue.GetConsumingEnumerable())
             {

@@ -34,12 +34,12 @@ namespace Commons.Infrastruct
             /*if (_pendingMethodCalls.TryRemove(id, out var value))
             {
                 value.Value.Dispose();
-                value.Key.TrySetResult(new BodyResponse<NullBody>(StatuCodeDefines.Success, null));
+                value.Key.TrySetResult(new BodyResponse<NullBody>(StatusCodeDefines.Success, null));
             }*/
 
             if (_Calls.TryRemove(id, out var value))
             {
-                value.Key.TrySetResult(new BodyResponse<NullBody>(StatuCodeDefines.Success, null));
+                value.Key.TrySetResult(new BodyResponse<NullBody>(StatusCodeDefines.Success, null));
                 value.Value.Dispose();
             }
 
@@ -51,7 +51,7 @@ namespace Commons.Infrastruct
             if (_pendingMethodCalls.TryRemove(id, out var value))
             {
                 value.Value.Dispose();
-                value.Key.TrySetResult(new BodyResponse<NullBody>(StatuCodeDefines.Timeout, new List<string>() { "timeout" }));
+                value.Key.TrySetResult(new BodyResponse<NullBody>(StatusCodeDefines.Timeout, new List<string>() { "timeout" }));
             }
         }*/
 
@@ -75,13 +75,13 @@ namespace Commons.Infrastruct
                     {
                         value.Value.Dispose();
                     }
-                    return new BodyResponse<NullBody>(StatuCodeDefines.AppIsDisconnected, new List<string>() { ex.Message });
+                    return new BodyResponse<NullBody>(StatusCodeDefines.AppIsDisconnected, new List<string>() { ex.Message });
                 }
                 
                 return await methodCallCompletionSource.Task;
             }
             timer.Dispose();
-            return new BodyResponse<NullBody>(StatuCodeDefines.GuidError, new List<string>() { StatuCodeDefines.GuidError.ToString() });
+            return new BodyResponse<NullBody>(StatusCodeDefines.GuidError, new List<string>() { StatusCodeDefines.GuidError.ToString() });
         }*/
 
         public async Task<BodyResponse<NullBody>> RequestCallAsync(string conn, string method,
@@ -100,7 +100,7 @@ namespace Commons.Infrastruct
                         {
                             if (_Calls.TryRemove(id, out var value))
                             {
-                                value.Key.TrySetResult(new BodyResponse<NullBody>(StatuCodeDefines.Timeout, new List<string>() { "timeout" }));
+                                value.Key.TrySetResult(new BodyResponse<NullBody>(StatusCodeDefines.Timeout, new List<string>() { "timeout" }));
                                 value.Value.Dispose();
                             }
                         }
@@ -117,7 +117,7 @@ namespace Commons.Infrastruct
                     {
                         value.Value.Dispose();
                     }
-                    return new BodyResponse<NullBody>(StatuCodeDefines.AppIsDisconnected, new List<string>() { ex.Message });
+                    return new BodyResponse<NullBody>(StatusCodeDefines.AppIsDisconnected, new List<string>() { ex.Message });
                 }
                
             }
@@ -125,7 +125,7 @@ namespace Commons.Infrastruct
             else
             {
                 token.Dispose();
-                return new BodyResponse<NullBody>(StatuCodeDefines.GuidError, new List<string>() { StatuCodeDefines.GuidError.ToString() });
+                return new BodyResponse<NullBody>(StatusCodeDefines.GuidError, new List<string>() { StatusCodeDefines.GuidError.ToString() });
             }
             
         }
@@ -143,7 +143,7 @@ namespace Commons.Infrastruct
                     if (_Calls.TryRemove(id, out var value))
                     {
                         
-                        value.Key.TrySetResult(new BodyResponse<NullBody>(StatuCodeDefines.AppIsDisconnected, new List<string>() { ex.Message }));
+                        value.Key.TrySetResult(new BodyResponse<NullBody>(StatusCodeDefines.AppIsDisconnected, new List<string>() { ex.Message }));
                         value.Value.Dispose();
 
                     }

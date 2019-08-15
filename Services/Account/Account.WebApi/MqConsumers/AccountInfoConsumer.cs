@@ -27,13 +27,13 @@ namespace Account.WebApi.MqConsumers
         public async Task Consume(ConsumeContext<GetAccountInfoMqCommand> context)
         {
             var response = await _service.GetSelfAccount(context.Message.Id);
-            if (response.StatusCode != StatuCodeDefines.Success)
+            if (response.StatusCode != StatusCodeDefines.Success)
             {
                 await context.RespondAsync<BodyResponse<GetAccountInfoMqResponse>>(new BodyResponse<GetAccountInfoMqResponse>(response.StatusCode,
                     null, null));
                 return;
             }
-            await context.RespondAsync<BodyResponse<GetAccountInfoMqResponse>>(new BodyResponse<GetAccountInfoMqResponse>(StatuCodeDefines.Success, null, new GetAccountInfoMqResponse(context.Message.Id,
+            await context.RespondAsync<BodyResponse<GetAccountInfoMqResponse>>(new BodyResponse<GetAccountInfoMqResponse>(StatusCodeDefines.Success, null, new GetAccountInfoMqResponse(context.Message.Id,
                 response.Body.PlatformAccount, response.Body.UserName, response.Body.Sex, response.Body.HeadUrl,
                 new GameInfoMq(response.Body.GameInfo.GameTimes, response.Body.GameInfo.WinTimes, response.Body.GameInfo.MaxWinCoins),
                 new LevelInfoMq(response.Body.LevelInfo.CurLevel, response.Body.LevelInfo.CurExp, response.Body.LevelInfo.NeedExp))));

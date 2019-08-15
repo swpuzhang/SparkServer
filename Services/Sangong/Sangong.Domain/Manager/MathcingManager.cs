@@ -42,16 +42,19 @@ namespace Sangong.Domain.Manager
              _coinsRangeCfg = _configRespository.LoadCoinsRangeConfig();
         }
 
-        public long GetBlindFromCoins(long coins)
+        public bool GetBlindFromCoins(long coins, out long blind)
+
         {
+            blind = 0;
             foreach (var oneCfg in _coinsRangeCfg)
             {
                 if (coins >= oneCfg.CoinsBegin && coins < (oneCfg.CoinsEnd == -1 ? long.MaxValue : oneCfg.CoinsEnd))
                 {
-                    return oneCfg.Blind;
+                    blind = oneCfg.Blind;
+                    return true;
                 }
             }
-            return _coinsRangeCfg.Last().Blind;
+            return false;
         }
 
         public async Task<BodyResponse<SangongMatchingResponseInfo>> MatchingRoom(long id, long blind, string curRoomId)
@@ -62,7 +65,7 @@ namespace Sangong.Domain.Manager
             {
                 if (!await locker.TryLockAsync())
                 {
-                    return new BodyResponse<SangongMatchingResponseInfo>(StatuCodeDefines.IsMatching, null, null);
+                    return new BodyResponse<SangongMatchingResponseInfo>(StatusCodeDefines.IsMatching, null, null);
                 }
 
                 //查询redis是否有这个玩家
@@ -82,10 +85,10 @@ namespace Sangong.Domain.Manager
                         await _roomManager.SendToGameRoom<JoinGameRoomMqCommand, BodyResponse<JoinGameRoomMqResponse>>
                         (roomInfo.GameKey, new JoinGameRoomMqCommand(id, roomInfo.RoomId, roomInfo.GameKey));
                     
-                    if (roomResponse.StatusCode == StatuCodeDefines.Success)
+                    if (roomResponse.StatusCode == StatusCodeDefines.Success)
                     {
                         _ = _redis.SetUserRoomInfo(new UserRoomInfo(id, roomInfo.RoomId, roomInfo.GameKey, blind, MatchingStatus.Success));
-                        return new BodyResponse<SangongMatchingResponseInfo>(StatuCodeDefines.Success, null,
+                        return new BodyResponse<SangongMatchingResponseInfo>(StatusCodeDefines.Success, null,
                             new SangongMatchingResponseInfo(id, roomInfo.RoomId, roomInfo.Blind, roomInfo.GameKey));
                     }
                     else
@@ -106,7 +109,7 @@ namespace Sangong.Domain.Manager
                 {
                     _ = _redis.DeleteUserRoomInfo(id);
                     Log.Error($"user {id} join room {roomInfo.RoomId} error");
-                    return new BodyResponse<SangongMatchingResponseInfo>(StatuCodeDefines.BusError, null, null);
+                    return new BodyResponse<SangongMatchingResponseInfo>(StatusCodeDefines.BusError, null, null);
                 }
             }
         }
@@ -152,14 +155,14 @@ namespace Sangong.Domain.Manager
                 var userRoomInfo = await _redis.GetUserRoomInfo(id);
                 if (userRoomInfo != null)
                 {
-                    return new BodyResponse<NullBody>(StatuCodeDefines.Error, new List<string>() { "user already in room " });
+                    return new BodyResponse<NullBody>(StatusCodeDefines.Error, new List<string>() { "user already in room " });
                 }
                 if (!_roomManager.JoinOneRoom(gameKey, roomId))
                 {
-                    return new BodyResponse<NullBody>(StatuCodeDefines.Error, new List<string>() { "room is full " });
+                    return new BodyResponse<NullBody>(StatusCodeDefines.Error, new List<string>() { "room is full " });
                 }
                 _ = _redis.SetUserRoomInfo(new UserRoomInfo(id, roomId, gameKey, blind, MatchingStatus.Success));
-                return new BodyResponse<NullBody>(StatuCodeDefines.Success, null);
+                return new BodyResponse<NullBody>(StatusCodeDefines.Success, null);
             }
         }
 

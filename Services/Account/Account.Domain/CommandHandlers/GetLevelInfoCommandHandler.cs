@@ -58,7 +58,7 @@ namespace Account.Domain.CommandHandlers
                 
             }
             
-            BodyResponse<LevelInfo> response = new BodyResponse<LevelInfo>(StatuCodeDefines.Success,
+            BodyResponse<LevelInfo> response = new BodyResponse<LevelInfo>(StatusCodeDefines.Success,
                 null, levelinfo);
             
             return response;

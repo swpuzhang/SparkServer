@@ -46,20 +46,20 @@ namespace Sangong.Domain.Manager
         {
             if (_rooms.ContainsKey(roomId))
             {
-                return new BodyResponse<NullBody>(StatuCodeDefines.Error, new List<string>() { "room has already created" });
+                return new BodyResponse<NullBody>(StatusCodeDefines.Error, new List<string>() { "room has already created" });
             }
             GameRoom roomInfo = new GameRoom(roomId, blind, seatCount, minCoins, 
                 maxCoins, tipsPersent, _mqManager, _bus, _mapper, minCarry, maxCarry);
             roomInfo.Init();
             _rooms.Add(roomId, roomInfo);
-            return new BodyResponse<NullBody>(StatuCodeDefines.Success, null);
+            return new BodyResponse<NullBody>(StatusCodeDefines.Success, null);
         }
 
         public async Task<BodyResponse<JoinGameRoomMqResponse>> JoinRoom(long id, string roomId)
         {
             if (!_rooms.TryGetValue(roomId, out var oneRoom))
             {
-                return new BodyResponse<JoinGameRoomMqResponse>(StatuCodeDefines.Error, new List<string>() { "room is not exist" }, null);
+                return new BodyResponse<JoinGameRoomMqResponse>(StatusCodeDefines.Error, new List<string>() { "room is not exist" }, null);
             }
             return await oneRoom.JoinRoom(id);
         }
@@ -68,7 +68,7 @@ namespace Sangong.Domain.Manager
         {
             if (!_rooms.TryGetValue(roomId, out var oneRoom))
             {
-                return new ToAppResponse(null, StatuCodeDefines.Error, null);
+                return new ToAppResponse(null, StatusCodeDefines.Error, null);
             }
             try
             {
@@ -79,7 +79,7 @@ namespace Sangong.Domain.Manager
             }
             catch
             {
-                return new ToAppResponse(null, StatuCodeDefines.Error, null);
+                return new ToAppResponse(null, StatusCodeDefines.Error, null);
             }
             
         }

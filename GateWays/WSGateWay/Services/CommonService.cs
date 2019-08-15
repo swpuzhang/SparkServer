@@ -14,7 +14,7 @@ namespace WSGateWay.Services
 
             long id = 0;
             var status = TokenHelper.ParseToken(token, out id);
-            if (status != StatuCodeDefines.Success)
+            if (status != StatusCodeDefines.Success)
             {
                 return new KeyValuePair<bool, long>(false, id);
             }

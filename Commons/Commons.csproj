@@ -4,14 +4,17 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
-    <NoWarn>1701;1702;1591;1573</NoWarn>
-  </PropertyGroup>
-
+  <ItemGroup>
+    <Folder Include="Domain\" />
+    <Folder Include="Extenssions\" />
+    <Folder Include="Infrastruct\" />
+    <Folder Include="IntegrationBus\" />
+    <Folder Include="SignalrClient\" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MassTransit" Version="5.5.3" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="StackExchange.Redis" Version="2.0.601" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="4.0.1" />
@@ -21,12 +24,12 @@
     <PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="1.1.0" />
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
+    <PackageReference Include="MassTransit" Version="5.5.3" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.8.1" />
+    <PackageReference Include="StackExchange.Redis" Version="2.0.601" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Swashbuckle.AspNetCore.SwaggerGen">
-      <HintPath>C:\Microsoft\Xamarin\NuGet\swashbuckle.aspnetcore.swaggergen\4.0.1\lib\netstandard2.0\Swashbuckle.AspNetCore.SwaggerGen.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

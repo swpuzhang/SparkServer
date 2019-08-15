@@ -38,7 +38,7 @@ namespace Sample.WebApi.Controllers
         public  BodyResponse<SampleInfo> Login([FromBody] SampleVM model)
         {
            
-             return new BodyResponse<SampleInfo>(StatuCodeDefines.FieldError, null, null);
+             return new BodyResponse<SampleInfo>(StatusCodeDefines.FieldError, null, null);
     
         }
 

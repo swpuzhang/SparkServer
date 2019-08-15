@@ -17,13 +17,13 @@ namespace Commons.Extenssions
         }
 
         [JsonConstructor]
-        public MiddleResponse(StatuCodeDefines statusCode, List<string> errorInfos)
+        public MiddleResponse(StatusCodeDefines statusCode, List<string> errorInfos)
         {
             StatusCode = statusCode;
             ErrorInfos = errorInfos;
         }
 
-        public StatuCodeDefines StatusCode { get; private set; }
+        public StatusCodeDefines StatusCode { get; private set; }
         public List<string> ErrorInfos { get; private set; }
     }
 
@@ -51,13 +51,13 @@ namespace Commons.Extenssions
             if (string.IsNullOrEmpty(token))
             {
                 return context.Response.WriteAsync(JsonConvert.SerializeObject(
-                    new MiddleResponse(StatuCodeDefines.TokenError, null)));
+                    new MiddleResponse(StatusCodeDefines.TokenError, null)));
                 ;
                 
             }
             long id = 0;
             var status = TokenHelper.ParseToken(token, out id);
-            if (status != StatuCodeDefines.Success)
+            if (status != StatusCodeDefines.Success)
             {
                 return context.Response.WriteAsync(JsonConvert.SerializeObject(
                     new MiddleResponse(status, null)));

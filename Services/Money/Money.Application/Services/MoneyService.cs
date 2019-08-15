@@ -25,33 +25,33 @@ namespace Money.Application.Services
         public async Task<BodyResponse<MoneyMqResponse>> BuyIn(long id, long min, long max)
         {
             var moneyInfo = await _bus.SendCommand(new BuyInCommand(id, min, max));
-            if (moneyInfo.StatusCode != StatuCodeDefines.Success)
+            if (moneyInfo.StatusCode != StatusCodeDefines.Success)
             {
                 return new BodyResponse<MoneyMqResponse>(moneyInfo.StatusCode, null, null);
             }
-            return new BodyResponse<MoneyMqResponse>(StatuCodeDefines.Success, null, moneyInfo.Body);
+            return new BodyResponse<MoneyMqResponse>(StatusCodeDefines.Success, null, moneyInfo.Body);
         }
 
         public async Task<BodyResponse<MoneyMqResponse>> GetMoney(long id)
         {
             var moneyInfo = await _bus.SendCommand(new GetMoneyCommand(id));
-            if (moneyInfo.StatusCode != StatuCodeDefines.Success)
+            if (moneyInfo.StatusCode != StatusCodeDefines.Success)
             {
                 return new BodyResponse<MoneyMqResponse>(moneyInfo.StatusCode, null, null);
             }
             var moneyResponse = _mapper.Map<MoneyMqResponse>(moneyInfo.Body);
-            return new BodyResponse<MoneyMqResponse>(StatuCodeDefines.Success, null, moneyResponse);
+            return new BodyResponse<MoneyMqResponse>(StatusCodeDefines.Success, null, moneyResponse);
         }
 
         public async Task<BodyResponse<MoneyMqResponse>> AddMoney(long id, long addCoins, long addCarry)
         {
             var moneyInfo = await _bus.SendCommand(new AddMoneyCommand(id, addCoins, addCarry));
-            if (moneyInfo.StatusCode != StatuCodeDefines.Success)
+            if (moneyInfo.StatusCode != StatusCodeDefines.Success)
             {
                 return new BodyResponse<MoneyMqResponse>(moneyInfo.StatusCode, null, null);
             }
             var moneyResponse = _mapper.Map<MoneyMqResponse>(moneyInfo.Body);
-            return new BodyResponse<MoneyMqResponse>(StatuCodeDefines.Success, null, moneyResponse);
+            return new BodyResponse<MoneyMqResponse>(StatusCodeDefines.Success, null, moneyResponse);
         }
     }
 }

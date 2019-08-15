@@ -35,7 +35,7 @@ namespace Sangong.Domain.CommandHandlers
         }
         public Task<BodyResponse<SangongInfo>> Handle(SangongCommand request, CancellationToken cancellationToken)
         {
-            BodyResponse<SangongInfo> response = new BodyResponse<SangongInfo>(StatuCodeDefines.LoginError, null, null);
+            BodyResponse<SangongInfo> response = new BodyResponse<SangongInfo>(StatusCodeDefines.LoginError, null, null);
             return Task.FromResult(response);
         }
     }

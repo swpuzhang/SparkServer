@@ -3,15 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Commons\Commons.Domain\Commons.Domain.csproj" />
-    <ProjectReference Include="..\..\..\Commons\Commons.Extenssions\Commons.Extenssions.csproj" />
-    <ProjectReference Include="..\..\..\Commons\Commons.Infrastruct\Commons.Infrastruct.csproj" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.1.1" />
     <PackageReference Include="MediatR" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Commons\Commons.csproj" />
   </ItemGroup>
   
 </Project>

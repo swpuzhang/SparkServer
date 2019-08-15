@@ -266,7 +266,7 @@ namespace Sangong.Domain.Manager
                 (new CreateRoomMqCommand(roomId, gameKey,  blind, blindConfig.MinCoins,
                 blindConfig.MaxCoins, blindConfig.TipsPersent, RoomInfo.MAX_USER_NUM, 
                 blindConfig.MinCarry, blindConfig.MaxCarry));
-            if (busResponse.Message.StatusCode != StatuCodeDefines.Success)
+            if (busResponse.Message.StatusCode != StatusCodeDefines.Success)
             {
                 throw new Exception($"Create Room {roomId} blind{blind} error");
             }

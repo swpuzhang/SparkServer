@@ -14,32 +14,32 @@
             facebook
             </summary>
         </member>
-        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.LoginError">
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.LoginError">
             <summary>
             登录失败
             </summary>
         </member>
-        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.FieldError">
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.FieldError">
             <summary>
             字段错误
             </summary>
         </member>
-        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.BusError">
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.BusError">
             <summary>
             总线请求错误
             </summary>
         </member>
-        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.Timeout">
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.Timeout">
             <summary>
             超时
             </summary>
         </member>
-        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.AppIsDisconnected">
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.AppIsDisconnected">
             <summary>
             客户端已经断开连接
             </summary>
         </member>
-        <member name="F:Commons.Extenssions.Defines.StatuCodeDefines.GuidError">
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.GuidError">
             <summary>
             GUID错误， 可能碰到重复
             </summary>

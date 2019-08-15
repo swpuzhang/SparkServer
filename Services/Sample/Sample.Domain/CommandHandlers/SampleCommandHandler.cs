@@ -32,7 +32,7 @@ namespace Sample.Domain.CommandHandlers
         public Task<BodyResponse<SampleInfo>> Handle(SampleCommand request, CancellationToken cancellationToken)
         {
             
-            BodyResponse<SampleInfo> response = new BodyResponse<SampleInfo>(StatuCodeDefines.LoginError, null, null);
+            BodyResponse<SampleInfo> response = new BodyResponse<SampleInfo>(StatusCodeDefines.LoginError, null, null);
             return Task.FromResult(response);
 
         }

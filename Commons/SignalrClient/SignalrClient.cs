@@ -57,7 +57,7 @@ namespace Common.Signalr.Client
         {
             
             var response = await _hubConnection.InvokeAsync<BodyResponse<NullBody>>("LoginRequest", new { Token = _loginToken });
-            if (response.StatusCode != StatuCodeDefines.Success)
+            if (response.StatusCode != StatusCodeDefines.Success)
             {
                 _isAutoReconn = false;
             }

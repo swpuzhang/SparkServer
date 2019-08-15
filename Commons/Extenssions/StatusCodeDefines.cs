@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Commons.Extenssions.Defines
 {
-    public enum StatuCodeDefines
+    public enum StatusCodeDefines
     {
         /// <summary>
         /// 通用错误

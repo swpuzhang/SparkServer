@@ -36,7 +36,9 @@ namespace Sangong.Matching.WebApi.Extenssions
             services.AddScoped<IMediatorHandler, InProcessBus>();
             services.AddScoped<IRequestHandler<SangongCommand, BodyResponse<SangongInfo>>, SangongCommandHandler>();
             services.AddScoped<IRequestHandler<SangongPlaynowCommand, BodyResponse<SangongMatchingResponseInfo>>, SangongMatchingCommandHandler>();
+            services.AddScoped<IRequestHandler<BlindMatchingCommand, BodyResponse<SangongMatchingResponseInfo>>, SangongMatchingCommandHandler>();
 
+            
             services.AddMediatR(typeof(Startup));
             services.AddSingleton(new RedisHelper(configuration["redis:ConnectionString"]));
             //注册MANAGER

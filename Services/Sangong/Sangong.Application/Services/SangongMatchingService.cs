@@ -66,11 +66,20 @@ namespace Sangong.Application.Services
             _ = _matchingManager.OnSiteFailed(sitEvent.Id, sitEvent.GameKey, sitEvent.RoomId, sitEvent.MatchingGroup);
         }
 
-        public BodyResponse<GetBlindRoomListResponse> GetBlindRoomList(long id)
+        public Task<BodyResponse<GetBlindRoomListResponse>> GetBlindRoomList(long id)
         {
-            return new BodyResponse<GetBlindRoomListResponse>(StatuCodeDefines.Success, null,
-                _roomManager.GetBindRoomList());
+            return Task.FromResult(new BodyResponse<GetBlindRoomListResponse>(StatusCodeDefines.Success, null,
+                _roomManager.GetBindRoomList()));
             
         }
+
+        public async Task<BodyResponse<MatchingResponseVM>> BlindMatching(long id, long blind)
+        {
+            BodyResponse<SangongMatchingResponseInfo> response = 
+                await _bus.SendCommand(new BlindMatchingCommand(id, blind));
+            return response.MapResponse<MatchingResponseVM>(_mapper);
+        }
+
+       
     }
 }

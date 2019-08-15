@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Commons\Commons.Domain\Commons.Domain.csproj" />
     <ProjectReference Include="..\Account.Application\Account.Application.csproj" />
+    <ProjectReference Include="..\..\..\Commons\Commons.csproj" />
   </ItemGroup>
 
 </Project>

@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Commons\Commons.Domain\Commons.Domain.csproj" />
+    <ProjectReference Include="..\..\Commons\Commons.csproj" />
     <ProjectReference Include="..\MassTransitMessage\Message.csproj" />
   </ItemGroup>
 

@@ -38,7 +38,7 @@ namespace Sangong.Game.WebApi.Controllers
         public BodyResponse<SangongInfo> Login([FromBody] SangongVM model)
         {
 
-            return new BodyResponse<SangongInfo>(StatuCodeDefines.FieldError, null, null);
+            return new BodyResponse<SangongInfo>(StatusCodeDefines.FieldError, null, null);
 
         }
 

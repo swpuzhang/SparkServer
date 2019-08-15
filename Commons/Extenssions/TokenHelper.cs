@@ -27,7 +27,7 @@ namespace Commons.Extenssions
             return Secret.EncryptAES(inputstr);
         }
 
-        public static StatuCodeDefines CheckToken(string str, long id, long expireSec = 3600 * 24)
+        public static StatusCodeDefines CheckToken(string str, long id, long expireSec = 3600 * 24)
         {
             
             try
@@ -36,23 +36,23 @@ namespace Commons.Extenssions
                 UserToken token = JsonConvert.DeserializeObject<UserToken>(decStr);
                 if (token == null || token.Id != id)
                 {
-                    return StatuCodeDefines.TokenError;
+                    return StatusCodeDefines.TokenError;
                 }
                 long tnow = DateTimeHelper.ToTimeStamp(DateTime.Now);
                 if (tnow - token.GenTime >= expireSec)
                 {
-                    return StatuCodeDefines.TokenExpiredPleaseRelogin;
+                    return StatusCodeDefines.TokenExpiredPleaseRelogin;
                 }
-                return StatuCodeDefines.Success;
+                return StatusCodeDefines.Success;
             }
             catch(Exception)
             {
-                return StatuCodeDefines.TokenError;
+                return StatusCodeDefines.TokenError;
             }
             
         }
 
-        public static StatuCodeDefines ParseToken(string str, out long id, long expireSec = 3600 * 24)
+        public static StatusCodeDefines ParseToken(string str, out long id, long expireSec = 3600 * 24)
         {
             id = 0;
             try
@@ -61,19 +61,19 @@ namespace Commons.Extenssions
                 UserToken token = JsonConvert.DeserializeObject<UserToken>(decStr);
                 if (token == null)
                 {
-                    return StatuCodeDefines.TokenError;
+                    return StatusCodeDefines.TokenError;
                 }
                 long tnow = DateTimeHelper.ToTimeStamp(DateTime.Now);
                 if (tnow - token.GenTime >= expireSec)
                 {
-                    return StatuCodeDefines.TokenExpiredPleaseRelogin;
+                    return StatusCodeDefines.TokenExpiredPleaseRelogin;
                 }
                 id = token.Id;
-                return StatuCodeDefines.Success;
+                return StatusCodeDefines.Success;
             }
             catch (Exception)
             {
-                return StatuCodeDefines.TokenError;
+                return StatusCodeDefines.TokenError;
             }
 
         }

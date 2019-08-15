@@ -35,11 +35,9 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Commons\Commons.Domain\Commons.Domain.csproj" />
-    <ProjectReference Include="..\..\..\Commons\Commons.Extenssions\Commons.Extenssions.csproj" />
-    <ProjectReference Include="..\..\..\Commons\Commons.Infrastruct\Commons.Infrastruct.csproj" />
     <ProjectReference Include="..\Sangong.Application\Sangong.Application.csproj" />
     <ProjectReference Include="..\Sangong.Infrastruct\Sangong.Infrastruct.csproj" />
+    <ProjectReference Include="..\..\..\Commons\Commons.csproj" />
   </ItemGroup>
 
 </Project>

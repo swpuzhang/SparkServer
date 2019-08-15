@@ -20,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Commons\Commons.Infrastruct\Commons.Infrastruct.csproj" />
     <ProjectReference Include="..\Sangong.Domain\Sangong.Domain.csproj" />
   </ItemGroup>
   

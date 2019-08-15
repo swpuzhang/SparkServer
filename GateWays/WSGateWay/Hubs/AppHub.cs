@@ -56,7 +56,7 @@ namespace WSGateWay.Hubs
         {
             long uid = _userConnManager.GetUidByConn(Context.ConnectionId);
            
-            return new ToAppResponse(null, StatuCodeDefines.Success, null);
+            return new ToAppResponse(null, StatusCodeDefines.Success, null);
         }
 
         public BodyResponse<NullBody> LoginRequest(LoginRequest request)
@@ -66,11 +66,11 @@ namespace WSGateWay.Hubs
             var result = _commonService.TokenValidation(request.Token);
             if (!result.Key)
             {
-                return new BodyResponse<NullBody>(StatuCodeDefines.LoginError, new List<string>() { "Token error relogin" });
+                return new BodyResponse<NullBody>(StatusCodeDefines.LoginError, new List<string>() { "Token error relogin" });
             }
             _userConnManager.OnLogined(result.Value, Context.ConnectionId);
             
-            return new BodyResponse<NullBody>(StatuCodeDefines.Success, null);
+            return new BodyResponse<NullBody>(StatusCodeDefines.Success, null);
            
         }
 
@@ -82,7 +82,7 @@ namespace WSGateWay.Hubs
             long uid = _userConnManager.GetUidByConn(Context.ConnectionId);
             if (request.Id != uid)
             {
-                return new ToAppResponse(null, StatuCodeDefines.Error, null);
+                return new ToAppResponse(null, StatusCodeDefines.Error, null);
             }
             var busClient = _bus.CreateRequestClient<RoomRequest>(new Uri($"{Configuration["Rabbitmq:Uri"]}{request.GameRoomKey}"), TimeSpan.FromSeconds(5));
             try
@@ -93,7 +93,7 @@ namespace WSGateWay.Hubs
             catch( Exception)
             {
                 
-                return new ToAppResponse(null, StatuCodeDefines.BusError, null);
+                return new ToAppResponse(null, StatusCodeDefines.BusError, null);
             }
             return commonResponse;
         }

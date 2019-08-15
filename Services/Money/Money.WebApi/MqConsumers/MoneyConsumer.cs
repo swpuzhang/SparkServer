@@ -2,9 +2,6 @@
 using Commons.MqCommands;
 using MassTransit;
 using Money.Application.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Money.WebApi.MqConsumers

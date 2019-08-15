@@ -18,5 +18,15 @@ namespace Sangong.Domain.Commands
             Id = id;
         }
     }
-     
+
+    public class BlindMatchingCommand : Command<BodyResponse<SangongMatchingResponseInfo>>
+    {
+        public long Id { get; private set; }
+        public long Blind { get; private set; }
+        public BlindMatchingCommand(long id, long blind)
+        {
+            Id = id;
+            Blind = blind;
+        }
+    }
 }

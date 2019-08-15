@@ -53,7 +53,7 @@ namespace Account.Domain.CommandHandlers
                 }
             }
             
-            BodyResponse<GameInfo> response = new BodyResponse<GameInfo>(StatuCodeDefines.Success,
+            BodyResponse<GameInfo> response = new BodyResponse<GameInfo>(StatusCodeDefines.Success,
                 null, gameinfo);
             
             return response;

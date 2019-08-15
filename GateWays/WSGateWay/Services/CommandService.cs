@@ -51,7 +51,7 @@ namespace WSGateWay.Services
             string conn = _userConnManager.GetConnByUid(serverReq.Id);
             if (conn == null)
             {
-                await context.RespondAsync<BodyResponse<NullBody>>(new BodyResponse<NullBody>(StatuCodeDefines.AppIsDisconnected,null));
+                await context.RespondAsync<BodyResponse<NullBody>>(new BodyResponse<NullBody>(StatusCodeDefines.AppIsDisconnected,null));
                 return;
             }
             ToAppRequest req = _mapper.Map<ToAppRequest>(context.Message);
