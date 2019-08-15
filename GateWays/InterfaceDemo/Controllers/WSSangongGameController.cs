@@ -13,12 +13,12 @@ using Commons.Extenssions.Defines;
 using Commons.Extenssions;
 using Sangong.GameMessage;
 
-namespace ApiGateWay.Controllers
+namespace InterfaceDemo.Controllers
 {
     /// <summary>
-    /// 三公房间内的消息， 只能看不能调用
+    /// 三公房间内的消息， 只能看不能调用, 向websocket 发送AppRoomRequest消息名的消息
     /// </summary>
-    [Route("api/[controller]/[Action]")]
+    [Route("[Action]")]
     [ApiController]
     public class WSSangongGameController : ControllerBase
     {
@@ -27,6 +27,7 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HttpGet]
         public ToAppResponse<NullBody> ApplyStandupCommand(AppRoomRequest<ApplyStandupCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -37,6 +38,7 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HttpGet]
         public ToAppResponse<NullBody> ApplyLeaveCommand(AppRoomRequest<ApplyLeaveCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -47,6 +49,7 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HttpGet]
         public ToAppResponse<NullBody> ApplySitdownCommand(AppRoomRequest<ApplySitdownCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -57,6 +60,7 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HttpGet]
         public ToAppResponse<NullBody> ApplyDropCommand(AppRoomRequest<ApplyDropCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -67,6 +71,7 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HttpGet]
         public ToAppResponse<NullBody> ApplyPassCommand(AppRoomRequest<ApplyPassCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -77,6 +82,7 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HttpGet]
         public ToAppResponse<NullBody> ApplyFollowCommand(AppRoomRequest<ApplyFollowCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -87,6 +93,7 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HttpGet]
         public ToAppResponse<NullBody> ApplyAddCommand(AppRoomRequest<ApplyAddCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -97,6 +104,7 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HttpGet]
         public ToAppResponse<ApplySyncGameRoomResponse> ApplySyncGameRoomCommand(AppRoomRequest<ApplySyncGameRoomCommand> command)
         {
             return new ToAppResponse<ApplySyncGameRoomResponse>();
@@ -104,9 +112,9 @@ namespace ApiGateWay.Controllers
     }
 
     /// <summary>
-    /// 三公房间内的通知事件
+    /// 三公房间内的通知事件 只能看不能调用,  向APP通知ToAppRoomRequest消息名的消息
     /// </summary>
-    [Route("api/[controller]/[Action]")]
+    [Route("[Action]")]
     [ApiController]
     public class WSSangongGameNotifyController : ControllerBase
     {
@@ -115,6 +123,7 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HttpGet]
         public ToServerResponse<PlayerSeatedEvent> PlayerSeatedEvent(ToAppRoomRequest<PlayerSeatedEvent> command)
         {
             return new ToServerResponse<PlayerSeatedEvent>();
@@ -125,6 +134,7 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HttpGet]
         public ToServerResponse<DealCardsEvent> DealCardsEvent(ToAppRoomRequest<DealCardsEvent> command)
         {
             return new ToServerResponse<DealCardsEvent>();
@@ -136,7 +146,8 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        public ToServerResponse<ActiveEvent> DealCardsEvent(ToAppRoomRequest<ActiveEvent> command)
+        [HttpGet]
+        public ToServerResponse<ActiveEvent> ActiveEvent(ToAppRoomRequest<ActiveEvent> command)
         {
             return new ToServerResponse<ActiveEvent>();
         }
@@ -146,7 +157,8 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        public ToServerResponse<DealThirdCardEvent> DealCardsEvent(ToAppRoomRequest<DealThirdCardEvent> command)
+        [HttpGet]
+        public ToServerResponse<DealThirdCardEvent> DealThirdCardEvent(ToAppRoomRequest<DealThirdCardEvent> command)
         {
             return new ToServerResponse<DealThirdCardEvent>();
         }
@@ -156,7 +168,8 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        public ToServerResponse<DropEvent> DealCardsEvent(ToAppRoomRequest<DropEvent> command)
+        [HttpGet]
+        public ToServerResponse<DropEvent> DropEvent(ToAppRoomRequest<DropEvent> command)
         {
             return new ToServerResponse<DropEvent>();
         }
@@ -166,7 +179,8 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        public ToServerResponse<PassEvent> DealCardsEvent(ToAppRoomRequest<PassEvent> command)
+        [HttpGet]
+        public ToServerResponse<PassEvent> PassEvent(ToAppRoomRequest<PassEvent> command)
         {
             return new ToServerResponse<PassEvent>();
         }
@@ -176,6 +190,7 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HttpGet]
         public ToServerResponse<FollowEvent> FollowEvent(ToAppRoomRequest<FollowEvent> command)
         {
             return new ToServerResponse<FollowEvent>();
@@ -186,7 +201,8 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        public ToServerResponse<AddEvent> DealCardsEvent(ToAppRoomRequest<AddEvent> command)
+        [HttpGet]
+        public ToServerResponse<AddEvent> AddEvent(ToAppRoomRequest<AddEvent> command)
         {
             return new ToServerResponse<AddEvent>();
         }
@@ -196,7 +212,8 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        public ToServerResponse<GameOverEvent> DealCardsEvent(ToAppRoomRequest<GameOverEvent> command)
+        [HttpGet]
+        public ToServerResponse<GameOverEvent> GameOverEvent(ToAppRoomRequest<GameOverEvent> command)
         {
             return new ToServerResponse<GameOverEvent>();
         }
@@ -206,12 +223,19 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        public ToServerResponse<PlayerStanupEvent> DealCardsEvent(ToAppRoomRequest<PlayerStanupEvent> command)
+        [HttpGet]
+        public ToServerResponse<PlayerStanupEvent> PlayerStanupEvent(ToAppRoomRequest<PlayerStanupEvent> command)
         {
             return new ToServerResponse<PlayerStanupEvent>();
         }
 
-        public ToServerResponse<PlayerBuyInEvent> DealCardsEvent(ToAppRoomRequest<PlayerBuyInEvent> command)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ToServerResponse<PlayerBuyInEvent> PlayerBuyInEvent(ToAppRoomRequest<PlayerBuyInEvent> command)
         {
             return new ToServerResponse<PlayerBuyInEvent>();
         }

@@ -36,8 +36,10 @@ namespace Sangong.Game.WebApi
 
         private static IConfiguration GetConfiguration(string[] args)
         {
+            bool isEnvironment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development";
+            string basePath = isEnvironment ? Directory.GetCurrentDirectory() : ApplicationEnvironment.ApplicationBasePath;
             var builder = new ConfigurationBuilder()
-                .SetBasePath(ApplicationEnvironment.ApplicationBasePath)
+                .SetBasePath(basePath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables()
                 .AddCommandLine(args);

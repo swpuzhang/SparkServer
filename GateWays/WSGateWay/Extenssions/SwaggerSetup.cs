@@ -37,8 +37,8 @@ namespace WSGateWay.Extenssions
                 else
                 {
                     string curPath = ApplicationEnvironment.ApplicationBasePath;
-                    int index = curPath.LastIndexOf("Spark");
-                    basePath = curPath.Substring(0, index + 5) + "/work/SwaggerInterface";
+                    int index = curPath.LastIndexOf("SparkServer");
+                    basePath = curPath.Substring(0, index + 11) + "/work/SwaggerInterface";
                 }
 
                 var files = Directory.GetFiles(basePath, "*.xml");

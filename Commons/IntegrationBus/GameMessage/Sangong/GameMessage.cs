@@ -30,19 +30,19 @@ namespace Sangong.GameMessage
             Carry = carry;
         }
 
-        public long UserId { get; private set; }
-        public string UserName { get; private set; }
+        public long UserId { get; set; }
+        public string UserName { get; set; }
 
-        public long CurCoins { get; private set; }
+        public long CurCoins { get; set; }
 
-        public long CurDiamonds { get; private set; }
+        public long CurDiamonds { get; set; }
 
-        public int SeatNum { get; private set; }
+        public int SeatNum { get; set; }
 
         /// <summary>
         /// 牌桌买入
         /// </summary>
-        public long Carry { get; private set; }
+        public long Carry { get; set; }
     }
 
     public class PokerCard : IComparable<PokerCard>
@@ -85,8 +85,8 @@ namespace Sangong.GameMessage
             return ret;
         }
 
-        public int Point { get; private set; }
-        public int Color { get; private set; }
+        public int Point { get; set; }
+        public int Color { get; set; }
     }
 
 
@@ -114,32 +114,32 @@ namespace Sangong.GameMessage
         /// <summary>
         /// 庄家的座位号
         /// </summary>
-        public long DealerSeatNum { get; private set; }
+        public long DealerSeatNum { get; set; }
 
         /// <summary>
         /// 发牌顺序，从庄家开始的座位号
         /// </summary>
-        public List<int> DealCardNum { get; private set; }
+        public List<int> DealCardNum { get; set; }
 
         /// <summary>
         /// 手牌数量
         /// </summary>
-        public int CardNum { get; private set; }
+        public int CardNum { get; set; }
 
         /// <summary>
         /// 自己的手牌
         /// </summary>
-        public List<PokerCard> Cards { get; private set; }
+        public List<PokerCard> Cards { get; set; }
 
         /// <summary>
         /// 下底注
         /// </summary>
-        public long Blind { get; private set; }
+        public long Blind { get; set; }
 
         /// <summary>
         /// 按发牌顺序,各个玩家的当前携带
         /// </summary>
-        public List<long> carrys { get; private set; }
+        public List<long> carrys { get; set; }
     }
 
     [Flags]
@@ -168,12 +168,12 @@ namespace Sangong.GameMessage
         /// <summary>
         /// 激活玩家座位号
         /// </summary>
-        public int ActiveSeatNum { get; private set; }
+        public int ActiveSeatNum { get; set; }
 
         /// <summary>
         /// 跟牌显示筹码数, 如果为0 表示过牌
         /// </summary>
-        public long AddCoins { get; private set; }
+        public long AddCoins { get; set; }
     }
 
     public class DealThirdCardEvent
@@ -195,27 +195,27 @@ namespace Sangong.GameMessage
         /// <summary>
         /// 下注分堆， 每一堆多少jinbi
         /// </summary>
-        public List<long> CoinPool { get; private set; }
+        public List<long> CoinPool { get; set; }
 
         /// <summary>
         /// 第三张牌
         /// </summary>
-        public PokerCard Card { get; private set; }
+        public PokerCard Card { get; set; }
 
         /// <summary>
         /// 三张牌组成的类型
         /// </summary>
-        public int CardType { get; private set; }
+        public int CardType { get; set; }
 
         /// <summary>
         /// 如果类型是点数牌， 点数
         /// </summary>
-        public int Point { get; private set; }
+        public int Point { get; set; }
 
         /// <summary>
         /// 发牌顺序
         /// </summary>
-        public List<int> Order { get; private set; }
+        public List<int> Order { get; set; }
     }
 
     /// <summary>
@@ -237,7 +237,7 @@ namespace Sangong.GameMessage
         /// <summary>
         /// 激活玩家座位号
         /// </summary>
-        public int DropSeatNum { get; private set; }
+        public int DropSeatNum { get; set; }
     }
 
     public class PassEvent
@@ -256,7 +256,7 @@ namespace Sangong.GameMessage
         /// <summary>
         /// 激活玩家座位号
         /// </summary>
-        public int SeatNum { get; private set; }
+        public int SeatNum { get; set; }
     }
 
     public class FollowEvent
@@ -276,13 +276,13 @@ namespace Sangong.GameMessage
         /// <summary>
         /// 激活玩家座位号
         /// </summary>
-        public int SeatNum { get; private set; }
-        public long FollowCoins { get; private set; }
+        public int SeatNum { get; set; }
+        public long FollowCoins { get; set; }
 
         /// <summary>
         /// 当前携带为0表示allin
         /// </summary>
-        public long Carry { get; private set; }
+        public long Carry { get; set; }
     }
 
     public class AddEvent
@@ -302,13 +302,13 @@ namespace Sangong.GameMessage
         /// <summary>
         /// 激活玩家座位号
         /// </summary>
-        public int SeatNum { get; private set; }
-        public long AddCoins { get; private set; }
+        public int SeatNum { get; set; }
+        public long AddCoins { get; set; }
 
         /// <summary>
         /// 当前携带为0表示allin
         /// </summary>
-        public long Carry { get; private set; }
+        public long Carry { get; set; }
     }
 
     /// <summary>
@@ -326,12 +326,12 @@ namespace Sangong.GameMessage
         /// <summary>
         /// 该奖池的赢家座位号
         /// </summary>
-        public int WinnerSeat { get; private set; }
+        public int WinnerSeat { get; set; }
 
         /// <summary>
         /// 该奖池的金币数
         /// </summary>
-        public long Coins { get; private set; }
+        public long Coins { get; set; }
     }
 
     
@@ -348,17 +348,17 @@ namespace Sangong.GameMessage
         /// <summary>
         /// 手牌
         /// </summary>
-        public List<PokerCard> Cards { get; private set; }
+        public List<PokerCard> Cards { get; set; }
 
         /// <summary>
         /// 三张牌组成的类型
         /// </summary>
-        public int CardType { get; private set; }
+        public int CardType { get; set; }
 
         /// <summary>
         /// 如果类型是点数牌， 点数
         /// </summary>
-        public int Point { get; private set; }
+        public int Point { get; set; }
     }
 
     /// <summary>
@@ -377,17 +377,17 @@ namespace Sangong.GameMessage
         /// <summary>
         /// 赢家座位号
         /// </summary>
-        public List<int> WinnerSeats { get; private set; }
+        public List<int> WinnerSeats { get; set; }
 
         /// <summary>
         /// 每个奖池
         /// </summary>
-        public List<WinnerCoinsPool> WinnerPool { get; private set; }
+        public List<WinnerCoinsPool> WinnerPool { get; set; }
 
         /// <summary>
         /// 手牌
         /// </summary>
-        public Dictionary<int, PlayerCards> handCards {get; private set;}
+        public Dictionary<int, PlayerCards> handCards {get; set;}
     }
 
     public class PlayerStanupEvent
@@ -399,8 +399,8 @@ namespace Sangong.GameMessage
             SeatNum = seatNum;
         }
 
-        public long UserId { get; private set; }
-        public int SeatNum { get; private set; }
+        public long UserId { get; set; }
+        public int SeatNum { get; set; }
     }
 
     public class ApplyStandupCommand
@@ -422,7 +422,7 @@ namespace Sangong.GameMessage
             SeatNum = seatNum;
         }
 
-        public int SeatNum { get; private set; }
+        public int SeatNum { get; set; }
 
     }
 
@@ -448,7 +448,7 @@ namespace Sangong.GameMessage
             this.AddCoins = addCoins;
         }
 
-        public long AddCoins { get; private set; }
+        public long AddCoins { get; set; }
     }
 
     public class ApplyStayInRoom
@@ -466,8 +466,8 @@ namespace Sangong.GameMessage
             Carry = carry;
         }
 
-        public int SeatNum { get; private set; }
-        public long Carry { get; private set; }
+        public int SeatNum { get; set; }
+        public long Carry { get; set; }
     }
 
     public class ApplySyncGameRoomCommand
@@ -515,31 +515,31 @@ namespace Sangong.GameMessage
             BetCoins = betCoins;
         }
 
-        public long Id { get; private set; }
-        public int SeatNum { get; private set; }
-        public string Name { get; private set; }
-        public long Carry { get; private set; }
-        public string HeadUrl { get; private set; }
-        public int HandCardCount { get; private set; }
-        public PlayerStatus Status { get; private set; }
+        public long Id { get; set; }
+        public int SeatNum { get; set; }
+        public string Name { get; set; }
+        public long Carry { get; set; }
+        public string HeadUrl { get; set; }
+        public int HandCardCount { get; set; }
+        public PlayerStatus Status { get; set; }
         /// <summary>
         /// 自己的手牌
         /// </summary>
-        public List<PokerCard> HandCards {get; private set;}
+        public List<PokerCard> HandCards {get; set;}
         /// <summary>
         /// 手牌类型
         /// </summary>
-        public int CardType { get; private set; }
+        public int CardType { get; set; }
 
         /// <summary>
         /// 如果是点数牌， 点数
         /// </summary>
-        public int Points { get; private set; }
+        public int Points { get; set; }
 
         /// <summary>
         /// 当前已经下注额度
         /// </summary>
-        public long BetCoins { get; private set; }
+        public long BetCoins { get; set; }
 
     }
 
@@ -586,28 +586,28 @@ namespace Sangong.GameMessage
         /// PlayerOpt = 1 等待玩家操作， 显示倒计时，
         /// GameOver =2, 结束状态， 等待下一局开始
         /// </summary>
-        public GameStatusMq Status { get; private set; }
+        public GameStatusMq Status { get; set; }
          
-        public List<PlayerInfo> Players { get; private set; }
+        public List<PlayerInfo> Players { get; set; }
 
         /// <summary>
         /// 当前奖池
         /// </summary>
-        public List<long> Pools { get; private set; }
+        public List<long> Pools { get; set; }
 
         /// <summary>
         /// 当前状态剩余多少秒
         /// </summary>
-        public int TimeLeftMs { get; private set; } 
+        public int TimeLeftMs { get; set; } 
 
         /// <summary>
         /// 玩家操作等待总时长
         /// </summary>
-        public int PlayerOptMs { get; private set; }
+        public int PlayerOptMs { get; set; }
 
         /// <summary>
         /// 牌局结算总时长
         /// </summary>
-        public int GameOverMs { get; private set; }
+        public int GameOverMs { get; set; }
     }
 }

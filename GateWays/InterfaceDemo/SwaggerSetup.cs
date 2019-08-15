@@ -12,7 +12,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace Sangong.Game.WebApi.Extenssions
+namespace InterfaceDemo
 {
     
 
@@ -20,12 +20,15 @@ namespace Sangong.Game.WebApi.Extenssions
     {
         public static void RegisterSwaggerServices(this IServiceCollection services)
         {
+           
+
             services.AddSwaggerGen(c =>
             {
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
-                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "My API V1", Version = "v1" });
                 c.OperationFilter<HttpHeaderFilter>();
                 c.DescribeAllEnumsAsStrings();
+
                 string basePath;
                 var env = services.BuildServiceProvider().GetService<IHostingEnvironment>();
                 if (Environment.OSVersion.Platform == PlatformID.MacOSX ||
@@ -47,8 +50,7 @@ namespace Sangong.Game.WebApi.Extenssions
                 {
                     var xmlPath = Path.Combine(basePath, oneFile);
                     c.IncludeXmlComments(xmlPath, true);
-                }
-
+                }  
             });
         }
 

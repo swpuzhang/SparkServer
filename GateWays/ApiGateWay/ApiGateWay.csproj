@@ -26,9 +26,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Commons\Commons.csproj" />
-    <ProjectReference Include="..\..\Services\Account\Account.Application\Account.Application.csproj" />
-    <ProjectReference Include="..\..\Services\Sangong\Sangong.Application\Sangong.Application.csproj" />
-    <ProjectReference Include="..\WSGateWay\WSGateWay.csproj" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties ocelot_1json__JsonSchema="http://json.schemastore.org/appsettings" /></VisualStudio></ProjectExtensions>

@@ -162,3 +162,13 @@
 /Commons/bin/Release/netcoreapp2.2
 /work/GateWays/WSGateWay
 /work/Services
+/GateWays/ApiGateWay/ApiGateWay/logs
+/GateWays/InterfaceDemo/bin
+/GateWays/InterfaceDemo/obj
+/work/GateWays/InterfaceDemo
+/work/Runsh/Account.WebApi/logs
+/work/Runsh/ApiGateWay/logs
+/work/Runsh/Money.WebApi/logs
+/work/Runsh/Sangong.Game.WebApi/logs
+/work/Runsh/Sangong.Matching.WebApi/logs
+/work/Runsh/WSGateWay/logs

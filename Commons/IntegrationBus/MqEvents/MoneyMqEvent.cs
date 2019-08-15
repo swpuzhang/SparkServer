@@ -30,19 +30,19 @@ namespace Commons.Message.MqEvents
             DiamondsChangeCount = diamondsChangeCount;
         }
 
-        public long Id { get; private set; }
-        public long CurCoins { get; private set; }
-        public long CurDiamonds { get; private set; }
-        public long MaxCoins { get; private set; }
-        public long MaxDiamonds { get; private set; }
+        public long Id { get; set; }
+        public long CurCoins { get; set; }
+        public long CurDiamonds { get; set; }
+        public long MaxCoins { get; set; }
+        public long MaxDiamonds { get; set; }
         /// <summary>
         /// 变化的金币数量
         /// </summary>
-        public long CoinsChangeCount { get; private set; }
+        public long CoinsChangeCount { get; set; }
         /// <summary>
         /// 变化的砖石数量
         /// </summary>
-        public long DiamondsChangeCount { get; private set; }
+        public long DiamondsChangeCount { get; set; }
         
     }
 }

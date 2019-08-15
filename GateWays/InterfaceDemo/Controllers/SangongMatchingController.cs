@@ -11,10 +11,10 @@ using Commons.Extenssions;
 using Sangong.Application.ViewModels;
 using Sangong.Domain.Models;
 
-namespace ApiGateWay.Controllers
+namespace InterfaceDemo.Controllers
 {
     /// <summary>
-    /// 匹配相关接口 只能看不能调用
+    /// 匹配相关接口
     /// </summary>
     [Route("api/[controller]/[Action]")]
     [ApiController]
@@ -30,11 +30,13 @@ namespace ApiGateWay.Controllers
             return new BodyResponse<MatchingResponseVM>(StatusCodeDefines.Error, new List<string>() { "just demo" });
         }
 
+
         /// <summary>
         /// 获取房间列表接口
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [HttpGet]
         public  BodyResponse<GetBlindRoomListResponse> GetBlindRoomList([FromHeader]long id)
         {
             return new BodyResponse<GetBlindRoomListResponse>(StatusCodeDefines.Error, new List<string>() { "just demo" });
@@ -46,6 +48,7 @@ namespace ApiGateWay.Controllers
         /// <param name="id"></param>
         /// <param name="blind"></param>
         /// <returns></returns>
+        [HttpGet]
         public BodyResponse<MatchingResponseVM> BlindMatching([FromHeader]long id, long blind)
         {
 

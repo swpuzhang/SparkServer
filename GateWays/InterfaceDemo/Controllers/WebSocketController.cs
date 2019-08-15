@@ -13,14 +13,14 @@ using Commons.Extenssions.Defines;
 using Commons.Extenssions;
 using WSGateWay.ViewModels;
 
-namespace ApiGateWay.Controllers
+namespace InterfaceDemo.Controllers
 {
     /// <summary>
     /// websocket 相关接口只能看， 不能调用， 不是HTTP请求
     /// </summary>
-    [Route("api/[controller]/[Action]")]
+    [Route("[Action]")]
     [ApiController]
-    public class WebSocketControlle : ControllerBase
+    public class WebSocketController : ControllerBase
     {
 
         /// <summary>
@@ -28,6 +28,7 @@ namespace ApiGateWay.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
+        [HttpGet]
         public BodyResponse<NullBody> LoginRequest(LoginRequest request)
         {
             return new BodyResponse<NullBody>(StatusCodeDefines.Error, null, null);

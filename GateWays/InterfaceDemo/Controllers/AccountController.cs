@@ -12,10 +12,10 @@ using Account.Domain.Models;
 using Commons.Extenssions.Defines;
 using Commons.Extenssions;
 
-namespace ApiGateWay.Controllers
+namespace InterfaceDemo.Controllers
 {
     /// <summary>
-    /// 账号相关操作api/Account/Login， 只能看不能调用
+    /// 账号相关操作api/Account/Login，
     /// </summary>
     [Route("api/[controller]/[Action]")]
     [ApiController]

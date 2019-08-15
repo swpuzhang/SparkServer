@@ -15,16 +15,16 @@ namespace Commons.Domain.Models
         /// <summary>
         /// 消息的唯一码
         /// </summary>
-        public Guid MessageId { get; private set; }
+        public Guid MessageId { get; set; }
 
         /// <summary>
         /// 请求的消息名
         /// </summary>
-        public string ReqName { get; private set; }
+        public string ReqName { get; set; }
         /// <summary>
         /// 请求的消息数据
         /// </summary>
-        public string ReqData { get; private set; }
+        public T ReqData { get; set; }
     }
 
     /// <summary>
@@ -37,26 +37,26 @@ namespace Commons.Domain.Models
         /// <summary>
         /// 消息的唯一码
         /// </summary>
-        public Guid MessageId { get; private set; }
+        public Guid MessageId { get; set; }
 
         /// <summary>
         /// gamekey 标识哪个gamesvr
         /// </summary>
-        public string GameKey { get; private set; }
+        public string GameKey { get; set; }
 
         /// <summary>
         /// 标识那个房间
         /// </summary>
-        public int RoomId { get; private set; }
+        public int RoomId { get; set; }
 
         /// <summary>
         /// 请求的消息名
         /// </summary>
-        public string ReqName { get; private set; }
+        public string ReqName { get; set; }
         /// <summary>
         /// 请求的消息数据
         /// </summary>
-        public string ReqData { get; private set; }
+        public T ReqData { get; set; }
     }
 
     /// <summary>
@@ -69,24 +69,24 @@ namespace Commons.Domain.Models
         /// <summary>
         /// 玩家ID
         /// </summary>
-        public long Id { get; private set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// 请求的消息名, ReqData的消息名
         /// </summary>
-        public string ReqName { get; private set; }
+        public string ReqName { get; set; }
         /// <summary>
         /// 请求的消息数据
         /// </summary>
-        public T ReqData { get; private set; }
+        public T ReqData { get; set; }
         /// <summary>
         /// 房间key, 这个key通过匹配接口返回
         /// </summary>
-        public string GameRoomKey { get; private set; }
+        public string GameRoomKey { get; set; }
         /// <summary>
         /// 房间ID 通过匹配返回
         /// </summary>
-        public string RoomId { get; private set; }
+        public string RoomId { get; set; }
 
     }
 
@@ -101,16 +101,16 @@ namespace Commons.Domain.Models
         /// <summary>
         /// 消息数据，如果没有就为Null
         /// </summary>
-        public T Data { get; private set; }
+        public T Data { get; set; }
         /// <summary>
         /// 返回码
         /// </summary>
-        public StatusCodeDefines StatusCode { get; private set; }
+        public StatusCodeDefines StatusCode { get; set; }
 
         /// <summary>
         /// 错误信息 如果没有就为Null
         /// </summary>
-        public List<string> ErrorInfos { get; private set; }
+        public List<string> ErrorInfos { get; set; }
     }
 
     /// <summary>
@@ -122,16 +122,16 @@ namespace Commons.Domain.Models
         /// <summary>
         /// 返回请求消息的唯一码
         /// </summary>
-        public Guid MessageId { get; private set; }
+        public Guid MessageId { get; set; }
 
         /// <summary>
         /// 消息数据
         /// </summary>
-        public T Data { get; private set; }
+        public T Data { get; set; }
 
-        public StatusCodeDefines StatusCode { get; private set; }
+        public StatusCodeDefines StatusCode { get; set; }
 
-        public List<string> ErrorInfos { get; private set; }
+        public List<string> ErrorInfos { get; set; }
     }
 
 

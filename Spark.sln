@@ -93,7 +93,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commons", "Commons", "{BD53
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commons", "Commons\Commons.csproj", "{DF40EAB9-7F72-4369-8E9C-A43E11C6AE7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sangong.Robot", "Services\Sangong\Sangong.Robot\Sangong.Robot.csproj", "{C1982832-FF27-45DD-B134-DCD8FCCDC5B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sangong.Robot", "Services\Sangong\Sangong.Robot\Sangong.Robot.csproj", "{C1982832-FF27-45DD-B134-DCD8FCCDC5B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceDemo", "GateWays\InterfaceDemo\InterfaceDemo.csproj", "{ED4721F9-0D37-4B14-A385-6AA1D5927E4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -253,6 +255,10 @@ Global
 		{C1982832-FF27-45DD-B134-DCD8FCCDC5B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1982832-FF27-45DD-B134-DCD8FCCDC5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1982832-FF27-45DD-B134-DCD8FCCDC5B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED4721F9-0D37-4B14-A385-6AA1D5927E4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED4721F9-0D37-4B14-A385-6AA1D5927E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED4721F9-0D37-4B14-A385-6AA1D5927E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED4721F9-0D37-4B14-A385-6AA1D5927E4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -300,6 +306,7 @@ Global
 		{59463E25-AD00-42CC-BAE8-8A3F0FF1D200} = {5B826C61-408A-4984-A949-9F726F619406}
 		{DF40EAB9-7F72-4369-8E9C-A43E11C6AE7C} = {BD530C76-D19B-494A-BB09-88DBD0AE0702}
 		{C1982832-FF27-45DD-B134-DCD8FCCDC5B7} = {B9DEE3AA-28DC-46EF-B91E-BDF24EB918E8}
+		{ED4721F9-0D37-4B14-A385-6AA1D5927E4C} = {5B826C61-408A-4984-A949-9F726F619406}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B9948BCA-13BE-40A6-AE83-C3AE6645B3A3}
