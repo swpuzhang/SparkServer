@@ -67,7 +67,7 @@ namespace Sangong.Domain.Models
         /// <summary>
         /// 房间类型 0 体力场, 1初2中3高
         /// </summary>
-        public RoomTypes RoomType { get; private set; }
+        public RoomTypes RoomType { get; set; }
         public long Bind { get; set; }
         public long MinCarry { get; set; }
         public long MaxCarry { get; set; }
