@@ -1,0 +1,566 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Commons</name>
+    </assembly>
+    <members>
+        <member name="T:Commons.Domain.Models.ToAppRequest">
+            <summary>
+            Server推送
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRequest.MessageId">
+            <summary>
+            消息的唯一码
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRequest.ReqName">
+            <summary>
+            请求的消息名
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRequest.ReqData">
+            <summary>
+            请求的消息数据
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRoomRequest.MessageId">
+            <summary>
+            消息的唯一码
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRoomRequest.GameKey">
+            <summary>
+            gamekey 标识哪个gamesvr
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRoomRequest.RoomId">
+            <summary>
+            标识那个房间
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRoomRequest.ReqName">
+            <summary>
+            请求的消息名
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppRoomRequest.ReqData">
+            <summary>
+            请求的消息数据
+            </summary>
+        </member>
+        <member name="T:Commons.Domain.Models.ServerRequest">
+            <summary>
+            Server内部请求
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ServerRequest.MessageId">
+            <summary>
+            消息的唯一码
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ServerRequest.ReqName">
+            <summary>
+            请求的消息名
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ServerRequest.ReqData">
+            <summary>
+            请求的消息数据
+            </summary>
+        </member>
+        <member name="T:Commons.Domain.Models.GameServerRequest">
+            <summary>
+            GameServer内部请求
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.GameServerRequest.MessageId">
+            <summary>
+            消息的唯一码
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.GameServerRequest.ReqName">
+            <summary>
+            请求的消息名
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.GameServerRequest.ReqData">
+            <summary>
+            请求的消息数据
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.GameServerRequest.GameKey">
+            <summary>
+            gamekey 标识哪个gamesvr
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.GameServerRequest.RoomId">
+            <summary>
+            标识那个房间
+            </summary>
+        </member>
+        <member name="T:Commons.Domain.Models.AppRequest">
+            <summary>
+            APP主动请求
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.AppRequest.MessageId">
+            <summary>
+            消息的唯一码
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.AppRequest.ReqName">
+            <summary>
+            请求的消息名
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.AppRequest.ReqData">
+            <summary>
+            请求的消息数据
+            </summary>
+        </member>
+        <member name="T:Commons.Domain.Models.RoomRequest">
+            <summary>
+            APP请求房间
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToAppResponse.Data">
+            <summary>
+            消息数据
+            </summary>
+        </member>
+        <member name="T:Commons.Domain.Models.ToServerResponse">
+            <summary>
+            response
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToServerResponse.MessageId">
+            <summary>
+            返回请求消息的唯一码
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.ToServerResponse.Data">
+            <summary>
+            消息数据
+            </summary>
+        </member>
+        <member name="T:Commons.Extenssions.Defines.AccountType">
+            <summary>
+            账号类型
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.AccountType.Facebook">
+            <summary>
+            Facebook
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.AccountType.Twitter">
+            <summary>
+            Twitter
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.Error">
+            <summary>
+            通用错误
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.LoginError">
+            <summary>
+            登录失败
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.FieldError">
+            <summary>
+            字段错误
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.BusError">
+            <summary>
+            总线请求错误
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.Timeout">
+            <summary>
+            超时
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.AppIsDisconnected">
+            <summary>
+            客户端已经断开连接
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.GuidError">
+            <summary>
+            GUID错误， 可能碰到重复
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.TokenError">
+            <summary>
+            验证token失败
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.TokenExpiredPleaseRelogin">
+            <summary>
+            token过期, 重新登录
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.GetMoneyError">
+            <summary>
+            huoq
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.NoEnoughMoney">
+            <summary>
+            钱不够
+            </summary>
+        </member>
+        <member name="M:Commons.Extenssions.KeyGenHelper.GenKey(System.String,System.String[])">
+            <summary>
+            生成跟uid相关的key  userid|key1|key2
+            </summary>
+            <param name="key1"></param>
+            <param name="ps"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.SetString(System.String,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            set or update the value for string key 
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.SetString``1(System.String,``0,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存一个对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.GetString``1(System.String)">
+            <summary>
+            获取一个key的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.GetString(System.String)">
+            <summary>
+            get the value for string key 
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.DeleteKey(System.String)">
+            <summary>
+            Delete the value for string key 
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.SetHashValue(System.String,System.String,System.String)">
+            <summary>
+            set or update the HashValue for string key 
+            </summary>
+            <param name="key"></param>
+            <param name="hashkey"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.SetHashValue``1(System.String,System.String,``0)">
+            <summary>
+            set or update the HashValue for string key 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="hashkey"></param>
+            <param name="t">defined class</param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.SetHashList``1(System.String,System.Collections.Generic.List{``0},System.Func{``0,System.String})">
+            <summary>
+            保存一个集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">Redis Key</param>
+            <param name="list">数据集合</param>
+            <param name="getModelId"></param>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.HashGetAll``1(System.String)">
+            <summary>
+            获取hashkey所有的值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.GetHashValue(System.String,System.String)">
+            <summary>
+            get the HashValue for string key  and hashkey
+            </summary>
+            <param name="key">Represents a key that can be stored in redis</param>
+            <param name="hashkey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.GetHashValue``1(System.String,System.String)">
+            <summary>
+            get the HashValue for string key  and hashkey
+            </summary>
+            <param name="key">Represents a key that can be stored in redis</param>
+            <param name="hashkey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.Extenssions.RedisHelper.DeleteHashValue(System.String,System.String)">
+            <summary>
+            delete the HashValue for string key  and hashkey
+            </summary>
+            <param name="key"></param>
+            <param name="hashkey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Commons.Message.MqEvents.MoneyChangedMqEvent">
+            <summary>
+            筹码变更通知
+            </summary>
+        </member>
+        <member name="P:Commons.Message.MqEvents.MoneyChangedMqEvent.CoinsChangeCount">
+            <summary>
+            变化的金币数量
+            </summary>
+        </member>
+        <member name="P:Commons.Message.MqEvents.MoneyChangedMqEvent.DiamondsChangeCount">
+            <summary>
+            变化的砖石数量
+            </summary>
+        </member>
+        <member name="T:Sangong.GameMessage.PlayerSeatedEvent">
+            <summary>
+            玩家坐下广播事件
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.PlayerSeatedEvent.Carry">
+            <summary>
+            牌桌买入
+            </summary>
+        </member>
+        <member name="T:Sangong.GameMessage.DealCardsEvent">
+            <summary>
+            广播发牌事件
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.DealCardsEvent.DealerSeatNum">
+            <summary>
+            庄家的座位号
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.DealCardsEvent.DealCardNum">
+            <summary>
+            发牌顺序，从庄家开始的座位号
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.DealCardsEvent.CardNum">
+            <summary>
+            手牌数量
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.DealCardsEvent.Cards">
+            <summary>
+            自己的手牌
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.DealCardsEvent.Blind">
+            <summary>
+            下底注
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.DealCardsEvent.carrys">
+            <summary>
+            按发牌顺序,各个玩家的当前携带
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.ActiveEvent.ActiveSeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.ActiveEvent.AddCoins">
+            <summary>
+            跟牌显示筹码数, 如果为0 表示过牌
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.DealThirdCardEvent.CoinPool">
+            <summary>
+            下注分堆， 每一堆多少jinbi
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.DealThirdCardEvent.Card">
+            <summary>
+            第三张牌
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.DealThirdCardEvent.CardType">
+            <summary>
+            三张牌组成的类型
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.DealThirdCardEvent.Point">
+            <summary>
+            如果类型是点数牌， 点数
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.DealThirdCardEvent.Order">
+            <summary>
+            发牌顺序
+            </summary>
+        </member>
+        <member name="T:Sangong.GameMessage.DropEvent">
+            <summary>
+            玩家弃牌事件
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.DropEvent.DropSeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.PassEvent.SeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.FollowEvent.SeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.FollowEvent.Carry">
+            <summary>
+            当前携带为0表示allin
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.AddEvent.SeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.AddEvent.Carry">
+            <summary>
+            当前携带为0表示allin
+            </summary>
+        </member>
+        <member name="T:Sangong.GameMessage.WinnerCoinsPool">
+            <summary>
+            奖池
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.WinnerCoinsPool.WinnerSeat">
+            <summary>
+            该奖池的赢家座位号
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.WinnerCoinsPool.Coins">
+            <summary>
+            该奖池的金币数
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.PlayerCards.Cards">
+            <summary>
+            手牌
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.PlayerCards.CardType">
+            <summary>
+            三张牌组成的类型
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.PlayerCards.Point">
+            <summary>
+            如果类型是点数牌， 点数
+            </summary>
+        </member>
+        <member name="T:Sangong.GameMessage.GameOverEvent">
+            <summary>
+            游戏结算
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.GameOverEvent.WinnerSeats">
+            <summary>
+            赢家座位号
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.GameOverEvent.WinnerPool">
+            <summary>
+            每个奖池
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.GameOverEvent.handCards">
+            <summary>
+            手牌
+            </summary>
+        </member>
+        <member name="T:Sangong.GameMessage.PlayerInfo.PlayerStatus">
+            <summary>
+            玩家状态， 在牌局中进行判断， 牌局未开始终未0
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.PlayerInfo.HandCards">
+            <summary>
+            自己的手牌
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.PlayerInfo.CardType">
+            <summary>
+            手牌类型
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.PlayerInfo.Points">
+            <summary>
+            如果是点数牌， 点数
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.PlayerInfo.BetCoins">
+            <summary>
+            当前已经下注额度
+            </summary>
+        </member>
+        <member name="F:Sangong.GameMessage.ApplySyncGameRoomResponse.GameStatusMq.Idle">
+            <summary>
+            空闲状态，处于这个状态什么都不用做
+            </summary>
+        </member>
+        <member name="F:Sangong.GameMessage.ApplySyncGameRoomResponse.GameStatusMq.PlayerOpt">
+            <summary>
+            等待玩家操作， 显示倒计时，
+            </summary>
+        </member>
+        <member name="F:Sangong.GameMessage.ApplySyncGameRoomResponse.GameStatusMq.GameOver">
+            <summary>
+            结束状态， 等待下一局开始
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Sangong.GameMessage.ApplySyncGameRoomResponse.Status" -->
+        <member name="P:Sangong.GameMessage.ApplySyncGameRoomResponse.Pools">
+            <summary>
+            当前奖池
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.ApplySyncGameRoomResponse.TimeLeftMs">
+            <summary>
+            当前状态剩余多少秒
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.ApplySyncGameRoomResponse.PlayerOptMs">
+            <summary>
+            玩家操作等待总时长
+            </summary>
+        </member>
+        <member name="P:Sangong.GameMessage.ApplySyncGameRoomResponse.GameOverMs">
+            <summary>
+            牌局结算总时长
+            </summary>
+        </member>
+    </members>
+</doc>

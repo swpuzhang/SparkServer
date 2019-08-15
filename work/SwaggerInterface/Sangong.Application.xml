@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sangong.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Sangong.Application.ViewModels.MatchingResponseVM">
+            <summary>
+            匹配结果
+            </summary>
+        </member>
+        <member name="P:Sangong.Application.ViewModels.MatchingResponseVM.GameKey">
+            <summary>
+            请求gameserver的Key
+            </summary>
+        </member>
+        <member name="T:Sangong.Application.ViewModels.SangongVM">
+            <summary>
+            接口字段
+            </summary>
+        </member>
+    </members>
+</doc>

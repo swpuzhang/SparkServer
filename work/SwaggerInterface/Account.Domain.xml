@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Account.Domain</name>
+    </assembly>
+    <members>
+        <member name="P:Account.Domain.Models.AccountDetail.Type">
+            <summary>
+            账号类型
+            </summary>
+        </member>
+        <member name="P:Account.Domain.Models.LoginCheckInfo.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+    </members>
+</doc>

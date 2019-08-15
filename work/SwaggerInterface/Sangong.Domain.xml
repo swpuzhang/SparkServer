@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sangong.Domain</name>
+    </assembly>
+    <members>
+        <member name="F:Sangong.Domain.Logic.CardColor.clubs">
+            <summary>
+            梅花
+            </summary>
+        </member>
+        <member name="F:Sangong.Domain.Logic.CardColor.diamond">
+            <summary>
+            方块
+            </summary>
+        </member>
+        <member name="F:Sangong.Domain.Logic.CardColor.heart">
+            <summary>
+            红桃
+            </summary>
+        </member>
+        <member name="F:Sangong.Domain.Logic.CardColor.spade">
+            <summary>
+            黑桃
+            </summary>
+        </member>
+        <member name="M:Sangong.Domain.Manager.RoomManager.GetLeastGroup">
+            <summary>
+            获取人数最少的那个组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Sangong.Domain.Models.CoinsRangeConfig.CoinsEnd">
+            <summary>
+            不包含ChipsEnd
+            </summary>
+        </member>
+        <member name="T:Sangong.Domain.Models.BlindRoomList">
+            <summary>
+            房间列表结果
+            </summary>
+        </member>
+        <member name="P:Sangong.Domain.Models.BlindRoomList.MinCoins">
+            <summary>
+            最小准入
+            </summary>
+        </member>
+        <member name="P:Sangong.Domain.Models.BlindRoomList.MaxCoins">
+            <summary>
+            最大准入， 如果最大准入和最小准入相等， 那么就没有最大准入限制
+            </summary>
+        </member>
+        <member name="T:Sangong.Domain.Models.GetBlindRoomListResponse">
+            <summary>
+            获取房间列表
+            </summary>
+        </member>
+    </members>
+</doc>

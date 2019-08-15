@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WSGateWay</name>
+    </assembly>
+    <members>
+        <member name="T:WSGateWay.ViewModels.LoginRequest">
+            <summary>
+            websocket建立连接后第一个需要发的消息，验证玩家，并且创建玩家对象，之后的消息不需要再加token
+            </summary>
+        </member>
+        <member name="P:WSGateWay.ViewModels.LoginRequest.Token">
+            <summary>
+            Token
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sangong.Matching.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:Sangong.Matching.WebApi.Controllers.SangongMatchingController">
+            <summary>
+            账号相关操作
+            </summary>
+        </member>
+        <member name="M:Sangong.Matching.WebApi.Controllers.SangongMatchingController.PlayNow(System.Int64)">
+            <summary>
+            Playnow 接口
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
