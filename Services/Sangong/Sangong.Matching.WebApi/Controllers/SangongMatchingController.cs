@@ -39,6 +39,7 @@ namespace Sangong.Matching.WebApi.Controllers
             return response;
         }
 
+        [HttpGet]
         public async Task<BodyResponse<GetBlindRoomListResponse>> GetBlindRoomList([FromHeader]long id)
         {
             var response = await OneThreadSynchronizationContext
@@ -47,6 +48,7 @@ namespace Sangong.Matching.WebApi.Controllers
             return response;
         }
 
+        [HttpGet]
         public async Task<BodyResponse<MatchingResponseVM>> BlindMatching([FromHeader]long id, long blind)
         {
             

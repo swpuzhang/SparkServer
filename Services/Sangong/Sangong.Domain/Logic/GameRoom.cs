@@ -134,7 +134,7 @@ namespace Sangong.Domain.Logic
                 }
                 foreach (var player in willLeavePlayer)
                 {
-                    //PlayerLeave(player);
+                    PlayerLeave(player);
                 }
             }, null);
         }
