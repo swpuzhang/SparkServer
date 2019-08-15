@@ -102,6 +102,7 @@ namespace Sangong.Domain.Manager
         IRoomListConfigRepository _roomListConfigRepository;
         public static string mqUri = string.Empty;
         private Dictionary<long, RoomListConfig> _roomConfig = new Dictionary<long, RoomListConfig>();
+        private List<RoomListConfig> _roomConfigList = new List<RoomListConfig>();
         private AsyncSemaphore _semaphpre = new AsyncSemaphore();
         private HashSet<string> _allRoomId = new HashSet<string>();
         public static string matchingGroup = null;
@@ -118,11 +119,12 @@ namespace Sangong.Domain.Manager
 
         public  void LoadRoomListConfig()
         {
-            var roomList =  _roomListConfigRepository.LoadConfig();
-            foreach (var one in roomList)
+             var roomlist =  _roomListConfigRepository.LoadConfig();
+            foreach (var one in roomlist)
             {
-               
+            
                 _roomConfig.Add(one.Blind, one);
+                _roomConfigList.Add(one);
             }
         }
 
@@ -265,7 +267,7 @@ namespace Sangong.Domain.Manager
             var busResponse = await busClient.GetResponseExt<CreateRoomMqCommand, BodyResponse<NullBody>>
                 (new CreateRoomMqCommand(roomId, gameKey,  blind, blindConfig.MinCoins,
                 blindConfig.MaxCoins, blindConfig.TipsPersent, RoomInfo.MAX_USER_NUM, 
-                blindConfig.MinCarry, blindConfig.MaxCarry));
+                blindConfig.MinCarry, blindConfig.MaxCarry, blindConfig.RoomType));
             if (busResponse.Message.StatusCode != StatusCodeDefines.Success)
             {
                 throw new Exception($"Create Room {roomId} blind{blind} error");
@@ -463,13 +465,24 @@ namespace Sangong.Domain.Manager
         {
             List<BlindRoomList> roomList = new List<BlindRoomList>();
 
-            foreach (var one in _roomConfig)
+            foreach (var one in _roomConfigList)
             {
-                roomList.Add(new BlindRoomList(one.Value.Blind, one.Value.MinCarry,
-                    one.Value.MaxCarry, one.Value.MinCoins, one.Value.MaxCoins));
-               
+                roomList.Add(new BlindRoomList(one.RoomType, one.Blind, one.MinCarry,
+                    one.MaxCarry, one.MinCoins, one.MaxCoins));
             }
             return new GetBlindRoomListResponse() { RoomList = roomList };
+        }
+
+        public bool CoinsIsAvailable(long coins, long blind)
+        {
+            if (!_roomConfig.TryGetValue(blind, out var oneRoom)
+                || coins < oneRoom.MinCoins 
+                || coins > (oneRoom.MaxCoins == -1 ? long.MaxValue : oneRoom.MaxCoins))
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

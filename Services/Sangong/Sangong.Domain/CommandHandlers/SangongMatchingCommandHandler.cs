@@ -30,16 +30,18 @@ namespace Sangong.Domain.CommandHandlers
         private readonly ISangongRedisRepository _redis;
         private readonly IRequestClient<GetMoneyMqCommand> _moneyClient;
         private readonly MatchingManager _matchingManager;
+        private readonly RoomManager _roomManager;
         public SangongMatchingCommandHandler(
             ISangongRedisRepository redis,
             IMediatorHandler bus,
             IRequestClient<GetMoneyMqCommand> moneyClient,
-            MatchingManager matchingManager)
+            MatchingManager matchingManager, RoomManager roomManager)
         {
             _redis = redis;
             _bus = bus;
             _moneyClient = moneyClient;
             _matchingManager = matchingManager;
+            _roomManager = roomManager;
         }
         public async Task<BodyResponse<SangongMatchingResponseInfo>> Handle(SangongPlaynowCommand request, CancellationToken cancellationToken)
         {
@@ -69,6 +71,10 @@ namespace Sangong.Domain.CommandHandlers
                 return new BodyResponse<SangongMatchingResponseInfo>(moneyResponse.Message.StatusCode, null);
             }
             long curCoins = moneyResponse.Message.Body.CurCoins;
+            if (!_roomManager.CoinsIsAvailable(curCoins, request.Blind))
+            {
+                return new BodyResponse<SangongMatchingResponseInfo>(StatusCodeDefines.NoEnoughMoney, null);
+            }
             var response = await _matchingManager.MatchingRoom(request.Id, request.Blind, "");
             return response;
         }

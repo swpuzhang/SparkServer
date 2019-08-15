@@ -40,6 +40,11 @@
             房间列表结果
             </summary>
         </member>
+        <member name="P:Sangong.Domain.Models.BlindRoomList.RoomType">
+            <summary>
+            房间类型 0 体力场, 1初2中3高
+            </summary>
+        </member>
         <member name="P:Sangong.Domain.Models.BlindRoomList.MinCoins">
             <summary>
             最小准入

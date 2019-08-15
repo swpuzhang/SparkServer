@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sangong.MqCommands;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -54,15 +55,19 @@ namespace Sangong.Domain.Models
         {
         }
 
-        public BlindRoomList(long bind, long minCarry, long maxCarry, long minCoins, long maxCoins)
+        public BlindRoomList(RoomTypes roomType, long bind, long minCarry, long maxCarry, long minCoins, long maxCoins)
         {
+            RoomType = roomType;
             Bind = bind;
             MinCarry = minCarry;
             MaxCarry = maxCarry;
             MinCoins = minCoins;
             MaxCoins = maxCoins;
         }
-
+        /// <summary>
+        /// 房间类型 0 体力场, 1初2中3高
+        /// </summary>
+        public RoomTypes RoomType { get; private set; }
         public long Bind { get; set; }
         public long MinCarry { get; set; }
         public long MaxCarry { get; set; }

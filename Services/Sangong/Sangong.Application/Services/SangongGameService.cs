@@ -32,7 +32,7 @@ namespace Sangong.Application.Services
 
         public Task<BodyResponse<NullBody>> CreatRoom(CreateRoomMqCommand creatInfo)
         {
-            return Task.FromResult(_gameRoomManager.CreateRoom(creatInfo.RoomId, creatInfo.Blind, creatInfo.SeatCount,
+            return Task.FromResult(_gameRoomManager.CreateRoom(creatInfo.RoomType, creatInfo.RoomId, creatInfo.Blind, creatInfo.SeatCount,
                 creatInfo.MaxCoins, creatInfo.MaxCoins, creatInfo.TipsPersent, creatInfo.MinCarry, creatInfo.MaxCarry)); 
         }
 

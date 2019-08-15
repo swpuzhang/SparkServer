@@ -33,6 +33,7 @@ namespace Sangong.Domain.Logic
         private System.Timers.Timer _timer = new System.Timers.Timer();
 
         #region 成员
+        public RoomTypes RoomType { get; private set; }
         public string RoomId { get; private set; }
         public long Blind { get; private set; }
         public long MinCoins { get; private set; }
@@ -78,6 +79,7 @@ namespace Sangong.Domain.Logic
 
         #region 初始化
         public GameRoom(
+            RoomTypes roomType,
            string roomId,
            long blind,
            int seatCount,
@@ -87,6 +89,7 @@ namespace Sangong.Domain.Logic
            MqManager mqManager,
            IBusControl bus, IMapper mapper, long minCarry, long maxCarry)
         {
+            RoomType = roomType;
             RoomId = roomId;
             Blind = blind;
             MinCoins = minCoins;

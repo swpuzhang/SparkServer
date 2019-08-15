@@ -28,7 +28,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public BodyResponse<NullBody> LoginRequest(LoginRequest request)
         {
             return new BodyResponse<NullBody>(StatusCodeDefines.Error, null, null);

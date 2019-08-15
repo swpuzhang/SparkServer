@@ -27,7 +27,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToAppResponse<NullBody> ApplyStandupCommand(AppRoomRequest<ApplyStandupCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -38,7 +38,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToAppResponse<NullBody> ApplyLeaveCommand(AppRoomRequest<ApplyLeaveCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -49,7 +49,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToAppResponse<NullBody> ApplySitdownCommand(AppRoomRequest<ApplySitdownCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -60,7 +60,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToAppResponse<NullBody> ApplyDropCommand(AppRoomRequest<ApplyDropCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -71,7 +71,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToAppResponse<NullBody> ApplyPassCommand(AppRoomRequest<ApplyPassCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -82,7 +82,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToAppResponse<NullBody> ApplyFollowCommand(AppRoomRequest<ApplyFollowCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -93,7 +93,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToAppResponse<NullBody> ApplyAddCommand(AppRoomRequest<ApplyAddCommand> command)
         {
             return new ToAppResponse<NullBody>();
@@ -104,7 +104,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToAppResponse<ApplySyncGameRoomResponse> ApplySyncGameRoomCommand(AppRoomRequest<ApplySyncGameRoomCommand> command)
         {
             return new ToAppResponse<ApplySyncGameRoomResponse>();
@@ -123,7 +123,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToServerResponse<PlayerSeatedEvent> PlayerSeatedEvent(ToAppRoomRequest<PlayerSeatedEvent> command)
         {
             return new ToServerResponse<PlayerSeatedEvent>();
@@ -134,7 +134,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToServerResponse<DealCardsEvent> DealCardsEvent(ToAppRoomRequest<DealCardsEvent> command)
         {
             return new ToServerResponse<DealCardsEvent>();
@@ -146,7 +146,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToServerResponse<ActiveEvent> ActiveEvent(ToAppRoomRequest<ActiveEvent> command)
         {
             return new ToServerResponse<ActiveEvent>();
@@ -157,7 +157,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToServerResponse<DealThirdCardEvent> DealThirdCardEvent(ToAppRoomRequest<DealThirdCardEvent> command)
         {
             return new ToServerResponse<DealThirdCardEvent>();
@@ -168,7 +168,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToServerResponse<DropEvent> DropEvent(ToAppRoomRequest<DropEvent> command)
         {
             return new ToServerResponse<DropEvent>();
@@ -179,7 +179,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToServerResponse<PassEvent> PassEvent(ToAppRoomRequest<PassEvent> command)
         {
             return new ToServerResponse<PassEvent>();
@@ -190,7 +190,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToServerResponse<FollowEvent> FollowEvent(ToAppRoomRequest<FollowEvent> command)
         {
             return new ToServerResponse<FollowEvent>();
@@ -201,7 +201,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToServerResponse<AddEvent> AddEvent(ToAppRoomRequest<AddEvent> command)
         {
             return new ToServerResponse<AddEvent>();
@@ -212,7 +212,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToServerResponse<GameOverEvent> GameOverEvent(ToAppRoomRequest<GameOverEvent> command)
         {
             return new ToServerResponse<GameOverEvent>();
@@ -223,7 +223,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToServerResponse<PlayerStanupEvent> PlayerStanupEvent(ToAppRoomRequest<PlayerStanupEvent> command)
         {
             return new ToServerResponse<PlayerStanupEvent>();
@@ -234,7 +234,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public ToServerResponse<PlayerBuyInEvent> PlayerBuyInEvent(ToAppRoomRequest<PlayerBuyInEvent> command)
         {
             return new ToServerResponse<PlayerBuyInEvent>();

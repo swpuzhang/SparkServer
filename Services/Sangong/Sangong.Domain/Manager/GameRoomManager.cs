@@ -40,7 +40,7 @@ namespace Sangong.Domain.Manager
             _mapper = mapper;
         }
 
-        public BodyResponse<NullBody> CreateRoom(string roomId, long blind, int seatCount, 
+        public BodyResponse<NullBody> CreateRoom(RoomTypes roomtype, string roomId, long blind, int seatCount, 
             long minCoins, long maxCoins, int tipsPersent,
             long minCarry, long maxCarry)
         {
@@ -48,7 +48,7 @@ namespace Sangong.Domain.Manager
             {
                 return new BodyResponse<NullBody>(StatusCodeDefines.Error, new List<string>() { "room has already created" });
             }
-            GameRoom roomInfo = new GameRoom(roomId, blind, seatCount, minCoins, 
+            GameRoom roomInfo = new GameRoom(roomtype, roomId, blind, seatCount, minCoins, 
                 maxCoins, tipsPersent, _mqManager, _bus, _mapper, minCarry, maxCarry);
             roomInfo.Init();
             _rooms.Add(roomId, roomInfo);

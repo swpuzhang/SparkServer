@@ -1,16 +1,18 @@
-﻿using System;
+﻿using Sangong.MqCommands;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Sangong.Domain.Models
 {
+   
     public class RoomListConfig
     {
         public RoomListConfig()
         {
         }
 
-        public RoomListConfig(long blind, long minCoins, long maxCoins, 
+        public RoomListConfig(RoomTypes roomType, long blind, long minCoins, long maxCoins,
             int tipsPersent, long minCarry, long maxCarry)
         {
 
@@ -20,9 +22,10 @@ namespace Sangong.Domain.Models
             TipsPersent = tipsPersent;
             MinCarry = minCarry;
             MaxCarry = maxCarry;
+            RoomType = roomType;
         }
 
-
+        public RoomTypes RoomType { get; private set; }
         public long Blind { get; private set; }
         public long MinCoins { get; private set; }
         public long MaxCoins { get; private set; }

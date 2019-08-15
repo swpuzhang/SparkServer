@@ -4,6 +4,14 @@ using System.Text;
 
 namespace Sangong.MqCommands
 {
+    public enum RoomTypes
+    {
+        Bankruptcy,
+        Low,
+        Middle,
+        High
+    }
+
     public class RoomIdMapConfigMqCommand
     {
         public RoomIdMapConfigMqCommand(List<KeyValuePair<string, string>> config)
@@ -23,7 +31,7 @@ namespace Sangong.MqCommands
 
         public CreateRoomMqCommand(string roomId, string gameKey,
             long blind, long minCoins, long maxCoins,
-            int tipsPersent, int seatCount, long minCarry, long maxCarry)
+            int tipsPersent, int seatCount, long minCarry, long maxCarry, RoomTypes roomType)
         {
             RoomId = roomId;
             GameKey = gameKey;
@@ -34,6 +42,7 @@ namespace Sangong.MqCommands
             SeatCount = seatCount;
             MinCarry = minCarry;
             MaxCarry = maxCarry;
+            RoomType = roomType;
         }
 
         public string RoomId { get; private set; }
@@ -48,6 +57,7 @@ namespace Sangong.MqCommands
 
         public long MaxCarry { get; private set; }
 
+        public RoomTypes RoomType { get; private set; }
     }
 
     public class JoinGameRoomMqCommand
