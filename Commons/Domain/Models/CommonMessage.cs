@@ -7,6 +7,15 @@ using System.Text;
 namespace Commons.Domain.Models
 {
 
+    public class MQBaseMessage
+    {
+        public string ClassName { get; set; }
+        public MQBaseMessage()
+        {
+            ClassName = GetType().Name;
+        }
+    }
+
     /// <summary>
     /// Server推送
     /// </summary>
@@ -112,7 +121,7 @@ namespace Commons.Domain.Models
         }
 
         [JsonConstructor]
-        public ServerRequest(int id, string name, string data, Guid gid)
+        public ServerRequest(long id, string name, string data, Guid gid)
         {
             Id = id;
             ReqName = name;
@@ -120,7 +129,7 @@ namespace Commons.Domain.Models
             MessageId = gid;
         }
 
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// 消息的唯一码

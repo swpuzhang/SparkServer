@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Commons.Domain.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Commons.Message.MqEvents
     /// <summary>
     /// 筹码变更通知
     /// </summary>
-    public class MoneyChangedMqEvent
+    public class MoneyChangedMqEvent : MQBaseMessage
     {
         public MoneyChangedMqEvent(long coinsChangeCount, long diamondsChangeCount)
         {
@@ -16,10 +17,11 @@ namespace Commons.Message.MqEvents
             DiamondsChangeCount = diamondsChangeCount;
         }
         [JsonConstructor]
-        public MoneyChangedMqEvent(long curCoins, long curDiamonds, 
+        public MoneyChangedMqEvent(long id, long curCoins, long curDiamonds, 
             long maxCoins, long maxDiamonds, 
             long coinsChangeCount, long diamondsChangeCount)
         {
+            Id = id;
             CurCoins = curCoins;
             CurDiamonds = curDiamonds;
             MaxCoins = maxCoins;
@@ -28,6 +30,7 @@ namespace Commons.Message.MqEvents
             DiamondsChangeCount = diamondsChangeCount;
         }
 
+        public long Id { get; private set; }
         public long CurCoins { get; private set; }
         public long CurDiamonds { get; private set; }
         public long MaxCoins { get; private set; }

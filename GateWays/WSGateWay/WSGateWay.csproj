@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>E:\document\mycode\project\Spark\GateWays\WSGateWay\WSGateWay.xml</DocumentationFile>
+    <DocumentationFile>..\..\work\SwaggerInterface\WSGateWay.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 

@@ -25,9 +25,9 @@ namespace WSGateWay.IntegrationHandlers
            
         }
 
-        public Task Consume(ConsumeContext<GameServerRequest> context)
+        public async Task Consume(ConsumeContext<GameServerRequest> context)
         {
-            throw new NotImplementedException();
+            await _service.OnGameRoomRequest(context);
         }
     }
 

@@ -145,15 +145,17 @@ namespace Money.Domain.CommandHandlers
                 long coinsChangedCount = request.AddCoins + request.AddCarry;
                 if (coinsChangedCount != 0)
                 {
-                    _ = _busCtl.Publish<MoneyChangedMqEvent>(new MoneyChangedMqEvent
-                        (moneyInfo.CurCoins,
+                    var moneyevent = new MoneyChangedMqEvent
+                        (moneyInfo.Id, moneyInfo.CurCoins,
                         moneyInfo.CurDiamonds, moneyInfo.MaxCoins,
-                        moneyInfo.MaxDiamonds, coinsChangedCount, 0));
+                        moneyInfo.MaxDiamonds, coinsChangedCount, 0);
+                    _busCtl.PublishExt(moneyevent);
+                    _busCtl.PublishExt(moneyInfo.Id, moneyevent);
                 }
                 await Task.WhenAll(_redis.SetMoney(request.Id, moneyInfo),
                     _moneyRepository.ReplaceAsync(moneyInfo));
                 Log.Debug($"AddMoneyCommand add end:{request.AddCoins},{request.AddCarry} {request.AggregateId} curCoins:{moneyInfo.CurCoins} curCarry:{moneyInfo.Carry}--3");
-
+               
                 return new BodyResponse<MoneyMqResponse>(StatusCodeDefines.Success, null,
                     new MoneyMqResponse(request.Id, moneyInfo.CurCoins, moneyInfo.CurDiamonds,
                     moneyInfo.MaxCoins, moneyInfo.MaxDiamonds, moneyInfo.Carry));

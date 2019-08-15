@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>E:\document\mycode\project\Spark\Services\Money\Money.WebApi\Money.WebApi.xml</DocumentationFile>
+    <DocumentationFile>..\..\..\work\SwaggerInterface\Money.WebApi.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
