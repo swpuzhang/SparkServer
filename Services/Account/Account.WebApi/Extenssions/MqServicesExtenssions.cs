@@ -53,6 +53,8 @@ namespace Account.WebApi.Extenssions
                 //添加RequestClient
                 Log.Information($"money uri:{rabbitCfg["Uri"]}Money");
                 x.AddRequestClient<GetMoneyMqCommand>(new Uri($"{rabbitCfg["Uri"]}Money"));
+                x.AddRequestClient<AddMoneyMqCommand>(new Uri($"{rabbitCfg["Uri"]}Money"));
+                
             });
         }
 

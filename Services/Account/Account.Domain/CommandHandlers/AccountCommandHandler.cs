@@ -31,15 +31,18 @@ namespace Account.Domain.CommandHandlers
         private readonly IAccountRedisRepository _redis;
         private readonly IBusControl _mqBus;
         private readonly IRequestClient<GetMoneyMqCommand> _moneyClient;
+        private readonly IRequestClient<AddMoneyMqCommand> _moneyAddClient;
         private readonly IMapper _mapper;
         private readonly WSHostManager _hostManager;
+        private readonly InitRewardInfo _initRewardInfo;
         public AccountCommandHandler(IAccountInfoRepository rep,
             IUserIdGenRepository genRepository,
             IAccountRedisRepository redis,
             IMediatorHandler bus,
             IBusControl mqBus, IMapper mapper,
-            IRequestClient<GetMoneyMqCommand> moneyClient, 
-            WSHostManager hostManager)
+            IRequestClient<GetMoneyMqCommand> moneyClient,
+            WSHostManager hostManager, InitRewardInfo initRewardInfo, 
+            IRequestClient<AddMoneyMqCommand> moneyAddClient)
         {
             _accountRepository = rep;
             _genRepository = genRepository;
@@ -49,6 +52,8 @@ namespace Account.Domain.CommandHandlers
             _mapper = mapper;
             _moneyClient = moneyClient;
             _hostManager = hostManager;
+            _initRewardInfo = initRewardInfo;
+            _moneyAddClient = moneyAddClient;
         }
 
 
@@ -100,12 +105,19 @@ namespace Account.Domain.CommandHandlers
                 }
                 if (isRegister)
                 {
+                    var mqResponse = await _moneyAddClient.GetResponseExt<AddMoneyMqCommand, BodyResponse<MoneyMqResponse>>
+                           (new AddMoneyMqCommand(accountInfo.Id, _initRewardInfo.RewardCoins, 0, MoneyReson.InitReward));
+                    var moneyInfo = mqResponse.Message.Body;
+
                     accounResponse = new AccountResponse(newAccountInfo.Id,
                     newAccountInfo.PlatformAccount,
                     newAccountInfo.UserName,
                     newAccountInfo.Sex,
                     newAccountInfo.HeadUrl,
-                    token,new MoneyInfo(),
+                    token, new MoneyInfo(moneyInfo.CurCoins + moneyInfo.Carry,
+                    moneyInfo.CurDiamonds,
+                    moneyInfo.MaxCoins,
+                    moneyInfo.MaxDiamonds),
                     _hostManager.GetOneHost(),true);
                 }
                 else

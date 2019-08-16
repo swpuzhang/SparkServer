@@ -38,6 +38,7 @@ namespace Account.WebApi.Extenssions
             services.AddScoped<IGameInfoRepository, GameInfoRepository>();
             services.AddScoped<ILevelInfoRepository, LevelInfoRepository>();
             services.AddTransient<ILevelConfigRepository, LevelConfigRepository>();
+            services.AddSingleton<InitRewardInfo>();
 
             //命令
             services.AddScoped<IMediatorHandler, InProcessBus>();

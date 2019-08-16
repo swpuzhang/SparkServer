@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Commons.Extenssions.Defines;
 
 namespace Commons.MqCommands
 {
@@ -14,9 +15,26 @@ namespace Commons.MqCommands
         public long Id { get; private set; }
     }
 
-    public class BuyInMqCommand
+    public class MoneyBaseCommand
     {
-        public BuyInMqCommand(long id, long minBuy, long maxBuy)
+
+        public MoneyReson Reason;
+
+        public MoneyBaseCommand()
+        {
+        }
+
+        public MoneyBaseCommand(MoneyReson reason)
+        {
+            Reason = reason;
+        }
+    }
+
+
+    public class BuyInMqCommand : MoneyBaseCommand
+    {
+        public BuyInMqCommand(long id, long minBuy, long maxBuy, MoneyReson reason)
+            :base(reason)
         {
             Id = id;
             MinBuy = minBuy;
@@ -28,9 +46,11 @@ namespace Commons.MqCommands
         public long MaxBuy { get; private set; }
     }
 
-    public class MoneyMqResponse
+    public class MoneyMqResponse : MoneyBaseCommand
     {
-        public MoneyMqResponse(long id, long curCoins, long curDiamonds, long maxCoins, long maxDiamonds, long carry)
+        public MoneyMqResponse(long id, long curCoins, long curDiamonds, 
+            long maxCoins, long maxDiamonds, long carry, MoneyReson reason)
+            :base(reason)
         {
             Id = id;
             CurCoins = curCoins;
@@ -48,9 +68,10 @@ namespace Commons.MqCommands
         public long Carry { get; private set; }
     }
 
-    public class AddMoneyMqCommand
+    public class AddMoneyMqCommand : MoneyBaseCommand
     {
-        public AddMoneyMqCommand(long id, long addCoins, long addCarry)
+        public AddMoneyMqCommand(long id, long addCoins, long addCarry, MoneyReson reason)
+            :base(reason)
         {
             Id = id;
             AddCoins = addCoins;

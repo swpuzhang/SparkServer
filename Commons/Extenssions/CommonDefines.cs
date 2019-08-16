@@ -22,4 +22,12 @@ namespace Commons.Extenssions.Defines
 
     }
 
+    public enum MoneyReson
+    {
+        None = 0,
+        InitReward = 1,
+
+
+    }
+
 }

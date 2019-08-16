@@ -24,14 +24,6 @@ namespace Account.Infrastruct
         public async Task<AccountInfo> GetByPlatform(string platform)
         {
             var all = await _dbCol.FindAsync<AccountInfo>(e => e.PlatformAccount == platform);
-            if (all == null)
-            {
-                return null;
-            }
-            if (!await all.MoveNextAsync())
-            {
-                return null;
-            }
             return await all.FirstOrDefaultAsync();
         }
 
