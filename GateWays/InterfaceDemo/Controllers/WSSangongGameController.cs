@@ -16,7 +16,10 @@ using Sangong.GameMessage;
 namespace InterfaceDemo.Controllers
 {
     /// <summary>
-    /// 三公房间内的消息， 只能看不能调用, 向websocket 发送AppRoomRequest消息名的消息
+    /// 三公房间内的消息， 只能看不能调用, 向websocket 发送AppRoomRequest消息名的消息. 
+    /// 所有消息都是向wbsocketserver发送AppRoomRequest消息, 只是不同消息ReqName 和ReqData不一样
+    /// 这里只是为了标识不同的接口,比如AppRoomRequestApplyStandupCommand就是向server发送
+    /// AppRoomRequest消息, ReqName = ApplyStandupCommand, ReqData = ApplyStandupCommand
     /// </summary>
     [Route("[Action]")]
     [ApiController]
@@ -28,7 +31,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToAppResponse<NullBody> ApplyStandupCommand(AppRoomRequest<ApplyStandupCommand> command)
+        public ToAppResponse<NullBody> AppRoomRequestApplyStandupCommand(AppRoomRequest<ApplyStandupCommand> command)
         {
             return new ToAppResponse<NullBody>();
         }
@@ -39,7 +42,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToAppResponse<NullBody> ApplyLeaveCommand(AppRoomRequest<ApplyLeaveCommand> command)
+        public ToAppResponse<NullBody> AppRoomRequestApplyLeaveCommand(AppRoomRequest<ApplyLeaveCommand> command)
         {
             return new ToAppResponse<NullBody>();
         }
@@ -50,7 +53,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToAppResponse<NullBody> ApplySitdownCommand(AppRoomRequest<ApplySitdownCommand> command)
+        public ToAppResponse<NullBody> AppRoomRequestApplySitdownCommand(AppRoomRequest<ApplySitdownCommand> command)
         {
             return new ToAppResponse<NullBody>();
         }
@@ -61,7 +64,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToAppResponse<NullBody> ApplyDropCommand(AppRoomRequest<ApplyDropCommand> command)
+        public ToAppResponse<NullBody> AppRoomRequestApplyDropCommand(AppRoomRequest<ApplyDropCommand> command)
         {
             return new ToAppResponse<NullBody>();
         }
@@ -72,7 +75,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToAppResponse<NullBody> ApplyPassCommand(AppRoomRequest<ApplyPassCommand> command)
+        public ToAppResponse<NullBody> AppRoomRequestApplyPassCommand(AppRoomRequest<ApplyPassCommand> command)
         {
             return new ToAppResponse<NullBody>();
         }
@@ -83,7 +86,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToAppResponse<NullBody> ApplyFollowCommand(AppRoomRequest<ApplyFollowCommand> command)
+        public ToAppResponse<NullBody> AppRoomRequestApplyFollowCommand(AppRoomRequest<ApplyFollowCommand> command)
         {
             return new ToAppResponse<NullBody>();
         }
@@ -94,7 +97,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToAppResponse<NullBody> ApplyAddCommand(AppRoomRequest<ApplyAddCommand> command)
+        public ToAppResponse<NullBody> AppRoomRequestApplyAddCommand(AppRoomRequest<ApplyAddCommand> command)
         {
             return new ToAppResponse<NullBody>();
         }
@@ -105,7 +108,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToAppResponse<ApplySyncGameRoomResponse> ApplySyncGameRoomCommand(AppRoomRequest<ApplySyncGameRoomCommand> command)
+        public ToAppResponse<ApplySyncGameRoomResponse> AppRoomRequestApplySyncGameRoomCommand(AppRoomRequest<ApplySyncGameRoomCommand> command)
         {
             return new ToAppResponse<ApplySyncGameRoomResponse>();
         }
@@ -113,6 +116,10 @@ namespace InterfaceDemo.Controllers
 
     /// <summary>
     /// 三公房间内的通知事件 只能看不能调用,  向APP通知ToAppRoomRequest消息名的消息
+    /// 只能看不能调用, server向app发送 ToAppRoomRequest. 
+    /// 所有消息都是向app发送ToAppRoomRequest消息, 只是不同消息ReqName 和ReqData不一样
+    /// 这里只是为了标识不同的接口,比如ToAppRoomRequestPlayerSeatedEvent就是向app发送
+    /// ToAppRoomRequest消息, ReqName = PlayerSeatedEvent, ReqData = PlayerSeatedEvent
     /// </summary>
     [Route("[Action]")]
     [ApiController]
@@ -124,7 +131,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToServerResponse<PlayerSeatedEvent> PlayerSeatedEvent(ToAppRoomRequest<PlayerSeatedEvent> command)
+        public ToServerResponse<PlayerSeatedEvent> ToAppRoomRequestPlayerSeatedEvent(ToAppRoomRequest<PlayerSeatedEvent> command)
         {
             return new ToServerResponse<PlayerSeatedEvent>();
         }
@@ -135,7 +142,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToServerResponse<DealCardsEvent> DealCardsEvent(ToAppRoomRequest<DealCardsEvent> command)
+        public ToServerResponse<DealCardsEvent> ToAppRoomRequestDealCardsEvent(ToAppRoomRequest<DealCardsEvent> command)
         {
             return new ToServerResponse<DealCardsEvent>();
         }
@@ -147,7 +154,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToServerResponse<ActiveEvent> ActiveEvent(ToAppRoomRequest<ActiveEvent> command)
+        public ToServerResponse<ActiveEvent> ToAppRoomRequestActiveEvent(ToAppRoomRequest<ActiveEvent> command)
         {
             return new ToServerResponse<ActiveEvent>();
         }
@@ -158,7 +165,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToServerResponse<DealThirdCardEvent> DealThirdCardEvent(ToAppRoomRequest<DealThirdCardEvent> command)
+        public ToServerResponse<DealThirdCardEvent> ToAppRoomRequestDealThirdCardEvent(ToAppRoomRequest<DealThirdCardEvent> command)
         {
             return new ToServerResponse<DealThirdCardEvent>();
         }
@@ -169,7 +176,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToServerResponse<DropEvent> DropEvent(ToAppRoomRequest<DropEvent> command)
+        public ToServerResponse<DropEvent> ToAppRoomRequestDropEvent(ToAppRoomRequest<DropEvent> command)
         {
             return new ToServerResponse<DropEvent>();
         }
@@ -180,7 +187,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToServerResponse<PassEvent> PassEvent(ToAppRoomRequest<PassEvent> command)
+        public ToServerResponse<PassEvent> ToAppRoomRequestPassEvent(ToAppRoomRequest<PassEvent> command)
         {
             return new ToServerResponse<PassEvent>();
         }
@@ -191,7 +198,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToServerResponse<FollowEvent> FollowEvent(ToAppRoomRequest<FollowEvent> command)
+        public ToServerResponse<FollowEvent> ToAppRoomRequestFollowEvent(ToAppRoomRequest<FollowEvent> command)
         {
             return new ToServerResponse<FollowEvent>();
         }
@@ -202,7 +209,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToServerResponse<AddEvent> AddEvent(ToAppRoomRequest<AddEvent> command)
+        public ToServerResponse<AddEvent> ToAppRoomRequestAddEvent(ToAppRoomRequest<AddEvent> command)
         {
             return new ToServerResponse<AddEvent>();
         }
@@ -213,7 +220,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToServerResponse<GameOverEvent> GameOverEvent(ToAppRoomRequest<GameOverEvent> command)
+        public ToServerResponse<GameOverEvent> ToAppRoomRequestGameOverEvent(ToAppRoomRequest<GameOverEvent> command)
         {
             return new ToServerResponse<GameOverEvent>();
         }
@@ -224,7 +231,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToServerResponse<PlayerStanupEvent> PlayerStanupEvent(ToAppRoomRequest<PlayerStanupEvent> command)
+        public ToServerResponse<PlayerStanupEvent> ToAppRoomRequestPlayerStanupEvent(ToAppRoomRequest<PlayerStanupEvent> command)
         {
             return new ToServerResponse<PlayerStanupEvent>();
         }
@@ -235,7 +242,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToServerResponse<PlayerBuyInEvent> PlayerBuyInEvent(ToAppRoomRequest<PlayerBuyInEvent> command)
+        public ToServerResponse<PlayerBuyInEvent> ToAppRoomRequestPlayerBuyInEvent(ToAppRoomRequest<PlayerBuyInEvent> command)
         {
             return new ToServerResponse<PlayerBuyInEvent>();
         }

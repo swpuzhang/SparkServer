@@ -30,7 +30,7 @@ namespace InterfaceDemo.Controllers
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public ToServerResponse<NullBody> MoneyChangedMqEvent(ToAppRequest<MoneyChangedMqEvent> request)
+        public ToServerResponse<NullBody> ToAppRequestMoneyChangedMqEvent(ToAppRequest<MoneyChangedMqEvent> request)
         {
             return new ToServerResponse<NullBody>();
         }
