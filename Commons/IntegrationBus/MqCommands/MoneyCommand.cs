@@ -46,11 +46,10 @@ namespace Commons.MqCommands
         public long MaxBuy { get; private set; }
     }
 
-    public class MoneyMqResponse : MoneyBaseCommand
+    public class MoneyMqResponse 
     {
         public MoneyMqResponse(long id, long curCoins, long curDiamonds, 
-            long maxCoins, long maxDiamonds, long carry, MoneyReson reason)
-            :base(reason)
+            long maxCoins, long maxDiamonds, long carry)
         {
             Id = id;
             CurCoins = curCoins;

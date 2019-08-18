@@ -86,7 +86,8 @@ namespace Account.Domain.CommandHandlers
                     isRegister = true;
                     long newUid = await _genRepository.GenNewId();
                     accountInfo = new AccountInfo(newUid, newAccountInfo.PlatformAccount, 
-                        newAccountInfo.UserName, newAccountInfo.Sex, newAccountInfo.HeadUrl, newAccountInfo.Type);
+                        newAccountInfo.UserName, newAccountInfo.Sex, newAccountInfo.HeadUrl, 
+                        newAccountInfo.Type, DateTime.Now, GetAccountBaseInfoMqResponse.SomeFlags.None);
                     await _accountRepository.AddAsync(accountInfo); 
                 }
             }
@@ -118,7 +119,7 @@ namespace Account.Domain.CommandHandlers
                     moneyInfo.CurDiamonds,
                     moneyInfo.MaxCoins,
                     moneyInfo.MaxDiamonds),
-                    _hostManager.GetOneHost(),true);
+                    _hostManager.GetOneHost(),true, newAccountInfo.Type);
                 }
                 else
                 {
@@ -137,7 +138,7 @@ namespace Account.Domain.CommandHandlers
                     moneyResponse.CurDiamonds,
                     moneyResponse.MaxCoins,
                     moneyResponse.MaxDiamonds),
-                    _hostManager.GetOneHost(), false);
+                    _hostManager.GetOneHost(), false, newAccountInfo.Type);
                 }
 
                 _ = _bus.RaiseEvent<LoginEvent>(new LoginEvent(Guid.NewGuid(), 

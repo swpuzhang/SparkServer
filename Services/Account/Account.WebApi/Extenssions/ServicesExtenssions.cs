@@ -51,8 +51,10 @@ namespace Account.WebApi.Extenssions
             services.AddScoped<IRequestHandler<GetSelfAccountCommand, BodyResponse<AccountDetail>>,
                 GetSelfAccountCommandHandler>();
             services.AddScoped<INotificationHandler<LoginEvent>,
-                LoginEventHandler>();
-           
+                AccountEventHandler>();
+            services.AddScoped<INotificationHandler<FinishRegisterRewardEvent>,
+                AccountEventHandler>();
+
             services.AddMediatR(typeof(Startup));
             services.AddSingleton(new RedisHelper(configuration["redis:ConnectionString"]));
 

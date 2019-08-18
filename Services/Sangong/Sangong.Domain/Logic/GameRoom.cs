@@ -610,7 +610,7 @@ namespace Sangong.Domain.Logic
             player.Standup();
 
             //返还携带
-            _bus.Publish(new AddMoneyMqCommand(player.Id, player.Carry, -player.Carry));
+            _bus.Publish(new AddMoneyMqCommand(player.Id, player.Carry, -player.Carry, MoneyReson.None));
 
             //告诉matchingserver该玩家已经站起
             _bus.Publish(new LeaveGameRoomMqEvent(player.Id, RoomId, GameRoomManager.gameKey,
@@ -652,17 +652,17 @@ namespace Sangong.Domain.Logic
                     //说明这个赢的玩家已经走了, 那么将钱还是加给他
                     if (seat.InGamePlayerInfo != seat.PlayerInfo)
                     {
-                        _bus.Publish(new AddMoneyMqCommand(seat.InGamePlayerInfo.Id, seat.WinCoins, 0));
+                        _bus.Publish(new AddMoneyMqCommand(seat.InGamePlayerInfo.Id, seat.WinCoins, 0, MoneyReson.GameAccount));
                     }
                     else
                     {
                         seat.PlayerInfo.AddCarry(seat.WinCoins);
-                        _bus.Publish(new AddMoneyMqCommand(seat.InGamePlayerInfo.Id, 0, seat.WinCoins));
+                        _bus.Publish(new AddMoneyMqCommand(seat.InGamePlayerInfo.Id, 0, seat.WinCoins, MoneyReson.GameAccount));
                     }
                 }
                 else
                 {
-                    _bus.Publish(new AddMoneyMqCommand(seat.InGamePlayerInfo.Id, 0, -seat.TotalBetedCoins));
+                    _bus.Publish(new AddMoneyMqCommand(seat.InGamePlayerInfo.Id, 0, -seat.TotalBetedCoins, MoneyReson.GameAccount));
                 }
             }
             _statusInfo.WaitForNexStatus(OnGameOver, GameStatus.Idle, GameTimerConfig.GameAccount);

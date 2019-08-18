@@ -19,7 +19,7 @@ namespace Commons.Domain.Models
 
         }
         [JsonConstructor]
-        public BodyResponse(StatusCodeDefines statusCode, List<string> errorInfos, T body = null)
+        public BodyResponse(StatusCodeDefines statusCode, List<string> errorInfos = null, T body = null)
         {
             StatusCode = statusCode;
             ErrorInfos = errorInfos;

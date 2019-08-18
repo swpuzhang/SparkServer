@@ -20,9 +20,9 @@ namespace Sample.WebApi.Controllers
     [ApiController]
     public class SampleController : ControllerBase
     {
-        private readonly ISampleAppService _service;
+        private readonly ISampleService _service;
 
-        public SampleController(ISampleAppService service)
+        public SampleController(ISampleService service)
         {
             _service = service;
         }

@@ -22,7 +22,8 @@ using Commons.MqCommands;
 namespace Account.Domain.CommandHandlers
 {
     public class GetSelfAccountCommandHandler :
-        IRequestHandler<GetSelfAccountCommand, BodyResponse<AccountDetail>>
+        IRequestHandler<GetSelfAccountCommand, BodyResponse<AccountDetail>>,
+        IRequestHandler<GetAccountBaseInfoCommand, BodyResponse<AccountInfo>>
     {
         protected readonly IMediatorHandler _bus;
         private readonly IAccountInfoRepository _accountRepository;
@@ -80,5 +81,17 @@ namespace Account.Domain.CommandHandlers
             return response;
 
         }
+
+        public async Task<BodyResponse<AccountInfo>> Handle(GetAccountBaseInfoCommand request, CancellationToken cancellationToken)
+        {
+            var accountInfo = await _redis.GetAccountInfo(request.Id);
+            if (accountInfo == null)
+            {
+                return new BodyResponse<AccountInfo>(StatusCodeDefines.AccountError, null);
+            }
+            return new BodyResponse<AccountInfo>(StatusCodeDefines.Success, null, accountInfo);
+        }
+
+        
     }
 }

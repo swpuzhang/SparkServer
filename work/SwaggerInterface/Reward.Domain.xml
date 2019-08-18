@@ -4,5 +4,69 @@
         <name>Reward.Domain</name>
     </assembly>
     <members>
+        <member name="T:Reward.Domain.Models.RegisterRewardVM">
+            <summary>
+            注册奖励
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.RegisterRewardVM.State">
+            <summary>
+            状态
+             None = 0, 没有注册奖励
+            NotBegin = 1:还未开始
+            Available = 2,可以领取
+            Getted = 3,已经被领取
+            Over = 4,奖励已经结束
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.RegisterRewardVM.DayIndex">
+            <summary>
+            领取的第几天
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.RegisterRewardVM.RewardConfig">
+            <summary>
+            奖励配置, 每一天奖励的金币数量
+            </summary>
+        </member>
+        <member name="T:Reward.Domain.Models.RewardInfoVM">
+            <summary>
+            领取奖励响应
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.RewardInfoVM.RewardCoins">
+            <summary>
+            领取的金币奖励
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.LoginRewardVM.RewardConfig">
+            <summary>
+            奖励配置, 每一天奖励的金币数量
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.BankruptcyInfoVM.Type">
+             <summary>
+            每天破产补助
+            Day,
+            终身破产补助
+            lifelong
+             </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.BankruptcyInfoVM.TotalTimes">
+            <summary>
+            总共几次破产机会
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.BankruptcyInfoVM.CurTimes">
+            <summary>
+            当前是第几次
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.BankruptcyInfoVM.RewardConfig">
+            <summary>
+            破产几次的配置
+            </summary>
+            
+        </member>
     </members>
 </doc>

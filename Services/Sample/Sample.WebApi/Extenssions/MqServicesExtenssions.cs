@@ -24,11 +24,12 @@ namespace Sample.WebApi.Extenssions
             services.AddSingleton<IHostedService, HostedService>();
             builder.AddMassTransit(x =>
             {
+                var rabbitCfg = Configuration.GetSection("Rabbitmq");
                 x.AddConsumers(Assembly.GetExecutingAssembly());
                 x.AddBus(context => Bus.Factory.CreateUsingRabbitMq(cfg =>
                 {
                     cfg.UseSerilog();
-                    var rabbitCfg = Configuration.GetSection("Rabbitmq");
+                    
                     var host = cfg.Host(rabbitCfg["Host"], rabbitCfg["Vhost"], h =>
                     {
                         h.Username(rabbitCfg["UserName"]);

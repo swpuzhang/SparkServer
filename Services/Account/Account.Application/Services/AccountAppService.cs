@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Account.Application.ViewModels;
 using Account.Domain;
 using Account.Domain.Commands;
+using Account.Domain.Events;
 using Account.Domain.Models;
 using Account.Domain.RepositoryInterface;
 using AutoMapper;
@@ -12,6 +13,7 @@ using Commons.Domain.Bus;
 using Commons.Domain.Models;
 using Commons.Extenssions.Defines;
 using Commons.Infrastruct;
+using Commons.MqCommands;
 
 namespace Account.Application.Services
 {
@@ -41,5 +43,22 @@ namespace Account.Application.Services
             AccountDetailVM info = _mapper.Map<AccountDetailVM>(response.Body);
             return new BodyResponse<AccountDetailVM>(response.StatusCode, response.ErrorInfos, info);
         }
+
+        public async Task<BodyResponse<GetAccountBaseInfoMqResponse>> GetAccountBaseInfo(long id)
+        {
+            var response = await _bus.SendCommand(new GetAccountBaseInfoCommand(id));
+            if (response.StatusCode != StatusCodeDefines.Success)
+            {
+                return new BodyResponse<GetAccountBaseInfoMqResponse>(response.StatusCode, response.ErrorInfos);
+            }
+            return new BodyResponse<GetAccountBaseInfoMqResponse>(StatusCodeDefines.Success, null,
+                _mapper.Map<GetAccountBaseInfoMqResponse>(response.Body));
+        }
+
+        public void FinishRegisterReward(long id)
+        {
+             _bus.RaiseEvent(new FinishRegisterRewardEvent(id));
+        }
+
     }
 }

@@ -5,13 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
+using Commons.MqCommands;
 
 namespace Account.Domain.Models
 {
                
     public class AccountInfo : UserEntity
     {
-        
+        public static string className = "AccountInfo";
         public string PlatformAccount { get; private set; }
   
         public string UserName { get; private set; }
@@ -22,33 +23,38 @@ namespace Account.Domain.Models
 
         public int Type { get; set; }
 
+        public DateTime RegisterDate { get; private set; }
+
+        public GetAccountBaseInfoMqResponse.SomeFlags Flags { get; set; }
+
         public AccountInfo()
         {
 
         }
 
         [JsonConstructor]
-        public AccountInfo(long id, string platformAccount, string userName, int sex, string headUrl, int type)
+        public AccountInfo(long id, string platformAccount, string userName,
+            int sex, string headUrl, int type, DateTime registerDate, 
+            GetAccountBaseInfoMqResponse.SomeFlags flags)
         {
-           
+
             Id = id;
             PlatformAccount = platformAccount;
             UserName = userName;
             Sex = sex;
             HeadUrl = headUrl;
             Type = type;
-            
+            RegisterDate = registerDate;
+            Flags = flags;
         }
 
 
         public override bool Equals(object obj)
         {
             return obj is AccountInfo info &&
-                   PlatformAccount == info.PlatformAccount &&
                    UserName == info.UserName &&
                    Sex == info.Sex &&
-                   HeadUrl == info.HeadUrl &&
-                   Type == info.Type;
+                   HeadUrl == info.HeadUrl;
         }
 
         public override int GetHashCode()
@@ -68,7 +74,7 @@ namespace Account.Domain.Models
         public AccountResponse(long id, string platformAccount,
             string userName, int sex, string headUrl,
             string token, MoneyInfo moneyInfo,
-            string longConnectHost, bool isRegister)
+            string longConnectHost, bool isRegister, int type)
         {
             Id = id;
             PlatformAccount = platformAccount;
@@ -79,6 +85,7 @@ namespace Account.Domain.Models
             MoneyInfo = moneyInfo;
             LongConnectHost = longConnectHost;
             IsRegister = isRegister;
+            Type = type;
         }
 
         public Int64 Id { get; private set; }
@@ -86,6 +93,7 @@ namespace Account.Domain.Models
         public string UserName { get; private set; }
         public int Sex { get; set; }
         public string HeadUrl { get; private set; }
+        public int Type { get; private set; }
 
         public MoneyInfo MoneyInfo { get; private set; }
         

@@ -9,12 +9,5 @@
             账号相关操作
             </summary>
         </member>
-        <member name="M:Reward.WebApi.Controllers.RewardController.Login(Reward.Application.ViewModels.RewardVM)">
-            <summary>
-            登录接口
-            </summary>
-            <param name="model"></param>
-            <returns></returns>
-        </member>
     </members>
 </doc>

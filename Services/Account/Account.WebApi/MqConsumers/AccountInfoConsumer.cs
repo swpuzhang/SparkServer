@@ -13,7 +13,9 @@ using Commons.Domain.Models;
 namespace Account.WebApi.MqConsumers
 {
     public class GetAccountInfoConsumer :
-        IConsumer<GetAccountInfoMqCommand>
+        IConsumer<GetAccountInfoMqCommand>,
+        IConsumer<GetAccountBaseInfoMqCommand>,
+        IConsumer<FinishedRegisterRewardMqEvent>
     {
         private IAccountAppService _service;
 
@@ -37,6 +39,17 @@ namespace Account.WebApi.MqConsumers
                 response.Body.PlatformAccount, response.Body.UserName, response.Body.Sex, response.Body.HeadUrl,
                 new GameInfoMq(response.Body.GameInfo.GameTimes, response.Body.GameInfo.WinTimes, response.Body.GameInfo.MaxWinCoins),
                 new LevelInfoMq(response.Body.LevelInfo.CurLevel, response.Body.LevelInfo.CurExp, response.Body.LevelInfo.NeedExp))));
+        }
+
+        public async Task Consume(ConsumeContext<GetAccountBaseInfoMqCommand> context)
+        {
+
+            await context.RespondAsync(_service.GetAccountBaseInfo(context.Message.Id));
+        }
+
+        public Task Consume(ConsumeContext<FinishedRegisterRewardMqEvent> context)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -25,6 +25,36 @@ namespace Commons.Extenssions
             return strbuilder.ToString();
         }
 
+        public static string GenDayKey(DateTime time, string key1, params string[] ps)
+        {
+            StringBuilder strbuilder = new StringBuilder();
+            strbuilder.Append(key1);
+
+            foreach (var key in ps)
+            {
+                strbuilder.Append("|");
+                strbuilder.Append(key);
+            }
+            strbuilder.Append("|day");
+            strbuilder.Append(time.ToNormalDay());
+            return strbuilder.ToString();
+        }
+
+        public static string GenWeekKey(DateTime time, string key1, params string[] ps)
+        {
+            StringBuilder strbuilder = new StringBuilder();
+            strbuilder.Append(key1);
+
+            foreach (var key in ps)
+            {
+                strbuilder.Append("|");
+                strbuilder.Append(key);
+            }
+            strbuilder.Append("|week");
+            strbuilder.Append(time.ToNormalWeek());
+            return strbuilder.ToString();
+        }
+
         public static string GenUserKey(Int64 userid, params string[] ps)
         {
             StringBuilder strbuilder = new StringBuilder();
@@ -35,6 +65,36 @@ namespace Commons.Extenssions
                 strbuilder.Append("|");
                 strbuilder.Append(key);
             }
+            return strbuilder.ToString();
+        }
+
+        public static string GenUserDayKey(DateTime time, Int64 userid, params string[] ps)
+        {
+            StringBuilder strbuilder = new StringBuilder();
+            strbuilder.Append(userid.ToString());
+
+            foreach (var key in ps)
+            {
+                strbuilder.Append("|");
+                strbuilder.Append(key);
+            }
+            strbuilder.Append("|day");
+            strbuilder.Append(time.ToNormalDay());
+            return strbuilder.ToString();
+        }
+
+        public static string GenUserWeekKey(DateTime time, Int64 userid, params string[] ps)
+        {
+            StringBuilder strbuilder = new StringBuilder();
+            strbuilder.Append(userid.ToString());
+
+            foreach (var key in ps)
+            {
+                strbuilder.Append("|");
+                strbuilder.Append(key);
+            }
+            strbuilder.Append("|week");
+            strbuilder.Append(time.ToNormalWeek());
             return strbuilder.ToString();
         }
     }

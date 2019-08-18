@@ -2,6 +2,7 @@
 using Account.Domain.Models;
 using Commons.Domain.Models;
 using Commons.Infrastruct;
+using Commons.MqCommands;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,5 +14,7 @@ namespace Account.Application.Services
     {
         Task<BodyResponse<AccountResponseVM>> Login(AccountVM StudentViewModel);
         Task<BodyResponse<AccountDetailVM>> GetSelfAccount(long id);
+
+        Task<BodyResponse<GetAccountBaseInfoMqResponse>> GetAccountBaseInfo(long id);
     }
 }

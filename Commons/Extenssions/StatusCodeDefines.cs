@@ -67,7 +67,10 @@ namespace Commons.Extenssions.Defines
 
         PlayerNotInRoom = 14,
 
-      
+        RewardGetted = 15,
+
+        RewardNotAvailable = 16,
+
 
     }
 }

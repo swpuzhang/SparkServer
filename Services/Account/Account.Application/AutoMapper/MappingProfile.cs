@@ -2,6 +2,7 @@
 using Account.Domain.Models;
 using AutoMapper;
 using Commons.Extenssions;
+using Commons.MqCommands;
 using Commons.MqEvents;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace Account.Application.AutoMapper
                     dest.ActionTime = DateTimeHelper.NowTimeStamp();
                     dest.AggregateId = Guid.NewGuid();
                 });
+            CreateMap<AccountInfo, GetAccountBaseInfoMqResponse>().ReverseMap();
         }
     }
 }

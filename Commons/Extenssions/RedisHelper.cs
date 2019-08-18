@@ -381,5 +381,107 @@ namespace Commons.Extenssions
         }
 
         #endregion
+
+
+        #region zset类型操作
+      
+        public bool SetZsetValue(string key, string zsetkey, double score, TimeSpan? expiry = default(TimeSpan?))
+        {
+            bool ret = db.SortedSetAdd(key, zsetkey, score);
+            db.KeyExpire(key, expiry);
+            return ret;
+        }
+
+
+        public async Task<bool> SetZsetValueAsync(String key, string zsetkey, double score, TimeSpan? expiry = default(TimeSpan?))
+        {
+            bool ret = await db.SortedSetAddAsync(key, zsetkey, score);
+            await db.KeyExpireAsync(key, expiry);
+            return ret;
+        }
+
+        public void SetZsetValueNoWait(String key, string zsetkey, double score)
+        {
+            db.HashSet(key, zsetkey, score, flags: CommandFlags.FireAndForget);
+        }
+
+
+        public List<KeyValuePair<string, double>> ZsetGetAll (string key)
+        {
+            List<KeyValuePair<string, double>> result = new List<KeyValuePair<string, double>>();
+            var arr = db.SortedSetRangeByRankWithScores(key, 0, -1);
+
+            foreach (var item in arr)
+            {
+                result.Add(new KeyValuePair<string, double>(item.Element, item.Score));
+            }
+            return result;
+
+        }
+
+        public async Task<List<KeyValuePair<string, double>>> ZsetGetAllAsync(string key)
+        {
+            List<KeyValuePair<string, double>> result = new List<KeyValuePair<string, double>>();
+            var arr = await db.SortedSetRangeByRankWithScoresAsync(key, 0, -1);
+
+            foreach (var item in arr)
+            {
+                result.Add(new KeyValuePair<string, double>(item.Element, item.Score));
+            }
+            return result;
+
+        }
+
+
+        public async Task<List<string>> ZsetGetAllKeyAsync(string key)
+        {
+            List<string> result = new List<string>();
+            var arr = await db.SortedSetRangeByRankWithScoresAsync(key, 0, -1);
+
+            foreach (var item in arr)
+            {
+                result.Add(item.Element);
+            }
+            return result;
+
+        }
+
+        public double? GetZsetValue(string key, string zsetkey)
+        {
+            return db.SortedSetScore(key, zsetkey);
+        }
+
+        public Task<double?>GetZsetValueAsync(string key, string zsetkey)
+        {
+            return  db.SortedSetScoreAsync(key, zsetkey);
+
+        }
+
+        public long DeleteZsetValueRange(string key, double minScore, double maxScore)
+        {
+            return db.SortedSetRemoveRangeByScore(key, minScore, maxScore);
+        }
+
+        public Task<long> DeleteZsetValueRangeAsync(string key, double minScore, double maxScore)
+        {
+            return db.SortedSetRemoveRangeByScoreAsync(key, minScore, maxScore);
+        }
+
+        public bool DeleteZsetValue(string key, string zsetkey)
+        {
+            return db.SortedSetRemove(key, zsetkey);
+        }
+
+        public Task<bool> DeleteZsetValueAsync(string key, string zsetkey)
+        {
+            return db.SortedSetRemoveAsync(key, zsetkey);
+        }
+
+        public void DeleteZsetValueNoWait(string key, string zsetkey)
+        {
+            db.SortedSetRemove(key, zsetkey, flags: CommandFlags.FireAndForget);
+        }
+
+        #endregion
     }
 }

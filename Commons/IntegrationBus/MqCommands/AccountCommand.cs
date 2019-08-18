@@ -53,10 +53,13 @@ namespace Commons.MqCommands
         }
         public long Id { get; private set; }
     }
+
+    
+
     public class GetAccountInfoMqResponse
     {
         public GetAccountInfoMqResponse(long id, string platformAccount,
-            string userName, int sex, string headUrl, 
+            string userName, int sex, string headUrl,
             GameInfoMq gameInfo, LevelInfoMq levelInfo)
         {
             Id = id;
@@ -78,5 +81,53 @@ namespace Commons.MqCommands
 
         public LevelInfoMq LevelInfo { get; private set; }
 
+    }
+
+    public class GetAccountBaseInfoMqCommand
+    {
+        public GetAccountBaseInfoMqCommand(long id)
+        {
+            Id = id;
+        }
+        public long Id { get; private set; }
+    }
+
+    public class GetAccountBaseInfoMqResponse
+    {
+        [Flags]
+        public enum SomeFlags : long
+        {
+            None = 0,
+            RegisterReward = 0x1
+        }
+        public long Id { get; private set; }
+        public string PlatformAccount { get; private set; }
+
+        public string UserName { get; private set; }
+
+        public int Sex { get; private set; }
+
+        public string HeadUrl { get; private set; }
+
+        public int Type { get; set; }
+        public DateTime RegisterDate { get; private set; }
+        public SomeFlags Flags { get; private set; }
+
+        public GetAccountBaseInfoMqResponse()
+        {
+
+        }
+        public GetAccountBaseInfoMqResponse(long id, string platformAccount, string userName, 
+            int sex, string headUrl, int type, DateTime registerDate)
+        {
+
+            Id = id;
+            PlatformAccount = platformAccount;
+            UserName = userName;
+            Sex = sex;
+            HeadUrl = headUrl;
+            Type = type;
+            RegisterDate = registerDate;
+        }
     }
 }

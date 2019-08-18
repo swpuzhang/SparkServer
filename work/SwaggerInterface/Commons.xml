@@ -416,6 +416,26 @@
             <param name="hashkey"></param>
             <returns></returns>
         </member>
+        <member name="P:Commons.MqEvents.LoginMqEvent.Type">
+            <summary>
+            账号类型
+            </summary>
+        </member>
+        <member name="P:Commons.MqEvents.InviteFriendMqEvent.Id">
+            <summary>
+            邀请的玩家ID
+            </summary>
+        </member>
+        <member name="P:Commons.MqEvents.InviteFriendMqEvent.PlatformAccount">
+            <summary>
+            被邀请的平台账号
+            </summary>
+        </member>
+        <member name="P:Commons.MqEvents.InviteFriendMqEvent.Type">
+            <summary>
+            被邀请的平台类型
+            </summary>
+        </member>
         <member name="T:Commons.Message.MqEvents.MoneyChangedMqEvent">
             <summary>
             筹码变更通知

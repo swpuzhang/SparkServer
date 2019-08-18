@@ -58,7 +58,7 @@ namespace Money.Test
             var getResponse = getClient.GetResponseExt<GetMoneyMqCommand, BodyResponse<MoneyMqResponse>>(new GetMoneyMqCommand(10000000002));
             getResponse.Wait();
             _testOutputHelper.WriteLine($"GetMoney:{getResponse.Result.Message.Body.CurCoins} --02");
-            await client.GetResponseExt<AddMoneyMqCommand, BodyResponse<MoneyMqResponse>>(new AddMoneyMqCommand(10000000002, 10000000, 0));
+            await client.GetResponseExt<AddMoneyMqCommand, BodyResponse<MoneyMqResponse>>(new AddMoneyMqCommand(10000000002, 10000000, 0, 0));
             Assert.Equal(StatusCodeDefines.Success, getResponse.Result.Message.StatusCode);
            
             /*for (int i = 0; i < 36000000; ++i)
@@ -103,7 +103,7 @@ namespace Money.Test
 
             Assert.Equal(StatusCodeDefines.Success, getResponse.Result.Message.StatusCode);
             var moneyResponse = getResponse.Result.Message;
-            var response = client.GetResponseExt<BuyInMqCommand, BodyResponse<MoneyMqResponse>>(new BuyInMqCommand(10000000002, 1000, 10000));
+            var response = client.GetResponseExt<BuyInMqCommand, BodyResponse<MoneyMqResponse>>(new BuyInMqCommand(10000000002, 1000, 10000, 0));
 
             response.Wait();
 

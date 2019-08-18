@@ -12,9 +12,9 @@ namespace Commons.MqEvents
         {
 
         }
-        public LoginMqEvent(long id, string platformAccount, 
-            string userName, int sex, string headUrl, 
-            string token, long actionTime)
+        public LoginMqEvent(long id, string platformAccount,
+            string userName, int sex, string headUrl,
+            string token, long actionTime, int type)
         {
             Id = id;
             PlatformAccount = platformAccount;
@@ -24,6 +24,7 @@ namespace Commons.MqEvents
             Token = token;
             ActionTime = actionTime;
             AggregateId = Guid.NewGuid();
+            Type = type;
         }
 
         public Int64 Id { get; set; }
@@ -32,7 +33,10 @@ namespace Commons.MqEvents
         public int Sex { get; set; }
         public string HeadUrl { get; set; }
         public string Token { get; set; }
-
+        /// <summary>
+         /// 账号类型
+         /// </summary>
+        public int Type { get; set; }
         public long ActionTime { get; set; }
     }
 
@@ -44,7 +48,7 @@ namespace Commons.MqEvents
         }
         public RegistMqEvent(long id, string platformAccount,
             string userName, int sex, string headUrl,
-            string token, long actionTime)
+            string token, long actionTime, int type)
             
         {
             Id = id;
@@ -55,7 +59,17 @@ namespace Commons.MqEvents
             Token = token;
             ActionTime = actionTime;
             AggregateId = Guid.NewGuid();
+            Type = type;
         }
     }
 
+    public class FinishedRegisterRewardMqEvent
+    {
+        public FinishedRegisterRewardMqEvent(long id)
+        {
+            Id = id;
+        }
+
+        public long Id { get; private set; }
+    }
 }

@@ -21,7 +21,7 @@ namespace Sample.WebApi.Extenssions
         public static void AddServices(this IServiceCollection services, IConfiguration configuration)
         {
             //服务
-            services.AddScoped<ISampleAppService, SampleAppService>();
+            services.AddScoped<ISampleService, SampleService>();
 
             //存储
             services.AddScoped<ISampleInfoRepository, SampleInfoRepository>();
