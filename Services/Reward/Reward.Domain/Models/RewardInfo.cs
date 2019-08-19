@@ -37,6 +37,7 @@ namespace Reward.Domain.Models
             Over = 4,
         }
 
+
         public RegisterRewardVM(RewardState state, int dayIndex, List<long> rewardConfig)
         {
             State = state;
@@ -82,6 +83,8 @@ namespace Reward.Domain.Models
     public class LoginRewardInfo : UserEntity
     {
         public static string className = "LoginReward";
+
+        [JsonConstructor]
         public LoginRewardInfo(long id,  List<int> gettedDays)
             
         {
@@ -127,6 +130,7 @@ namespace Reward.Domain.Models
 
         public static string className = "BankruptcyInfo";
 
+        [JsonConstructor]
         public BankruptcyInfo(int curTimes)
         {
             CurTimes = curTimes;
@@ -184,6 +188,7 @@ namespace Reward.Domain.Models
 
         public static string className = "InviteRewardInfo";
 
+        [JsonConstructor]
         public InviteRewardInfo(int curTimes)
         {
             CurTimes = curTimes;

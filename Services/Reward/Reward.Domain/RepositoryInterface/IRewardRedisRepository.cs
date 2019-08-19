@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Reward.Domain.RepositoryInterface
 {
+    
     public interface IRewardRedisRepository : IRedisRepository
     {
         Task SetUserRegiserReward(RegisterRewardInfo info);

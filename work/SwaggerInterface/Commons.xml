@@ -384,7 +384,7 @@
             <param name="list">数据集合</param>
             <param name="getModelId"></param>
         </member>
-        <member name="M:Commons.Extenssions.RedisHelper.HashGetAll``1(System.String)">
+        <member name="M:Commons.Extenssions.RedisHelper.HashGetAllValue``1(System.String)">
             <summary>
             获取hashkey所有的值
             </summary>

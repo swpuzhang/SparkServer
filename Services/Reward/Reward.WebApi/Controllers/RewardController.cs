@@ -28,7 +28,7 @@ namespace Reward.WebApi.Controllers
         }
 
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public async Task<BodyResponse<RegisterRewardVM>> QueryRegisterReward([FromHeader]long id)
         {
             return await _service.QueryRegisterReward(id);

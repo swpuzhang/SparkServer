@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <Folder Include="Extenssions\" />
-    <Folder Include="Infrastruct\" />
     <Folder Include="IntegrationBus\" />
     <Folder Include="SignalrClient\" />
   </ItemGroup>

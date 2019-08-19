@@ -202,7 +202,7 @@ namespace Commons.Extenssions
             return db.HashSet(key, hashkey, json);
         }
 
-        public Task<bool> SetHashValueAsunc<T>(String key, string hashkey, T t)
+        public Task<bool> SetHashValueAsync<T>(String key, string hashkey, T t)
         {
             var json = JsonConvert.SerializeObject(t);
             return db.HashSetAsync(key, hashkey, json);
@@ -250,7 +250,7 @@ namespace Commons.Extenssions
         /// <typeparam name="T"></typeparam>
         /// <param name="key"></param>
         /// <returns></returns>
-        public List<T> HashGetAll<T>(string key)
+        public List<T> HashGetAllValue<T>(string key)
         {
             List<T> result = new List<T>();
             HashEntry[] arr = db.HashGetAll(key);
@@ -274,7 +274,7 @@ namespace Commons.Extenssions
             
         }
 
-        public async Task<List<T>> HashGetAllAsync<T>(string key)
+        public async Task<List<T>> HashGetAllValueAsync<T>(string key)
         {
             List<T> result = new List<T>();
             HashEntry[] arr = await db.HashGetAllAsync(key);
@@ -296,6 +296,23 @@ namespace Commons.Extenssions
             }
             return result;
 
+        }
+
+        public async Task<Dictionary<TKey, TValue>> HashGetAllAsync<TKey, TValue>(string key)
+        {
+            Dictionary<TKey, TValue> result = new Dictionary<TKey, TValue>();
+            HashEntry[] arr = await db.HashGetAllAsync(key);
+
+            foreach (var item in arr)
+            {
+                if (!item.Value.IsNullOrEmpty)
+                {
+                    TKey tk = JsonConvert.DeserializeObject<TKey>(item.Name);
+                    TValue tv = JsonConvert.DeserializeObject<TValue>(item.Value);
+                    result.Add(tk, tv);
+                }
+            }
+            return result;
         }
 
         /// <summary>

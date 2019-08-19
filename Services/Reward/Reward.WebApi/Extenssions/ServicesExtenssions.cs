@@ -15,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Commons.Extenssions;
 using Reward.Domain.Events;
 using Reward.Domain.EventHandlers;
+using System.Collections.Generic;
 
 namespace Reward.WebApi.Extenssions
 {
@@ -24,15 +25,17 @@ namespace Reward.WebApi.Extenssions
         {
             //服务
             services.AddScoped<IRewardService, RewardService>();
-
+            services.AddScoped<IActivityService, ActivityService>();
             //存储
             services.AddTransient<IRegisterRewardConfigRepository, RegisterRewardConfigRepository>();
             services.AddScoped<IRegisterRewardRepository, RegisterRewardRepository>();
             services.AddTransient<ILoginRewardConfigRepository, LoginRewardConfigRepository>();
             services.AddTransient<IBankruptcyConfigRepository, BankruptcyConfigRepository>();
             services.AddSingleton<IRewardRedisRepository, RewardRedisRepository>();
-            services.AddSingleton<IInviteRewardConfigRepository, InviteRewardConfigRepository>();
-            
+            services.AddTransient<IInviteRewardConfigRepository, InviteRewardConfigRepository>();
+            services.AddTransient<IGameActivityConfigRepository, GameActivityConfigRepository>();
+            services.AddSingleton<IActivityRedisRepository, ActivityRedisRepository>();
+
             //命令
             services.AddScoped<IMediatorHandler, InProcessBus>();
             services.AddScoped<IRequestHandler<GetRegisterRewardCommand, BodyResponse<RewardInfoVM>>, RewardCommandHandler>();
@@ -44,6 +47,8 @@ namespace Reward.WebApi.Extenssions
             services.AddScoped<IRequestHandler<GetBankruptcyRewardCommand, BodyResponse<RewardInfoVM>>, BankruptcyCommandHandler>();
             services.AddScoped<INotificationHandler<InvitedFriendEvent>, RewardEventHandler>();
             services.AddScoped<INotificationHandler<InvitedFriendRegisterdEvent>, RewardEventHandler>();
+            services.AddScoped<IRequestHandler<GameActivityCommand, List<OneGameActivityInfoVM>>, GameActivityCmdHandler>();
+            services.AddScoped<IRequestHandler<GetGameActRewardCommand, BodyResponse<RewardInfoVM>>, GameActivityCmdHandler>();
 
             services.AddMediatR(typeof(Startup));
             services.AddSingleton(new RedisHelper(configuration["redis:ConnectionString"]));
@@ -53,6 +58,7 @@ namespace Reward.WebApi.Extenssions
             services.AddSingleton<LoginRewardConfig>();
             services.AddSingleton<BankruptcyConfig>();
             services.AddSingleton<InviteRewardConfig>();
+            services.AddSingleton<AllGameActivityConfig>();
         }
 
         public static void ConfigServices(this IApplicationBuilder app, IConfiguration configuration)
@@ -70,7 +76,9 @@ namespace Reward.WebApi.Extenssions
             container.GetRequiredService<BankruptcyConfig>().BankruptcyRewards = bankruptcyConfig.BankruptcyRewards;
             var inviteRep = container.GetRequiredService<IInviteRewardConfigRepository>();
             var inviteConfig = inviteRep.LoadConfig();
-            container.GetRequiredService<InviteRewardConfig>().InviteRewards = inviteConfig.InviteRewards;
+            var gameActRep = container.GetRequiredService<IGameActivityConfigRepository>();
+            var gameActConfig = gameActRep.LoadConfig();
+            container.GetRequiredService<AllGameActivityConfig>().AllGameConfigs = gameActConfig;
         }
     }
 }

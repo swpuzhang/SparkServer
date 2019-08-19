@@ -4,6 +4,86 @@
         <name>Reward.Domain</name>
     </assembly>
     <members>
+        <member name="P:Reward.Domain.Models.GameActivityConfig.ActivityId">
+            <summary>
+            唯一活动ID
+            </summary>
+        </member>
+        <member name="T:Reward.Domain.Models.AllGameActivityConfig">
+            <summary>
+            所有打牌活动的配置
+            </summary>
+        </member>
+        <member name="T:Reward.Domain.Models.OneRoomActivityInfoVM">
+             <summary>
+            单个房间打牌活动
+             </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.OneRoomActivityInfoVM.SubId">
+            <summary>
+            子任务ID
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.OneRoomActivityInfoVM.CurCount">
+            <summary>
+            当前计数
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.OneRoomActivityInfoVM.NeedCount">
+            <summary>
+            需要的总计数
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.OneRoomActivityInfoVM.State">
+            <summary>
+            是否完成该任务
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.OneRoomActivityInfoVM.RewardCoins">
+            <summary>
+            奖励金币数
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.OneRoomActivityInfoVM.Title">
+            <summary>
+            活动标题
+            </summary>
+        </member>
+        <member name="T:Reward.Domain.Models.OneGameActivityInfoVM">
+            <summary>
+            一个打牌活动
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.OneGameActivityInfoVM.ActivityId">
+            <summary>
+            唯一活动ID
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.OneGameActivityInfoVM.Title">
+            <summary>
+            活动标题
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.OneGameActivityInfoVM.RoomInfos">
+            <summary>
+            所有场次打牌详情
+            </summary>
+        </member>
+        <member name="T:Reward.Domain.Models.ActivityInfoVM">
+            <summary>
+            所有活动信息
+            </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.ActivityInfoVM.AllGameActivitys">
+             <summary>
+            所有打牌活动
+             </summary>
+        </member>
+        <member name="P:Reward.Domain.Models.ActivityInfoVM.AllWinActivitys">
+             <summary>
+            所有赢牌活动
+             </summary>
+        </member>
         <member name="T:Reward.Domain.Models.RegisterRewardVM">
             <summary>
             注册奖励

@@ -58,7 +58,7 @@ namespace Reward.Infrastruct
 
         public BankruptcyConfig LoadConfig()
         {
-            var configs = _dbCol.Find<BankruptcyConfig>(x => true);//.Project(Builders<LevelConfig>.
+            var configs = _dbCol.Find(x => true);//.Project(Builders<LevelConfig>.
                                                                     //Projection.Exclude("_id")).ToList();
 
             return configs.Project<BankruptcyConfig>(Builders<BankruptcyConfig>.Projection.Exclude("_id")).ToList().First();
@@ -81,7 +81,7 @@ namespace Reward.Infrastruct
 
             return configs.Project<InviteRewardConfig>(Builders<InviteRewardConfig>.Projection.Exclude("_id")).ToList().First();
         }
-
     }
 
+   
 }

@@ -33,6 +33,7 @@ namespace Commons.Extenssions.Defines
         LoginReward = 6,
         Bankruptcy = 7,
         Invite = 8,
+        GameAct = 9,
     }
 
 }
