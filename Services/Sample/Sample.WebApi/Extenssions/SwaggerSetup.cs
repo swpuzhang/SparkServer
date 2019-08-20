@@ -26,22 +26,29 @@ namespace Sample.WebApi.Extenssions
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
                 c.OperationFilter<HttpHeaderFilter>();
                 c.DescribeAllEnumsAsStrings();
-
                 string basePath;
                 var env = services.BuildServiceProvider().GetService<IHostingEnvironment>();
-                if (env.IsDevelopment())
+                if (Environment.OSVersion.Platform == PlatformID.MacOSX ||
+                        Environment.OSVersion.Platform == PlatformID.Unix)
                 {
-                    basePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../SwaggerInterface");
+
+                    string home = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                    basePath = Path.Combine(home, "work/SwaggerInterface");
                 }
                 else
                 {
-                    basePath = "~/work/SwaggerInterface";
+                    string curPath = ApplicationEnvironment.ApplicationBasePath;
+                    int index = curPath.LastIndexOf("SparkServer");
+                    basePath = curPath.Substring(0, index + 11) + "/work/SwaggerInterface";
                 }
-                var xmlPath = Path.Combine(basePath, Assembly.GetExecutingAssembly().GetName().Name + ".xml");
-                var viewModelXmlPath = Path.Combine(basePath, $"{Startup.ServiceName}.Application.xml");
-                c.IncludeXmlComments(xmlPath);
-                c.IncludeXmlComments(viewModelXmlPath);
-                
+
+                var files = Directory.GetFiles(basePath, "*.xml");
+                foreach (var oneFile in files)
+                {
+                    var xmlPath = Path.Combine(basePath, oneFile);
+                    c.IncludeXmlComments(xmlPath, true);
+                }
+
             });
         }
 

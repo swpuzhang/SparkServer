@@ -42,7 +42,7 @@ namespace Sample.WebApi.Controllers
     
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
         //[Route("SampleSelf/id")]
         public BodyResponse<SampleVM> GetSelfSample([FromHeader]long id)
         {

@@ -20,15 +20,26 @@ namespace Reward.WebApi.Controllers
             _service = service;
         }
 
-
+        /// <summary>
+        /// 查询活动
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<BodyResponse<ActivityInfoVM>> QueryActivity([FromHeader]long id)
         {
             return await _service.QueryActivity(id);
         }
 
+       /// <summary>
+       /// 获取打牌任务奖励
+       /// </summary>
+       /// <param name="id"></param>
+       /// <param name="activityId"></param>
+       /// <param name="subId"></param>
+       /// <returns></returns>
         [HttpGet]
-        public async Task<BodyResponse<RewardInfoVM>> GetRegisterReward([FromHeader]long id, string activityId, string subId)
+        public async Task<BodyResponse<RewardInfoVM>> GetGameActReward([FromHeader]long id, string activityId, string subId)
         {
             return await _service.GetGameActReward(id, activityId, subId);
         }

@@ -214,3 +214,8 @@
 /Services/Reward/Reward.WebApi/obj/Debug/netcoreapp2.2
 /Services/Reward/Reward.WebApi/obj
 /Services/Reward/Reward.Test/bin/Debug/netcoreapp2.2
+/Services/Reward/Reward.Application/bin/Release/netcoreapp2.2
+/Services/Reward/Reward.Domain/bin/Release/netcoreapp2.2
+/Services/Reward/Reward.Infrastruct/bin/Release/netcoreapp2.2
+/Services/Reward/Reward.WebApi/bin/Release/netcoreapp2.2
+/Services/Reward/Reward.WebApi/Reward.WebApi/logs

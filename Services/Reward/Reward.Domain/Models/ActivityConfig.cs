@@ -57,10 +57,6 @@ namespace Reward.Domain.Models
     /// </summary>
     public class AllGameActivityConfig
     {
-        public AllGameActivityConfig(List<GameActivityConfig> allGameConfigs)
-        {
-            AllGameConfigs = allGameConfigs;
-        }
 
         public List<GameActivityConfig> AllGameConfigs { get; set; }
     }

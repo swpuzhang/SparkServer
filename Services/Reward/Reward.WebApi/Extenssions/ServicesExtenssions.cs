@@ -76,6 +76,7 @@ namespace Reward.WebApi.Extenssions
             container.GetRequiredService<BankruptcyConfig>().BankruptcyRewards = bankruptcyConfig.BankruptcyRewards;
             var inviteRep = container.GetRequiredService<IInviteRewardConfigRepository>();
             var inviteConfig = inviteRep.LoadConfig();
+            container.GetRequiredService<InviteRewardConfig>().InviteRewards = inviteConfig.InviteRewards;
             var gameActRep = container.GetRequiredService<IGameActivityConfigRepository>();
             var gameActConfig = gameActRep.LoadConfig();
             container.GetRequiredService<AllGameActivityConfig>().AllGameConfigs = gameActConfig;
