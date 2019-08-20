@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Commons.IntegrationBus.MqCommands.Sangong;
 
 namespace Reward.Application.Services
 {
@@ -13,6 +14,8 @@ namespace Reward.Application.Services
     {
         Task<BodyResponse<ActivityInfoVM>> QueryActivity(long id);
         Task<BodyResponse<RewardInfoVM>> GetGameActReward(long id, string activityId, string subId);
+        Task AddActFromGamelog(GameLogMqCommand gamelog);
         
+
     }
 }

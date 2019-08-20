@@ -90,7 +90,7 @@ namespace Reward.Domain.Models
             State = state;
         }
 
-        public long CurCount { get; private set; }
+        public long CurCount { get; set; }
         public int State { get; set; }
     }
 

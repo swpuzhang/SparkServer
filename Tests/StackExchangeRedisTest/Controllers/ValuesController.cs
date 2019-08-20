@@ -35,6 +35,7 @@ namespace StackExchangeRedisTest.Controllers
             var onecar = new Car(100, "test", "test");
             
             _redisHelper.SetString<Car>("StackCar", onecar);
+            _redisHelper.DeleteKey("StackCar");
             var getcar = _redisHelper.GetString<Car>("StackCar");
             return getcar.Id;
         }

@@ -13,19 +13,21 @@ namespace Reward.Domain.Models
     }
     public class OneRoomActivityConfig
     {
-        public OneRoomActivityConfig(string subId, int needCount, 
-            long rewardCoins, string title)
+        public OneRoomActivityConfig(string subId, int needCount,
+            long rewardCoins, string title, RoomTypes roomType)
         {
             SubId = subId;
             NeedCount = needCount;
             RewardCoins = rewardCoins;
             Title = title;
+            RoomType = roomType;
         }
 
         public string SubId { get; private set; }
         public long NeedCount { get; private set; }
         public long RewardCoins { get; private set; }
         public string Title { get; private set; }
+        public RoomTypes RoomType { get; private set; }
     }
 
     public class GameActivityConfig

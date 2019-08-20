@@ -12,12 +12,14 @@ using System.Linq;
 using System.Collections.Generic;
 using Commons.Extenssions.Defines;
 using Commons.MqCommands;
+using Commons.Extenssions;
 
 namespace Reward.Domain.CommandHandlers
 {
     public class GameActivityCmdHandler :
         IRequestHandler<GameActivityCommand, List<OneGameActivityInfoVM>>,
-        IRequestHandler<GetGameActRewardCommand, BodyResponse<RewardInfoVM>>
+        IRequestHandler<GetGameActRewardCommand, BodyResponse<RewardInfoVM>>,
+        IRequestHandler<AddActFromGamelogCommand, Unit>
     {
         protected readonly IMediatorHandler _bus;
         private readonly IActivityRedisRepository _redis;
@@ -87,28 +89,82 @@ namespace Reward.Domain.CommandHandlers
             CancellationToken cancellationToken)
         {
             DateTime tnow = DateTime.Now;
-            var subAct = await _redis.GetGameActProgress(tnow, request.Id, request.ActId, request.SubId);
             var roomConfig = _activityConfig.AllGameConfigs
                 .Find(x => x.ActivityId == request.ActId).RoomConfigs
                 .Find(x => x.SubId == request.SubId);
-            long rewardCoins = 0;
-            if (subAct.State == 1)
+            using (var locker = _redis.Loker(KeyGenHelper.GenUserDayKey(tnow, request.Id, "GameActivity", request.ActId)))
             {
-                return new BodyResponse<RewardInfoVM>(StatusCodeDefines.Error);
+                await locker.LockAsync();
+                var subAct = await _redis.GetGameActProgress(tnow, request.Id, request.ActId, request.SubId);
+
+                long rewardCoins = 0;
+                if (subAct.State == 1)
+                {
+                    return new BodyResponse<RewardInfoVM>(StatusCodeDefines.Error);
+                }
+                if (subAct.CurCount >= roomConfig.NeedCount)
+                {
+                    rewardCoins = roomConfig.RewardCoins;
+                    _ = _mqBus.Publish(new AddMoneyMqCommand(request.Id, rewardCoins, 0, MoneyReson.GameAct));
+                    subAct.State = 1;
+                    await _redis.SetGameActProgress(tnow, request.Id, request.ActId, request.SubId, subAct);
+                    return new BodyResponse<RewardInfoVM>(StatusCodeDefines.Success,
+                        null, new RewardInfoVM(rewardCoins));
+                }
+                else
+                {
+                    return new BodyResponse<RewardInfoVM>(StatusCodeDefines.Error);
+                }
             }
-            if (subAct.CurCount >= roomConfig.NeedCount)
+            
+        }
+
+        public void DealOneRoom(DateTime time, List<long> players, string actId, string subId)
+        {
+            ParallelLoopResult result = Parallel.ForEach(players, async player =>
             {
-                rewardCoins = roomConfig.RewardCoins;
-                _ = _mqBus.Publish(new AddMoneyMqCommand(request.Id, rewardCoins, 0, MoneyReson.GameAct));
-                subAct.State = 1;
-                await _redis.SetGameActProgress(tnow, request.Id, request.ActId, request.SubId, subAct);
-                return new BodyResponse<RewardInfoVM>(StatusCodeDefines.Success, 
-                    null, new RewardInfoVM(rewardCoins));
-            }
-            else
+                using (var locker = _redis.Loker(KeyGenHelper.GenUserDayKey(time, player, "GameActivity", actId)))
+                {
+                    await locker.LockAsync();
+                    var oneSub = await _redis.GetGameActProgress(time, player, actId, subId);
+                    if (oneSub == null)
+                    {
+                        oneSub = new GameSubActInfo(0, 0);
+                    }
+                    if (oneSub.State == 1)
+                    {
+                        return;
+                    }
+                    ++oneSub.CurCount;
+                    await _redis.SetGameActProgress(time, player, actId, subId, oneSub);
+                }               
+            });
+        }
+
+        public Task<Unit> Handle(AddActFromGamelogCommand request, CancellationToken cancellationToken)
+        {
+            DateTime tnow = DateTime.Now;
+            foreach( var oneAct in _activityConfig.AllGameConfigs)
             {
-                return new BodyResponse<RewardInfoVM>(StatusCodeDefines.Error);
+                List<long> players = null;
+                if (oneAct.ActivityType == ActivityTypes.WinGame)
+                {
+                    players = request._allPlayers.Where(x => x.Value > 0).Select(x => x.Key).ToList();
+                }
+                else
+                {
+                    players = request._allPlayers.Select(x => x.Key).ToList();
+                }
+                foreach (var oneRoom in oneAct.RoomConfigs)
+                {
+                    if (oneRoom.RoomType == request.RoomType)
+                    {
+                        DealOneRoom(tnow, players, oneAct.ActivityId, oneRoom.SubId);
+                    }
+                }
+               
             }
+            return Task.FromResult(new Unit());
         }
     }
 }

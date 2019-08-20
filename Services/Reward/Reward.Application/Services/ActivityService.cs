@@ -13,6 +13,7 @@ using Commons.Domain.Models;
 using Commons.Infrastruct;
 using Reward.Domain.Events;
 using Commons.Extenssions.Defines;
+using Commons.IntegrationBus.MqCommands.Sangong;
 
 namespace Reward.Application.Services
 {
@@ -42,6 +43,13 @@ namespace Reward.Application.Services
                     AllGameActivitys = playInfos,
                     AllWinActivitys = winInfos
                 });
+        }
+
+        public async Task AddActFromGamelog(GameLogMqCommand gamelog)
+        {
+            //玩家
+            var allPlayers = gamelog.GetPlayers();
+            await _bus.SendCommand(new AddActFromGamelogCommand(allPlayers, gamelog.GameLog.RoomType));
         }
     }
 }

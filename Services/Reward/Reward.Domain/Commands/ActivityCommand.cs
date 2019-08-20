@@ -6,6 +6,7 @@ using System.Text;
 using Commons.Domain.Models;
 using Reward.Domain.Models;
 using Sangong.MqCommands;
+using MediatR;
 
 namespace Reward.Domain.Commands
 {
@@ -36,4 +37,14 @@ namespace Reward.Domain.Commands
     }
 
   
+    public class AddActFromGamelogCommand : Command<Unit>
+    {
+        public Dictionary<long, long> _allPlayers { get; private set; }
+        public RoomTypes RoomType { get; private set; }
+        public AddActFromGamelogCommand(Dictionary<long, long> allPlayers, RoomTypes roomType)
+        {
+            _allPlayers = allPlayers;
+            RoomType = roomType;
+        }
+    }
 }
