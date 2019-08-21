@@ -108,10 +108,10 @@ namespace Reward.Domain.Models
         public enum OneRewardState
         {
 
-            Getted = 1,
-            NotGetted = 2,
-            Available = 3,
-            Waitting = 4,
+            Getted = 0,
+            NotGetted = 1,
+            Available = 2,
+            Waitting = 3,
         }
 
         public LoginRewardVM(List<OneReward> rewardConfig)

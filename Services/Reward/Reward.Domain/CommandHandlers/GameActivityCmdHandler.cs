@@ -50,7 +50,6 @@ namespace Reward.Domain.CommandHandlers
                         oneActivitty.ActivityId));
                    
                 }
-                
             }
             await Task.WhenAll(tasks);
             List<OneGameActivityInfo> playActivityInfos = tasks.Select(x => x.Result).ToList();

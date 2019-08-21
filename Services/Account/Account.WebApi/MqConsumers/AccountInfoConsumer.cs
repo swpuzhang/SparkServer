@@ -49,7 +49,8 @@ namespace Account.WebApi.MqConsumers
 
         public Task Consume(ConsumeContext<FinishedRegisterRewardMqEvent> context)
         {
-            throw new NotImplementedException();
+             _service.FinishRegisterReward(context.Message.Id);
+             return Task.CompletedTask;
         }
     }
 }
