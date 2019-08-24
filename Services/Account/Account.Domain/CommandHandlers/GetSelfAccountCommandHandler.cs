@@ -18,12 +18,15 @@ using AutoMapper;
 using Serilog;
 using Account.Domain.Events;
 using Commons.MqCommands;
+using Account.Domain.Manager;
 
 namespace Account.Domain.CommandHandlers
 {
     public class GetSelfAccountCommandHandler :
         IRequestHandler<GetSelfAccountCommand, BodyResponse<AccountDetail>>,
-        IRequestHandler<GetAccountBaseInfoCommand, BodyResponse<AccountInfo>>
+        IRequestHandler<GetAccountBaseInfoCommand, BodyResponse<AccountInfo>>,
+        IRequestHandler<GetIdByPlatformCommand, BodyResponse<GetIdByPlatformMqResponse>>
+
     {
         protected readonly IMediatorHandler _bus;
         private readonly IAccountInfoRepository _accountRepository;
@@ -84,7 +87,7 @@ namespace Account.Domain.CommandHandlers
 
         public async Task<BodyResponse<AccountInfo>> Handle(GetAccountBaseInfoCommand request, CancellationToken cancellationToken)
         {
-            var accountInfo = await _redis.GetAccountInfo(request.Id);
+            var accountInfo = await AccountMethods.GetAccountInfo(request.Id, _accountRepository, _redis);
             if (accountInfo == null)
             {
                 return new BodyResponse<AccountInfo>(StatusCodeDefines.AccountError, null);
@@ -92,6 +95,15 @@ namespace Account.Domain.CommandHandlers
             return new BodyResponse<AccountInfo>(StatusCodeDefines.Success, null, accountInfo);
         }
 
-        
+        public async Task<BodyResponse<GetIdByPlatformMqResponse>> Handle(GetIdByPlatformCommand request, CancellationToken cancellationToken)
+        {
+            long? id = await AccountMethods.GetIdByPlatForm(request.PlatformAccount, _accountRepository, _redis);
+            if  (id != null)
+            {
+                return new BodyResponse<GetIdByPlatformMqResponse>(StatusCodeDefines.Success, null, new GetIdByPlatformMqResponse(id.Value));
+            }
+
+            return new BodyResponse<GetIdByPlatformMqResponse>(StatusCodeDefines.Error);
+        }
     }
 }

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MsgCenter.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:MsgCenter.WebApi.Controllers.MsgCenterController">
+            <summary>
+            账号相关操作
+            </summary>
+        </member>
+        <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.GetUserSysMsgs(System.Int64)">
+            <summary>
+            获取系统通知消息
+            </summary>
+        </member>
+        <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.GetUserRewardMsgs(System.Int64)">
+            <summary>
+            获取奖励消息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.ReadedMsg(System.Int64,MsgCenter.Domain.Models.MsgTypes,System.String)">
+            <summary>
+            已经读取消息
+            </summary>
+            <param name="id"></param>
+            <param name="msgType"></param>
+            <param name="msgId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.RecieveMsgReward(System.Int64,System.String)">
+            <summary>
+            获取消息奖励
+            </summary>
+            <param name="id"></param>
+            <param name="msgId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.DeleteMsg(System.Int64,MsgCenter.Domain.Models.MsgTypes,System.String)">
+            <summary>
+            删除消息
+            </summary>
+            <param name="id"></param>
+            <param name="msgType"></param>
+            <param name="msgId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.ReadedAllMsg(System.Int64,MsgCenter.Domain.Models.MsgTypes)">
+            <summary>
+            一键已读
+            </summary>
+            <param name="id"></param>
+            <param name="msgType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.RecieveAllMsgReward(System.Int64)">
+            <summary>
+            一键领取奖励
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

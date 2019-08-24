@@ -71,6 +71,21 @@ namespace Commons.Extenssions.Defines
 
         RewardNotAvailable = 16,
 
-
+        /// <summary>
+        /// 已经是好友
+        /// </summary>
+        IsAlreadyFriend = 17,
+        /// <summary>
+        /// 已经申请
+        /// </summary>
+        IsAlreadyApplyed = 18,
+        /// <summary>
+        /// 已经满了, 好友数量, 申请数量
+        /// </summary>
+        IsFull = 19,
+        /// <summary>
+        /// 该好友没有申请
+        /// </summary>
+        IsNotApplyed = 20,
     }
 }

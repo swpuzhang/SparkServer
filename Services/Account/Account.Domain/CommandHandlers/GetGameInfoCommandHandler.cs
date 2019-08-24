@@ -44,7 +44,7 @@ namespace Account.Domain.CommandHandlers
             GameInfo gameinfo = await _redis.GetGameInfo(request.Id);
             if (gameinfo == null)
             {
-                using (var loker = _redis.Loker(KeyGenHelper
+                using (var loker = _redis.Locker(KeyGenHelper
                 .GenUserKey(request.Id, GameInfo.ClassName)))
                 {
                     loker.Lock();

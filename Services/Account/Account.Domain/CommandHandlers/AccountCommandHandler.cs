@@ -107,7 +107,7 @@ namespace Account.Domain.CommandHandlers
                 if (isRegister)
                 {
                     var mqResponse = await _moneyAddClient.GetResponseExt<AddMoneyMqCommand, BodyResponse<MoneyMqResponse>>
-                           (new AddMoneyMqCommand(accountInfo.Id, _initRewardInfo.RewardCoins, 0, MoneyReson.InitReward));
+                           (new AddMoneyMqCommand(accountInfo.Id, _initRewardInfo.RewardCoins, 0, AddReason.InitReward));
                     var moneyInfo = mqResponse.Message.Body;
 
                     accounResponse = new AccountResponse(newAccountInfo.Id,

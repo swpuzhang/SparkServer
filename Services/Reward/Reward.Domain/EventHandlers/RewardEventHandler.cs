@@ -44,7 +44,7 @@ namespace Reward.Domain.EventHandlers
             long rewardCoins = _inviteConfig.InviteRewards;
             foreach (var oneInviter in allInviters)
             {
-                _ = _mqBus.Publish(new AddMoneyMqCommand(oneInviter, rewardCoins, 0, Commons.Extenssions.Defines.MoneyReson.Invite));
+                _ = _mqBus.Publish(new AddMoneyMqCommand(oneInviter, rewardCoins, 0, Commons.Extenssions.Defines.AddReason.Invite));
             }
             await _redis.RemovInviteFriend(allInviters, notification.PlatformAccount, notification.Type);
         }

@@ -10,7 +10,7 @@ namespace Commons.Domain.RepositoryInterface
 {
     public interface IRedisRepository
     {
-        ReidsLockGuard Loker(string key);
+        ReidsLockGuard Locker(string key);
     }
 
     public class ReidsLockGuard :  IDisposable
@@ -68,7 +68,7 @@ namespace Commons.Domain.RepositoryInterface
             _redis = redis;
         }
 
-        public ReidsLockGuard Loker(string key)
+        public ReidsLockGuard Locker(string key)
         {
             return new ReidsLockGuard(_redis, key);
         }

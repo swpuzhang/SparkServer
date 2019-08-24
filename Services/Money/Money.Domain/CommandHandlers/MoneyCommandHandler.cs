@@ -42,7 +42,7 @@ namespace Money.Domain.CommandHandlers
             var moneyInfo = await _redis.GetMoney(request.Id);
             if (moneyInfo == null)
             {
-                using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(request.Id, 
+                using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(request.Id, 
                     MoneyInfo.ClassName)))
                 {
                     await locker.LockAsync();
@@ -68,7 +68,7 @@ namespace Money.Domain.CommandHandlers
             CancellationToken cancellationToken)
         {
            
-            using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(request.Id,
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(request.Id,
                 MoneyInfo.ClassName)))
             {
                 await locker.LockAsync();
@@ -99,7 +99,11 @@ namespace Money.Domain.CommandHandlers
                     moneyInfo.AddCoins(left);
                     moneyInfo.AddCarry(realBuy);
                 }
-                
+                var moneyevent = new MoneyChangedMqEvent
+                     (moneyInfo.Id, moneyInfo.CurCoins,
+                     moneyInfo.CurDiamonds, moneyInfo.MaxCoins,
+                     moneyInfo.MaxDiamonds, 0, 0);
+                _busCtl.PublishExt(moneyevent);
                 await Task.WhenAll(_redis.SetMoney(request.Id, moneyInfo), _moneyRepository.ReplaceAsync(moneyInfo));
                 return new BodyResponse<MoneyMqResponse>(StatusCodeDefines.Success, null, 
                     new MoneyMqResponse(request.Id, moneyInfo.CurCoins, moneyInfo.CurDiamonds, 
@@ -111,7 +115,7 @@ namespace Money.Domain.CommandHandlers
             CancellationToken cancellationToken)
         {
             
-            using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(request.Id,
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(request.Id,
                 MoneyInfo.ClassName)))
             {
                 await locker.LockAsync();
@@ -143,15 +147,13 @@ namespace Money.Domain.CommandHandlers
                 moneyInfo.AddCarry(request.AddCarry);
                 moneyInfo.UpdateMaxCoins();
                 long coinsChangedCount = request.AddCoins + request.AddCarry;
-                if (coinsChangedCount != 0)
-                {
-                    var moneyevent = new MoneyChangedMqEvent
-                        (moneyInfo.Id, moneyInfo.CurCoins,
-                        moneyInfo.CurDiamonds, moneyInfo.MaxCoins,
-                        moneyInfo.MaxDiamonds, coinsChangedCount, 0);
-                    _busCtl.PublishExt(moneyevent);
-                    _busCtl.PublishExt(moneyInfo.Id, moneyevent);
-                }
+                
+                var moneyevent = new MoneyChangedMqEvent
+                      (moneyInfo.Id, moneyInfo.CurCoins,
+                      moneyInfo.CurDiamonds, moneyInfo.MaxCoins,
+                      moneyInfo.MaxDiamonds, coinsChangedCount, 0);
+                _busCtl.PublishExt(moneyevent);
+                _busCtl.PublishExt(moneyInfo.Id, moneyevent);
                 await Task.WhenAll(_redis.SetMoney(request.Id, moneyInfo),
                     _moneyRepository.ReplaceAsync(moneyInfo));
                 Log.Debug($"AddMoneyCommand add end:{request.AddCoins},{request.AddCarry} {request.AggregateId} curCoins:{moneyInfo.CurCoins} curCarry:{moneyInfo.Carry}--3");

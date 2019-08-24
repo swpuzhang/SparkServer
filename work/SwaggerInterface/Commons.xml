@@ -256,6 +256,31 @@
             消息数据
             </summary>
         </member>
+        <member name="P:Commons.Domain.Models.RewardInfo.GoodsId">
+            <summary>
+            物品ID. 对于一些道具该字段有意义
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.RewardInfo.Count">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.RewardInfo.Name">
+            <summary>
+            奖励名称
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.RewardInfo.Description">
+            <summary>
+            详细描述
+            </summary>
+        </member>
+        <member name="P:Commons.Domain.Models.RewardInfo.ImageUrl">
+            <summary>
+            图片
+            </summary>
+        </member>
         <member name="T:Commons.Extenssions.Defines.AccountType">
             <summary>
             账号类型
@@ -326,6 +351,26 @@
             钱不够
             </summary>
         </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.IsAlreadyFriend">
+            <summary>
+            已经是好友
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.IsAlreadyApplyed">
+            <summary>
+            已经申请
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.IsFull">
+            <summary>
+            已经满了, 好友数量, 申请数量
+            </summary>
+        </member>
+        <member name="F:Commons.Extenssions.Defines.StatusCodeDefines.IsNotApplyed">
+            <summary>
+            该好友没有申请
+            </summary>
+        </member>
         <member name="M:Commons.Extenssions.KeyGenHelper.GenKey(System.String,System.String[])">
             <summary>
             生成跟uid相关的key  userid|key1|key2
@@ -356,16 +401,7 @@
             <param name="key"></param>
             <returns></returns>
         </member>
-        <member name="M:Commons.Extenssions.RedisHelper.SetHashValue(System.String,System.String,System.String)">
-            <summary>
-            set or update the HashValue for string key 
-            </summary>
-            <param name="key"></param>
-            <param name="hashkey"></param>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Commons.Extenssions.RedisHelper.SetHashValue``1(System.String,System.String,``0)">
+        <member name="M:Commons.Extenssions.RedisHelper.AddHashValue``1(System.String,System.String,``0)">
             <summary>
             set or update the HashValue for string key 
             </summary>
@@ -375,16 +411,7 @@
             <param name="t">defined class</param>
             <returns></returns>
         </member>
-        <member name="M:Commons.Extenssions.RedisHelper.SetHashList``1(System.String,System.Collections.Generic.List{``0},System.Func{``0,System.String})">
-            <summary>
-            保存一个集合
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="key">Redis Key</param>
-            <param name="list">数据集合</param>
-            <param name="getModelId"></param>
-        </member>
-        <member name="M:Commons.Extenssions.RedisHelper.HashGetAllValue``1(System.String)">
+        <member name="M:Commons.Extenssions.RedisHelper.GetHashAllValue``1(System.String)">
             <summary>
             获取hashkey所有的值
             </summary>
@@ -581,17 +608,17 @@
             该奖池的金币数
             </summary>
         </member>
-        <member name="P:Sangong.GameMessage.PlayerCards.Cards">
+        <member name="P:Sangong.GameMessage.PlayerGameOverInfo.Cards">
             <summary>
             手牌
             </summary>
         </member>
-        <member name="P:Sangong.GameMessage.PlayerCards.CardType">
+        <member name="P:Sangong.GameMessage.PlayerGameOverInfo.CardType">
             <summary>
             三张牌组成的类型
             </summary>
         </member>
-        <member name="P:Sangong.GameMessage.PlayerCards.Point">
+        <member name="P:Sangong.GameMessage.PlayerGameOverInfo.Point">
             <summary>
             如果类型是点数牌， 点数
             </summary>
@@ -611,9 +638,9 @@
             每个奖池
             </summary>
         </member>
-        <member name="P:Sangong.GameMessage.GameOverEvent.handCards">
+        <member name="P:Sangong.GameMessage.GameOverEvent.PlayerInfos">
             <summary>
-            手牌
+            结算每个玩家信息
             </summary>
         </member>
         <member name="T:Sangong.GameMessage.PlayerInfo.PlayerStatus">

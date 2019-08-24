@@ -335,15 +335,29 @@ namespace Sangong.GameMessage
     }
 
     
-    public class PlayerCards
+    public class PlayerGameOverInfo
     {
         [JsonConstructor]
-        public PlayerCards(List<PokerCard> cards, int cardType, int point)
+        public PlayerGameOverInfo(long id, int seatNum, 
+            long coinsInc, long carry, List<PokerCard> cards, 
+            int cardType, int point)
         {
+            Id = id;
+            SeatNum = seatNum;
+            CoinsInc = coinsInc;
+            Carry = carry;
             Cards = cards;
             CardType = cardType;
             Point = point;
         }
+
+        public long Id { get; set; }
+
+        public int SeatNum { get; set; }
+
+        public long  CoinsInc { get; set; }
+
+        public long Carry { get; set; }
 
         /// <summary>
         /// 手牌
@@ -359,6 +373,7 @@ namespace Sangong.GameMessage
         /// 如果类型是点数牌， 点数
         /// </summary>
         public int Point { get; set; }
+        
     }
 
     /// <summary>
@@ -367,11 +382,11 @@ namespace Sangong.GameMessage
     public class GameOverEvent
     {
         [JsonConstructor]
-        public GameOverEvent(List<int> winnerSeats, List<WinnerCoinsPool> winnerPool, Dictionary<int, PlayerCards> handCards)
+        public GameOverEvent(List<int> winnerSeats, List<WinnerCoinsPool> winnerPool, List<PlayerGameOverInfo> playerInfos)
         {
             WinnerSeats = winnerSeats;
             WinnerPool = winnerPool;
-            this.handCards = handCards;
+            PlayerInfos = playerInfos;
         }
 
         /// <summary>
@@ -385,9 +400,9 @@ namespace Sangong.GameMessage
         public List<WinnerCoinsPool> WinnerPool { get; set; }
 
         /// <summary>
-        /// 手牌
+        /// 结算每个玩家信息
         /// </summary>
-        public Dictionary<int, PlayerCards> handCards {get; set;}
+        public List<PlayerGameOverInfo> PlayerInfos {get; set;}
     }
 
     public class PlayerStanupEvent

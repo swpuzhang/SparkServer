@@ -115,7 +115,7 @@ namespace Reward.Domain.CommandHandlers
         {
             DateTime tnow = DateTime.Now;
             int dayOfWeek = (int)tnow.DayOfWeek;
-            using (var locker = _redis.Loker(KeyGenHelper.GenUserWeekKey(tnow, request.Id, LoginRewardInfo.className)))
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserWeekKey(tnow, request.Id, LoginRewardInfo.className)))
             {
                 var rewardInfo = await _redis.GetLoginReward(tnow, request.Id);
                 long rewardCoins = 0;
@@ -128,7 +128,7 @@ namespace Reward.Domain.CommandHandlers
                     }
                     rewardInfo.GettedDays.Add(dayOfWeek);
                     await _redis.SetUserLoginReward(tnow, rewardInfo);
-                    _ = _mqBus.Publish(new AddMoneyMqCommand(request.Id, rewardCoins, 0, MoneyReson.LoginReward));
+                    _ = _mqBus.Publish(new AddMoneyMqCommand(request.Id, rewardCoins, 0, AddReason.LoginReward));
                 }
                 else
                 {

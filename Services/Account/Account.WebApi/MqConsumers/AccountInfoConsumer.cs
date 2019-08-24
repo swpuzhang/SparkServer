@@ -15,7 +15,9 @@ namespace Account.WebApi.MqConsumers
     public class GetAccountInfoConsumer :
         IConsumer<GetAccountInfoMqCommand>,
         IConsumer<GetAccountBaseInfoMqCommand>,
-        IConsumer<FinishedRegisterRewardMqEvent>
+        IConsumer<FinishedRegisterRewardMqEvent>,
+        IConsumer<GetIdByPlatformMqCommand>
+        
     {
         private IAccountAppService _service;
 
@@ -51,6 +53,13 @@ namespace Account.WebApi.MqConsumers
         {
              _service.FinishRegisterReward(context.Message.Id);
              return Task.CompletedTask;
+        }
+
+        public async Task Consume(ConsumeContext<GetIdByPlatformMqCommand> context)
+        {
+            var response = await _service.GetIdByPlatform(context.Message.PlatformAccount, context.Message.Type);
+
+            await context.RespondAsync(response);
         }
     }
 }

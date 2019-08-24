@@ -22,7 +22,7 @@ namespace Commons.Extenssions.Defines
 
     }
 
-    public enum MoneyReson
+    public enum AddReason
     {
         None = 0,
         InitReward = 1,
@@ -36,4 +36,9 @@ namespace Commons.Extenssions.Defines
         GameAct = 9,
     }
 
+    public enum RewardTypes
+    {
+        Coins = 0,
+        Diamonds = 1
+    }
 }

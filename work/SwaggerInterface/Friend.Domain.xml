@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Friend.Domain</name>
+    </assembly>
+    <members>
+        <member name="P:Friend.Domain.Models.OneFriendInfo.FriendId">
+            <summary>
+            好友ID
+            </summary>
+        </member>
+        <member name="P:Friend.Domain.Models.OneFriendInfo.Type">
+            <summary>
+            好友类型,0 游戏好友, 1 平台好友
+            </summary>
+        </member>
+        <member name="P:Friend.Domain.Models.OneFriendVM.Type">
+            <summary>
+            平台类型
+            </summary>
+        </member>
+        <member name="P:Friend.Domain.Models.OneFriendVM.FriendType">
+            <summary>
+            好友类型 0 游戏好友 1 平台好友, 非好友忽略
+            </summary>
+        </member>
+        <member name="T:Friend.Domain.Models.FriendVM">
+            <summary>
+            好友信息
+            </summary>
+        </member>
+        <member name="T:Friend.Domain.Models.PlatformFriendVM">
+            <summary>
+            平台账号信息
+            </summary>
+        </member>
+        <member name="P:Friend.Domain.Models.PlatformFriendVM.PlatformAccount">
+            <summary>
+            平台账号
+            </summary>
+        </member>
+        <member name="P:Friend.Domain.Models.PlatformFriendVM.Type">
+            <summary>
+            平台类型
+            </summary>
+        </member>
+    </members>
+</doc>

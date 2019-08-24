@@ -1,4 +1,5 @@
 ﻿using Commons.Domain.Models;
+using Commons.Extenssions.Defines;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,7 @@ namespace Commons.Message.MqEvents
         /// 变化的砖石数量
         /// </summary>
         public long DiamondsChangeCount { get; set; }
+        public AddReason reason { get; set; }
         
     }
 }

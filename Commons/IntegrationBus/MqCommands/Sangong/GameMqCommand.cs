@@ -20,7 +20,7 @@ namespace Commons.IntegrationBus.MqCommands.Sangong
             Dictionary<long, long> allplayers = new Dictionary<long, long>();
             foreach (var one in gameOverAct.Players)
             {
-                allplayers.Add(one.Id, one.CoinsIncrease);
+                allplayers.Add(one.Id, one.CoinsInc);
             }
             return allplayers;
         }

@@ -53,12 +53,12 @@ namespace Reward.Infrastruct
 
         public  Task SetInviteFriend(long id, string platform, int type)
         {
-            var t1 = _redis.SetZsetValueAsync(KeyGenHelper.GenKey
+            var t1 = _redis.AddZsetValueAsync(KeyGenHelper.GenKey
                  (platform, "Invited"), id.ToString(), 
                  DateTime.Now.ToTimeStamp(), TimeSpan.FromDays(30));
             var t2 = _redis.DeleteZsetValueRangeAsync(KeyGenHelper.GenKey
                  (platform, "Invited"), 0, DateTime.Now.ToTimeStamp() - TimeSpan.FromDays(30).TotalSeconds);
-            var t3 = _redis.SetZsetValueAsync(KeyGenHelper.GenUserKey
+            var t3 = _redis.AddZsetValueAsync(KeyGenHelper.GenUserKey
                 (id, "Inviter"), platform,
                 DateTime.Now.ToTimeStamp(), TimeSpan.FromDays(30));
             var t4 = _redis.DeleteZsetValueRangeAsync(KeyGenHelper.GenUserKey
@@ -69,7 +69,7 @@ namespace Reward.Infrastruct
         public async Task<List<long>> GetInviter(string platform, int type)
         {
 
-            var allInviter = await _redis.ZsetGetAllKeyAsync(KeyGenHelper.GenKey
+            var allInviter = await _redis.GetZsetAllKeyAsync(KeyGenHelper.GenKey
                  (platform, "Invited"));
             return allInviter.ConvertAll<long>(x => Convert.ToInt64(x));
           

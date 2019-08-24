@@ -36,17 +36,17 @@ namespace Commons.Domain.Models
         }
 
         [JsonConstructor]
-        public GameStartAct(string roomId, long blind, List<PlayerInfo> players)
+        public GameStartAct()
         {
-            RoomId = roomId;
-            Blind = blind;
-            Players = players;
+        }
+
+        public void AddPlayer(PlayerInfo player)
+        {
+            Players.Add(player);
         }
 
         public string ActionName { get; set; } = "GameStar";
         public DateTime ActionTime { get; set; } = DateTime.Now;
-        public string RoomId { get; set; }
-        public long Blind { get; set; }
         public List<PlayerInfo> Players { get; set; }
     }
 
@@ -171,7 +171,7 @@ namespace Commons.Domain.Models
     public class StandupAct : IGameAction
     {
         [JsonConstructor]
-        public StandupAct(long id, int seatNum, long addCoins, long carry)
+        public StandupAct(long id, int seatNum)
         {
             Id = id;
             SeatNum = seatNum;
@@ -194,20 +194,25 @@ namespace Commons.Domain.Models
 
         public class PlayerInfo
         {
-            public PlayerInfo(long id, int seatNum, int coinsIncrease, PlayerCards handCards)
+            public PlayerInfo(long id, int seatNum, long coinsInc, 
+                long carry, List<PokerCard> cards, int cardType, int point)
             {
                 Id = id;
                 SeatNum = seatNum;
-                CoinsIncrease = coinsIncrease;
-                HandCards = handCards;
+                CoinsInc = coinsInc;
+                Carry = carry;
+                Cards = cards;
+                CardType = cardType;
+                Point = point;
             }
 
             public long Id { get; set; }
             public int SeatNum { get; set; }
-
-            public int CoinsIncrease { get; set; }
-
-            public PlayerCards HandCards { get; set; }
+            public long CoinsInc { get; set; }
+            public long Carry { get; set; }
+            public List<PokerCard> Cards { get; set; }
+            public int CardType { get; set; }
+            public int Point { get; set; }
 
         }
         public string ActionName { get; set; } = "GameOver";
@@ -228,6 +233,21 @@ namespace Commons.Domain.Models
         public static string add = "Add";
         public static string standup = "Standup";
         public static string gameOver = "GameOver";
+
+        public void GameStart(string gameId, long blind, string roomId, RoomTypes roomType)
+        {
+            GameId = gameId;
+            Blind = blind;
+            RoomId = roomId;
+            RoomType = roomType;
+            GameTime = DateTime.Now;
+            GameActions = new List<IGameAction>();
+        }
+
+        public void AddGameAction(IGameAction action)
+        {
+            GameActions.Add(action);
+        }
 
         public string GameId { get; set; }
         public long Blind { get; set; }

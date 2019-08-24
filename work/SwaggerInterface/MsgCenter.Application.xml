@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MsgCenter.Application</name>
+    </assembly>
+    <members>
+        <member name="T:MsgCenter.Application.ViewModels.MsgCenterVM">
+            <summary>
+            接口字段
+            </summary>
+        </member>
+    </members>
+</doc>

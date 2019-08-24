@@ -1,4 +1,5 @@
-﻿using Commons.Domain.Models;
+﻿
+using Commons.Domain.Models;
 using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;

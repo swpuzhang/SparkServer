@@ -27,7 +27,6 @@ namespace Sangong.Game.WebApi.Controllers
             _service = service;
         }
 
-
         /// <summary>
         /// 登录接口
         /// </summary>

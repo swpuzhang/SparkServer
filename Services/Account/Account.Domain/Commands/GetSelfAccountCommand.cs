@@ -1,6 +1,7 @@
 ﻿using Account.Domain.Models;
 using Commons.Domain.Commands;
 using Commons.Domain.Models;
+using Commons.MqCommands;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,17 @@ namespace Account.Domain.Commands
         public GetAccountBaseInfoCommand(long id)
         {
             Id = id;
+        }
+    }
+
+    public class GetIdByPlatformCommand : Command<BodyResponse<GetIdByPlatformMqResponse>>
+    {
+        public string PlatformAccount { get; private set; }
+        public int Type { get; private set; }
+        public GetIdByPlatformCommand(string platformAccount, int type)
+        {
+            PlatformAccount = platformAccount;
+            Type = type;
         }
     }
 }

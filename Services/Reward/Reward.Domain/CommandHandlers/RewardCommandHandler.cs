@@ -141,7 +141,7 @@ namespace Reward.Domain.CommandHandlers
             }
             int dayIndex = 0;
             long rewardCoins = 0;
-            using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(request.Id, RegisterRewardInfo.className)))
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(request.Id, RegisterRewardInfo.className)))
             {
                 await locker.LockAsync();
                 var rewardInfo = await _redis.GetUserRegiserReward(request.Id);
@@ -175,7 +175,7 @@ namespace Reward.Domain.CommandHandlers
                 rewardInfo = new RegisterRewardInfo(request.Id, dayIndex, DateTime.Now);
                 await Task.WhenAll(_redis.SetUserRegiserReward(rewardInfo), _registerRepository.ReplaceAndAddAsync(rewardInfo));
             }
-            _ = _mqBus.Publish(new AddMoneyMqCommand(request.Id, rewardCoins, 0, MoneyReson.RegisterReward));
+            _ = _mqBus.Publish(new AddMoneyMqCommand(request.Id, rewardCoins, 0, AddReason.RegisterReward));
             if (dayIndex >= _regsterConfig.DayRewards.Count - 1)
             {
                 _ = _mqBus.Publish(new FinishedRegisterRewardMqEvent(request.Id));

@@ -67,7 +67,7 @@ namespace Account.Domain.EventHandlers
 
         public async Task Handle(FinishRegisterRewardEvent notification, CancellationToken cancellationToken)
         {
-            using (var loker = _redis.Loker(KeyGenHelper.GenUserKey(notification.Id, AccountInfo.className)))
+            using (var loker = _redis.Locker(KeyGenHelper.GenUserKey(notification.Id, AccountInfo.className)))
             {
                 loker.Lock();
                 AccountInfo info = await _redis.GetAccountInfo(notification.Id);

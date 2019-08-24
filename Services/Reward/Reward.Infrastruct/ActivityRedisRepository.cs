@@ -19,7 +19,7 @@ namespace Reward.Infrastruct
 
         public async Task<OneGameActivityInfo> GetGameActivity(DateTime time, long id, string activityId)
         {
-            Dictionary<string, GameSubActInfo> dic = await _redis.HashGetAllAsync<string, GameSubActInfo>
+            Dictionary<string, GameSubActInfo> dic = await _redis.GetHashAllAsync<string, GameSubActInfo>
                 (KeyGenHelper.GenUserDayKey(time, id, "GameActivity",  activityId));
             return new OneGameActivityInfo(activityId, dic);
         }
@@ -35,8 +35,8 @@ namespace Reward.Infrastruct
             string subId, GameSubActInfo subAct)
         {
 
-            return _redis.SetHashValueAsync(KeyGenHelper.GenUserDayKey(time, id,
-                "GameActivity", activityId), subId, subAct);
+            return _redis.AddHashValueAsync(KeyGenHelper.GenUserDayKey(time, id,
+                "GameActivity", activityId), subId, subAct, TimeSpan.FromDays(1));
         }
     }
 }

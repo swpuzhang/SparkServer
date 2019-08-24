@@ -91,7 +91,7 @@ namespace Reward.Domain.CommandHandlers
             var roomConfig = _activityConfig.AllGameConfigs
                 .Find(x => x.ActivityId == request.ActId).RoomConfigs
                 .Find(x => x.SubId == request.SubId);
-            using (var locker = _redis.Loker(KeyGenHelper.GenUserDayKey(tnow, request.Id, "GameActivity", request.ActId)))
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserDayKey(tnow, request.Id, "GameActivity", request.ActId)))
             {
                 await locker.LockAsync();
                 var subAct = await _redis.GetGameActProgress(tnow, request.Id, request.ActId, request.SubId);
@@ -104,7 +104,7 @@ namespace Reward.Domain.CommandHandlers
                 if (subAct.CurCount >= roomConfig.NeedCount)
                 {
                     rewardCoins = roomConfig.RewardCoins;
-                    _ = _mqBus.Publish(new AddMoneyMqCommand(request.Id, rewardCoins, 0, MoneyReson.GameAct));
+                    _ = _mqBus.Publish(new AddMoneyMqCommand(request.Id, rewardCoins, 0, AddReason.GameAct));
                     subAct.State = 1;
                     await _redis.SetGameActProgress(tnow, request.Id, request.ActId, request.SubId, subAct);
                     return new BodyResponse<RewardInfoVM>(StatusCodeDefines.Success,
@@ -122,7 +122,7 @@ namespace Reward.Domain.CommandHandlers
         {
             ParallelLoopResult result = Parallel.ForEach(players, async player =>
             {
-                using (var locker = _redis.Loker(KeyGenHelper.GenUserDayKey(time, player, "GameActivity", actId)))
+                using (var locker = _redis.Locker(KeyGenHelper.GenUserDayKey(time, player, "GameActivity", actId)))
                 {
                     await locker.LockAsync();
                     var oneSub = await _redis.GetGameActProgress(time, player, actId, subId);

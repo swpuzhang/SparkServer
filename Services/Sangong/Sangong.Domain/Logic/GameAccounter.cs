@@ -70,15 +70,20 @@ namespace Sangong.Domain.Logic
             return winners;
         }
 
-        public static Dictionary<int, PlayerCards> GetHandCards(List<GameSeat> seates)
+        public static List<PlayerGameOverInfo> GetHandCards(List<GameSeat> seates)
         {
-            Dictionary<int, PlayerCards> allPlayerCards = new Dictionary<int, PlayerCards>();
+            List<PlayerGameOverInfo> allPlayerCards = new List<PlayerGameOverInfo>();
             foreach (var seat in seates)
             {
                 if (seat.IsCanContinue())
                 {
-                    var playerCards = new PlayerCards(seat.handCards, (int)seat.Combination.ComType, seat.Combination.Point);
-                    allPlayerCards.Add(seat.SeatNum, playerCards);
+                    var playerCards = new PlayerGameOverInfo(seat.InGamePlayerInfo.Id, 
+                        seat.SeatNum,seat.WinCoins,
+                        seat.InGamePlayerInfo.Carry,
+                        seat.handCards, 
+                        (int)seat.Combination.ComType, 
+                        seat.Combination.Point);
+                    allPlayerCards.Add(playerCards);
                 }
             }
             return allPlayerCards;

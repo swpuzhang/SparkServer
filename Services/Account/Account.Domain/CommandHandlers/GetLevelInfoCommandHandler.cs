@@ -47,7 +47,7 @@ namespace Account.Domain.CommandHandlers
             if (levelinfo == null)
             {
                 //从数据库中获取
-                using (var loker = _redis.Loker(KeyGenHelper
+                using (var loker = _redis.Locker(KeyGenHelper
                 .GenUserKey(request.Id, LevelInfo.ClassName)))
                 {
                     loker.Lock();

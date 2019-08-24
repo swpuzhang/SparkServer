@@ -25,12 +25,19 @@ namespace Commons.Infrastruct
         protected IMongoClient _client;
         protected IMongoDatabase _database;
         protected readonly IMongoCollection<TEntity> _dbCol;
-        public MongoOneContext(IMongoSettings settings)
+        public MongoOneContext(IMongoSettings settings, string colName = null)
         {
             _settings = settings;
             _client = new MongoClient(settings.ConnectionString);
             _database = _client.GetDatabase(settings.DatabaseName);
-            _dbCol = _database.GetCollection<TEntity>(typeof(TEntity).Name);
+            if (colName != null)
+            {
+                _dbCol = _database.GetCollection<TEntity>(colName);
+            }
+            else
+            {
+                _dbCol = _database.GetCollection<TEntity>(typeof(TEntity).Name);
+            }
         }
 
     }

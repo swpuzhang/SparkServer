@@ -89,7 +89,7 @@ namespace Commons.Domain.Managers
             try
             {
                 var response = await _buyInClient.GetResponseExt<BuyInMqCommand, BodyResponse<MoneyMqResponse>>(
-                    new BuyInMqCommand(id, min, max, Extenssions.Defines.MoneyReson.BuyIn));
+                    new BuyInMqCommand(id, min, max, Extenssions.Defines.AddReason.BuyIn));
                 return response.Message.Body;
             }
             catch (Exception ex)

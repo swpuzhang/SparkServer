@@ -59,7 +59,7 @@ namespace Reward.Domain.CommandHandlers
         public async Task<BodyResponse<RewardInfoVM>> Handle(GetBankruptcyRewardCommand request, CancellationToken cancellationToken)
         {
             DateTime tnow = DateTime.Now;
-            using (var locker = _redis.Loker(KeyGenHelper.GenUserDayKey(tnow, request.Id, BankruptcyInfo.className)))
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserDayKey(tnow, request.Id, BankruptcyInfo.className)))
             {
                 await locker.LockAsync();
                 var bankruptcyInfo = await _redis.GetBankruptcyInfo(tnow, request.Id);
@@ -75,7 +75,7 @@ namespace Reward.Domain.CommandHandlers
                 long rewardCoins = _bankruptcyConfig.BankruptcyRewards[bankruptcyInfo.CurTimes];
                 ++bankruptcyInfo.CurTimes;
                 await _redis.SetBankruptcyInfo(tnow, bankruptcyInfo);
-                _ = _mqBus.Publish(new AddMoneyMqCommand(request.Id, rewardCoins, 0, MoneyReson.Bankruptcy));
+                _ = _mqBus.Publish(new AddMoneyMqCommand(request.Id, rewardCoins, 0, AddReason.Bankruptcy));
                 return new BodyResponse<RewardInfoVM>(StatusCodeDefines.Success, null, new RewardInfoVM(rewardCoins));
             }
         }

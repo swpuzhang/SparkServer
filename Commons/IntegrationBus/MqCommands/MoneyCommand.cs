@@ -18,13 +18,13 @@ namespace Commons.MqCommands
     public class MoneyBaseCommand
     {
 
-        public MoneyReson Reason;
+        public AddReason Reason;
 
         public MoneyBaseCommand()
         {
         }
 
-        public MoneyBaseCommand(MoneyReson reason)
+        public MoneyBaseCommand(AddReason reason)
         {
             Reason = reason;
         }
@@ -33,7 +33,7 @@ namespace Commons.MqCommands
 
     public class BuyInMqCommand : MoneyBaseCommand
     {
-        public BuyInMqCommand(long id, long minBuy, long maxBuy, MoneyReson reason)
+        public BuyInMqCommand(long id, long minBuy, long maxBuy, AddReason reason)
             :base(reason)
         {
             Id = id;
@@ -69,7 +69,7 @@ namespace Commons.MqCommands
 
     public class AddMoneyMqCommand : MoneyBaseCommand
     {
-        public AddMoneyMqCommand(long id, long addCoins, long addCarry, MoneyReson reason)
+        public AddMoneyMqCommand(long id, long addCoins, long addCarry, AddReason reason)
             :base(reason)
         {
             Id = id;

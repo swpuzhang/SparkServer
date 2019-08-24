@@ -60,5 +60,10 @@ namespace Account.Application.Services
              _bus.RaiseEvent(new FinishRegisterRewardEvent(id));
         }
 
+        public Task<BodyResponse<GetIdByPlatformMqResponse>> GetIdByPlatform(string platformAccount, int type)
+        {
+            return _bus.SendCommand(new GetIdByPlatformCommand(platformAccount, type));
+        }
+
     }
 }

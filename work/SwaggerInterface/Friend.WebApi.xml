@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Friend.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:Friend.WebApi.Controllers.FriendController">
+            <summary>
+            账号相关操作
+            </summary>
+        </member>
+        <member name="M:Friend.WebApi.Controllers.FriendController.ApplyAddFriend(System.Int64,System.Int64)">
+            <summary>
+            申请加好友
+            </summary>
+            <param name="id"></param>
+            <param name="friendId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Friend.WebApi.Controllers.FriendController.AgreeAddFriend(System.Int64,System.Int64)">
+            <summary>
+            同意添加好友
+            
+            </summary>
+            <param name="id"></param>
+            <param name="friendId"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

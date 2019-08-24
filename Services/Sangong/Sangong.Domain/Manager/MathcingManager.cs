@@ -61,7 +61,7 @@ namespace Sangong.Domain.Manager
         {
 
             //获取这个玩家的redis锁
-            using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
             {
                 if (!await locker.TryLockAsync())
                 {
@@ -121,7 +121,7 @@ namespace Sangong.Domain.Manager
                 return;
             }
 
-            using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
             {
                 await locker.LockAsync();
                 _ = _redis.SetUserRoomInfo(new UserRoomInfo(id, roomId, gameKey, blind, MatchingStatus.Success));
@@ -139,7 +139,7 @@ namespace Sangong.Domain.Manager
                 return;
             }
 
-            using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
             {
                 await locker.LockAsync();
                 _ = _redis.DeleteUserRoomInfo(id);
@@ -149,7 +149,7 @@ namespace Sangong.Domain.Manager
 
         public async Task<BodyResponse<NullBody>> OnUserApplySit(long id, string gameKey, Int64 blind, string roomId)
         {
-            using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
             {
                 await locker.LockAsync();
                 var userRoomInfo = await _redis.GetUserRoomInfo(id);
@@ -173,7 +173,7 @@ namespace Sangong.Domain.Manager
             {
                 return;
             }
-            using (var locker = _redis.Loker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(id, UserRoomInfo.className)))
             {
                 await locker.LockAsync();
                 _ = _redis.DeleteUserRoomInfo(id);

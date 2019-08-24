@@ -130,4 +130,26 @@ namespace Commons.MqCommands
             RegisterDate = registerDate;
         }
     }
+
+    public class GetIdByPlatformMqCommand
+    {
+        public GetIdByPlatformMqCommand(string platformAccount, int type)
+        {
+            PlatformAccount = platformAccount;
+            Type = type;
+        }
+
+        public string PlatformAccount { get; private set; }
+        public int Type { get; private set; }
+    }
+
+    public class GetIdByPlatformMqResponse
+    {
+        public GetIdByPlatformMqResponse(long id)
+        {
+            Id = id;
+        }
+
+        public long Id { get; private set; }
+    }
 }

@@ -17,6 +17,7 @@ using Commons.MqCommands;
 using Sangong.MqEvents;
 using System.Timers;
 using Commons.Extenssions;
+using Commons.IntegrationBus.MqCommands.Sangong;
 
 namespace Sangong.Domain.Logic
 {
@@ -60,6 +61,7 @@ namespace Sangong.Domain.Logic
 
         private CoinsPool _coinsPool = new CoinsPool();
 
+        private SangongGameLog _gameLog = new SangongGameLog();
         public void Clean()
         {
             ActiveSeatNum = -1;
@@ -333,6 +335,7 @@ namespace Sangong.Domain.Logic
         }
         public void OnGamePlaying()
         {
+            _gameLog.GameStart(Guid.NewGuid().ToString(), Blind, RoomId, RoomType);
             Clean();
             //定庄
             EnsurDealer();
@@ -344,15 +347,20 @@ namespace Sangong.Domain.Logic
             int index = _dealerSeatIndex;
             List<int> dealerOrder = new List<int>();
             List<long> carrys = new List<long>();
+            GameStartAct act = new GameStartAct();
             do
             {
                 dealerOrder.Add(index);
                 _seats[index].DealCard(allUserCards.Last(), Blind);
                 _coinsPool.PlayerBetCoins(_seats[index].SeatNum, Blind);
-                carrys.Add(_seats[index].InGamePlayerInfo.Carry);
+                var player = _seats[index].InGamePlayerInfo;
+                carrys.Add(player.Carry);
+                act.AddPlayer(new GameStartAct.PlayerInfo(player.Id, player.Carry,
+                   index, allUserCards.Last()));
                 allUserCards.RemoveAt(allUserCards.Count - 1);
+               
             } while ((index = NextSeatedNum(index)) != _dealerSeatIndex);
-
+            _gameLog.AddGameAction(act);
             _coinsPool.BlindPool(dealerOrder.Count, Blind);
 
             foreach (var player in _playerInfos)
@@ -362,6 +370,8 @@ namespace Sangong.Domain.Logic
                     player.Value.SeatInfo?.handCards, Blind, carrys);
                 BroadCastMessage(dealCard, "DealCardsEvent", player.Value);
             }
+          
+           
             //等待发牌结束
             _statusInfo.WaitForNexStatus(OnDealingCards, GameStatus.playing, GameTimerConfig.DealCard);
         }
@@ -381,6 +391,7 @@ namespace Sangong.Domain.Logic
             List<Task<MoneyMqResponse>> tasks = new List<Task<MoneyMqResponse>>();
             List<KeyValuePair<GameSeat, Task<MoneyMqResponse>>> seatTasks = new List<KeyValuePair<GameSeat, Task<MoneyMqResponse>>>();
             //检查玩家携带是否足够
+          
             foreach (var seat in _seats)
             {
                 if (!seat.IsSeated())
@@ -439,6 +450,7 @@ namespace Sangong.Domain.Logic
         public void PlayerDrop(GamePlayer player)
         {
             BroadCastMessage(new DropEvent(player.SeatInfo.SeatNum), "DropEvent");
+            _gameLog.AddGameAction(new DropAct(player.Id, player.SeatInfo.SeatNum));
             player.SeatInfo.Drop();
             if (GetInGameCount() < 2)
             {
@@ -455,6 +467,7 @@ namespace Sangong.Domain.Logic
         public void PlayerPass(GamePlayer player)
         {
             BroadCastMessage(new PassEvent(player.SeatInfo.SeatNum), "PassEvent");
+            _gameLog.AddGameAction(new PassAct(player.Id, player.SeatInfo.SeatNum));
             player.SeatInfo.Follow(0);
             ActivePlayer(_statusInfo.IsFirstRound());
         }
@@ -470,6 +483,7 @@ namespace Sangong.Domain.Logic
             }
             _coinsPool.PlayerBetCoins(player.SeatInfo.SeatNum, followChips);
             BroadCastMessage(new FollowEvent(player.SeatInfo.SeatNum, followChips, player.Carry), "FollowEvent");
+            _gameLog.AddGameAction(new FollowAct(player.Id, player.SeatInfo.SeatNum, followChips, player.Carry));
             ActivePlayer(_statusInfo.IsFirstRound());
             return true;
         }
@@ -483,6 +497,7 @@ namespace Sangong.Domain.Logic
             }
             _coinsPool.PlayerBetCoins(player.SeatInfo.SeatNum, addChips);
             BroadCastMessage(new AddEvent(player.SeatInfo.SeatNum, addChips, player.Carry), "AddEvent");
+            _gameLog.AddGameAction(new AddAct(player.Id, player.SeatInfo.SeatNum, addChips, player.Carry));
             ActivePlayer(_statusInfo.IsFirstRound());
             return true;
         }
@@ -539,6 +554,8 @@ namespace Sangong.Domain.Logic
             {
                 var seat = _seats[ActiveSeatNum];
                 ActiveEvent actEvent = new ActiveEvent(ActiveSeatNum, FollowCoins(seat));
+                GameActiveAct act = new GameActiveAct(seat.InGamePlayerInfo.Id, ActiveSeatNum);
+                _gameLog.AddGameAction(act);
                 BroadCastMessage(actEvent, "ActiveEvent");
                 _statusInfo.WaitForNexStatus(OnPlayerOpt, isFirstRound?GameStatus.FirstRound : GameStatus.SecondRound, GameTimerConfig.BetChips);
             }
@@ -607,10 +624,11 @@ namespace Sangong.Domain.Logic
         {
             PlayerStanupEvent standupEvent = new PlayerStanupEvent(player.Id, player.SeatInfo.SeatNum);
             BroadCastMessage(standupEvent, "PlayerStanupEvent");
+            _gameLog.AddGameAction(new StandupAct(player.Id, player.SeatInfo.SeatNum));
             player.Standup();
 
             //返还携带
-            _bus.Publish(new AddMoneyMqCommand(player.Id, player.Carry, -player.Carry, MoneyReson.None));
+            _bus.Publish(new AddMoneyMqCommand(player.Id, player.Carry, -player.Carry, AddReason.None));
 
             //告诉matchingserver该玩家已经站起
             _bus.Publish(new LeaveGameRoomMqEvent(player.Id, RoomId, GameRoomManager.gameKey,
@@ -647,24 +665,31 @@ namespace Sangong.Domain.Logic
 
                 if (seat.WinCoins > 0)
                 {
-                    
-
                     //说明这个赢的玩家已经走了, 那么将钱还是加给他
                     if (seat.InGamePlayerInfo != seat.PlayerInfo)
                     {
-                        _bus.Publish(new AddMoneyMqCommand(seat.InGamePlayerInfo.Id, seat.WinCoins, 0, MoneyReson.GameAccount));
+                        _bus.Publish(new AddMoneyMqCommand(seat.InGamePlayerInfo.Id, seat.WinCoins, 0, AddReason.GameAccount));
                     }
                     else
                     {
                         seat.PlayerInfo.AddCarry(seat.WinCoins);
-                        _bus.Publish(new AddMoneyMqCommand(seat.InGamePlayerInfo.Id, 0, seat.WinCoins, MoneyReson.GameAccount));
+                        _bus.Publish(new AddMoneyMqCommand(seat.InGamePlayerInfo.Id, 0, seat.WinCoins, AddReason.GameAccount));
                     }
                 }
                 else
                 {
-                    _bus.Publish(new AddMoneyMqCommand(seat.InGamePlayerInfo.Id, 0, -seat.TotalBetedCoins, MoneyReson.GameAccount));
+                    _bus.Publish(new AddMoneyMqCommand(seat.InGamePlayerInfo.Id, 0, -seat.TotalBetedCoins, AddReason.GameAccount));
                 }
             }
+            List<GameOverAct.PlayerInfo> logPlayers = gameOverEvent.PlayerInfos
+                .Select(one => new GameOverAct.PlayerInfo(one.Id, one.SeatNum,
+                 one.CoinsInc, one.Carry, one.Cards, one.CardType, one.Point))
+                .ToList();
+
+            GameOverAct act = new GameOverAct(gameOverEvent.WinnerSeats, gameOverEvent.WinnerPool, logPlayers);
+            _gameLog.AddGameAction(act);
+            _bus.Publish(new GameLogMqCommand(_gameLog));
+            
             _statusInfo.WaitForNexStatus(OnGameOver, GameStatus.Idle, GameTimerConfig.GameAccount);
             Clean();
         }

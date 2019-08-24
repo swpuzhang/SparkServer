@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ServerLog.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:ServerLog.WebApi.Controllers.ServerLogController">
+            <summary>
+            账号相关操作
+            </summary>
+        </member>
+    </members>
+</doc>
