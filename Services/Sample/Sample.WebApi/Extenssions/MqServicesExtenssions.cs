@@ -30,7 +30,7 @@ namespace Sample.WebApi.Extenssions
                 {
                     cfg.UseSerilog();
                     
-                    var host = cfg.Host(rabbitCfg["Host"], rabbitCfg["Vhost"], h =>
+                    var host = cfg.Host(new Uri(rabbitCfg["Uri"]), h =>
                     {
                         h.Username(rabbitCfg["UserName"]);
                         h.Password(rabbitCfg["Passwd"]);

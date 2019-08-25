@@ -54,8 +54,9 @@ namespace MsgCenter.Infrastruct
 
         public async Task DeleteMsg(long id, MsgTypes msgType, string msgId)
         {
-            string key = KeyGenHelper.GenUserKey(id, "MsgIds", msgType.ToString());
+          
             await _redis.DeleteHashValueAsync(KeyGenHelper.GenUserKey(id, "Msgs", msgType.ToString()), msgId);
+            await _redis.DeleteZsetValueAsync(KeyGenHelper.GenUserKey(id, "MsgIds", msgType.ToString()), msgId);
         }
 
         public async Task ReadedMsg(long id, MsgTypes msgType, string msgId)

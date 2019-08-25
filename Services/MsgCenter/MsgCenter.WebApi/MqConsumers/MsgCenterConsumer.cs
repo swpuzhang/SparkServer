@@ -11,8 +11,7 @@ namespace MsgCenter.WebApi.MqConsumers
     public class MsgCenterConsumer :
         IConsumer<PushUserMsgMqCommand>
     {
-
-        IMsgCenterService _service;
+        private readonly IMsgCenterService _service;
         public MsgCenterConsumer(IMsgCenterService service)
         {
             _service = service;

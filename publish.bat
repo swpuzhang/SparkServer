@@ -12,4 +12,10 @@ start dotnet publish -c Release Services\Sangong\Sangong.Matching.WebApi\Sangong
 TIMEOUT /T 2
 start dotnet publish -c Release Services\Reward\Reward.WebApi\Reward.WebApi.csproj -o ..\..\..\work\Services\Reward\
 TIMEOUT /T 2
+start dotnet publish -c Release Services\Friend\Friend.WebApi\Friend.WebApi.csproj -o ..\..\..\work\Services\Friend\
+TIMEOUT /T 2
+start dotnet publish -c Release Services\MsgCenter\MsgCenter.WebApi\MsgCenter.WebApi.csproj -o ..\..\..\work\Services\MsgCenter\
+TIMEOUT /T 2
+start dotnet publish -c Release Services\ServerLog\ServerLog.WebApi\ServerLog.WebApi.csproj -o ..\..\..\work\Services\ServerLog\
+TIMEOUT /T 2
 start dotnet publish -c Release GateWays\InterfaceDemo\InterfaceDemo.csproj -o ..\..\work\GateWays\InterfaceDemo

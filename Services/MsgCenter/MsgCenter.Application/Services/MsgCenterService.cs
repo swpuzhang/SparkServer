@@ -17,11 +17,9 @@ namespace MsgCenter.Application.Services
 {
     public class MsgCenterService : IMsgCenterService
     {
-        private readonly IMapper _mapper;
         private readonly IMediatorHandler _bus;
-        public MsgCenterService(IMapper mapper, IMediatorHandler bus)
+        public MsgCenterService(IMediatorHandler bus)
         {
-            _mapper = mapper;
             _bus = bus;
         }
 

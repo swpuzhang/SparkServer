@@ -20,6 +20,10 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Commons\Commons.csproj" />
     <ProjectReference Include="..\..\Services\Account\Account.Application\Account.Application.csproj" />
+    <ProjectReference Include="..\..\Services\Friend\Friend.Application\Friend.Application.csproj" />
+    <ProjectReference Include="..\..\Services\MsgCenter\MsgCenter.Domain\MsgCenter.Domain.csproj" />
+    <ProjectReference Include="..\..\Services\Reward\Reward.Application\Reward.Application.csproj" />
+    <ProjectReference Include="..\..\Services\Reward\Reward.Domain\Reward.Domain.csproj" />
     <ProjectReference Include="..\..\Services\Sangong\Sangong.Application\Sangong.Application.csproj" />
     <ProjectReference Include="..\WSGateWay\WSGateWay.csproj" />
   </ItemGroup>

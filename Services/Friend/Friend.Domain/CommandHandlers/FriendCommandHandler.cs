@@ -75,11 +75,13 @@ namespace Friend.Domain.CommandHandlers
                     }
                     return new BodyResponse<NullBody>(StatusCodeDefines.IsAlreadyApplyed);
                 }
-                
-                List<Task<long>> tFrindCounts = new List<Task<long>>();
-                tFrindCounts.Add(_redis.GetApplyedFriendCount(request.FriendId));
-                tFrindCounts.Add(_redis.GetFriendCount(request.FriendId));
-                tFrindCounts.Add(_redis.GetFriendCount(request.Id));
+
+                List<Task<long>> tFrindCounts = new List<Task<long>>
+                {
+                    _redis.GetApplyedFriendCount(request.FriendId),
+                    _redis.GetFriendCount(request.FriendId),
+                    _redis.GetFriendCount(request.Id)
+                };
                 await Task.WhenAll(tFrindCounts);
                 if (tFrindCounts.Where(x =>x.Result >= 1000).Count() > 0)
                 {
