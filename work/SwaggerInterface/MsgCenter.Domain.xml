@@ -4,10 +4,5 @@
         <name>MsgCenter.Domain</name>
     </assembly>
     <members>
-        <member name="F:MsgCenter.Domain.Models.MsgStates.Recieved">
-            <summary>
-            奖励是否已经领取
-            </summary>
-        </member>
     </members>
 </doc>

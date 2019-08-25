@@ -21,7 +21,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.ReadedMsg(System.Int64,MsgCenter.Domain.Models.MsgTypes,System.String)">
+        <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.ReadedMsg(System.Int64,Commons.MqCommands.MsgTypes,System.String)">
             <summary>
             已经读取消息
             </summary>
@@ -38,7 +38,7 @@
             <param name="msgId"></param>
             <returns></returns>
         </member>
-        <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.DeleteMsg(System.Int64,MsgCenter.Domain.Models.MsgTypes,System.String)">
+        <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.DeleteMsg(System.Int64,Commons.MqCommands.MsgTypes,System.String)">
             <summary>
             删除消息
             </summary>
@@ -47,7 +47,7 @@
             <param name="msgId"></param>
             <returns></returns>
         </member>
-        <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.ReadedAllMsg(System.Int64,MsgCenter.Domain.Models.MsgTypes)">
+        <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.ReadedAllMsg(System.Int64,Commons.MqCommands.MsgTypes)">
             <summary>
             一键已读
             </summary>

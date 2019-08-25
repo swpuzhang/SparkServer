@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Commons.MqCommands;
 
 namespace MsgCenter.Application.Services
 {
@@ -17,5 +18,6 @@ namespace MsgCenter.Application.Services
         Task<BodyResponse<NullBody>> DeleteMsg(long id, MsgTypes msgType, string msgId);
         Task<BodyResponse<NullBody>> ReadedAllMsg(long id, MsgTypes msgType);
         Task<BodyResponse<List<RewardInfo>>> RecieveAllMsgReward(long id);
+        Task<BodyResponse<NullBody>> PushMsg(long id, UserMsgInfo msg);
     }
 }

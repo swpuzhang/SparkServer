@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Commons.Extenssions;
+using System.Collections.Generic;
 
 namespace MsgCenter.WebApi.Extenssions
 {
@@ -23,13 +24,19 @@ namespace MsgCenter.WebApi.Extenssions
             //服务
             services.AddScoped<IMsgCenterService, MsgCenterService>();
 
-            //存储
-            
+            //存储 
             services.AddScoped<IMsgCenterRedisRepository, MsgCenterRedisRepository>();
 
             //命令
             services.AddScoped<IMediatorHandler, InProcessBus>();
-            //services.AddScoped<IRequestHandler<MsgCenterCommand, BodyResponse<MsgCenterInfo>>, MsgCenterCommandHandler>();
+            services.AddScoped<IRequestHandler<GetUserMsgsCommand, BodyResponse<UserMsgs>>, MsgCenterCommandHandler>();
+            services.AddScoped<IRequestHandler<ReadedCommand, BodyResponse<NullBody>>, MsgCenterCommandHandler>();
+            services.AddScoped<IRequestHandler<RecieveMsgReward, BodyResponse<NullBody>>, MsgCenterCommandHandler>();
+            services.AddScoped<IRequestHandler<DeleteMsgCommand, BodyResponse<NullBody>>, MsgCenterCommandHandler>();
+            services.AddScoped<IRequestHandler<ReadedAllCommand, BodyResponse<NullBody>>, MsgCenterCommandHandler>();
+            services.AddScoped<IRequestHandler<RecieveAllMsgRewardCommand, BodyResponse<List<RewardInfo>>>, MsgCenterCommandHandler>();
+            services.AddScoped<IRequestHandler<PushMsgCommand, BodyResponse<NullBody>>, MsgCenterCommandHandler>();
+           
 
             services.AddMediatR(typeof(Startup));
             services.AddSingleton(new RedisHelper(configuration["redis:ConnectionString"]));

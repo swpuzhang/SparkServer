@@ -11,6 +11,7 @@ using AutoMapper;
 using Commons.Domain.Bus;
 using Commons.Domain.Models;
 using Commons.Infrastruct;
+using Commons.MqCommands;
 
 namespace MsgCenter.Application.Services
 {
@@ -50,7 +51,12 @@ namespace MsgCenter.Application.Services
 
         public Task<BodyResponse<List<RewardInfo>>> RecieveAllMsgReward(long id)
         {
-            return _bus.SendCommand(new RecieveAllMsgReward(id));
+            return _bus.SendCommand(new RecieveAllMsgRewardCommand(id));
+        }
+
+        public Task<BodyResponse<NullBody>> PushMsg(long id, UserMsgInfo msg)
+        {
+            return _bus.SendCommand(new PushMsgCommand(id, msg));
         }
     }
 }

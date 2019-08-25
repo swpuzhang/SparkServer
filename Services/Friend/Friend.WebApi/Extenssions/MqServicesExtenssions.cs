@@ -54,6 +54,7 @@ namespace Friend.WebApi.Extenssions
 
                 //添加RequestClient
                 x.AddRequestClient<GetAccountBaseInfoMqCommand>(new Uri($"{rabbitCfg["Uri"]}Account"));
+                x.AddRequestClient<GetIdByPlatformMqCommand>(new Uri($"{rabbitCfg["Uri"]}Account"));
             });
         }
 

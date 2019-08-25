@@ -443,6 +443,11 @@
             <param name="hashkey"></param>
             <returns></returns>
         </member>
+        <member name="F:Commons.MqCommands.MsgStates.Recieved">
+            <summary>
+            奖励是否已经领取
+            </summary>
+        </member>
         <member name="P:Commons.MqEvents.LoginMqEvent.Type">
             <summary>
             账号类型

@@ -14,6 +14,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
 using MassTransit;
+using Commons.MqCommands;
 
 namespace MsgCenter.Domain.CommandHandlers
 {
@@ -23,8 +24,10 @@ namespace MsgCenter.Domain.CommandHandlers
         IRequestHandler<RecieveMsgReward, BodyResponse<NullBody>>,
         IRequestHandler<DeleteMsgCommand, BodyResponse<NullBody>>,
         IRequestHandler<ReadedAllCommand, BodyResponse<NullBody>>,
-        IRequestHandler<RecieveAllMsgReward, BodyResponse<List<RewardInfo>>>
+        IRequestHandler<RecieveAllMsgRewardCommand, BodyResponse<List<RewardInfo>>>,
+        IRequestHandler<PushMsgCommand, BodyResponse<NullBody>>
         
+
 
 
 
@@ -109,7 +112,7 @@ namespace MsgCenter.Domain.CommandHandlers
             }
         }
 
-        public async Task<BodyResponse<List<RewardInfo>>> Handle(RecieveAllMsgReward request, CancellationToken cancellationToken)
+        public async Task<BodyResponse<List<RewardInfo>>> Handle(RecieveAllMsgRewardCommand request, CancellationToken cancellationToken)
         {
             using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(request.Id, "Msgs", MsgTypes.Reward.ToString())))
             {
@@ -137,6 +140,16 @@ namespace MsgCenter.Domain.CommandHandlers
                 }
                 await Task.WhenAll(tasks);
                 return new BodyResponse<List<RewardInfo>>(StatusCodeDefines.Success, null, allreward);
+            }
+        }
+
+        public async Task<BodyResponse<NullBody>> Handle(PushMsgCommand request, CancellationToken cancellationToken)
+        {
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(request.Id, "Msgs", MsgTypes.Reward.ToString())))
+            {
+                await locker.LockAsync();
+                await _redis.AddMsgInfo(request.Id, request.Msg.MsgType, request.Msg);
+                return new BodyResponse<NullBody>(StatusCodeDefines.Success);
             }
         }
     }

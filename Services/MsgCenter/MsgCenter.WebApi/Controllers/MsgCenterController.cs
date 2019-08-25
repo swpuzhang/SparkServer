@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Commons.Domain.Models;
 using MsgCenter.Domain.Models;
 using Commons.Extenssions.Defines;
+using Commons.MqCommands;
 
 namespace MsgCenter.WebApi.Controllers
 {

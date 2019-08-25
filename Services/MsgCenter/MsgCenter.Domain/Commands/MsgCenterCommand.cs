@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Commons.Domain.Models;
 using MsgCenter.Domain.Models;
+using Commons.MqCommands;
 
 namespace MsgCenter.Domain.Commands
 {
@@ -72,14 +73,24 @@ namespace MsgCenter.Domain.Commands
         public long Id { get; private set; }
         public MsgTypes MsgType { get; private set; }
     }
-    public class RecieveAllMsgReward : Command<BodyResponse<List<RewardInfo>>>
+    public class RecieveAllMsgRewardCommand : Command<BodyResponse<List<RewardInfo>>>
     {
-        public RecieveAllMsgReward(long id)
+        public RecieveAllMsgRewardCommand(long id)
         {
             Id = id;
         }
 
         public long Id { get; private set; }
     }
-    
+    public class PushMsgCommand : Command<BodyResponse<NullBody>>
+    {
+        public PushMsgCommand(long id, UserMsgInfo msg)
+        {
+            Id = id;
+            Msg = msg;
+        }
+
+        public long Id { get; private set; }
+        public UserMsgInfo Msg { get; private set; }
+    }
 }

@@ -31,8 +31,12 @@ namespace Friend.WebApi.Extenssions
             //命令
             services.AddScoped<IMediatorHandler, InProcessBus>();
             services.AddScoped<IRequestHandler<ApplyAddFriendCommand, BodyResponse<NullBody>>, FriendCommandHandler>();
-
-            services.AddMediatR(typeof(Startup));
+            services.AddScoped<IRequestHandler<AgreeAddFriendCommand, BodyResponse<NullBody>>, FriendCommandHandler>();
+            services.AddScoped<IRequestHandler<GetFriendsCommand, BodyResponse<FriendVM>>, FriendCommandHandler>();
+            services.AddScoped<IRequestHandler<GetApplysCommand, BodyResponse<FriendVM>>, FriendCommandHandler>();
+            services.AddScoped<IRequestHandler<IgnoreApplyCommand, BodyResponse<NullBody>>, FriendCommandHandler>();
+            services.AddScoped<IRequestHandler<UploadPlatformFriendsCommand, BodyResponse<NullBody>>, FriendCommandHandler>();
+            services.AddScoped<IRequestHandler<DeleteFriendCommand, BodyResponse<NullBody>>, FriendCommandHandler>();
             services.AddSingleton(new RedisHelper(configuration["redis:ConnectionString"]));
 
             //manager
