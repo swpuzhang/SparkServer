@@ -1,5 +1,6 @@
 ﻿using Commons.Domain.RepositoryInterface;
 using Commons.Extenssions;
+using Commons.Extenssions.Defines;
 using Friend.Domain.Models;
 using Friend.Domain.RepositoryInterface;
 using System;
@@ -21,7 +22,8 @@ namespace Friend.Infrastruct
 
         public async Task<FriendInfo> GetFriendInfo(long id)
         {
-            FriendInfo info = new FriendInfo(id, await _redis.GetHashAllAsync<long, OneFriendInfo>(KeyGenHelper.GenUserKey(id, "FriendInfo")));
+            FriendInfo info = new FriendInfo(id, await _redis.GetHashAllAsync<long, OneFriendInfo>
+                (KeyGenHelper.GenUserKey(id, "FriendInfo")));
             return info;
         }
 
@@ -34,7 +36,8 @@ namespace Friend.Infrastruct
         {
             if (info == null || info._friends.Count == 0)
             {
-                var dic = new Dictionary<long, OneFriendInfo>() { { -1, new OneFriendInfo(-1, 0) } };
+                //如果好友为空,插一条数据进去,写入redis,这样可以防止redis没数据,每次都从数据库读取
+                var dic = new Dictionary<long, OneFriendInfo>() { { -1, new OneFriendInfo(-1, FriendTypes.None) } };
                 return _redis.AddHashListAsync(KeyGenHelper.GenUserKey(info.Id, "FriendInfo"), dic, TimeSpan.FromDays(7));
             }
             return Task.WhenAll(_redis.AddHashListAsync(KeyGenHelper.GenUserKey(info.Id, "FriendInfo"),
@@ -70,12 +73,19 @@ namespace Friend.Infrastruct
 
         }
 
-        public async Task AddFriend(long id, long friendId, int type)
+        public async Task AddFriend(long id, long friendId, FriendTypes type)
         {
-            await Task.WhenAll(_redis.AddHashValueAsync(KeyGenHelper.GenUserKey(id, "FriendInfo"), friendId.ToString(), new OneFriendInfo(friendId, type)),
-                _redis.DeleteSetValueAsync(KeyGenHelper.GenUserKey(id, "ApplyedFriendInfo"), friendId.ToString()),
-                _redis.DeleteSetValueAsync(KeyGenHelper.GenUserKey(friendId, "ApplyedFriendInfo"), friendId.ToString()),
-                _redis.AddHashValueAsync(KeyGenHelper.GenUserKey(friendId, "FriendInfo"), id.ToString(), new OneFriendInfo(id, type)));
+            await Task.WhenAll(_redis.AddHashValueAsync(KeyGenHelper.GenUserKey(id, "FriendInfo"), 
+                friendId.ToString(), new OneFriendInfo(friendId, type)),
+
+                _redis.DeleteSetValueAsync(KeyGenHelper.GenUserKey(id, "ApplyedFriendInfo"),
+                friendId.ToString()),
+
+                _redis.DeleteSetValueAsync(KeyGenHelper.GenUserKey(friendId, "ApplyedFriendInfo"),
+                friendId.ToString()),
+
+                _redis.AddHashValueAsync(KeyGenHelper.GenUserKey(friendId, "FriendInfo"), id.ToString(), 
+                new OneFriendInfo(id, type)));
         }
 
         public Task<bool> IgnoreApply(long id, long friendId)
@@ -92,6 +102,11 @@ namespace Friend.Infrastruct
         public Task<bool> IsPlatformDealed(string platform)
         {
             return _redis.IsSetContainsAsync(KeyGenHelper.GenKey("FriendPlatform"), platform);
+        }
+
+        public Task<OneFriendInfo> GetOneFriendInfo(long id, long friendId)
+        {
+            return _redis.GetHashValueAsync<OneFriendInfo>(KeyGenHelper.GenUserKey(id, "FriendInfo"), friendId.ToString());
         }
     }
 }

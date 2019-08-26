@@ -1,17 +1,20 @@
 ﻿
+using Commons.Domain.Models;
 using Commons.IntegrationBus.MqEvents;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Commons.MqEvents
 {
-    public class InviteFriendMqEvent : MqEvent
+    public class InviteFriendMqEvent : BaseMessage
     {
         public InviteFriendMqEvent()
         {
 
         }
+        [JsonConstructor]
         public InviteFriendMqEvent(long id, string platformAccount, int type)
         {
             Id = id;
@@ -32,5 +35,21 @@ namespace Commons.MqEvents
         public int Type { get; set; }
     }
 
-   
+    /// <summary>
+    /// 请求添加好友事件
+    /// </summary>
+    public class ApplyedAddFriendMqEvent : BaseMessage
+    {
+        [JsonConstructor]
+        public ApplyedAddFriendMqEvent(long applyId)
+        {
+            ApplyId = applyId;
+        }
+
+        /// <summary>
+        /// 请求Id
+        /// </summary>
+        public Int64 ApplyId { get; set; }
+    }
+
 }

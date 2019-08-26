@@ -41,8 +41,64 @@
       "UpstreamHttpMethod": [
         [ "GET", "POST", "DELETE", "PUT" ]
       ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Activity/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 11000
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Activity/{url}",
+      "UpstreamHttpMethod": [
+        [ "GET", "POST", "DELETE", "PUT" ]
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Reward/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 11000
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Reward/{url}",
+      "UpstreamHttpMethod": [
+        [ "GET", "POST", "DELETE", "PUT" ]
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Friend/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 12000
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Friend/{url}",
+      "UpstreamHttpMethod": [
+        [ "GET", "POST", "DELETE", "PUT" ]
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/MsgCenter/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 13000
+        }
+      ],
+      "UpstreamPathTemplate": "/api/MsgCenter/{url}",
+      "UpstreamHttpMethod": [
+        [ "GET", "POST", "DELETE", "PUT" ]
+      ]
     }
-    
+
   ],
 
 

@@ -6,7 +6,7 @@
     <members>
         <member name="T:Friend.WebApi.Controllers.FriendController">
             <summary>
-            账号相关操作
+            好友相关操作
             </summary>
         </member>
         <member name="M:Friend.WebApi.Controllers.FriendController.ApplyAddFriend(System.Int64,System.Int64)">

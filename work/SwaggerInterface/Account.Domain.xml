@@ -9,6 +9,11 @@
             账号类型
             </summary>
         </member>
+        <member name="P:Account.Domain.Models.OtherAccountDetail.Type">
+            <summary>
+            账号类型
+            </summary>
+        </member>
         <member name="P:Account.Domain.Models.LoginCheckInfo.Type">
             <summary>
             类型

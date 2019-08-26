@@ -11,6 +11,7 @@ using AutoMapper;
 using Commons.Domain.Bus;
 using Commons.Domain.Models;
 using Commons.Infrastruct;
+using Commons.MqCommands;
 
 namespace Friend.Application.Services
 {
@@ -58,6 +59,11 @@ namespace Friend.Application.Services
         public Task<BodyResponse<NullBody>> UploadPlatformFriends(long id, List<PlatformFriendVM> platformFriends)
         {
             return _bus.SendCommand(new UploadPlatformFriendsCommand(id, platformFriends));
+        }
+
+        public Task<BodyResponse<GetFriendInfoMqResponse>> GetFriendInfo(long id, long OtherId)
+        {
+            return _bus.SendCommand(new GetFriendInfoCommand(id, OtherId));
         }
     }
 }

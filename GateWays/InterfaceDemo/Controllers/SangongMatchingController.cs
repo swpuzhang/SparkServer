@@ -25,7 +25,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public BodyResponse<MatchingResponseVM> PlayNow([FromHeader]long id)
+        public BodyResponse<MatchingResponseVM> PlayNow()
         {
             return new BodyResponse<MatchingResponseVM>(StatusCodeDefines.Error, new List<string>() { "just demo" });
         }
@@ -34,10 +34,9 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 获取房间列表接口
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public  BodyResponse<GetBlindRoomListResponse> GetBlindRoomList([FromHeader]long id)
+        public  BodyResponse<GetBlindRoomListResponse> GetBlindRoomList()
         {
             return new BodyResponse<GetBlindRoomListResponse>(StatusCodeDefines.Error, new List<string>() { "just demo" });
         }
@@ -45,11 +44,10 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 底注匹配接口
         /// </summary>
-        /// <param name="id"></param>
         /// <param name="blind"></param>
         /// <returns></returns>
         [HttpGet]
-        public BodyResponse<MatchingResponseVM> BlindMatching([FromHeader]long id, long blind)
+        public BodyResponse<MatchingResponseVM> BlindMatching( long blind)
         {
 
             return new BodyResponse<MatchingResponseVM>(StatusCodeDefines.Error, new List<string>() { "just demo" });

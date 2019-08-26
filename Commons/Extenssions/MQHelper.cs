@@ -11,8 +11,8 @@ namespace Commons.Extenssions
     public static class MQHelper
     {
         public static string ConnectingString = "";
-        public static void PublishExt<T>(this IBusControl _bus, long id, T request) 
-            where T : MQBaseMessage
+        public static void PublishServerReqExt<T>(this IBusControl _bus, long id, T request) 
+            where T : BaseMessage
         {
             _bus.Publish(new ServerRequest(id, request.ClassName, JsonConvert.SerializeObject(request), Guid.NewGuid()));
         }

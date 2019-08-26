@@ -16,7 +16,7 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.AccountController.GetSelfAccount(System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.AccountController.GetSelfAccount">
             <summary>
             获取自己的账号信息
             </summary>
@@ -29,147 +29,136 @@
             <param name="otherId">其他玩家ID</param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.ActivityController.QueryActivity(System.Int64)">
+        <member name="T:InterfaceDemo.Controllers.ActivityController">
+            <summary>
+            活动相关接口
+            </summary>
+        </member>
+        <member name="M:InterfaceDemo.Controllers.ActivityController.QueryActivity">
             <summary>
             查询活动
             </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.ActivityController.GetGameActReward(System.Int64,System.String,System.String)">
+        <member name="M:InterfaceDemo.Controllers.ActivityController.GetGameActReward(System.String,System.String)">
             <summary>
             获取打牌任务奖励
             </summary>
-            <param name="id"></param>
             <param name="activityId"></param>
             <param name="subId"></param>
             <returns></returns>
         </member>
         <member name="T:InterfaceDemo.Controllers.FriendController">
             <summary>
-            账号相关操作
+            好友相关接口
             </summary>
         </member>
-        <member name="M:InterfaceDemo.Controllers.FriendController.ApplyAddFriend(System.Int64,System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.FriendController.ApplyAddFriend(System.Int64)">
             <summary>
             申请加好友
             </summary>
-            <param name="id"></param>
             <param name="friendId"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.FriendController.AgreeAddFriend(System.Int64,System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.FriendController.AgreeAddFriend(System.Int64)">
             <summary>
             同意添加好友
             
             </summary>
-            <param name="id"></param>
             <param name="friendId"></param>
             <returns></returns>
         </member>
         <member name="T:InterfaceDemo.Controllers.MsgCenterController">
             <summary>
-            账号相关操作
+            消息中心相关接口
             </summary>
         </member>
-        <member name="M:InterfaceDemo.Controllers.MsgCenterController.GetUserSysMsgs(System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.MsgCenterController.GetUserSysMsgs">
             <summary>
             获取系统通知消息
             </summary>
         </member>
-        <member name="M:InterfaceDemo.Controllers.MsgCenterController.GetUserRewardMsgs(System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.MsgCenterController.GetUserRewardMsgs">
             <summary>
             获取奖励消息
             </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.MsgCenterController.ReadedMsg(System.Int64,Commons.MqCommands.MsgTypes,System.String)">
+        <member name="M:InterfaceDemo.Controllers.MsgCenterController.ReadedMsg(Commons.MqCommands.MsgTypes,System.String)">
             <summary>
             已经读取消息
             </summary>
-            <param name="id"></param>
             <param name="msgType"></param>
             <param name="msgId"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.MsgCenterController.RecieveMsgReward(System.Int64,System.String)">
+        <member name="M:InterfaceDemo.Controllers.MsgCenterController.RecieveMsgReward(System.String)">
             <summary>
             获取消息奖励
             </summary>
-            <param name="id"></param>
             <param name="msgId"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.MsgCenterController.DeleteMsg(System.Int64,Commons.MqCommands.MsgTypes,System.String)">
+        <member name="M:InterfaceDemo.Controllers.MsgCenterController.DeleteMsg(Commons.MqCommands.MsgTypes,System.String)">
             <summary>
             删除消息
             </summary>
-            <param name="id"></param>
             <param name="msgType"></param>
             <param name="msgId"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.MsgCenterController.ReadedAllMsg(System.Int64,Commons.MqCommands.MsgTypes)">
+        <member name="M:InterfaceDemo.Controllers.MsgCenterController.ReadedAllMsg(Commons.MqCommands.MsgTypes)">
             <summary>
             一键已读
             </summary>
-            <param name="id"></param>
             <param name="msgType"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.MsgCenterController.RecieveAllMsgReward(System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.MsgCenterController.RecieveAllMsgReward">
             <summary>
             一键领取奖励
             </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:InterfaceDemo.Controllers.RewardController">
             <summary>
-            账号相关操作
+            奖励相关接口
             </summary>
         </member>
-        <member name="M:InterfaceDemo.Controllers.RewardController.QueryRegisterReward(System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.RewardController.QueryRegisterReward">
             <summary>
             查询注册奖励
             </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.RewardController.GetRegisterReward(System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.RewardController.GetRegisterReward">
             <summary>
             领取注册奖励
             </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.RewardController.QueryLoginReward(System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.RewardController.QueryLoginReward">
             <summary>
             查询登录奖励
             </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.RewardController.GetLoginReward(System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.RewardController.GetLoginReward">
             <summary>
             获取登录奖励
             </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.RewardController.QueryBankruptcy(System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.RewardController.QueryBankruptcy">
             <summary>
             查询破产奖励
             </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.RewardController.GetBankruptcy(System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.RewardController.GetBankruptcy">
             <summary>
             领取破产奖励
             </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:InterfaceDemo.Controllers.SangongMatchingController">
@@ -177,24 +166,22 @@
             匹配相关接口
             </summary>
         </member>
-        <member name="M:InterfaceDemo.Controllers.SangongMatchingController.PlayNow(System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.SangongMatchingController.PlayNow">
             <summary>
             Playnow 接口
             </summary>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.SangongMatchingController.GetBlindRoomList(System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.SangongMatchingController.GetBlindRoomList">
             <summary>
             获取房间列表接口
             </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:InterfaceDemo.Controllers.SangongMatchingController.BlindMatching(System.Int64,System.Int64)">
+        <member name="M:InterfaceDemo.Controllers.SangongMatchingController.BlindMatching(System.Int64)">
             <summary>
             底注匹配接口
             </summary>
-            <param name="id"></param>
             <param name="blind"></param>
             <returns></returns>
         </member>

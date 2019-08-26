@@ -9,6 +9,9 @@ using Reward.Domain.Models;
 
 namespace Reward.WebApi.Controllers
 {
+    /// <summary>
+    /// 活动相关接口
+    /// </summary>
     [Route("api/[controller]/[Action]")]
     [ApiController]
     public class ActivityController : Controller

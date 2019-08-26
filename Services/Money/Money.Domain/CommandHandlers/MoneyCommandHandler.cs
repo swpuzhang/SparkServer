@@ -28,7 +28,6 @@ namespace Money.Domain.CommandHandlers
         private readonly IMoneyRedisRepository _redis;
         private readonly IBusControl _busCtl;
         public GetMoneyCommandHandler(IMoneyInfoRepository rep,
-            RedisHelper redis, IMediatorHandler bus,
             IMoneyRedisRepository moneyRedis, IBusControl busCtl)
         {
             _moneyRepository = rep;
@@ -153,7 +152,7 @@ namespace Money.Domain.CommandHandlers
                       moneyInfo.CurDiamonds, moneyInfo.MaxCoins,
                       moneyInfo.MaxDiamonds, coinsChangedCount, 0);
                 _busCtl.PublishExt(moneyevent);
-                _busCtl.PublishExt(moneyInfo.Id, moneyevent);
+                _busCtl.PublishServerReqExt(moneyInfo.Id, moneyevent);
                 await Task.WhenAll(_redis.SetMoney(request.Id, moneyInfo),
                     _moneyRepository.ReplaceAsync(moneyInfo));
                 Log.Debug($"AddMoneyCommand add end:{request.AddCoins},{request.AddCarry} {request.AggregateId} curCoins:{moneyInfo.CurCoins} curCarry:{moneyInfo.Carry}--3");

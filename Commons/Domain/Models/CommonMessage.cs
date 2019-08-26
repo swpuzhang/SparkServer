@@ -7,10 +7,10 @@ using System.Text;
 namespace Commons.Domain.Models
 {
 
-    public class MQBaseMessage
+    public class BaseMessage
     {
         public string ClassName { get; set; }
-        public MQBaseMessage()
+        public BaseMessage()
         {
             ClassName = GetType().Name;
         }
@@ -104,10 +104,10 @@ namespace Commons.Domain.Models
 
         public ServerRequest1(T body)
         {
-            this.body = body;
+            this.Body = body;
         }
 
-        public T body {get; private set;}
+        public T Body {get; private set;}
     }
 
     /// <summary>

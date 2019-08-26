@@ -4,6 +4,11 @@
         <name>Reward.WebApi</name>
     </assembly>
     <members>
+        <member name="T:Reward.WebApi.Controllers.ActivityController">
+            <summary>
+            活动相关接口
+            </summary>
+        </member>
         <member name="M:Reward.WebApi.Controllers.ActivityController.QueryActivity(System.Int64)">
             <summary>
             查询活动
@@ -22,7 +27,7 @@
         </member>
         <member name="T:Reward.WebApi.Controllers.RewardController">
             <summary>
-            账号相关操作
+            奖励相关接口
             </summary>
         </member>
         <member name="M:Reward.WebApi.Controllers.RewardController.QueryRegisterReward(System.Int64)">

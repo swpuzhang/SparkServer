@@ -18,6 +18,17 @@ namespace Account.Domain.Commands
         }
     }
 
+    public class GetOtherAccountCommand : Command<BodyResponse<OtherAccountDetail>>
+    {
+        public long Id { get; private set; }
+        public long OtherId { get; private set; }
+        public GetOtherAccountCommand(long id, long otherId)
+        {
+            Id = id;
+            OtherId = otherId;
+        }
+    }
+
     public class GetAccountBaseInfoCommand : Command<BodyResponse<AccountInfo>>
     {
         public long Id { get; private set; }

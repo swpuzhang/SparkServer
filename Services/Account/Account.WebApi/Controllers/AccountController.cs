@@ -55,13 +55,14 @@ namespace Account.WebApi.Controllers
         /// <summary>
         /// 获取其他玩家的信息
         /// </summary>
+        /// <param name="id"></param>
         /// <param name="otherId">其他玩家ID</param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<BodyResponse<AccountDetailVM>> GetOtherAccount(Int64 otherId)
+        public async Task<BodyResponse<OtherAccountDetaiVM>> GetOtherAccount([FromHeader]long id, Int64 otherId)
         {
 
-            var response = await _service.GetSelfAccount(otherId);
+            var response = await _service.GetOtherAccount(id, otherId);
             return response;
         }
 

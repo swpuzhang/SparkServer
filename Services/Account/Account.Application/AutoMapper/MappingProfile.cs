@@ -35,6 +35,9 @@ namespace Account.Application.AutoMapper
                     dest.AggregateId = Guid.NewGuid();
                 });
             CreateMap<AccountInfo, GetAccountBaseInfoMqResponse>().ReverseMap();
+            CreateMap<AccountInfo, OtherAccountDetail>().ReverseMap();
+            CreateMap<OtherAccountDetail, OtherAccountDetaiVM>().ReverseMap();
+            
         }
     }
 }

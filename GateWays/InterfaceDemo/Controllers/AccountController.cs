@@ -30,6 +30,7 @@ namespace InterfaceDemo.Controllers
         [HttpPost]
         public BodyResponse<AccountResponseVM> Login([FromBody] AccountVM model)
         {
+            model.Sex = 1;
             return new BodyResponse<AccountResponseVM>(StatusCodeDefines.Error, new List<string>() { "just demo" });
         }
 
@@ -38,7 +39,7 @@ namespace InterfaceDemo.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public BodyResponse<AccountDetailVM> GetSelfAccount([FromHeader]long id)
+        public BodyResponse<AccountDetailVM> GetSelfAccount()
         {
             return new BodyResponse<AccountDetailVM>(StatusCodeDefines.Error, new List<string>() { "just demo" });
 
@@ -50,10 +51,9 @@ namespace InterfaceDemo.Controllers
         /// <param name="otherId">其他玩家ID</param>
         /// <returns></returns>
         [HttpGet]
-        public  BodyResponse<AccountDetailVM> GetOtherAccount(Int64 otherId)
+        public  BodyResponse<OtherAccountDetaiVM> GetOtherAccount(Int64 otherId)
         {
-
-            return new BodyResponse<AccountDetailVM>(StatusCodeDefines.Error, new List<string>() { "just demo" });
+            return new BodyResponse<OtherAccountDetaiVM>(StatusCodeDefines.Error, new List<string>() { "just demo" });
         }
 
     }

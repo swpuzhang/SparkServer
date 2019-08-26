@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Commons.Domain.Models;
 using Friend.Domain.Models;
+using Commons.MqCommands;
 
 namespace Friend.Domain.Commands
 {
@@ -88,4 +89,17 @@ namespace Friend.Domain.Commands
             PlatformFriends = platformFriends;
         }
     }
+
+    public class GetFriendInfoCommand : Command<BodyResponse<GetFriendInfoMqResponse>>
+    {
+        public GetFriendInfoCommand(long id, long otherId)
+        {
+            Id = id;
+            OtherId = otherId;
+        }
+
+        public long Id { get; private set; }
+        public long OtherId { get; private set; }
+    }
+    
 }

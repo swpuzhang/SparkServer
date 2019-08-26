@@ -10,9 +10,13 @@ namespace Commons.Extenssions.Defines
     public enum AccountType
     {
         /// <summary>
+        /// 游客
+        /// </summary>
+        Tourist = 0,
+        /// <summary>
         /// Facebook
         /// </summary>
-        Facebook = 0,
+        Facebook = 1,
 
         /// <summary>
         /// Twitter
@@ -41,4 +45,13 @@ namespace Commons.Extenssions.Defines
         Coins = 0,
         Diamonds = 1
     }
+
+    public enum FriendTypes
+    {
+        None = 0,
+        Applyed = 1,
+        GameFriend = 2,
+        PlatformFriend = 3
+    }
 }
+

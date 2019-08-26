@@ -14,7 +14,7 @@ using Commons.Extenssions.Defines;
 namespace Reward.WebApi.Controllers
 {
     /// <summary>
-    /// 账号相关操作
+    /// 奖励相关接口
     /// </summary>
     [Route("api/[controller]/[Action]")]
     [ApiController]

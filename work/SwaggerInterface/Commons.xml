@@ -286,6 +286,11 @@
             账号类型
             </summary>
         </member>
+        <member name="F:Commons.Extenssions.Defines.AccountType.Tourist">
+            <summary>
+            游客
+            </summary>
+        </member>
         <member name="F:Commons.Extenssions.Defines.AccountType.Facebook">
             <summary>
             Facebook
@@ -466,6 +471,16 @@
         <member name="P:Commons.MqEvents.InviteFriendMqEvent.Type">
             <summary>
             被邀请的平台类型
+            </summary>
+        </member>
+        <member name="T:Commons.MqEvents.ApplyedAddFriendMqEvent">
+            <summary>
+            请求添加好友事件
+            </summary>
+        </member>
+        <member name="P:Commons.MqEvents.ApplyedAddFriendMqEvent.ApplyId">
+            <summary>
+            请求Id
             </summary>
         </member>
         <member name="T:Commons.Message.MqEvents.MoneyChangedMqEvent">

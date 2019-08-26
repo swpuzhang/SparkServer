@@ -12,8 +12,8 @@ namespace WSGateWay.IntegrationHandlers
     public class ServerRequestConsumer : 
         IConsumer<ServerRequest>,
         IConsumer<GameServerRequest>
-    { 
-        ICommandService _service;
+    {
+        readonly ICommandService _service;
         public ServerRequestConsumer(ICommandService service)
         {
             _service = service;

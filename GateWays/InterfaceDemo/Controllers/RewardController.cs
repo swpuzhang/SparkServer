@@ -14,7 +14,7 @@ using Commons.Extenssions.Defines;
 namespace InterfaceDemo.Controllers
 {
     /// <summary>
-    /// 账号相关操作
+    /// 奖励相关接口
     /// </summary>
     [Route("api/[controller]/[Action]")]
     [ApiController]
@@ -24,10 +24,9 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 查询注册奖励
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public  BodyResponse<RegisterRewardVM> QueryRegisterReward([FromHeader]long id)
+        public  BodyResponse<RegisterRewardVM> QueryRegisterReward()
         {
             return new BodyResponse<RegisterRewardVM>(StatusCodeDefines.Success);
         }
@@ -35,10 +34,9 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 领取注册奖励
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public  BodyResponse<RewardInfoVM> GetRegisterReward([FromHeader]long id)
+        public  BodyResponse<RewardInfoVM> GetRegisterReward()
         {
             return new BodyResponse<RewardInfoVM>(StatusCodeDefines.Success);
         }
@@ -46,10 +44,9 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 查询登录奖励
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public  BodyResponse<LoginRewardVM> QueryLoginReward([FromHeader]long id)
+        public  BodyResponse<LoginRewardVM> QueryLoginReward()
         {
             return new BodyResponse<LoginRewardVM>(StatusCodeDefines.Success);
         }
@@ -57,10 +54,9 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 获取登录奖励
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public  BodyResponse<RewardInfoVM> GetLoginReward([FromHeader]long id)
+        public  BodyResponse<RewardInfoVM> GetLoginReward()
         {
             return new BodyResponse<RewardInfoVM>(StatusCodeDefines.Success);
         }
@@ -68,10 +64,9 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 查询破产奖励
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public BodyResponse<BankruptcyInfoVM> QueryBankruptcy([FromHeader]long id)
+        public BodyResponse<BankruptcyInfoVM> QueryBankruptcy()
         {
             return new BodyResponse<BankruptcyInfoVM>();
         }
@@ -79,10 +74,9 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 领取破产奖励
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public  BodyResponse<RewardInfoVM> GetBankruptcy([FromHeader]long id)
+        public  BodyResponse<RewardInfoVM> GetBankruptcy()
         {
             return new BodyResponse<RewardInfoVM>(StatusCodeDefines.Success);
         }

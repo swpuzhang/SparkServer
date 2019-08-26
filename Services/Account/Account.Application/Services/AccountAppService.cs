@@ -65,5 +65,11 @@ namespace Account.Application.Services
             return _bus.SendCommand(new GetIdByPlatformCommand(platformAccount, type));
         }
 
+        public async Task<BodyResponse<OtherAccountDetaiVM>> GetOtherAccount(long id, long otherId)
+        {
+            var response = await _bus.SendCommand(new GetOtherAccountCommand(id, otherId));
+            OtherAccountDetaiVM info = _mapper.Map<OtherAccountDetaiVM>(response.Body);
+            return new BodyResponse<OtherAccountDetaiVM>(response.StatusCode, response.ErrorInfos, info);
+        }
     }
 }

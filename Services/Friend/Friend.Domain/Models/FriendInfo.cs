@@ -9,7 +9,7 @@ namespace Friend.Domain.Models
 {
     public class OneFriendInfo
     {
-        public OneFriendInfo(long friendId, int type)
+        public OneFriendInfo(long friendId, FriendTypes type)
         {
             FriendId = friendId;
             Type = type;
@@ -18,10 +18,8 @@ namespace Friend.Domain.Models
         /// 好友ID
         /// </summary>
         public long FriendId { get; set; }
-        /// <summary>
-        /// 好友类型,0 游戏好友, 1 平台好友
-        /// </summary>
-        public int Type { get; set; }
+        
+        public FriendTypes Type { get; set; }
     }
     public class FriendInfo : UserEntity
     {
@@ -50,7 +48,7 @@ namespace Friend.Domain.Models
         }
 
         public OneFriendVM(long id, string platformAccount,
-            string userName, int sex, string headUrl, int type, int friendType)
+            string userName, int sex, string headUrl, int type, FriendTypes friendType)
         {
             Id = id;
             PlatformAccount = platformAccount;
@@ -78,7 +76,7 @@ namespace Friend.Domain.Models
         /// <summary>
         /// 好友类型 0 游戏好友 1 平台好友, 非好友忽略
         /// </summary>
-        public int FriendType { get; set; }
+        public FriendTypes FriendType { get; set; }
     }
     /// <summary>
     /// 好友信息

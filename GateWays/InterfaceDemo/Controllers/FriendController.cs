@@ -13,7 +13,7 @@ using Commons.Extenssions.Defines;
 namespace InterfaceDemo.Controllers
 {
     /// <summary>
-    /// 账号相关操作
+    /// 好友相关接口
     /// </summary>
     [Route("api/[controller]/[Action]")]
     [ApiController]
@@ -24,11 +24,10 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 申请加好友
         /// </summary>
-        /// <param name="id"></param>
         /// <param name="friendId"></param>
         /// <returns></returns>
         [HttpGet]
-        public  BodyResponse<NullBody> ApplyAddFriend([FromBody] long id, long friendId)
+        public  BodyResponse<NullBody> ApplyAddFriend(long friendId)
         {
             return new BodyResponse<NullBody>();
         }
@@ -37,40 +36,39 @@ namespace InterfaceDemo.Controllers
         /// 同意添加好友
         /// 
         /// </summary>
-        /// <param name="id"></param>
         /// <param name="friendId"></param>
         /// <returns></returns>
         [HttpGet]
-        public BodyResponse<NullBody> AgreeAddFriend([FromBody] long id, long friendId)
+        public BodyResponse<NullBody> AgreeAddFriend(long friendId)
         {
             return new BodyResponse<NullBody>();
         }
 
         [HttpGet]
-        public BodyResponse<FriendVM> GetFriends([FromBody] long id)
+        public BodyResponse<FriendVM> GetFriends()
         {
             return new BodyResponse<FriendVM>();
         }
 
         [HttpGet]
-        public BodyResponse<FriendVM> GetApplys([FromBody] long id)
+        public BodyResponse<FriendVM> GetApplys()
         {
             return new BodyResponse<FriendVM>();
         }
 
         [HttpGet]
-        public BodyResponse<NullBody> IgnoreApply([FromBody] long id, long friendId)
+        public BodyResponse<NullBody> IgnoreApply(long friendId)
         {
             return new BodyResponse<NullBody>();
         }
         [HttpGet]
-        public BodyResponse<NullBody> DeleteFriend([FromBody] long id, long friendId)
+        public BodyResponse<NullBody> DeleteFriend(long friendId)
         {
             return new BodyResponse<NullBody>();
         }
 
         [HttpPost]
-        public BodyResponse<NullBody> UploadPlatformFriends([FromBody] long id, [FromBody] List<PlatformFriendVM> platformFriends)
+        public BodyResponse<NullBody> UploadPlatformFriends([FromBody] List<PlatformFriendVM> platformFriends)
         {
             return new BodyResponse<NullBody>();
         }

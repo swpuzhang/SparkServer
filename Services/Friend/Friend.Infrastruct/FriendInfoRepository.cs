@@ -8,6 +8,7 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using Friend.Domain.RepositoryInterface;
+using Commons.Extenssions.Defines;
 
 namespace Friend.Infrastruct
 {
@@ -19,7 +20,7 @@ namespace Friend.Infrastruct
 
         }
 
-        public Task AddFriend(long id, long friendId, int type)
+        public Task AddFriend(long id, long friendId, FriendTypes type)
         {
             //Builders<FriendInfo>.Update.Set(x => x.Id == id && x._friends.TryGetValue(friendId, out var value))
             return Task.WhenAll(_dbCol.UpdateOneAsync(x => x.Id == id,
@@ -40,7 +41,7 @@ namespace Friend.Infrastruct
 
         }
 
-        public async Task UpdateFriend(long id, long friendId, int type)
+        public async Task UpdateFriend(long id, long friendId, FriendTypes type)
         {
             await DeleteFriend(id, friendId);
             await AddFriend(id, friendId, type);

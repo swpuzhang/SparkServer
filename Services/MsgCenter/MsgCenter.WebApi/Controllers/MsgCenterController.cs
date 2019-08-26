@@ -15,7 +15,7 @@ using Commons.MqCommands;
 namespace MsgCenter.WebApi.Controllers
 {
     /// <summary>
-    /// 账号相关操作
+    /// 消息中心相关操作
     /// </summary>
     [Route("api/[controller]/[Action]")]
     [ApiController]
@@ -100,7 +100,7 @@ namespace MsgCenter.WebApi.Controllers
         public Task<BodyResponse<NullBody>> ReadedAllMsg([FromHeader] long id, MsgTypes msgType)
         {
 
-            return _service.ReadedAllMsg(id, MsgTypes.Reward);
+            return _service.ReadedAllMsg(id, msgType);
 
         }
         /// <summary>

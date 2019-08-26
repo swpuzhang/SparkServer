@@ -6,7 +6,7 @@
     <members>
         <member name="T:MsgCenter.WebApi.Controllers.MsgCenterController">
             <summary>
-            账号相关操作
+            消息中心相关操作
             </summary>
         </member>
         <member name="M:MsgCenter.WebApi.Controllers.MsgCenterController.GetUserSysMsgs(System.Int64)">

@@ -9,11 +9,6 @@
             好友ID
             </summary>
         </member>
-        <member name="P:Friend.Domain.Models.OneFriendInfo.Type">
-            <summary>
-            好友类型,0 游戏好友, 1 平台好友
-            </summary>
-        </member>
         <member name="P:Friend.Domain.Models.OneFriendVM.Type">
             <summary>
             平台类型

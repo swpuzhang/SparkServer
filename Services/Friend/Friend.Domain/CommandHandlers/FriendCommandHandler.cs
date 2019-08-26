@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using MassTransit;
 using Commons.MqCommands;
+using Commons.MqEvents;
 
 namespace Friend.Domain.CommandHandlers
 {
@@ -25,8 +26,10 @@ namespace Friend.Domain.CommandHandlers
         IRequestHandler<GetApplysCommand, BodyResponse<FriendVM>>,
         IRequestHandler<IgnoreApplyCommand, BodyResponse<NullBody>>,
         IRequestHandler<DeleteFriendCommand, BodyResponse<NullBody>>,
-        IRequestHandler<UploadPlatformFriendsCommand, BodyResponse<NullBody>>
+        IRequestHandler<UploadPlatformFriendsCommand, BodyResponse<NullBody>>,
+        IRequestHandler<GetFriendInfoCommand, BodyResponse<GetFriendInfoMqResponse>>
         
+
 
     {
         //private readonly readonly IRequestClient<DoSomething> _requestClient;
@@ -89,11 +92,12 @@ namespace Friend.Domain.CommandHandlers
                 }
                 
                 await _redis.AddApplyedFriend(request.FriendId, request.Id);
+                _mqBus.PublishServerReqExt(request.FriendId, new ApplyedAddFriendMqEvent(request.Id));
                 return new BodyResponse<NullBody>(StatusCodeDefines.Success);
             }
         }
 
-        public async Task<FriendInfo> LoadToRedis(long id)
+        public async Task<FriendInfo> LoadFriends(long id)
         {
            
             var info = await _redis.GetFriendInfo(id);
@@ -105,6 +109,15 @@ namespace Friend.Domain.CommandHandlers
             await _redis.SetFriendInfo(info);
 
             return info;
+        }
+
+        public async Task LoadToRedis(long id)
+        {
+            if (!await _redis.IsFriendInRedis(id))
+            {
+                var info = await _friendRepository.GetByIdAsync(id);
+                await _redis.SetFriendInfo(info);
+            }
         }
 
         public async Task<FriendInfo[]> LoadToRedis(long id, long friendId)
@@ -175,18 +188,12 @@ namespace Friend.Domain.CommandHandlers
             }
         }
 
-        public async Task AddFriend(long id, long friendId, int type)
+        public async Task AddFriend(long id, long friendId, FriendTypes type)
         {
-            if (!await _redis.IsFriendInRedis(id))
-            {
-                await LoadToRedis(id);
-            }
-            if (!await _redis.IsFriendInRedis(friendId))
-            {
-                await LoadToRedis(friendId);
-            }
+            await LoadToRedis(id);
+            await LoadToRedis(friendId);
             await Task.WhenAll(_redis.AddFriend(id, friendId, type),
-                _friendRepository.AddFriend(id, friendId, type));
+            _friendRepository.AddFriend(id, friendId, type));
         }
 
         public async Task<BodyResponse<FriendVM>> Handle(GetFriendsCommand request, CancellationToken cancellationToken)
@@ -221,7 +228,7 @@ namespace Friend.Domain.CommandHandlers
                 var response = one.Message;
                 if (response.StatusCode == StatusCodeDefines.Success)
                 {
-                    int friendType = info._friends[response.Body.Id].Type;
+                    var friendType = info._friends[response.Body.Id].Type;
                     friendInfos.Friends.Add(new OneFriendVM(response.Body.Id, response.Body.PlatformAccount, response.Body.UserName,
                         response.Body.Sex, response.Body.HeadUrl, response.Body.Type, friendType));
                 }
@@ -297,18 +304,18 @@ namespace Friend.Domain.CommandHandlers
             {
                 using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(friendId, "FriendInfo")))
                 {
-                    await AddFriend(friendInfo.Id, friendId, 1);
+                    await AddFriend(friendInfo.Id, friendId, FriendTypes.PlatformFriend);
                     return;
                 }
                     
             }
-            if (info.Type != 1)
+            if (info.Type != FriendTypes.PlatformFriend)
             {
                 using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(friendId, "FriendInfo")))
                 {
                     await _redis.DeleteFriend(friendInfo.Id, friendId);
-                    await Task.WhenAll(_redis.AddFriend(friendInfo.Id, friendId, 1),
-                        _friendRepository.UpdateFriend(friendInfo.Id, friendId, 1));
+                    await Task.WhenAll(_redis.AddFriend(friendInfo.Id, friendId, FriendTypes.PlatformFriend),
+                        _friendRepository.UpdateFriend(friendInfo.Id, friendId, FriendTypes.PlatformFriend));
                 }
                     
             }
@@ -318,11 +325,11 @@ namespace Friend.Domain.CommandHandlers
 
         public async Task<BodyResponse<NullBody>> Handle(UploadPlatformFriendsCommand request, CancellationToken cancellationToken)
         {
-             using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(request.Id, "FriendInfo")))
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(request.Id, "FriendInfo")))
             {
                 await locker.LockAsync();
 
-                var info = await LoadToRedis(request.Id);
+                var info = await LoadFriends(request.Id);
                 List<Task> tasks = new List<Task>();
                 foreach (var one in request.PlatformFriends)
                 {
@@ -331,6 +338,38 @@ namespace Friend.Domain.CommandHandlers
                 await Task.WhenAll(tasks);
                 return new BodyResponse<NullBody>(StatusCodeDefines.Success);
             }
+        }
+
+        public async Task<BodyResponse<GetFriendInfoMqResponse>> Handle(GetFriendInfoCommand request, CancellationToken cancellationToken)
+        {
+
+            using (var locker = _redis.Locker(KeyGenHelper.GenUserKey(request.Id, "FriendInfo")))
+            {
+                await LoadToRedis(request.Id);
+                var info = await _redis.GetOneFriendInfo(request.Id, request.OtherId);
+                if (info != null)
+                {
+                    return new BodyResponse<GetFriendInfoMqResponse>(StatusCodeDefines.Success, null,
+                        new GetFriendInfoMqResponse(info.Type));
+                }
+                if (await _redis.IsAlreadyApplyed(request.Id, request.OtherId))
+                {
+                    return new BodyResponse<GetFriendInfoMqResponse>(StatusCodeDefines.Success, null,
+                        new GetFriendInfoMqResponse(FriendTypes.Applyed));
+                }
+                else
+                {
+                    return new BodyResponse<GetFriendInfoMqResponse>(StatusCodeDefines.Success, null,
+                        new GetFriendInfoMqResponse(FriendTypes.None));
+                }
+            }
+
+
+
+
+
+
+
         }
     }
 }

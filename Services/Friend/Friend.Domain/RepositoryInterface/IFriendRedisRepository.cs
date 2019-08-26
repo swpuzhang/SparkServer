@@ -1,4 +1,5 @@
 ﻿using Commons.Domain.RepositoryInterface;
+using Commons.Extenssions.Defines;
 using Friend.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,11 @@ namespace Friend.Domain.RepositoryInterface
         Task AddApplyedFriend(long id, long friendId);
         Task<long> GetApplyedFriendCount(long id);
         Task<long> GetFriendCount(long id);
-        Task AddFriend(long id, long friendId, int type);
+        Task AddFriend(long id, long friendId, FriendTypes type);
         Task<bool> IgnoreApply(long id, long friendId);
         Task DeleteFriend(long id, long friendId);
         Task<bool> IsPlatformDealed(string platform);
+        Task<OneFriendInfo> GetOneFriendInfo(long id, long friendId);
 
     }
 }

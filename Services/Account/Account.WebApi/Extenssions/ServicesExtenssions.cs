@@ -49,11 +49,11 @@ namespace Account.WebApi.Extenssions
             services.AddScoped<IRequestHandler<GetLevelInfoCommand, BodyResponse<LevelInfo>>,
                 GetLevelInfoCommandHandler>();
             services.AddScoped<IRequestHandler<GetSelfAccountCommand, BodyResponse<AccountDetail>>,
-                GetSelfAccountCommandHandler>();
+                GetAccountCommandHandler>();
             services.AddScoped<INotificationHandler<LoginEvent>,
                 AccountEventHandler>();
             services.AddScoped<IRequestHandler<GetAccountBaseInfoCommand, BodyResponse<AccountInfo>>,
-                GetSelfAccountCommandHandler>();
+                GetAccountCommandHandler>();
             services.AddScoped<INotificationHandler<FinishRegisterRewardEvent>,
                 AccountEventHandler>();
 

@@ -8,7 +8,7 @@ using Commons.MqCommands;
 namespace InterfaceDemo.Controllers
 {
     /// <summary>
-    /// 账号相关操作
+    /// 消息中心相关接口
     /// </summary>
     [Route("api/[controller]/[Action]")]
     [ApiController]
@@ -20,7 +20,7 @@ namespace InterfaceDemo.Controllers
         /// 获取系统通知消息
         /// </summary>
         [HttpGet]
-        public  BodyResponse<UserMsgs> GetUserSysMsgs([FromHeader] long id)
+        public  BodyResponse<UserMsgs> GetUserSysMsgs()
         {
 
             return new BodyResponse<UserMsgs>();
@@ -29,10 +29,9 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 获取奖励消息
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public BodyResponse<UserMsgs> GetUserRewardMsgs([FromHeader] long id)
+        public BodyResponse<UserMsgs> GetUserRewardMsgs()
         {
 
             return new BodyResponse<UserMsgs>();
@@ -42,12 +41,11 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 已经读取消息
         /// </summary>
-        /// <param name="id"></param>
         /// <param name="msgType"></param>
         /// <param name="msgId"></param>
         /// <returns></returns>
         [HttpGet]
-        public BodyResponse<NullBody> ReadedMsg([FromHeader] long id, MsgTypes msgType, string msgId)
+        public BodyResponse<NullBody> ReadedMsg(MsgTypes msgType, string msgId)
         {
             return new BodyResponse<NullBody>();
         }
@@ -55,11 +53,10 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 获取消息奖励
         /// </summary>
-        /// <param name="id"></param>
         /// <param name="msgId"></param>
         /// <returns></returns>
         [HttpGet]
-        public BodyResponse<NullBody> RecieveMsgReward([FromHeader] long id, string msgId)
+        public BodyResponse<NullBody> RecieveMsgReward(string msgId)
         {
             return new BodyResponse<NullBody>();
         }
@@ -67,12 +64,11 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 删除消息
         /// </summary>
-        /// <param name="id"></param>
         /// <param name="msgType"></param>
         /// <param name="msgId"></param>
         /// <returns></returns>
         [HttpGet]
-        public BodyResponse<NullBody> DeleteMsg([FromHeader] long id, MsgTypes msgType, string msgId)
+        public BodyResponse<NullBody> DeleteMsg(MsgTypes msgType, string msgId)
         {
             return new BodyResponse<NullBody>();
         }
@@ -80,11 +76,10 @@ namespace InterfaceDemo.Controllers
        /// <summary>
        /// 一键已读
        /// </summary>
-       /// <param name="id"></param>
        /// <param name="msgType"></param>
        /// <returns></returns>
         [HttpGet]
-        public BodyResponse<NullBody> ReadedAllMsg([FromHeader] long id, MsgTypes msgType)
+        public BodyResponse<NullBody> ReadedAllMsg(MsgTypes msgType)
         {
 
             return new BodyResponse<NullBody>();
@@ -93,10 +88,9 @@ namespace InterfaceDemo.Controllers
         /// <summary>
         /// 一键领取奖励
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public BodyResponse<List<RewardInfo>> RecieveAllMsgReward([FromHeader] long id)
+        public BodyResponse<List<RewardInfo>> RecieveAllMsgReward()
         {
 
             return new BodyResponse<List<RewardInfo>>();

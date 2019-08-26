@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Commons.MqCommands;
 
 namespace Friend.Application.Services
 {
@@ -18,5 +19,8 @@ namespace Friend.Application.Services
         Task<BodyResponse<NullBody>> IgnoreApply(long id, long friendId);
         Task<BodyResponse<NullBody>> DeleteFriend(long id, long friendId);
         Task<BodyResponse<NullBody>> UploadPlatformFriends(long id, List<PlatformFriendVM> platformFriends);
+        Task<BodyResponse<GetFriendInfoMqResponse>> GetFriendInfo(long id, long OtherId);
+
+
     }
 }

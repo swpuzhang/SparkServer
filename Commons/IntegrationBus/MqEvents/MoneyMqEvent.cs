@@ -10,7 +10,7 @@ namespace Commons.Message.MqEvents
     /// <summary>
     /// 筹码变更通知
     /// </summary>
-    public class MoneyChangedMqEvent : MQBaseMessage
+    public class MoneyChangedMqEvent : BaseMessage
     {
         public MoneyChangedMqEvent(long coinsChangeCount, long diamondsChangeCount)
         {

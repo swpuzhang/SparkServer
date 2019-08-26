@@ -18,5 +18,6 @@ namespace Account.Application.Services
         Task<BodyResponse<GetAccountBaseInfoMqResponse>> GetAccountBaseInfo(long id);
         void FinishRegisterReward(long id);
         Task<BodyResponse<GetIdByPlatformMqResponse>> GetIdByPlatform(string platformAccount, int type);
+        Task<BodyResponse<OtherAccountDetaiVM>> GetOtherAccount(long id, long otherId);
     }
 }

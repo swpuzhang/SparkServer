@@ -13,7 +13,7 @@ using Commons.Extenssions.Defines;
 namespace Friend.WebApi.Controllers
 {
     /// <summary>
-    /// 账号相关操作
+    /// 好友相关操作
     /// </summary>
     [Route("api/[controller]/[Action]")]
     [ApiController]
@@ -33,7 +33,7 @@ namespace Friend.WebApi.Controllers
         /// <param name="friendId"></param>
         /// <returns></returns>
         [HttpGet]
-        public  Task<BodyResponse<NullBody>> ApplyAddFriend([FromBody] long id, long friendId)
+        public  Task<BodyResponse<NullBody>> ApplyAddFriend([FromHeader] long id, long friendId)
         {
             return _service.ApplyAddFriend(id, friendId);
         }
@@ -46,36 +46,36 @@ namespace Friend.WebApi.Controllers
         /// <param name="friendId"></param>
         /// <returns></returns>
         [HttpGet]
-        public Task<BodyResponse<NullBody>> AgreeAddFriend([FromBody] long id, long friendId)
+        public Task<BodyResponse<NullBody>> AgreeAddFriend([FromHeader] long id, long friendId)
         {
             return _service.AgreeAddFriend(id, friendId);
         }
 
         [HttpGet]
-        public Task<BodyResponse<FriendVM>> GetFriends([FromBody] long id)
+        public Task<BodyResponse<FriendVM>> GetFriends([FromHeader] long id)
         {
             return _service.GetFriends(id);
         }
 
         [HttpGet]
-        public Task<BodyResponse<FriendVM>> GetApplys([FromBody] long id)
+        public Task<BodyResponse<FriendVM>> GetApplys([FromHeader] long id)
         {
             return _service.GetApplys(id);
         }
 
         [HttpGet]
-        public Task<BodyResponse<NullBody>> IgnoreApply([FromBody] long id, long friendId)
+        public Task<BodyResponse<NullBody>> IgnoreApply([FromHeader] long id, long friendId)
         {
             return _service.IgnoreApply(id, friendId);
         }
         [HttpGet]
-        public Task<BodyResponse<NullBody>> DeleteFriend([FromBody] long id, long friendId)
+        public Task<BodyResponse<NullBody>> DeleteFriend([FromHeader] long id, long friendId)
         {
             return _service.DeleteFriend(id, friendId);
         }
 
         [HttpPost]
-        public Task<BodyResponse<NullBody>> UploadPlatformFriends([FromBody] long id, [FromBody] List<PlatformFriendVM> platformFriends)
+        public Task<BodyResponse<NullBody>> UploadPlatformFriends([FromHeader] long id, [FromBody] List<PlatformFriendVM> platformFriends)
         {
             return _service.UploadPlatformFriends(id, platformFriends);
         }
