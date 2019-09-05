@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AppSetting.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:AppSetting.Domain.Models.UserFadeback">
+            <summary>
+            用户反馈
+            </summary>
+        </member>
+        <member name="P:AppSetting.Domain.Models.UserFadeback.Category">
+            <summary>
+            类别, 如果类别则为空
+            </summary>
+        </member>
+        <member name="P:AppSetting.Domain.Models.UserFadeback.Question">
+            <summary>
+            玩家提的问题
+            </summary>
+        </member>
+        <member name="P:AppSetting.Domain.Models.UserFadeback.IsQuick">
+            <summary>
+            是否是快捷问题
+            </summary>
+        </member>
+        <member name="T:AppSetting.Domain.Models.FadebackReplyNum">
+            <summary>
+            获取反馈回复的调试
+            </summary>
+        </member>
+        <member name="P:AppSetting.Domain.Models.FadebackReplyNum.ReplyNum">
+            <summary>
+            回复数量
+            </summary>
+        </member>
+    </members>
+</doc>

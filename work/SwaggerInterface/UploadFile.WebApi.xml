@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UploadFile.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:UploadFile.WebApi.Controllers.UploadFileController">
+            <summary>
+            账号相关操作
+            </summary>
+        </member>
+        <member name="M:UploadFile.WebApi.Controllers.UploadFileController.UploadImages(System.Collections.Generic.List{Microsoft.AspNetCore.Http.IFormFile})">
+            <summary>
+            上传图片
+            </summary>
+            <param files="model"></param>
+            <returns>按顺序返回服务器生成的名字</returns>
+        </member>
+    </members>
+</doc>

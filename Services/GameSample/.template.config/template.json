@@ -1,0 +1,13 @@
+{
+    "author": "zhangyang", 
+    "classifications": [ "GameSample" ], 
+    "name": "GameSampleTemplate", 
+    "identity": "GameSampleTemplate", 
+    "shortName": "gstlt", 
+    "tags": {
+      "language": "C#" ,
+      "type":"project"
+    },
+    "sourceName": "GameSample",  
+    "preferNameDirectory": true 
+}

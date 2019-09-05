@@ -17,7 +17,7 @@ using Commons.MqCommands;
 using Sangong.MqEvents;
 using System.Timers;
 using Commons.Extenssions;
-using Commons.IntegrationBus.MqCommands.Sangong;
+using Commons.Domain.Models.Sangong;
 
 namespace Sangong.Domain.Logic
 {

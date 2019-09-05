@@ -1,9 +1,10 @@
 ﻿using Commons.Domain.Models;
+using Commons.Domain.Models.Sangong;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Commons.IntegrationBus.MqCommands.Sangong
+namespace Sangong.MqCommands
 {
     public class GameLogMqCommand
     {

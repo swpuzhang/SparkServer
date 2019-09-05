@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GameSample.Matching.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:GameSample.Matching.WebApi.Controllers.GameSampleMatchingController">
+            <summary>
+            账号相关操作
+            </summary>
+        </member>
+        <member name="M:GameSample.Matching.WebApi.Controllers.GameSampleMatchingController.PlayNow(System.Int64)">
+            <summary>
+            Playnow 接口
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

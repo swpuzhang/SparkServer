@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dummy.Matching.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:Dummy.Matching.WebApi.Controllers.DummyMatchingController">
+            <summary>
+            账号相关操作
+            </summary>
+        </member>
+        <member name="M:Dummy.Matching.WebApi.Controllers.DummyMatchingController.PlayNow(System.Int64)">
+            <summary>
+            Playnow 接口
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

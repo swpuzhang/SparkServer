@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AppSetting.Application</name>
+    </assembly>
+    <members>
+        <member name="T:AppSetting.Application.ViewModels.AppSettingVM">
+            <summary>
+            接口字段
+            </summary>
+        </member>
+    </members>
+</doc>

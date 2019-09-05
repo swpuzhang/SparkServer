@@ -11,6 +11,12 @@
 
   <ItemGroup>
     <Folder Include="Extenssions\" />
+    <Folder Include="IntegrationBus\GameMessage\GameSample\" />
+    <Folder Include="IntegrationBus\GameMessage\Dummy\" />
+    <Folder Include="IntegrationBus\MqCommands\GameSample\" />
+    <Folder Include="IntegrationBus\MqCommands\Dummy\" />
+    <Folder Include="IntegrationBus\MqEvents\GameSample\" />
+    <Folder Include="IntegrationBus\MqEvents\Dummy\" />
     <Folder Include="SignalrClient\" />
   </ItemGroup>
   <ItemGroup>

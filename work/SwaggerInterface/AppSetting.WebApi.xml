@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AppSetting.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:AppSetting.WebApi.Controllers.AppSettingController">
+            <summary>
+            设置和反馈相关接口
+            </summary>
+        </member>
+    </members>
+</doc>

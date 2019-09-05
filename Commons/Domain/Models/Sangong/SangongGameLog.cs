@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 
 
-namespace Commons.Domain.Models
+namespace Commons.Domain.Models.Sangong
 {
     public interface IGameAction
     {

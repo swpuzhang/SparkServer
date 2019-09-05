@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dummy.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Dummy.Application.ViewModels.MatchingResponseVM">
+            <summary>
+            匹配结果
+            </summary>
+        </member>
+        <member name="P:Dummy.Application.ViewModels.MatchingResponseVM.GameKey">
+            <summary>
+            请求gameserver的Key
+            </summary>
+        </member>
+        <member name="T:Dummy.Application.ViewModels.DummyVM">
+            <summary>
+            接口字段
+            </summary>
+        </member>
+    </members>
+</doc>

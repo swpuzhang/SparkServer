@@ -40,8 +40,9 @@ namespace Account.Domain.CommandHandlers
             IUserIdGenRepository genRepository,
             IAccountRedisRepository redis,
             IMediatorHandler bus,
-            IBusControl mqBus, IMapper mapper, 
-            IRequestClient<GetMoneyMqCommand> moneyClient)
+            IBusControl mqBus, IMapper mapper,
+            IRequestClient<GetMoneyMqCommand> moneyClient, 
+            IRequestClient<GetFriendInfoMqCommand> friednClient)
         {
             _accountRepository = rep;
             _genRepository = genRepository;
@@ -50,6 +51,7 @@ namespace Account.Domain.CommandHandlers
             _mqBus = mqBus;
             _mapper = mapper;
             _moneyClient = moneyClient;
+            _friednClient = friednClient;
         }
 
 

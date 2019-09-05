@@ -498,6 +498,472 @@
             变化的砖石数量
             </summary>
         </member>
+        <member name="T:Dummy.GameMessage.PlayerSeatedEvent">
+            <summary>
+            玩家坐下广播事件
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.PlayerSeatedEvent.Carry">
+            <summary>
+            牌桌买入
+            </summary>
+        </member>
+        <member name="T:Dummy.GameMessage.DealCardsEvent">
+            <summary>
+            广播发牌事件
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.DealCardsEvent.DealerSeatNum">
+            <summary>
+            庄家的座位号
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.DealCardsEvent.DealCardNum">
+            <summary>
+            发牌顺序，从庄家开始的座位号
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.DealCardsEvent.CardNum">
+            <summary>
+            手牌数量
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.DealCardsEvent.Cards">
+            <summary>
+            自己的手牌
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.DealCardsEvent.Blind">
+            <summary>
+            下底注
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.DealCardsEvent.carrys">
+            <summary>
+            按发牌顺序,各个玩家的当前携带
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.ActiveEvent.ActiveSeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.ActiveEvent.AddCoins">
+            <summary>
+            跟牌显示筹码数, 如果为0 表示过牌
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.DealThirdCardEvent.CoinPool">
+            <summary>
+            下注分堆， 每一堆多少jinbi
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.DealThirdCardEvent.Card">
+            <summary>
+            第三张牌
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.DealThirdCardEvent.CardType">
+            <summary>
+            三张牌组成的类型
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.DealThirdCardEvent.Point">
+            <summary>
+            如果类型是点数牌， 点数
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.DealThirdCardEvent.Order">
+            <summary>
+            发牌顺序
+            </summary>
+        </member>
+        <member name="T:Dummy.GameMessage.DropEvent">
+            <summary>
+            玩家弃牌事件
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.DropEvent.DropSeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.PassEvent.SeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.FollowEvent.SeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.FollowEvent.Carry">
+            <summary>
+            当前携带为0表示allin
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.AddEvent.SeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.AddEvent.Carry">
+            <summary>
+            当前携带为0表示allin
+            </summary>
+        </member>
+        <member name="T:Dummy.GameMessage.WinnerCoinsPool">
+            <summary>
+            奖池
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.WinnerCoinsPool.WinnerSeat">
+            <summary>
+            该奖池的赢家座位号
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.WinnerCoinsPool.Coins">
+            <summary>
+            该奖池的金币数
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.PlayerGameOverInfo.Cards">
+            <summary>
+            手牌
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.PlayerGameOverInfo.CardType">
+            <summary>
+            三张牌组成的类型
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.PlayerGameOverInfo.Point">
+            <summary>
+            如果类型是点数牌， 点数
+            </summary>
+        </member>
+        <member name="T:Dummy.GameMessage.GameOverEvent">
+            <summary>
+            游戏结算
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.GameOverEvent.WinnerSeats">
+            <summary>
+            赢家座位号
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.GameOverEvent.WinnerPool">
+            <summary>
+            每个奖池
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.GameOverEvent.PlayerInfos">
+            <summary>
+            结算每个玩家信息
+            </summary>
+        </member>
+        <member name="T:Dummy.GameMessage.PlayerInfo.PlayerStatus">
+            <summary>
+            玩家状态， 在牌局中进行判断， 牌局未开始终未0
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.PlayerInfo.HandCards">
+            <summary>
+            自己的手牌
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.PlayerInfo.CardType">
+            <summary>
+            手牌类型
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.PlayerInfo.Points">
+            <summary>
+            如果是点数牌， 点数
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.PlayerInfo.BetCoins">
+            <summary>
+            当前已经下注额度
+            </summary>
+        </member>
+        <member name="F:Dummy.GameMessage.ApplySyncGameRoomResponse.GameStatusMq.Idle">
+            <summary>
+            空闲状态，处于这个状态什么都不用做
+            </summary>
+        </member>
+        <member name="F:Dummy.GameMessage.ApplySyncGameRoomResponse.GameStatusMq.PlayerOpt">
+            <summary>
+            等待玩家操作， 显示倒计时，
+            </summary>
+        </member>
+        <member name="F:Dummy.GameMessage.ApplySyncGameRoomResponse.GameStatusMq.GameOver">
+            <summary>
+            结束状态， 等待下一局开始
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.ApplySyncGameRoomResponse.Status">
+            <summary>
+            牌桌状态 
+            Idle = 0 空闲状态，处于这个状态什么都不用做
+            PlayerOpt = 1 等待玩家操作， 显示倒计时，
+            GameOver =2, 结束状态， 等待下一局开始
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.ApplySyncGameRoomResponse.Pools">
+            <summary>
+            当前奖池
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.ApplySyncGameRoomResponse.TimeLeftMs">
+            <summary>
+            当前状态剩余多少秒
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.ApplySyncGameRoomResponse.PlayerOptMs">
+            <summary>
+            玩家操作等待总时长
+            </summary>
+        </member>
+        <member name="P:Dummy.GameMessage.ApplySyncGameRoomResponse.GameOverMs">
+            <summary>
+            牌局结算总时长
+            </summary>
+        </member>
+        <member name="T:GameSample.GameMessage.PlayerSeatedEvent">
+            <summary>
+            玩家坐下广播事件
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.PlayerSeatedEvent.Carry">
+            <summary>
+            牌桌买入
+            </summary>
+        </member>
+        <member name="T:GameSample.GameMessage.DealCardsEvent">
+            <summary>
+            广播发牌事件
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.DealCardsEvent.DealerSeatNum">
+            <summary>
+            庄家的座位号
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.DealCardsEvent.DealCardNum">
+            <summary>
+            发牌顺序，从庄家开始的座位号
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.DealCardsEvent.CardNum">
+            <summary>
+            手牌数量
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.DealCardsEvent.Cards">
+            <summary>
+            自己的手牌
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.DealCardsEvent.Blind">
+            <summary>
+            下底注
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.DealCardsEvent.carrys">
+            <summary>
+            按发牌顺序,各个玩家的当前携带
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.ActiveEvent.ActiveSeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.ActiveEvent.AddCoins">
+            <summary>
+            跟牌显示筹码数, 如果为0 表示过牌
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.DealThirdCardEvent.CoinPool">
+            <summary>
+            下注分堆， 每一堆多少jinbi
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.DealThirdCardEvent.Card">
+            <summary>
+            第三张牌
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.DealThirdCardEvent.CardType">
+            <summary>
+            三张牌组成的类型
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.DealThirdCardEvent.Point">
+            <summary>
+            如果类型是点数牌， 点数
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.DealThirdCardEvent.Order">
+            <summary>
+            发牌顺序
+            </summary>
+        </member>
+        <member name="T:GameSample.GameMessage.DropEvent">
+            <summary>
+            玩家弃牌事件
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.DropEvent.DropSeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.PassEvent.SeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.FollowEvent.SeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.FollowEvent.Carry">
+            <summary>
+            当前携带为0表示allin
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.AddEvent.SeatNum">
+            <summary>
+            激活玩家座位号
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.AddEvent.Carry">
+            <summary>
+            当前携带为0表示allin
+            </summary>
+        </member>
+        <member name="T:GameSample.GameMessage.WinnerCoinsPool">
+            <summary>
+            奖池
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.WinnerCoinsPool.WinnerSeat">
+            <summary>
+            该奖池的赢家座位号
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.WinnerCoinsPool.Coins">
+            <summary>
+            该奖池的金币数
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.PlayerGameOverInfo.Cards">
+            <summary>
+            手牌
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.PlayerGameOverInfo.CardType">
+            <summary>
+            三张牌组成的类型
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.PlayerGameOverInfo.Point">
+            <summary>
+            如果类型是点数牌， 点数
+            </summary>
+        </member>
+        <member name="T:GameSample.GameMessage.GameOverEvent">
+            <summary>
+            游戏结算
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.GameOverEvent.WinnerSeats">
+            <summary>
+            赢家座位号
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.GameOverEvent.WinnerPool">
+            <summary>
+            每个奖池
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.GameOverEvent.PlayerInfos">
+            <summary>
+            结算每个玩家信息
+            </summary>
+        </member>
+        <member name="T:GameSample.GameMessage.PlayerInfo.PlayerStatus">
+            <summary>
+            玩家状态， 在牌局中进行判断， 牌局未开始终未0
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.PlayerInfo.HandCards">
+            <summary>
+            自己的手牌
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.PlayerInfo.CardType">
+            <summary>
+            手牌类型
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.PlayerInfo.Points">
+            <summary>
+            如果是点数牌， 点数
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.PlayerInfo.BetCoins">
+            <summary>
+            当前已经下注额度
+            </summary>
+        </member>
+        <member name="F:GameSample.GameMessage.ApplySyncGameRoomResponse.GameStatusMq.Idle">
+            <summary>
+            空闲状态，处于这个状态什么都不用做
+            </summary>
+        </member>
+        <member name="F:GameSample.GameMessage.ApplySyncGameRoomResponse.GameStatusMq.PlayerOpt">
+            <summary>
+            等待玩家操作， 显示倒计时，
+            </summary>
+        </member>
+        <member name="F:GameSample.GameMessage.ApplySyncGameRoomResponse.GameStatusMq.GameOver">
+            <summary>
+            结束状态， 等待下一局开始
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.ApplySyncGameRoomResponse.Status">
+            <summary>
+            牌桌状态 
+            Idle = 0 空闲状态，处于这个状态什么都不用做
+            PlayerOpt = 1 等待玩家操作， 显示倒计时，
+            GameOver =2, 结束状态， 等待下一局开始
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.ApplySyncGameRoomResponse.Pools">
+            <summary>
+            当前奖池
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.ApplySyncGameRoomResponse.TimeLeftMs">
+            <summary>
+            当前状态剩余多少秒
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.ApplySyncGameRoomResponse.PlayerOptMs">
+            <summary>
+            玩家操作等待总时长
+            </summary>
+        </member>
+        <member name="P:GameSample.GameMessage.ApplySyncGameRoomResponse.GameOverMs">
+            <summary>
+            牌局结算总时长
+            </summary>
+        </member>
         <member name="T:Sangong.GameMessage.PlayerSeatedEvent">
             <summary>
             玩家坐下广播事件

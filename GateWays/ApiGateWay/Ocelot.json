@@ -97,8 +97,21 @@
       "UpstreamHttpMethod": [
         [ "GET", "POST", "DELETE", "PUT" ]
       ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/UploadFile/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 20000
+        }
+      ],
+      "UpstreamPathTemplate": "/api/UploadFile/{url}",
+      "UpstreamHttpMethod": [
+        [ "GET", "POST", "DELETE", "PUT" ]
+      ]
     }
-
   ],
 
 

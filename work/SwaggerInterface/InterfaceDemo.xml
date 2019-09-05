@@ -185,6 +185,18 @@
             <param name="blind"></param>
             <returns></returns>
         </member>
+        <member name="T:InterfaceDemo.Controllers.UploadFileController">
+            <summary>
+            上传文件和推片
+            </summary>
+        </member>
+        <member name="M:InterfaceDemo.Controllers.UploadFileController.UploadImages(System.Collections.Generic.List{Microsoft.AspNetCore.Http.IFormFile})">
+            <summary>
+            上传图片
+            </summary>
+            <param files="model"></param>
+            <returns>按顺序返回服务器生成的图片名字</returns>
+        </member>
         <member name="T:InterfaceDemo.Controllers.WebSocketController">
             <summary>
             websocket 相关接口只能看， 不能调用， 不是HTTP请求
