@@ -250,6 +250,7 @@ namespace Dummy.Domain.Logic
             //已经在房间直接返回成功
             if (player != null)
             {
+               
                 if (accountInfo.Result == null)
                 {
                     player.UpdateInfo(id, "", "", 0, "", moneyInfo.Result.CurCoins, 
@@ -277,7 +278,7 @@ namespace Dummy.Domain.Logic
                 
                 GameSeat seat = GetEmptySeat();
                
-                if (seat == null)
+                if (seat == null || !_statusInfo.IsGameCanStart())
                 {
                     _playerInfos.Remove(id);
                     return new BodyResponse<JoinGameRoomMqResponse>(StatusCodeDefines.Error, new List<string>() { "room is full " }, 
@@ -287,7 +288,7 @@ namespace Dummy.Domain.Logic
                 BroadCastMessage(new PlayerSeatedEvent(player.Id, player.UserName,
                     player.Coins, player.Diamonds, player.SeatInfo.SeatNum, player.Carry), 
                     "PlayerSeatedEvent");
-                //判断房间人数>2 人， 而且是正在准备状态， 开始牌局， 否者旁观
+                //判断房间人数>2 人， 而且是正在准备状态， 开始牌局
                 if (IsGameCanStart())
                 {
                     _statusInfo.WaitForNexStatus(OnGameReady, GameStatus.ready, GameTimerConfig.ReadyWait);
@@ -352,7 +353,6 @@ namespace Dummy.Domain.Logic
             {
                 dealerOrder.Add(index);
                 _seats[index].DealCard(allUserCards.Last(), Blind);
-                _coinsPool.PlayerBetCoins(_seats[index].SeatNum, Blind);
                 var player = _seats[index].InGamePlayerInfo;
                 carrys.Add(player.Carry);
                 act.AddPlayer(new GameStartAct.PlayerInfo(player.Id, player.Carry,
@@ -361,7 +361,6 @@ namespace Dummy.Domain.Logic
                
             } while ((index = NextSeatedNum(index)) != _dealerSeatIndex);
             _gameLog.AddGameAction(act);
-            _coinsPool.BlindPool(dealerOrder.Count, Blind);
 
             foreach (var player in _playerInfos)
             {

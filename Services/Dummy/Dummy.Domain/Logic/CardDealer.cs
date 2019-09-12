@@ -33,7 +33,7 @@ namespace Dummy.Domain.Logic
     public static class CardDealer
     {
         public static int CardsCount  = 52;
-        public static int UserCardsCount = 2;
+        public static int UserCardsCount = 5;
 
         public static List<PokerCard> _cards = new List<PokerCard>();
 
