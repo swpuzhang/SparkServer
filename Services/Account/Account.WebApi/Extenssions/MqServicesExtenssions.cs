@@ -25,7 +25,7 @@ namespace Account.WebApi.Extenssions
                 x.AddConsumers(Assembly.GetExecutingAssembly());
                 x.AddBus(context => Bus.Factory.CreateUsingRabbitMq(cfg =>
                 {
-                    cfg.UseSerilog();
+                    //cfg.UseSerilog();
 
                     Log.Information($"rabbitCfg host:{rabbitCfg["Uri"]}");
                     

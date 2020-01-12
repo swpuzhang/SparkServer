@@ -498,6 +498,26 @@
             变化的砖石数量
             </summary>
         </member>
+        <member name="F:Dummy.GameMessage.CardColor.Clubs">
+            <summary>
+            梅花
+            </summary>
+        </member>
+        <member name="F:Dummy.GameMessage.CardColor.Diamond">
+            <summary>
+            方块
+            </summary>
+        </member>
+        <member name="F:Dummy.GameMessage.CardColor.Heart">
+            <summary>
+            红桃
+            </summary>
+        </member>
+        <member name="F:Dummy.GameMessage.CardColor.Spade">
+            <summary>
+            黑桃
+            </summary>
+        </member>
         <member name="T:Dummy.GameMessage.PlayerSeatedEvent">
             <summary>
             玩家坐下广播事件

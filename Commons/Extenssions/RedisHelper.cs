@@ -17,7 +17,6 @@ namespace Commons.Extenssions
         {
             redis = ConnectionMultiplexer.Connect(connection);
             db = redis.GetDatabase();
-           
         }
 
         #region 锁
@@ -73,7 +72,7 @@ namespace Commons.Extenssions
 
         public bool ExpiryNoWait(string key, TimeSpan? expiry = default(TimeSpan?))
         {
-            return db.KeyExpire(key, expiry, flags: CommandFlags.FireAndForget);
+            return db.KeyExpire(key, expiry, flags: CommandFlags.PreferMaster);
         }
 
         #endregion 

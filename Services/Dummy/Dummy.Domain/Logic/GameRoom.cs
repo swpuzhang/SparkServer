@@ -59,9 +59,12 @@ namespace Dummy.Domain.Logic
 
         private int lastWinSeat = -1;
 
+        private List<PokerCard> _discardCards = new List<PokerCard>();
+
         private CoinsPool _coinsPool = new CoinsPool();
 
         private DummyGameLog _gameLog = new DummyGameLog();
+
         public void Clean()
         {
             ActiveSeatNum = -1;
@@ -358,7 +361,6 @@ namespace Dummy.Domain.Logic
                 act.AddPlayer(new GameStartAct.PlayerInfo(player.Id, player.Carry,
                    index, allUserCards.Last()));
                 allUserCards.RemoveAt(allUserCards.Count - 1);
-               
             } while ((index = NextSeatedNum(index)) != _dealerSeatIndex);
             _gameLog.AddGameAction(act);
 
@@ -402,6 +404,7 @@ namespace Dummy.Domain.Logic
                 {
                     continue;
                 }
+
                 var moneyInfo = _mqManager.BuyIn(player.Id, MinCarry, MaxCarry);
                 tasks.Add(moneyInfo);
                 seatTasks.Add(new KeyValuePair<GameSeat, Task<MoneyMqResponse>>(seat, moneyInfo));
@@ -516,9 +519,11 @@ namespace Dummy.Domain.Logic
             _playerInfos.Add(id, player);
             return player;
         }
+        
         public long FollowCoins(GameSeat seat)
         {
             long followChips = 0;
+
             if (seat.BetedCoins < _maxAdd)
             {
                 if (seat.PlayerInfo.Carry >= _maxAdd)

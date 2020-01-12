@@ -6,6 +6,30 @@ using System.Text;
 namespace Dummy.GameMessage
 {
 
+    public enum CardPoint
+    {
+        P2 = 2, P3, P4, P5, P6, P7, P8, P9, P10, J, Q, K, A
+    }
+    public enum CardColor
+    {
+        /// <summary>
+        /// 梅花
+        /// </summary>
+        Clubs,
+        /// <summary>
+        /// 方块
+        /// </summary>
+        Diamond,
+        /// <summary>
+        /// 红桃
+        /// </summary>
+        Heart,
+        /// <summary>
+        /// 黑桃
+        /// </summary>
+        Spade
+    }
+
     class GameMessage
     {
     }
@@ -45,11 +69,23 @@ namespace Dummy.GameMessage
         public long Carry { get; set; }
     }
 
+    public enum CardStatus
+    {
+        CardAreaMask = 0x0F,             //牌区掩码，牌只可能在4个牌区：底牌区，手牌区，弃牌区，出牌区 牌区是互斥的
+        CardInBottom = 0x01,                       //底牌，未发的牌
+        CardInHand = 0x02,                       //手牌
+        CardDiscard = 0x04,                    //弃出的牌
+        CardPost = 0x08,                    //打出的牌
+        CardRoundMask = 0x10,                    //一轮高危（一轮存在扣分风险）牌
+        CardSpecialPoint = 0x20,                    //特殊的点位牌。 梅花2，黑桃Q
+        CardFirstDiscard = 0x40,                    //第一张弃牌
+        CardDummy = 0x80,                    //寄存的牌
+    };
+
     public class PokerCard : IComparable<PokerCard>
     {
-
         [JsonConstructor]
-        public PokerCard(int point, int color)
+        public PokerCard(CardPoint point, CardColor color)
         {
             Point = point;
             Color = color;
@@ -59,7 +95,7 @@ namespace Dummy.GameMessage
         {
         }
 
-        public void SetCard(int point, int color)
+        public void SetCard(CardPoint point, CardColor color)
         {
             Point = point;
             Color = color;
@@ -85,8 +121,16 @@ namespace Dummy.GameMessage
             return ret;
         }
 
-        public int Point { get; set; }
-        public int Color { get; set; }
+        public bool IsSpecialCard()
+        {
+            return (Color == CardColor.Clubs && Point == CardPoint.P2) || (Color == CardColor.Spade && Point == CardPoint.Q);
+        }
+
+ 
+
+        public CardPoint Point { get; set; }
+        public CardColor Color { get; set; }
+        public CardStatus Status { get; set; }
     }
 
 

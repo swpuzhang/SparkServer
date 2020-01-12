@@ -6,29 +6,7 @@ using Dummy.GameMessage;
 
 namespace Dummy.Domain.Logic
 {
-    public enum CardPoint
-    {
-        P2 =2,P3,P4,P5,P6,P7,P8,P9,P10,J,Q,K,A
-    }
-    public enum CardColor
-    {
-        /// <summary>
-        /// 梅花
-        /// </summary>
-        clubs,
-        /// <summary>
-        /// 方块
-        /// </summary>
-        diamond,
-        /// <summary>
-        /// 红桃
-        /// </summary>
-        heart,
-        /// <summary>
-        /// 黑桃
-        /// </summary>
-        spade
-    }
+ 
     
     public static class CardDealer
     {
@@ -43,7 +21,7 @@ namespace Dummy.Domain.Logic
             {
                 for (int j = 0; j < 4; ++j)
                 {
-                    _cards.Add(new PokerCard(i, j));
+                    _cards.Add(new PokerCard((CardPoint)i, (CardColor)j));
                 }
             }
         }
@@ -61,6 +39,12 @@ namespace Dummy.Domain.Logic
                 {
                     int randIndex = ra.Next(0, _cards.Count - 1);
                     PokerCard card = _cards[randIndex];
+                    card.Status = CardStatus.CardInHand;
+                    if (card.IsSpecialCard())
+                    {
+                        card.Status |= CardStatus.CardSpecialPoint;
+                    }
+                    
                     oneUserCards.Add(card);
                     tempCards.Add(card);
                     _cards.RemoveAt(randIndex);
@@ -72,6 +56,11 @@ namespace Dummy.Domain.Logic
             {
                 int randIndex = ra.Next(0, _cards.Count - 1);
                 PokerCard card = _cards[randIndex];
+                card.Status = CardStatus.CardInBottom;
+                if (card.IsSpecialCard())
+                {
+                    card.Status |= CardStatus.CardSpecialPoint;
+                }
                 bottomCards.Add(card);
                 tempCards.Add(card);
                 _cards.RemoveAt(randIndex);

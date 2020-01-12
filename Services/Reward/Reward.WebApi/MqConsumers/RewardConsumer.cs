@@ -1,5 +1,5 @@
-﻿using Commons.IntegrationBus.MqCommands.Sangong;
-using Commons.MqEvents;
+﻿using Commons.MqEvents;
+using Dummy.MqCommands;
 using MassTransit;
 using Reward.Application.Services;
 using System;
@@ -34,9 +34,10 @@ namespace Reward.WebApi.MqConsumers
             await _service.InvitedFriendRegistered(context.Message.PlatformAccount, context.Message.Type);
         }
 
-        public async Task Consume(ConsumeContext<GameLogMqCommand> context)
+        public Task Consume(ConsumeContext<GameLogMqCommand> context)
         {
-            await _activityService.AddActFromGamelog(context.Message);
+            return Task.CompletedTask;
+           // await _activityService.AddActFromGamelog(context.Message);
         }
     }
 }

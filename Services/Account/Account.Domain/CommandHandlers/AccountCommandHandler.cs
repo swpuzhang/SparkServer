@@ -29,7 +29,6 @@ namespace Account.Domain.CommandHandlers
         private readonly IAccountInfoRepository _accountRepository;
         private readonly  IUserIdGenRepository _genRepository;
         private readonly IAccountRedisRepository _redis;
-        private readonly IBusControl _mqBus;
         private readonly IRequestClient<GetMoneyMqCommand> _moneyClient;
         private readonly IRequestClient<AddMoneyMqCommand> _moneyAddClient;
         private readonly IMapper _mapper;
@@ -39,7 +38,7 @@ namespace Account.Domain.CommandHandlers
             IUserIdGenRepository genRepository,
             IAccountRedisRepository redis,
             IMediatorHandler bus,
-            IBusControl mqBus, IMapper mapper,
+            IMapper mapper,
             IRequestClient<GetMoneyMqCommand> moneyClient,
             WSHostManager hostManager, InitRewardInfo initRewardInfo, 
             IRequestClient<AddMoneyMqCommand> moneyAddClient)
@@ -48,7 +47,6 @@ namespace Account.Domain.CommandHandlers
             _genRepository = genRepository;
             _redis = redis;
             _bus = bus;
-            _mqBus = mqBus;
             _mapper = mapper;
             _moneyClient = moneyClient;
             _hostManager = hostManager;

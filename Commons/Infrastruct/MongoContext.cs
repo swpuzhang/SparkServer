@@ -15,8 +15,6 @@ namespace Commons.Infrastruct
             _database = _client.GetDatabase(settings.DatabaseName);
             
         }
-
-        
     }
 
     public class MongoOneContext<TEntity> where TEntity : class

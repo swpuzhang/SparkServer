@@ -30,6 +30,7 @@ namespace Account.WebApi
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args, IConfiguration configuratioin) =>
             WebHost.CreateDefaultBuilder(args)
+           
                 .UseConfiguration(configuratioin)
                 .UseSerilog()
                 .UseStartup<Startup>();

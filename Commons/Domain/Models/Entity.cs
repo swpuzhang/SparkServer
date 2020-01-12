@@ -13,7 +13,7 @@ namespace Commons.Domain.Models
 
         public override bool Equals(object obj)
         {
-            var compareTo = obj as UserEntity;
+            var compareTo = obj as Entity;
 
             if (ReferenceEquals(this, compareTo)) return true;
             if (ReferenceEquals(null, compareTo)) return false;

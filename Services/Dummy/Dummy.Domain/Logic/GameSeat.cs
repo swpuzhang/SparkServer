@@ -74,12 +74,10 @@ namespace Dummy.Domain.Logic
         public void DealCard(List<PokerCard> cards, long blind)
         {
             Status = SeatStatus.None;
-            BetedCoins = 0;
             InGamePlayerInfo = PlayerInfo;
             handCards = cards;
             TotalBetedCoins = blind;
             WinCoins = 0;
-            InGamePlayerInfo.BetCoins(blind);
         }
 
         public bool IsInGame()
